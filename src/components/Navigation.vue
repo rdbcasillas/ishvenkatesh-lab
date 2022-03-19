@@ -19,7 +19,9 @@
         <v-row class="text-right navbar-row text-h4">
           <v-col class="text-h6 font-weight-bold">
             <v-btn color="green darken-4" plain> Research </v-btn>
-            <v-btn color="green darken-4" plain> Publications </v-btn>
+            <v-btn color="green darken-4" plain to="/publications">
+              Publications
+            </v-btn>
             <v-btn color="green darken-4" plain> Funding </v-btn>
             <v-btn color="green darken-4" plain> Team </v-btn>
             <v-btn color="green darken-4" plain> Positions </v-btn>
