@@ -16,7 +16,7 @@
             <v-list-item three-line>
               <v-list-item-content class="d-flex">
                 <v-list-item-title
-                  ><a href="https://google.com"> {{ pub.Title }}</a>
+                  ><a target="_blank" :href="pub.URL"> {{ pub.Title }}</a>
                 </v-list-item-title>
                 <v-list-item-subtitle
                   v-if="pub.AuthorType === 'First'"
