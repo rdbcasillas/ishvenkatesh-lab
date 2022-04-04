@@ -22,7 +22,7 @@
             <v-btn color="green darken-4" plain to="/publications">
               Publications
             </v-btn>
-            <v-btn color="green darken-4" plain> Funding </v-btn>
+            <v-btn color="green darken-4" plain to="/funding"> Funding </v-btn>
             <v-btn color="green darken-4" plain> Team </v-btn>
             <v-btn color="green darken-4" plain> Positions </v-btn>
             <v-btn color="green darken-4" plain> Resources </v-btn>
@@ -56,5 +56,9 @@ export default {};
   font-size: 16px !important;
   font-weight: bold;
   font-family: "Oswald", sans-serif !important;
+}
+.v-btn--active {
+  font-weight: bold !important;
+  font-size: 20px !important;
 }
 </style>
