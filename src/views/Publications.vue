@@ -1,14 +1,6 @@
 <template>
   <div>
     <v-container fluid>
-      <!-- <v-row class="pb-8">
-        <v-layout class="amber lighten-5">
-          <v-flex class="d-flex justify-center" md12>
-            <h2>PUBLICATIONS</h2>
-          </v-flex>
-        </v-layout>
-      </v-row> -->
-
       <v-row class="mt-5" v-for="year in groupedData.keys()" :key="year">
         <v-col v-for="(pub, index) in groupedData.get(year)" :key="index">
           <div v-if="index == 0" class="yearStyle">{{ year }}</div>

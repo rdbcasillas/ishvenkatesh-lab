@@ -1,36 +1,35 @@
 <template>
   <div>
-    <v-app-bar color="orange lighten-5 ">
-      <v-img
-        :src="require('../assets/ishlab-icon.png')"
-        class="my-3"
-        max-height="73"
-        max-width="78"
-        contain
-      />
-      <div id="title">
-        <v-toolbar-title>Venkatesh Lab</v-toolbar-title>
-        <!-- <v-toolbar-subtitle class="subtitle"
-          >Molecular Neuroscience @ CCMB</v-toolbar-subtitle
-        > -->
-      </div>
-      <v-spacer></v-spacer>
-      <v-container>
-        <v-row class="text-right navbar-row text-h4">
-          <v-col class="text-h6 font-weight-bold">
-            <v-btn color="green darken-4" plain> Research </v-btn>
-            <v-btn color="green darken-4" plain to="/publications">
-              Publications
-            </v-btn>
-            <v-btn color="green darken-4" plain to="/funding"> Funding </v-btn>
-            <v-btn color="green darken-4" plain> Team </v-btn>
-            <v-btn color="green darken-4" plain> Positions </v-btn>
-            <v-btn color="green darken-4" plain> Resources </v-btn>
-            <v-btn color="green darken-4" plain> Contact </v-btn>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-app-bar>
+    <div>
+      <b-navbar toggleable="lg" variant="info">
+        <b-img
+          fluid
+          width="80px"
+          :src="require('../assets/ishlab-icon.png')"
+          class="d-inline-block align-top"
+          alt="Kitten"
+        />
+        <b-navbar-brand href="#">Venkatesh Lab</b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item href="#">RESEARCH</b-nav-item>
+            <b-nav-item to="/publications" exact-active-class="active"
+              >PUBLICATIONS</b-nav-item
+            >
+            <b-nav-item to="/funding" exact-active-class="active"
+              >FUNDING</b-nav-item
+            >
+            <b-nav-item to="/team" exact-active-class="active">TEAM</b-nav-item>
+            <b-nav-item href="#">POSITIONS</b-nav-item>
+            <b-nav-item href="#">RESOURCES</b-nav-item>
+            <b-nav-item href="#">CONTACT</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
   </div>
 </template>
 
@@ -60,5 +59,27 @@ export default {};
 .v-btn--active {
   font-weight: bold !important;
   font-size: 20px !important;
+}
+nav.bg-info {
+  background-color: #fff3e0 !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+  font-family: "Oswald", sans-serif !important;
+}
+.nav-item {
+  margin: 6px !important;
+  font-size: 20px;
+}
+a.nav-link {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+a.nav-link:hover {
+  color: green !important;
+}
+.navbar-brand {
+  font-size: 34px;
+}
+a.nav-link.active {
+  color: green !important;
+  font-weight: bold;
 }
 </style>
