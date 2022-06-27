@@ -23,7 +23,9 @@
               >FUNDING</b-nav-item
             >
             <b-nav-item to="/team" exact-active-class="active">TEAM</b-nav-item>
-            <b-nav-item href="#">POSITIONS</b-nav-item>
+            <b-nav-item to="/positions" exact-active-class="active"
+              >POSITIONS</b-nav-item
+            >
             <b-nav-item href="#">RESOURCES</b-nav-item>
             <b-nav-item href="#">CONTACT</b-nav-item>
           </b-navbar-nav>
