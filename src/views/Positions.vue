@@ -8,10 +8,12 @@
       </b-row>
       <b-row>
         <p>
-          We have no paid JRF positions at this time. We are however actively
-          recruiting Masters's students looking for Dissertation projects,
-          Project-based trainees, Ph.D. students, and post-doctoral fellows.
-          Below is a list of ways for you to join our crew if interested:
+          <em>
+            We have no paid JRF positions at this time. We are however actively
+            recruiting Masters's students looking for Dissertation projects,
+            Project-based trainees, Ph.D. students, and post-doctoral fellows.
+            Below is a list of ways for you to join our crew if interested:
+          </em>
         </p>
       </b-row>
       <b-row>
