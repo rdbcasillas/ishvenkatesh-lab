@@ -38,39 +38,34 @@
           </v-col>
         </v-row>
 
-        <v-row class="mt-5">
+        <v-row class="mt-5 bottompage">
           <v-col cols="7">
-            <div>
-              <h5>Lab News</h5>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <h5>June 2022</h5>
-                  <span>
-                    Katha Sanyal joins the lab as a Summer Trainee, Welcome
-                    Katha!
-                  </span>
-                </li>
-                <li class="list-group-item">
-                  <h5>May 2022</h5>
-                  <span>
-                    Sneha Manjunath joins the lab as a Project based trainee,
-                    welcome Sneha!
-                  </span>
-                  <hr />
-                  <span>
-                    Sanjana Sinha rotates in the lab as a guest worker, welcome
-                    Sanjana!
-                  </span>
-                </li>
-                <li class="list-group-item">
-                  <h5>April 2022</h5>
-                  <span>
-                    Ish activates her Ramanujan Fellowship, thanks to SERB for
-                    funding our work!
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <h4 class="text-center">LAB NEWS</h4>
+            <v-card elevation="2">
+              <v-card-title>June 2022</v-card-title>
+              <v-card-text>
+                Katha Sanyal joins the lab as a Summer Trainee, Welcome
+                Katha!</v-card-text
+              >
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>May 2022</v-card-title>
+              <v-card-text>
+                Sneha Manjunath joins the lab as a Project based trainee,
+                welcome Sneha!
+              </v-card-text>
+              <v-card-text>
+                Sanjana Sinha rotates in the lab as a guest worker, welcome
+                Sanjana!
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>April 2022</v-card-title>
+              <v-card-text>
+                Ish activates her Ramanujan Fellowship, thanks to SERB for
+                funding our work!
+              </v-card-text>
+            </v-card>
           </v-col>
           <v-col cols="2"></v-col>
           <v-col cols="3">
@@ -122,5 +117,10 @@ p {
 }
 .tweetdiv {
   height: 500px;
+}
+.v-card__text {
+  font-family: "Oswald", sans-serif !important;
+  color: #346225 !important;
+  font-size: 19px !important;
 }
 </style>
