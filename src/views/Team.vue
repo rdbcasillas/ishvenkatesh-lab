@@ -55,7 +55,7 @@ export default {
           name: "Katha Sanyal",
           image: "katha",
           desc: "Katha is the newest addition to our crew and joined us in June of 2022 as summer trainee. She did her bachelors in St. Thomas College, Bhilai, Durg University triple majoring in Biotechnology, Botany, Chemistry (Batch of 2021). Currently, she’s pursuing her Masters in Biotechnology at St. Thomas College, Bhilai, Durg University. Her broad research interests are in Epigenetics and epigenome mediated regulation of human diseases. Outside of the lab, she loves to draw illustrations and play mobile/PC games.",
-          email: "",
+          email: "kathasanyal@gmail.com",
         },
       ],
     };

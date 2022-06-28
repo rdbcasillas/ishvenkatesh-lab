@@ -70,13 +70,13 @@
           <v-col cols="2"></v-col>
           <v-col cols="3">
             <h5>Dr. Venkatesh's Twitter feed</h5>
-            <div class="overflow-auto tweetdiv">
+            <v-card class="overflow-auto tweetdiv">
               <a
                 class="twitter-timeline"
                 href="https://twitter.com/Ishwariya13?ref_src=twsrc%5Etfw"
                 >Tweets by Ishwariya13</a
               >
-            </div>
+            </v-card>
           </v-col>
         </v-row>
       </v-container>
