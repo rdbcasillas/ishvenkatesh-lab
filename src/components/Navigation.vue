@@ -28,7 +28,9 @@
             <b-nav-item to="/positions" exact-active-class="active"
               >POSITIONS</b-nav-item
             >
-            <b-nav-item href="#">RESOURCES</b-nav-item>
+            <b-nav-item to="/resources" exact-active-class="active"
+              >RESOURCES</b-nav-item
+            >
             <b-nav-item to="/contact" exact-active-class="active"
               >CONTACT</b-nav-item
             >

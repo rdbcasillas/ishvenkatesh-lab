@@ -3,7 +3,7 @@
     <b-container fluid class="p-4 bg-light">
       <b-row>
         <b-col cols="6" v-for="image in images" :key="image">
-          <h5 class="text-center">Image Description</h5>
+          <h4 class="text-center">{{ image.desc }}</h4>
           <b-img
             thumbnail
             fluid
@@ -24,27 +24,27 @@ export default {
       images: [
         {
           file: "gallery1",
-          desc: "",
+          desc: "Katha's (temporary) farewell dinner",
         },
         {
           file: "gallery2",
-          desc: "",
+          desc: "Katha's (temporary) farewell dinner",
         },
         {
           file: "gallery3",
-          desc: "",
+          desc: "Katha presenting her poster at the end of her summer training",
         },
         {
           file: "gallery4",
-          desc: "",
+          desc: "When it rains, it pours! The week we had 4 new trainees in a day.",
         },
         {
           file: "gallery5",
-          desc: "",
+          desc: "Impromptu lab pizza day",
         },
         {
           file: "gallery6",
-          desc: "",
+          desc: "Purushotham's birthday celebrations",
         },
       ],
     };
@@ -52,4 +52,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h4 {
+  color: snow;
+  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+}
+.bg-light {
+  background: #38542f !important;
+}
+</style>

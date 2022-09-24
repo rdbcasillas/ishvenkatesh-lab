@@ -47,7 +47,7 @@ export default {
         },
         {
           name: "Productivity",
-          desc: "Tools for helping you better manage your tasks and your time.",
+          desc: "Tools for helping you better manage your tasks, your time and your chaotic life.",
           image: "productivity.jpg",
         },
       ],
