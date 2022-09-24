@@ -28,27 +28,6 @@
           </v-layout>
         </v-col>
       </v-row>
-
-      <!-- <v-row>
-        <v-hover v-slot="{ hover }">
-          <v-list-item
-            :class="
-              hover
-                ? 'lime lighten-1 font-weight-bold'
-                : 'lime lighten-4 font-weight-bold'
-            "
-            one-line
-          >
-            <div>
-              <v-list-item-content>
-                <v-list-item-title v-for="pub in publications" :key="pub">
-                  {{ pub.Title }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </div>
-          </v-list-item>
-        </v-hover>
-      </v-row> -->
     </v-container>
   </div>
 </template>
@@ -89,7 +68,7 @@ a:hover {
 }
 a {
   text-decoration: none;
-  font-size: 26px;
+  font-size: 24px;
   font-family: "Oswald", sans-serif !important;
   color: #346225 !important;
 }
@@ -104,5 +83,8 @@ a {
 }
 .mainAuthor {
   font-weight: bold;
+}
+.pubtitle {
+  width: 200px;
 }
 </style>

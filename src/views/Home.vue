@@ -1,7 +1,7 @@
 <template>
   <div>
     <ParticlesJS> </ParticlesJS>
-    <div class="labinfo" color="orange lighten-5 ">
+    <div class="labinfo" color="orange lighten-5">
       <v-container>
         <v-row>
           <div class="emptyspace"></div>
@@ -14,7 +14,7 @@
               </h1>
             </div>
             <div class="d-flex pa-8">
-              <p color="orange lighten-5 " class="pa-6 text-subtitle-1">
+              <p color="orange lighten-5 " class="pa-6 labvision">
                 How is axon growth regulated during development and regeneration
                 in mammals? Communication in the nervous system is achieved via
                 long cables called axons which connect neurons in the brain with
@@ -37,11 +37,45 @@
             </div>
           </v-col>
         </v-row>
-
-        <v-row class="mt-5 bottompage">
+        <b-row>
+          <b-col><h2 class="text-center">Research Toolkit</h2> </b-col>
+        </b-row>
+        <b-row class="techniques mb-5">
+          <b-col v-for="(tech, index) in techniques" :key="index">
+            <h4 class="text-center">{{ tech.text }}</h4>
+            <b-img
+              :src="require(`../assets/images/homepage/${tech.image}`)"
+              fluid
+              width="160"
+              height="160"
+            ></b-img>
+            <!-- <b-card
+              :title="tech.text"
+              :img-src="require(`../assets/images/homepage/${tech.image}`)"
+              img-alt="Image"
+              img-top
+              tag="article"
+              style="max-width: 20rem"
+              class="mb-2"
+            >
+            </b-card> -->
+          </b-col>
+        </b-row>
+        <hr />
+        <v-row class="mt-12 bottompage">
           <v-col cols="7">
             <h4 class="text-center">LAB NEWS</h4>
-            <v-card elevation="2">
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>August 2022</v-card-title>
+              <v-card-text>
+                Ishan Dutta joins the lab as a dissertee in August 2022.
+              </v-card-text>
+              <v-card-text>
+                Shaikh Shafiulla joins the lab as a Project-based trainee in
+                August 2022.
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
               <v-card-title>June 2022</v-card-title>
               <v-card-text>
                 Katha Sanyal joins the lab as a Summer Trainee, Welcome
@@ -69,7 +103,7 @@
           </v-col>
           <v-col cols="2"></v-col>
           <v-col cols="3">
-            <h5>Dr. Venkatesh's Twitter feed</h5>
+            <h5 class="text-center">Ish's Tweets</h5>
             <v-card class="overflow-auto tweetdiv">
               <a
                 class="twitter-timeline"
@@ -90,14 +124,40 @@ export default {
   components: {
     ParticlesJS,
   },
+  data() {
+    return {
+      techniques: [
+        {
+          text: "Mouse models of injury",
+          image: "mice.png",
+        },
+        {
+          text: "Molecular Biology",
+          image: "molbio.png",
+        },
+        {
+          text: "Single Cell Genomics",
+          image: "scg.png",
+        },
+        {
+          text: "Cell Culture",
+          image: "cellcult.png",
+        },
+        {
+          text: "Bioinformatics",
+          image: "bioinfo.png",
+        },
+      ],
+    };
+  },
 };
 </script>
 
-<style>
+<style scoped>
 #particles-js {
   position: absolute;
   width: 100%;
-  height: 50%;
+  height: 100%;
   background: rgb(6, 44, 2);
   background-repeat: no-repeat;
 }
@@ -109,18 +169,34 @@ h1 {
   font-size: 60px;
   font-family: "Oswald", sans-serif;
 }
+h2,
+h4,
+h5 {
+  color: snow;
+  font-family: "Oswald", sans-serif;
+}
 p {
   color: oldlace;
 }
 .emptyspace {
   height: 50px;
 }
+.labvision {
+  font-size: 20px !important;
+  text-align: justify;
+}
 .tweetdiv {
   height: 500px;
+  width: 400px;
 }
 .v-card__text {
   font-family: "Oswald", sans-serif !important;
-  color: #346225 !important;
-  font-size: 19px !important;
+  color: #183210 !important;
+  font-size: 22px !important;
+  font-weight: bolder;
+}
+.techniques {
+  border: 2px dotted;
+  border-color: aliceblue;
 }
 </style>

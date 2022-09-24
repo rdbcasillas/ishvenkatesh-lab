@@ -19,7 +19,7 @@ export default {
       particlesJS("particles-js", {
         particles: {
           number: {
-            value: 80,
+            value: 50,
             density: {
               enable: true,
               value_area: 800,
@@ -44,7 +44,7 @@ export default {
             },
           },
           opacity: {
-            value: 0.5,
+            value: 0.3,
             random: false,
             anim: {
               enable: false,
@@ -67,7 +67,7 @@ export default {
             enable: true,
             distance: 150,
             color: "#ffffff",
-            opacity: 0.4,
+            opacity: 0.2,
             width: 2,
           },
           move: {
@@ -102,14 +102,14 @@ export default {
             grab: {
               distance: 800,
               line_linked: {
-                opacity: 1,
+                opacity: 0.5,
               },
             },
             bubble: {
               distance: 800,
               size: 80,
               duration: 2,
-              opacity: 0.8,
+              opacity: 0.4,
               speed: 3,
             },
             repulse: {
@@ -131,7 +131,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* Your styles */
 h1 {
   color: oldlace;

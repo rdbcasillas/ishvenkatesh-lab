@@ -12,7 +12,7 @@
             <b-img
               class="mt-2"
               v-bind="imageProps"
-              :src="require(`../assets/images/${person.image}.jpg`)"
+              :src="require(`../assets/images/team/${person.image}.jpg`)"
             ></b-img>
             <span class="ml-2 text-justify">{{ person.desc }}</span>
           </div>
@@ -56,6 +56,18 @@ export default {
           image: "katha",
           desc: "Katha is the newest addition to our crew and joined us in June of 2022 as summer trainee. She did her bachelors in St. Thomas College, Bhilai, Durg University triple majoring in Biotechnology, Botany, Chemistry (Batch of 2021). Currently, she’s pursuing her Masters in Biotechnology at St. Thomas College, Bhilai, Durg University. Her broad research interests are in Epigenetics and epigenome mediated regulation of human diseases. Outside of the lab, she loves to draw illustrations and play mobile/PC games.",
           email: "kathasanyal@gmail.com",
+        },
+        {
+          name: "Ishan Dutta",
+          image: "ishan",
+          desc: "Ishan joined the lab for his dissertation research in August. He is pursuing his B.Tech in Biotechnology at Thapar University, India (2019-2023). Before joining the lab, he has worked at Dianox ApS as a junior researcher (2021-2022). Along the course of his education, he has developed interests in many fields of biology like neuroscience and regenerative biology. He plans to continue in academia as a career path. In his free time, he reads and writes.",
+          email: "heyitsishan@gmail.com",
+        },
+        {
+          name: "Shaikh Shafiulla",
+          image: "shaikh",
+          desc: "Shaikh joined the lab in August 2022 as a Project based trainee. He has his Bachelor's degree from Acharya Nagarjuna University in Pharmaceutical Sciences and a Master’s degree in Pharmacology from Amity University. Prior to joining the lab, he was a Research Assistant Professor at Southern Institute of Medical Sciences. His broad research interestS are in Developmental Neuroscience and Behavioral Neuroscience.  Outside of the lab, he loves to read and  is particularly influenced by 'Thus Spoke Zarathustra' by Friedrich Nietzsche. In the future, he wants to pursue his PhD training in Neuroscience .",
+          email: "adroitshaikh1@gmail.com",
         },
       ],
     };

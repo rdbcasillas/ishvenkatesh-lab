@@ -9,13 +9,12 @@
           class="d-inline-block align-top"
           alt="Kitten"
         />
-        <b-navbar-brand href="#">Venkatesh Lab</b-navbar-brand>
+        <b-navbar-brand to="/">Venkatesh Lab</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item href="#">RESEARCH</b-nav-item>
             <b-nav-item to="/publications" exact-active-class="active"
               >PUBLICATIONS</b-nav-item
             >
@@ -23,11 +22,16 @@
               >FUNDING</b-nav-item
             >
             <b-nav-item to="/team" exact-active-class="active">TEAM</b-nav-item>
+            <b-nav-item to="/gallery" exact-active-class="active"
+              >GALLERY</b-nav-item
+            >
             <b-nav-item to="/positions" exact-active-class="active"
               >POSITIONS</b-nav-item
             >
             <b-nav-item href="#">RESOURCES</b-nav-item>
-            <b-nav-item href="#">CONTACT</b-nav-item>
+            <b-nav-item to="/contact" exact-active-class="active"
+              >CONTACT</b-nav-item
+            >
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
