@@ -102,7 +102,7 @@
           purpose so you can be matched accordingly.
         </p>
       </b-row>
-      <b-row>
+      <!-- <b-row>
         <h4>Guest workers-</h4>
         <p>
           This is an unpaid position that is generally suited for students
@@ -121,7 +121,7 @@
           our current Guest workers listed under the Team page to find out about
           their experience.
         </p>
-      </b-row>
+      </b-row> -->
     </b-container>
   </div>
 </template>

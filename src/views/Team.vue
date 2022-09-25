@@ -4,8 +4,8 @@
       <b-row>
         <b-col> <h2>Team</h2></b-col>
       </b-row>
-      <b-row v-for="(person, index) in people" :key="index">
-        <b-col>
+      <b-row v-for="(person, index) in people" :key="index" class="mb-3 mt-3">
+        <b-col class="personbox">
           <h4>{{ person.name }} ({{ person.position }})</h4>
           <h6>{{ person.email }}</h6>
           <div class="d-flex">
@@ -18,7 +18,6 @@
           </div>
         </b-col>
       </b-row>
-      <hr />
     </b-container>
   </div>
 </template>
@@ -45,7 +44,7 @@ export default {
           position: "Senior Project Associate",
           image: "manoj",
           desc: "Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in  Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training  under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. Outside of the lab his hobbies include Photography, Wildlife conservation, Travelling, and Gaming",
-          email: "",
+          email: "manojkumarbioinfo@gmail.com",
         },
         {
           name: "Yogesh Sahu",
@@ -108,5 +107,8 @@ span {
   font-family: "Oswald", sans-serif !important;
   color: #346225 !important;
   font-size: 19px;
+}
+.personbox {
+  border: 0.1px dotted gray;
 }
 </style>

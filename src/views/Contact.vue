@@ -13,7 +13,12 @@
             <ul class="list-group">
               <li class="list-group-item">Email: ishwariya@ccmb.res.in</li>
               <li class="list-group-item">Phone: 040-27192825</li>
-              <li class="list-group-item">Twitter: @Ishwariya13</li>
+              <li class="list-group-item">
+                Twitter:
+                <a target="_blank" href="https://twitter.com/Ishwariya13">
+                  @Ishwariya13</a
+                >
+              </li>
             </ul>
           </b-col>
         </b-col>
