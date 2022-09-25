@@ -8,7 +8,7 @@
         </b-row>
         <b-row>
           <b-col>
-            <div class="d-flex justify-space-around pa-6">
+            <div class="d-flex justify-space-around pa-3 text-center">
               <h1 color="orange lighten-5">
                 Regulatory Networks Encoding Axon Growth in the Nervous System
               </h1>
@@ -41,7 +41,13 @@
           <b-col><h2 class="text-center">Research Toolkit</h2> </b-col>
         </b-row>
         <b-row class="techniques mb-5">
-          <b-col v-for="(tech, index) in techniques" :key="index">
+          <b-col
+            class="mt-2 ml-4"
+            cols="4"
+            md="2"
+            v-for="(tech, index) in techniques"
+            :key="index"
+          >
             <h4 class="text-center">{{ tech.text }}</h4>
             <b-img
               :src="require(`../assets/images/homepage/${tech.image}`)"
@@ -63,7 +69,7 @@
         </b-row>
         <hr />
         <b-row class="mt-12 bottompage">
-          <b-col cols="7">
+          <b-col cols="7" md="8">
             <h4 class="text-center">LAB NEWS</h4>
             <v-card elevation="2" class="mt-2">
               <v-card-title>August 2022</v-card-title>
@@ -101,8 +107,7 @@
               </v-card-text>
             </v-card>
           </b-col>
-          <b-col cols="2"></b-col>
-          <b-col cols="3">
+          <b-col cols="5" md="4">
             <h5 class="text-center">Ish's Tweets</h5>
             <v-card class="overflow-auto tweetdiv">
               <a
@@ -196,7 +201,7 @@ p {
   font-weight: bolder;
 }
 .techniques {
-  border: 2px dotted;
-  border-color: aliceblue;
+  border: 0.5px solid;
+  border-color: snow;
 }
 </style>

@@ -9,7 +9,7 @@
             main campus of CSIR-CCMB.
           </p>
           <p>To get in touch with Dr.Ishwariya Venkatesh:</p>
-          <b-col cols="6">
+          <b-col cols="10">
             <ul class="list-group">
               <li class="list-group-item">Email: ishwariya@ccmb.res.in</li>
               <li class="list-group-item">Phone: 040-27192825</li>
