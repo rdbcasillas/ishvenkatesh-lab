@@ -28,9 +28,13 @@
             <b-nav-item to="/positions" exact-active-class="active"
               >POSITIONS</b-nav-item
             >
-            <b-nav-item to="/resources" exact-active-class="active"
-              >RESOURCES</b-nav-item
+            <b-nav-item
+              target="_blank"
+              href="https://docs.google.com/document/d/1MidvYKM1vxX2XK6MjtpegF370Rwq50Kc72tBSYR9-Ko/edit?usp=sharing"
             >
+              RESOURCES
+              <b-icon scale="0.5" icon="box-arrow-up-right"></b-icon>
+            </b-nav-item>
             <b-nav-item to="/contact" exact-active-class="active"
               >CONTACT</b-nav-item
             >
