@@ -2,12 +2,12 @@
   <div>
     <ParticlesJS> </ParticlesJS>
     <div class="labinfo" color="orange lighten-5">
-      <v-container>
-        <v-row>
+      <b-container>
+        <b-row>
           <div class="emptyspace"></div>
-        </v-row>
-        <v-row>
-          <v-col>
+        </b-row>
+        <b-row>
+          <b-col>
             <div class="d-flex justify-space-around pa-6">
               <h1 color="orange lighten-5">
                 Regulatory Networks Encoding Axon Growth in the Nervous System
@@ -35,8 +35,8 @@
                 mouse models of injury and behavioral assessments.
               </p>
             </div>
-          </v-col>
-        </v-row>
+          </b-col>
+        </b-row>
         <b-row>
           <b-col><h2 class="text-center">Research Toolkit</h2> </b-col>
         </b-row>
@@ -62,8 +62,8 @@
           </b-col>
         </b-row>
         <hr />
-        <v-row class="mt-12 bottompage">
-          <v-col cols="7">
+        <b-row class="mt-12 bottompage">
+          <b-col cols="7">
             <h4 class="text-center">LAB NEWS</h4>
             <v-card elevation="2" class="mt-2">
               <v-card-title>August 2022</v-card-title>
@@ -100,9 +100,9 @@
                 funding our work!
               </v-card-text>
             </v-card>
-          </v-col>
-          <v-col cols="2"></v-col>
-          <v-col cols="3">
+          </b-col>
+          <b-col cols="2"></b-col>
+          <b-col cols="3">
             <h5 class="text-center">Ish's Tweets</h5>
             <v-card class="overflow-auto tweetdiv">
               <a
@@ -111,9 +111,9 @@
                 >Tweets by Ishwariya13</a
               >
             </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
   </div>
 </template>

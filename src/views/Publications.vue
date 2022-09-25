@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container fluid>
+    <!-- <v-container fluid>
       <v-row class="mt-5" v-for="year in groupedData.keys()" :key="year">
         <v-col v-for="(pub, index) in groupedData.get(year)" :key="index">
           <div v-if="index == 0" class="yearStyle">{{ year }}</div>
@@ -28,7 +28,40 @@
           </v-layout>
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
+    <b-container>
+      <b-row class="mt-5" v-for="year in groupedData.keys()" :key="year">
+        <b-col cols="1">
+          <p class="yearStyle">{{ year }}</p>
+        </b-col>
+        <b-col cols="11">
+          <b-row
+            class="mt-5 mb-5"
+            v-for="(pub, index) in groupedData.get(year)"
+            :key="index"
+          >
+            <b-col>
+              <ul class="list-group">
+                <li
+                  class="d-flex justify-content-between align-items-center papertitle"
+                >
+                  <a target="_blank" :href="pub.URL"> {{ pub.Title }}</a>
+                </li>
+                <span v-if="pub.AuthorType === 'First'" class="authorStyle">
+                  <span class="mainAuthor">{{ pub.Authors[0] }}</span
+                  >,
+                  {{ pub.Authors.slice(1).toString(" ") }}
+                </span>
+                <span v-else class="authorStyle">
+                  {{ pub.Authors.slice(1).toString(" "), }},
+                  <span class="mainAuthor">{{ pub.Authors[0] }}</span>
+                </span>
+              </ul>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -86,5 +119,10 @@ a {
 }
 .pubtitle {
   width: 200px;
+}
+.papertitle {
+  font-size: 16px;
+  color: #346225;
+  font-family: "Oswald", sans-serif !important;
 }
 </style>

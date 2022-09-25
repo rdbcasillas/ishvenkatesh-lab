@@ -5,7 +5,7 @@
         <h3 class="text-center">Current Supporters</h3>
       </b-row>
       <b-row>
-        <b-col cols="6">
+        <b-col cols="10">
           <ul class="list-group">
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
@@ -19,7 +19,7 @@
         <h3 class="text-center">Past Supporters</h3>
       </b-row>
       <b-row>
-        <b-col cols="6">
+        <b-col cols="10">
           <ul class="list-group">
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
