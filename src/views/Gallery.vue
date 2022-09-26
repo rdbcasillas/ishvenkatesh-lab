@@ -2,16 +2,17 @@
   <div>
     <b-container fluid class="p-4 bg-light">
       <b-row>
-        <b-col cols="6" v-for="image in images" :key="image">
+        <b-col class="mb-5" cols="6" v-for="image in images" :key="image">
           <h4 class="text-center">{{ image.desc }}</h4>
           <b-img-lazy
             blank-src="null"
             thumbnail
             fluid
             :src="require(`../assets/images/gallery/${image.file}.jpg`)"
-            alt="Image 1"
+            :alt="image.desc"
             height="70%"
           ></b-img-lazy>
+          <hr />
         </b-col>
       </b-row>
     </b-container>
@@ -61,5 +62,8 @@ h4 {
 }
 .bg-light {
   background: #38542f !important;
+}
+hr {
+  background: snow;
 }
 </style>
