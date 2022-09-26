@@ -4,13 +4,14 @@
       <b-row>
         <b-col cols="6" v-for="image in images" :key="image">
           <h4 class="text-center">{{ image.desc }}</h4>
-          <b-img
+          <b-img-lazy
+            blank-src="null"
             thumbnail
             fluid
             :src="require(`../assets/images/gallery/${image.file}.jpg`)"
             alt="Image 1"
             height="70%"
-          ></b-img>
+          ></b-img-lazy>
         </b-col>
       </b-row>
     </b-container>

@@ -9,10 +9,12 @@
           <h4>{{ person.name }} ({{ person.position }})</h4>
           <h6>{{ person.email }}</h6>
           <div class="d-flex">
-            <b-img
+            <b-img-lazy
               v-bind="imageProps"
+              rounded
+              blank-src="null"
               :src="require(`../assets/images/team/${person.image}.jpg`)"
-            ></b-img>
+            ></b-img-lazy>
             <span class="mt-3 ml-2 text-justify">{{ person.desc }}</span>
           </div>
         </b-col>
