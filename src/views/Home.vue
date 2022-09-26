@@ -8,33 +8,36 @@
         </b-row>
         <b-row>
           <b-col>
-            <div class="d-flex justify-space-around pa-3 text-center">
+            <b-row class="d-flex justify-space-around pa-3 text-center">
               <h1 color="orange lighten-5">
                 Regulatory Networks Encoding Axon Growth in the Nervous System
               </h1>
-            </div>
-            <div class="d-flex pa-8">
-              <p color="orange lighten-5 " class="pa-6 labvision">
-                How is axon growth regulated during development and regeneration
-                in mammals? Communication in the nervous system is achieved via
-                long cables called axons which connect neurons in the brain with
-                the rest of the body. Intact axons are critical for proper
-                nervous system function. When injured, young neurons are
-                remarkably good at regeneration and repair. In contrast, adult
-                neurons fail to regenerate resulting in permanent irreversible
-                nervous system damage. What molecular pathways drive the
-                observed loss of regenerative capacity across development? What
-                regulatory mechanisms modulate developmental axon growth? Does
-                successful CNS regeneration in adult neurons require a faithful
-                recapitulation of developmental mechanisms? Are there
-                development independent pathways that co-ordinate repair? These
-                are some of the questions we are currently tackling. To get at
-                these questions, we use a combinatorial approach which includes
-                Bioinformatics, Functional Genomics (Single-cell RNA-Seq,
-                ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth, in vivo
-                mouse models of injury and behavioral assessments.
-              </p>
-            </div>
+            </b-row>
+            <b-row class="pa-8">
+              <b-col>
+                <p color="orange lighten-5" class="pa-6 labvision">
+                  How is axon growth regulated during development and
+                  regeneration in mammals? Communication in the nervous system
+                  is achieved via long cables called axons which connect neurons
+                  in the brain with the rest of the body. Intact axons are
+                  critical for proper nervous system function. When injured,
+                  young neurons are remarkably good at regeneration and repair.
+                  In contrast, adult neurons fail to regenerate resulting in
+                  permanent irreversible nervous system damage. What molecular
+                  pathways drive the observed loss of regenerative capacity
+                  across development? What regulatory mechanisms modulate
+                  developmental axon growth? Does successful CNS regeneration in
+                  adult neurons require a faithful recapitulation of
+                  developmental mechanisms? Are there development independent
+                  pathways that co-ordinate repair? These are some of the
+                  questions we are currently tackling. To get at these
+                  questions, we use a combinatorial approach which includes
+                  Bioinformatics, Functional Genomics (Single-cell RNA-Seq,
+                  ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth, in vivo
+                  mouse models of injury and behavioral assessments.
+                </p>
+              </b-col>
+            </b-row>
           </b-col>
         </b-row>
         <b-row>
@@ -42,8 +45,9 @@
         </b-row>
         <b-row class="techniques mb-5">
           <b-col
-            class="mt-2 ml-4"
-            cols="4"
+            class="mt-2 mr-2 ml-4 mb-2"
+            cols="5"
+            sm="3"
             md="2"
             v-for="(tech, index) in techniques"
             :key="index"
@@ -52,6 +56,7 @@
             <b-img
               :src="require(`../assets/images/homepage/${tech.image}`)"
               fluid
+              class="ml-2"
               width="160"
               height="160"
             ></b-img>
@@ -218,5 +223,15 @@ p {
 
 .labnews > .v-sheet {
   opacity: 0.6;
+}
+@media (max-width: 600px) {
+  .labvision {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .techniques {
+    border: 0px;
+  }
 }
 </style>
