@@ -68,9 +68,9 @@
           </b-col>
         </b-row>
         <hr />
-        <b-row class="mt-12 bottompage">
-          <b-col cols="7" md="8">
-            <h4 class="text-center">LAB NEWS</h4>
+        <b-row class="mt-12 bottompage mb-6">
+          <b-col cols="7" md="8" class="labnews">
+            <h3 class="text-center">LAB NEWS</h3>
             <v-card elevation="2" class="mt-2">
               <v-card-title>August 2022</v-card-title>
               <v-card-text>
@@ -108,7 +108,7 @@
             </v-card>
           </b-col>
           <b-col cols="5" md="4">
-            <h5 class="text-center">Ish's Tweets</h5>
+            <h3 class="text-center">Ish's Tweets</h3>
             <v-card class="overflow-auto tweetdiv">
               <a
                 class="twitter-timeline"
@@ -175,6 +175,7 @@ h1 {
   font-family: "Oswald", sans-serif;
 }
 h2,
+h3,
 h4,
 h5 {
   color: snow;
@@ -194,14 +195,28 @@ p {
   height: 500px;
   width: 400px;
 }
+.v-card__title {
+  color: snow !important;
+  font-size: 24px !important;
+}
 .v-card__text {
   font-family: "Oswald", sans-serif !important;
-  color: #183210 !important;
+  color: snow !important;
   font-size: 22px !important;
   font-weight: bolder;
+  opacity: 1 !important;
 }
 .techniques {
   border: 0.5px solid;
   border-color: snow;
+}
+.theme--light.v-sheet {
+  background-color: #193311;
+  border-color: #ffffff;
+  color: snow;
+}
+
+.labnews > .v-sheet {
+  opacity: 0.6;
 }
 </style>
