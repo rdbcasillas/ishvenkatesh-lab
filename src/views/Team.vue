@@ -15,7 +15,9 @@
               blank-src="null"
               :src="require(`../assets/images/team/${person.image}.jpg`)"
             ></b-img-lazy>
-            <span class="mt-3 ml-2 text-justify">{{ person.desc }}</span>
+            <span class="mt-3 ml-2 text-justify persondesc">{{
+              person.desc
+            }}</span>
           </div>
         </b-col>
         <hr />
@@ -108,6 +110,11 @@ p {
 span {
   color: #346225 !important;
   font-size: 19px;
+}
+@media (max-width: 600px) {
+  .persondesc {
+    text-align: left !important;
+  }
 }
 .personbox {
   border: 0.5px dotted rgb(18, 66, 26);
