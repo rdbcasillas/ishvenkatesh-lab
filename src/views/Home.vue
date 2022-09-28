@@ -16,25 +16,27 @@
             <b-row class="pa-8">
               <b-col>
                 <p color="orange lighten-5" class="pa-6 labvision">
-                  How is axon growth regulated during development and
-                  regeneration in mammals? Communication in the nervous system
-                  is achieved via long cables called axons which connect neurons
-                  in the brain with the rest of the body. Intact axons are
-                  critical for proper nervous system function. When injured,
-                  young neurons are remarkably good at regeneration and repair.
-                  In contrast, adult neurons fail to regenerate resulting in
-                  permanent irreversible nervous system damage. What molecular
-                  pathways drive the observed loss of regenerative capacity
-                  across development? What regulatory mechanisms modulate
-                  developmental axon growth? Does successful CNS regeneration in
-                  adult neurons require a faithful recapitulation of
-                  developmental mechanisms? Are there development independent
-                  pathways that co-ordinate repair? These are some of the
-                  questions we are currently tackling. To get at these
-                  questions, we use a combinatorial approach which includes
-                  Bioinformatics, Functional Genomics (Single-cell RNA-Seq,
-                  ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth, in vivo
-                  mouse models of injury and behavioral assessments.
+                  <span class="vision"
+                    >How is axon growth regulated during development and
+                    regeneration in mammals?</span
+                  >
+                  Communication in the nervous system is achieved via long
+                  cables called axons which connect neurons in the brain with
+                  the rest of the body. Intact axons are critical for proper
+                  nervous system function. When injured, young neurons are
+                  remarkably good at regeneration and repair. In contrast, adult
+                  neurons fail to regenerate resulting in permanent irreversible
+                  nervous system damage. What molecular pathways drive the
+                  observed loss of regenerative capacity across development?
+                  What regulatory mechanisms modulate developmental axon growth?
+                  Does successful CNS regeneration in adult neurons require a
+                  faithful recapitulation of developmental mechanisms? Are there
+                  development independent pathways that co-ordinate repair?
+                  These are some of the questions we are currently tackling. To
+                  get at these questions, we use a combinatorial approach which
+                  includes Bioinformatics, Functional Genomics (Single-cell
+                  RNA-Seq, ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth,
+                  in vivo mouse models of injury and behavioral assessments.
                 </p>
               </b-col>
             </b-row>
@@ -76,6 +78,13 @@
         <b-row class="mt-12 bottompage mb-6">
           <b-col cols="7" md="8" class="labnews">
             <h3 class="text-center">LAB NEWS</h3>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Sept 2022</v-card-title>
+              <v-card-text>
+                Lab puts together a nervous system exhibit for CCMB Open Day!
+                Some pics <b-link to="/gallery">here</b-link>.
+              </v-card-text>
+            </v-card>
             <v-card elevation="2" class="mt-2">
               <v-card-title>August 2022</v-card-title>
               <v-card-text>
@@ -195,6 +204,10 @@ p {
 .labvision {
   font-size: 20px !important;
   text-align: justify;
+}
+.vision {
+  font-weight: bold;
+  font-style: italic;
 }
 .tweetdiv {
   height: 500px;

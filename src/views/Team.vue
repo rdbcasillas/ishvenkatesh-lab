@@ -4,7 +4,7 @@
       <b-row>
         <b-col> <h2>Team</h2></b-col>
       </b-row>
-      <b-row v-for="(person, index) in people" :key="index" class="mb-3 mt-3">
+      <b-row v-for="(person, index) in people" :key="index" class="mb-5 mt-3">
         <b-col class="personbox">
           <h4>{{ person.name }} ({{ person.position }})</h4>
           <h6>{{ person.email }}</h6>
@@ -18,6 +18,7 @@
             <span class="mt-3 ml-2 text-justify">{{ person.desc }}</span>
           </div>
         </b-col>
+        <hr />
       </b-row>
     </b-container>
   </div>
@@ -80,7 +81,7 @@ export default {
           position: "Dissertation trainee",
           image: "ishan2",
           desc: "Ishan joined the lab for his dissertation research in August. He is pursuing his B.Tech in Biotechnology at Thapar University, India (2019-2023). Before joining the lab, he has worked at Dianox ApS as a junior researcher (2021-2022). Along the course of his education, he has developed interests in many fields of biology like neuroscience and regenerative biology. He plans to continue in academia as a career path. In his free time, he reads and writes.",
-          email: "heyitsishan@gmail.com",
+          email: "heyishandutta@gmail.com ",
         },
         {
           name: "Katha Sanyal",
@@ -110,6 +111,6 @@ span {
   font-size: 19px;
 }
 .personbox {
-  border: 0.1px dotted gray;
+  border: 0.5px dotted rgb(18, 66, 26);
 }
 </style>

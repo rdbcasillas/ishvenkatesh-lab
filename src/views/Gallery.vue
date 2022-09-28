@@ -25,6 +25,26 @@ export default {
     return {
       images: [
         {
+          file: "openday5",
+          desc: "Open Day Neuroscience Exhibit",
+        },
+        {
+          file: "openday4",
+          desc: "CCMB Open Day 2022",
+        },
+        {
+          file: "openday3",
+          desc: "CCMB Open Day 2022",
+        },
+        {
+          file: "openday2",
+          desc: "CCMB Open Day 2022",
+        },
+        {
+          file: "openday1",
+          desc: "CCMB Open Day 2022",
+        },
+        {
           file: "gallery1",
           desc: "Katha's (temporary) farewell dinner",
         },
