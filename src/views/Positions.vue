@@ -148,12 +148,10 @@ export default {};
 <style scoped>
 h2,
 h4 {
-  font-family: "Oswald", sans-serif !important;
   font-weight: bold;
   color: #346225 !important;
 }
 p {
-  font-family: "Oswald", sans-serif !important;
   color: #346225 !important;
   font-size: 19px;
 }

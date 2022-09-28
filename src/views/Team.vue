@@ -106,7 +106,6 @@ p {
   color: #346225 !important;
 }
 span {
-  font-family: "Oswald", sans-serif !important;
   color: #346225 !important;
   font-size: 19px;
 }

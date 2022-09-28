@@ -48,7 +48,7 @@ export default {
             random: false,
             anim: {
               enable: false,
-              speed: 7,
+              speed: 8,
               opacity_min: 0.1,
               sync: false,
             },
@@ -72,7 +72,7 @@ export default {
           },
           move: {
             enable: true,
-            speed: 2,
+            speed: 4,
             direction: "none",
             random: false,
             straight: false,
@@ -86,11 +86,11 @@ export default {
           },
         },
         interactivity: {
-          detect_on: "canvas",
+          detect_on: "window",
           events: {
             onhover: {
-              enable: true,
-              mode: "repulse",
+              enable: false,
+              mode: "grab",
             },
             onclick: {
               enable: true,
