@@ -16,7 +16,7 @@ Vue.use(BootstrapVueIcons);
 
 Vue.use(VueParticles);
 Vue.use(VueGtag, {
-  config: { id: "UA-113483747-2" },
+  config: { id: "G-X805J20SC4" },
 });
 Vue.config.productionTip = false;
 
