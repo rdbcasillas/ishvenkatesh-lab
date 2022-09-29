@@ -31,17 +31,17 @@ export default {
           shape: {
             type: "circle",
             stroke: {
-              width: 0,
-              color: "#000000",
+              width: 0.3,
+              color: "#fffafa",
             },
             polygon: {
               nb_sides: 3,
             },
-            image: {
-              src: "img/github.svg",
-              width: 100,
-              height: 100,
-            },
+            // image: {
+            //   src: "img/github.svg",
+            //   width: 100,
+            //   height: 100,
+            // },
           },
           opacity: {
             value: 0.3,
@@ -72,14 +72,14 @@ export default {
           },
           move: {
             enable: true,
-            speed: 4,
+            speed: 3,
             direction: "none",
             random: false,
             straight: false,
             out_mode: "out",
-            bounce: false,
+            bounce: true,
             attract: {
-              enable: false,
+              enable: true,
               rotateX: 600,
               rotateY: 1200,
             },
@@ -89,8 +89,8 @@ export default {
           detect_on: "window",
           events: {
             onhover: {
-              enable: false,
-              mode: "grab",
+              enable: true,
+              mode: "repulse",
             },
             onclick: {
               enable: true,
@@ -107,7 +107,7 @@ export default {
             },
             bubble: {
               distance: 800,
-              size: 80,
+              size: 30,
               duration: 2,
               opacity: 0.4,
               speed: 3,
