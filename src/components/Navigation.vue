@@ -4,12 +4,14 @@
       <b-navbar toggleable="lg" variant="info">
         <b-img
           fluid
-          width="80px"
+          width="60px"
           :src="require('../assets/ishlab-icon.png')"
           class="d-inline-block align-top"
           alt="Kitten"
         />
-        <b-navbar-brand to="/">Venkatesh Lab</b-navbar-brand>
+        <b-navbar-brand to="/"
+          >Laboratory of Axon Growth & Regeneration at CSIR-CCMB</b-navbar-brand
+        >
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -87,11 +89,16 @@ a.nav-link {
 a.nav-link:hover {
   color: green !important;
 }
-.navbar-brand {
-  font-size: 34px;
-}
 a.nav-link.active {
   color: green !important;
   font-weight: bold;
+}
+.navbar-brand {
+  font-size: 30px;
+}
+@media (max-width: 600px) {
+  .navbar-brand {
+    font-size: 15px;
+  }
 }
 </style>
