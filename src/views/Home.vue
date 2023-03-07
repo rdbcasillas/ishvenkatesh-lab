@@ -79,6 +79,47 @@
           <b-col cols="7" md="8" class="labnews">
             <h3 class="text-center">LAB NEWS</h3>
             <v-card elevation="2" class="mt-2">
+              <v-card-title>Feb 2023</v-card-title>
+              <v-card-text>
+                Sneha Manjunath joins us again in her new avatar - Project
+                Associate in February 2022. Sneha will be prepping custom AAVs
+                and involved in all things cloning and genomics!
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Jan 2023</v-card-title>
+              <v-card-text>
+                Katha Sanyal comes back as a dissertation student. Welcome back
+                Katha, we missed you! She will be crispr-ing growth inhibiting
+                Transcription factors as part of her project!
+              </v-card-text>
+              <v-card-text>
+                Ishan Dutta wraps up his dissertation project and presented a
+                poster in Jan 2023. All the best Ishan!
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Dec 2022</v-card-title>
+              <v-card-text>
+                Yogesh presents his research at IAN 2022 and won the first prize
+                for best poster presentation! Congratulations Yogesh!
+              </v-card-text>
+              <v-card-text>
+                Sanskruti Karwa joins the lab as a dissertee in December 2022!
+                She will be optimizing models of spinal injuries in the lab.
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Nov 2022</v-card-title>
+              <v-card-text>
+                Manoj Kumar joins the lab as a first postdoc! Welcome Manoj!
+              </v-card-text>
+              <v-card-text>
+                Ish, Sriram and Vatsal win the India Bioscience grant for
+                scicomm outreach.
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
               <v-card-title>Sept 2022</v-card-title>
               <v-card-text>
                 Lab puts together a nervous system exhibit for CCMB Open Day!
@@ -139,12 +180,14 @@
 
 <script>
 import ParticlesJS from "../components/ParticlesJS.vue";
+import news from "@/assets/news.txt";
 export default {
   components: {
     ParticlesJS,
   },
   data() {
     return {
+      news: news,
       techniques: [
         {
           text: "Mouse models of injury",
@@ -168,6 +211,9 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    console.log(this.news.split("\n"));
   },
 };
 </script>

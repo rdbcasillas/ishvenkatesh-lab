@@ -1,0 +1,3 @@
+This is news item 1.
+Another news item!
+Third one is longer than the other two.
