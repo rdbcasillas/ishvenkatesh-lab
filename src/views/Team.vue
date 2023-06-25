@@ -112,7 +112,7 @@ export default {
           name: "Meghana Madhu",
           position: "Project trainee",
           image: "meghana",
-          desc: "Meghana is a graduate of Kakatiya University, Warangal, where she obtained her Masters degree in Biotechnology. When she came across our lab's research, her interest in science piqued and she wanted to join the team. She is excited to be a project-based student trainee, focusing on the topic of 'Transcriptional control of axon regeneration in mammalian CNS neurons'. She believes this opportunity will allow her to acquire new techniques and expand her skill set, potentially paving the way for her future scientific career in Neuroscience. During her leisure time, Meghana indulges in oil pastel sketching and dedicates herself to maintaining a personal blog where she delves into the realms of science, art, and philosophy, sharing her thoughts and insights with others.",
+          desc: "Meghana is a graduate of Kakatiya University, Warangal, where she obtained her Masters degree in Biotechnology. When she came across our lab's research, her interest in science piqued and she wanted to join the team. She is excited to be a project-based student trainee, focusing on the topic of 'Transcriptional control of axon regeneration in mammalian CNS neurons.' She believes this opportunity will allow her to acquire new techniques and expand her skill set, potentially paving the way for her future scientific career in Neuroscience. During her leisure time, Meghana does oil pastel sketching and hopes to start blogging soon.",
           email: "meghanamadhu199@gmail.com",
         },
         {
@@ -126,7 +126,7 @@ export default {
           name: "Shaikh Shafiulla",
           position: "Guest Worker",
           image: "shaikh2",
-          desc: "Shaikh joined the lab in August 2022 as a Project based trainee. He has his Bachelor's degree from Acharya Nagarjuna University in Pharmaceutical Sciences and a Master’s degree in Pharmacology from Amity University. Prior to joining the lab, he was a Research Assistant Professor at Southern Institute of Medical Sciences. His broad research interestS are in Developmental Neuroscience and Behavioral Neuroscience.  Outside of the lab, he loves to read and  is particularly influenced by 'Thus Spoke Zarathustra' by Friedrich Nietzsche. In the future, he wants to pursue his PhD training in Neuroscience .",
+          desc: "Shaikh joined the lab in August 2022 as a Project based trainee. He has his Bachelor's degree from Acharya Nagarjuna University in Pharmaceutical Sciences and a Master’s degree in Pharmacology from Amity University. Prior to joining the lab, he was a Research Assistant Professor at Southern Institute of Medical Sciences. His broad research interestS are in Developmental Neuroscience and Behavioral Neuroscience. In the lab, he optimized injury paradigms and in the process is smitten with the field of regenerative neuroscience, so much so he’s keen on pursuing a PhD in the same field. He’s hanging out with us as a stopgap before he starts his graduate training.",
           email: "adroitshaikh1@gmail.com",
         },
       ],
