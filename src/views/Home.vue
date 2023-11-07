@@ -79,6 +79,54 @@
           <b-col cols="7" md="8" class="labnews">
             <h3 class="text-center">LAB NEWS</h3>
             <v-card elevation="2" class="mt-2">
+              <v-card-title>Oct 2023</v-card-title>
+              <v-card-text>
+                Attended 41st IAN conference at Jiwaji
+                Univeristy,Gwalior. Anisha S Menon Won 
+                the Best Poster Presentation Award. 
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Sep 2023</v-card-title>
+              <v-card-text>
+                Lab puts together a Know your Brain exhibit for Open Day
+                And won 2nd Prize for the exhibit
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Aug 2023</v-card-title>
+              <v-card-text>
+                Lab puts together a Genomic exhibit for <b>one week one lab </b> from CSIR  
+              </v-card-text>
+              <v-card-text>
+                Arupam Biswas Joined us - one year Dissertation Student
+                in August, 2023
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Jun 2023</v-card-title>
+              <v-card-text>
+                Dhruva Kesireddy joined us  - Project Associate 
+                in June 2022.
+              </v-card-text>
+              <v-card-text>
+                Meghana Madhu  joined us  - Project Associate 
+                in June 2022.
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Apr 2023</v-card-title>
+              <v-card-text>
+              Celebrating One Year of Innovation: Venkatesh Lab Marks its First Anniversary with an Inaugural Lab Retreat
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Mar 2023</v-card-title>
+              <v-card-text>
+                Anisha S Menon joined as the 2nd PhD student.
+            </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
               <v-card-title>Feb 2023</v-card-title>
               <v-card-text>
                 Sneha Manjunath joins us again in her new avatar - Project
