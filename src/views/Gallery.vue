@@ -24,6 +24,53 @@ export default {
   data() {
     return {
       images: [
+      {
+          file: "Ian3",
+          desc: "Best Poster award to Anisha S Menon at Indian Academy of Neuroscience, 2023",
+        },
+        {
+          file: "CSIR",
+          desc: "CCMB Open Day 2023",
+        },
+      {
+          file: "Onam",
+          desc: "Labs Onam Celbration, 2023",
+        },
+        {
+          file: "Farwell",
+          desc: "Farwell of Sanskruti, Katha, Aastha and Apoorva",
+        },
+        {
+          file: "Hisci2",
+          desc: "Labs Hisci poster presentation, 2023",
+        },
+        {
+          file: "Hisci",
+          desc: "Shaik's Best Poster award from Hisci, 2023",
+        },{
+          file: "Retreat_1",
+          desc: "1st Lab Retreat, 2023",
+        },
+        {
+          file: "Lab_pic",
+          desc: "Lab group picture of 2023",
+        },
+        {
+          file: "Birthday1",
+          desc: "Anisha S Menon Birthday Celebration",
+        },
+      {
+          file: "Anisha",
+          desc: "1st Day of 2nd PhD candidate Anisha S Menon",
+        },
+      {
+          file: "Ian1",
+          desc: "Indian Academy of Neuroscience Conference, 2022",
+        },
+        {
+          file: "Ian2",
+          desc: "Best Poster award at Indian Academy of Neuroscience, 2022",
+        },
         {
           file: "openday5",
           desc: "Open Day Neuroscience Exhibit",
