@@ -34,22 +34,22 @@ export default {
         },
       {
           file: "Onam",
-          desc: "Labs Onam Celbration, 2023",
+          desc: "Lab's Onam Celebration",
         },
         {
           file: "Farwell",
-          desc: "Farwell of Sanskruti, Katha, Aastha and Apoorva",
+          desc: "Farwell party to Sanskruti, Katha, Aastha and Apoorva",
         },
         {
           file: "Hisci2",
-          desc: "Labs Hisci poster presentation, 2023",
+          desc: "Lab's Hi-Sci poster presentation",
         },
         {
           file: "Hisci",
-          desc: "Shaik's Best Poster award from Hisci, 2023",
+          desc: "Shaik's best poster award at Hy-Sco",
         },{
           file: "Retreat_1",
-          desc: "1st Lab Retreat, 2023",
+          desc: "Lab first Retreat",
         },
         {
           file: "Lab_pic",
