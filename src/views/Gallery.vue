@@ -38,7 +38,7 @@ export default {
         },
         {
           file: "Farwell",
-          desc: "Farwell party to Sanskruti, Katha, Aastha and Apoorva",
+          desc: "Farewell party to Sanskruti, Katha, Aastha and Apoorva",
         },
         {
           file: "Hisci2",
@@ -46,7 +46,7 @@ export default {
         },
         {
           file: "Hisci",
-          desc: "Shaik's best poster award at Hy-Sco",
+          desc: "Shaik's best poster award at Hy-Sci",
         },{
           file: "Retreat_1",
           desc: "Lab first Retreat",
