@@ -50,13 +50,13 @@ export default {
           desc: "Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy :D) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it’s published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography, Wildlife conservation, Travelling, and Gaming but importantly cooking, and he shares the output of his cooking experiments generously with the lab members!",
           email: "manojkumar@ccmb.res.in",
         },
-      //  {
-      //    name: "Sneha Manjunath",
-      //    position: "Project Associate",
-      //    image: "sneha2",
-      //    desc: "Sneha joined the lab as a Project-based trainee in May of 2022. She did her Bachelors in Mount Carmel, Bangalore majoring in Biotechnology, Chemistry, and Zoology (Batch of 2019). She has a Master's degree in Genetics and Genomics from The University of Perth, Western Australia (Batch of 2021). Her broad research interests are in Genetics and Neurobiology. She’s a cloning whiz in the lab who can make any project work and has trained everyone in the lab! Outside of the lab, she loves to cook and watch movies. Post her stint here, she wants to launch a biotech start up that caters to researcher needs in India. She handles lab ups and downs like a champ but She’s also the one who leaves cupcakes for Ish on bad science days (for which Ish is always grateful) :D",
-      //    email: "snehaamanjunath28@gmail.com",
-      //  },
+        {
+          name: "Sneha Manjunath",
+          position: "Project Associate",
+          image: "sneha2",
+          desc: "Sneha joined the lab as a Project-based trainee in May of 2022. She did her Bachelors in Mount Carmel, Bangalore majoring in Biotechnology, Chemistry, and Zoology (Batch of 2019). She has a Master's degree in Genetics and Genomics from The University of Perth, Western Australia (Batch of 2021). Her broad research interests are in Genetics and Neurobiology. She’s a cloning whiz in the lab who can make any project work and has trained everyone in the lab! Outside of the lab, she loves to cook and watch movies. Post her stint here, she wants to launch a biotech start up that caters to researcher needs in India. She handles lab ups and downs like a champ but She’s also the one who leaves cupcakes for Ish on bad science days (for which Ish is always grateful) :D",
+          email: "snehaamanjunath28@gmail.com",
+        },
         {
           name: "Yogesh Sahu",
           position: "PhD student",
