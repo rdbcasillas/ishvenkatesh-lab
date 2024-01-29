@@ -10,8 +10,8 @@
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
             >
-              SERB Ramanujan Fellowship
-              <span class="badge badge-primary badge-pill">2022-2027</span>
+              SERB-SERG
+              <span class="badge badge-primary badge-pill">2023-2026</span>
             </li>
           </ul>
         </b-col>
@@ -22,6 +22,12 @@
       <b-row>
         <b-col cols="10">
           <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              SERB Ramanujan Fellowship
+              <span class="badge badge-primary badge-pill">2022-2022</span>
+            </li>
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
             >

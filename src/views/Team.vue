@@ -51,13 +51,6 @@ export default {
           email: "manojkumar@ccmb.res.in",
         },
         {
-          name: "Sneha Manjunath",
-          position: "Project Associate",
-          image: "sneha2",
-          desc: "Sneha joined the lab as a Project-based trainee in May of 2022. She did her Bachelors in Mount Carmel, Bangalore majoring in Biotechnology, Chemistry, and Zoology (Batch of 2019). She has a Master's degree in Genetics and Genomics from The University of Perth, Western Australia (Batch of 2021). Her broad research interests are in Genetics and Neurobiology. She’s a cloning whiz in the lab who can make any project work and has trained everyone in the lab! Outside of the lab, she loves to cook and watch movies. Post her stint here, she wants to launch a biotech start up that caters to researcher needs in India. She handles lab ups and downs like a champ but She’s also the one who leaves cupcakes for Ish on bad science days (for which Ish is always grateful) :D",
-          email: "snehaamanjunath28@gmail.com",
-        },
-        {
           name: "Yogesh Sahu",
           position: "PhD student",
           image: "yogesh2",
@@ -70,6 +63,20 @@ export default {
           image: "anisha",
           desc: "Anisha S. Menon is a PhD student and has been a member of the lab since March 2023. She holds a Bachelor's degree in Zoology from Vimala College, Kerala (2018), and a Master's degree in Zoology from St. Joseph's College, Kerala (2020). Her research focuses on the fascinating field of epigenetic regulation of axon regeneration and 3D genome. Anisha investigates the intricate mechanisms underlying the ability of neurons to repair and regrow their axons after injury. Through the study of epigenetic modifications and the dynamic 3D genome architecture, she aims to unravel the molecular processes that drive axon regeneration. In addition to her scientific pursuits, Anisha has a passion for stargazing and cooking during her leisure time. Exploring the night sky and experimenting with new recipes bring her joy and provide a much-needed balance to her research endeavors.",
           email: "anisha.menon@ccmb.res.in",
+        },
+        {
+          name: "Sneha Manjunath",
+          position: "Project Associate",
+          image: "sneha2",
+          desc: "Sneha joined the lab as a Project-based trainee in May of 2022. She did her Bachelors in Mount Carmel, Bangalore majoring in Biotechnology, Chemistry, and Zoology (Batch of 2019). She has a Master's degree in Genetics and Genomics from The University of Perth, Western Australia (Batch of 2021). Her broad research interests are in Genetics and Neurobiology. She’s a cloning whiz in the lab who can make any project work and has trained everyone in the lab! Outside of the lab, she loves to cook and watch movies. Post her stint here, she wants to launch a biotech start up that caters to researcher needs in India. She handles lab ups and downs like a champ but She’s also the one who leaves cupcakes for Ish on bad science days (for which Ish is always grateful) :D",
+          email: "snehaamanjunath28@gmail.com",
+        },
+       {
+          name: "Katha Sanyal",
+          position: "Project Associate",
+          image: "katha2",
+          desc: "Katha Sanyal is a current master's student at St. Thomas College, Bhilai. Her journey from being a summer trainee to a dissertation trainee in the lab has been extraordinary. She is driving a project centered on CRISPR-based knockdown of inhibitory factors in the context of regeneration. The enthusiasm of her labmates has fueled her interest in neuroscience, inspiring her to pursue a Ph.D. in this field. Immersing herself in the world of neuroscience has been a transformative experience for Katha. She has been exposed to cutting-edge research and has had the opportunity to contribute to exciting projects that have deepened her understanding of the subject. The lab has become her second home, providing a space where she can explore her curiosity and challenge herself to expand the boundaries of knowledge. Apart from her academic pursuits, Katha enjoys exploring new places with friends and finding joy in cooking dinner. This experience has truly ignited her passion for neuroscience and has significantly influenced both her academic and personal endeavors.",
+          email: "kathasanyal@gmail.com",
         },
         // {
         //   name: "Sanjana Sinha",
@@ -101,13 +108,6 @@ export default {
           desc: "Dhruva has recently joined the lab as a Project-based Student Trainee, bringing with him a Master's degree in Animal Biology and Biotechnology from the University of Hyderabad. His research during his Master's program focused on the  topic of dynamic relocalization of Denovo Methyltransferases of  Dnmt3a and Dnmt3b in Mouse Mammary Epithelial cells during lactogenic differentiation.His research interests include epigenetics and epigenetic regulation. With a keen interest in this field, Dhruva aspires to pursue a Ph.D. in the future. Beyond his academic pursuits, Dhruva  enjoys engaging in various activities outside of the lab. He likes to sing and finds solace in music. In his leisure time, he indulges in watching movies and web series, appreciating the art of storytelling.He likes hanging out with his friends and cousins.",
           email: "dhruvakesireddy@gmail.com",
         },
-      //  {
-      //    name: "Katha Sanyal",
-      //    position: "Dissertee trainee",
-      //    image: "katha2",
-      //    desc: "Katha Sanyal is a current master's student at St. Thomas College, Bhilai. Her journey from being a summer trainee to a dissertation trainee in the lab has been extraordinary. She is driving a project centered on CRISPR-based knockdown of inhibitory factors in the context of regeneration. The enthusiasm of her labmates has fueled her interest in neuroscience, inspiring her to pursue a Ph.D. in this field. Immersing herself in the world of neuroscience has been a transformative experience for Katha. She has been exposed to cutting-edge research and has had the opportunity to contribute to exciting projects that have deepened her understanding of the subject. The lab has become her second home, providing a space where she can explore her curiosity and challenge herself to expand the boundaries of knowledge. Apart from her academic pursuits, Katha enjoys exploring new places with friends and finding joy in cooking dinner. This experience has truly ignited her passion for neuroscience and has significantly influenced both her academic and personal endeavors.",
-      //    email: "kathasanyal@gmail.com",
-      //  },
         {
           name: "Meghana Madhu",
           position: "Project trainee",

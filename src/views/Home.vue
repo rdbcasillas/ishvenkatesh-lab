@@ -79,6 +79,25 @@
           <b-col cols="7" md="8" class="labnews">
             <h3 class="text-center">LAB NEWS</h3>
             <v-card elevation="2" class="mt-2">
+              <v-card-title>Feb 2024</v-card-title>
+              <v-card-text>
+                Katha Sanyal joined back as Project-associate !
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Jan 2024</v-card-title>
+              <v-card-text>
+                Sneha Manjunath joined back as Project-associate !
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Nov 2023</v-card-title>
+              <v-card-text>
+                Ish gave a talk "Decoding the molecular blueprint of regeneration in mammalian CNS neurons"
+                at IAScAM2023, Goa<a href>(https://twitter.com/IAScBng/status/1721026522448900327)</a>
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
               <v-card-title>Oct 2023</v-card-title>
               <v-card-text>
                 Attended 41st IAN conference at Jiwaji
