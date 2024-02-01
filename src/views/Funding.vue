@@ -10,7 +10,7 @@
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
             >
-              SERB-SERG
+              SERB-SRG
               <span class="badge badge-primary badge-pill">2023-2026</span>
             </li>
           </ul>
