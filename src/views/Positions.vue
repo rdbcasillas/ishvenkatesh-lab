@@ -10,7 +10,7 @@
         <b-col>
             <p class="text-center">
             <em>
-              We have no paid JRF positions at this time or trainee postion untill july 2025. Kindly check back later
+              We have no paid JRF positions at this time or short term trainee postions untill July 2025. Kindly check back later.
             </em>
           </p>
         </b-col>

@@ -38,7 +38,7 @@ export default {
         },
       {
           file: "CMMDR",
-          desc: "Best Poster award to Anisha S Menon at CCMMDR, 2024",
+          desc: "Lab crew attended and presented 4 posters at CMMDR2024",
         },
         {
           file: "xMas",
@@ -58,7 +58,7 @@ export default {
         },
         {
           file: "openday",
-          desc: "Best Exhibits at CCMB Open Day 2023",
+          desc: " Lab wins the second prize for our exhibit 'Know your Brain' at CCMB Open day 2023",
         },
         {
           file: "CSIR",
