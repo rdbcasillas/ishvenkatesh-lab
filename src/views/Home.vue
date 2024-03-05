@@ -12,14 +12,20 @@
               <h1 color="orange lighten-5">
                 Regulatory Networks Encoding Axon Growth in the Nervous System
               </h1>
+              <b-row>
+          <b-col>
+            <div class="video-container">
+              <iframe width="640" height="480" src="https://www.youtube.com/embed/4te7sQQBl1g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </b-col>
+        </b-row>
             </b-row>
             <b-row class="pa-8">
               <b-col>
                 <p color="orange lighten-5" class="pa-6 labvision">
                   <span class="vision"
                     >How is axon growth regulated during development and
-                    regeneration in mammals?</span
-                  >
+                    regeneration in mammals?</span>
                   Communication in the nervous system is achieved via long
                   cables called axons which connect neurons in the brain with
                   the rest of the body. Intact axons are critical for proper
