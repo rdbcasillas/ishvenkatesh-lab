@@ -81,9 +81,11 @@
             <v-card elevation="2" class="mt-2">
               <v-card-title>Feb 2024</v-card-title>
               <v-card-text>
-                Ish gave a inivted talk on regeneration at InStem, Bangalore 
+                Ish gave an invited talk at InSDB 2024 @ NCBS/inSTEM - February 2024 
               </v-card-text>
-              <v-card-text>Univeristy of Hyderabad invited Ish for a talk on regeneration</v-card-text>
+              <v-card-text>
+                Ish gave a plenary talk at Bioanveshna 2024 held at University of Hyderabad in February 2024
+              </v-card-text>
             </v-card>
             <v-card elevation="2" class="mt-2">
               <v-card-title>Feb 2024</v-card-title>
@@ -94,7 +96,7 @@
                 Ish gave her Talk on "Decoding the molecular blueprint of regeneration in mammalian CNS neuron"
               </v-card-text>  
               <v-card-text>
-                Anisha won the best poster award
+                Anisha won the best poster award at CMMDR2024
               </v-card-text>
             </v-card>
             <v-card elevation="2" class="mt-2">
@@ -114,12 +116,15 @@
               <v-card-text>
                 Sneha Manjunath joined back as Project-associate !
               </v-card-text>
-            </v-card>
+              </v-card>
             <v-card elevation="2" class="mt-2">
               <v-card-title>Nov 2023</v-card-title>
               <v-card-text>
-                Ish gave a talk "Decoding the molecular blueprint of regeneration in mammalian CNS neurons"
-                at IAScAM2023, Goa<a href>(https://twitter.com/IAScBng/status/1721026522448900327)</a>
+              Ish gave an invited talk at the Indian Academy of Sciences meeting held in Goa in November 2023, 
+              her first meeting as an associate of the academy
+              </v-card-text>
+              <v-card-text>
+              In November 2023, Ish gave an invited talk at The India Investigator Network meeting held at CCMB
               </v-card-text>
             </v-card>
             <v-card elevation="2" class="mt-2">

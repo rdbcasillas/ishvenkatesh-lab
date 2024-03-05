@@ -25,12 +25,40 @@ export default {
     return {
       images: [
       {
+          file: "Hyd",
+          desc: "Ish gave a plenary talk at Bioanveshna 2024 held at University of Hyderabad in February 2024",
+        },
+        {
+          file: "NCBS",
+          desc: "Ish gave an invited talk at InSDB 2024 @ NCBS/inSTEM - February 2024",
+        },
+      {
+          file: "award_A",
+          desc: "Anisha wins another poster award at CMMDR 2024 conference",
+        },
+      {
           file: "CMMDR",
-          desc: "CCMMDR, 2024 at Shiv Nadar Univerity",
+          desc: "Best Poster award to Anisha S Menon at CCMMDR, 2024",
+        },
+        {
+          file: "xMas",
+          desc: "Lab Xmas party - December 2023",
+        },
+        {
+          file: "Invited_talk_1",
+          desc: "In November 2023, Ish gave an invited talk at The India Investigator Network meeting held at CCMB",
+        },
+        {
+          file: "Invited_talk_2",
+          desc: "Ish gave an invited talk at the Indian Academy of Sciences meeting held in Goa in November 2022, her first meeting as an associate of the academy",
         },
       {
           file: "Ian3",
           desc: "Best Poster award to Anisha S Menon at Indian Academy of Neuroscience, 2023",
+        },
+        {
+          file: "openday",
+          desc: "Best Exhibits at CCMB Open Day 2023",
         },
         {
           file: "CSIR",
