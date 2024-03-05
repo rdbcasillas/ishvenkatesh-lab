@@ -81,6 +81,31 @@
             <v-card elevation="2" class="mt-2">
               <v-card-title>Feb 2024</v-card-title>
               <v-card-text>
+                Ish gave a inivted talk on regeneration at InStem, Bangalore 
+              </v-card-text>
+              <v-card-text>Univeristy of Hyderabad invited Ish for a talk on regeneration</v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Feb 2024</v-card-title>
+              <v-card-text>
+                Ish and entire lab attended CMMDR2024 and presented posters
+              </v-card-text>
+              <v-card-text>
+                Ish gave her Talk on "Decoding the molecular blueprint of regeneration in mammalian CNS neuron"
+              </v-card-text>  
+              <v-card-text>
+                Anisha won the best poster award
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Feb 2024</v-card-title>
+              <v-card-text>
+                Dr. Shringika recived SERB NPDF, will be joining our lab soon !
+              </v-card-text>
+            </v-card>
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Feb 2024</v-card-title>
+              <v-card-text>
                 Katha Sanyal joined back as Project-associate !
               </v-card-text>
             </v-card>
@@ -171,7 +196,7 @@
                 Yogesh presents his research at IAN 2022 and won the first prize
                 for best poster presentation! Congratulations Yogesh!
               </v-card-text>
-              <v-card-text>
+             <v-card-text>
                 Sanskruti Karwa joins the lab as a dissertee in December 2022!
                 She will be optimizing models of spinal injuries in the lab.
               </v-card-text>
@@ -228,7 +253,7 @@
                 funding our work!
               </v-card-text>
             </v-card>
-          </b-col>
+          </b-col> 
           <b-col cols="5" md="4">
             <h3 class="text-center">Ish's Tweets</h3>
             <v-card class="overflow-auto tweetdiv">

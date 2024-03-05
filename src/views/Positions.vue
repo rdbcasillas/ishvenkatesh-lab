@@ -8,18 +8,14 @@
       </b-row>
       <b-row>
         <b-col>
-          <p>
+            <p class="text-center">
             <em>
-              We have no paid JRF positions at this time. We are however
-              actively recruiting Masters's students looking for Dissertation
-              projects, Project-based trainees, Ph.D. students, and
-              post-doctoral fellows. Below is a list of ways for you to join our
-              crew if interested:
+              We have no paid JRF positions at this time or trainee postion untill july 2025. Kindly check back later
             </em>
           </p>
         </b-col>
       </b-row>
-      <b-row>
+     <!-- <b-row>
         <b-col>
           <h4>Project-based trainees -</h4>
           <p>
@@ -82,11 +78,6 @@
       <b-row>
         <b-col>
           <h4>Graduate students-</h4>
-          <!-- <p>
-          We take in rotation students who have been selected via the CCMB Ph.D.
-          admissions program. <a href="Click here" target="_blank"></a> to
-          learn more about the program.
-        </p> -->
         </b-col>
       </b-row>
       <b-row>
@@ -117,7 +108,7 @@
           </p>
         </b-col>
       </b-row>
-      <!-- <b-row>
+       <b-row>
         <h4>Guest workers-</h4>
         <p>
           This is an unpaid position that is generally suited for students

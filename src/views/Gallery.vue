@@ -25,6 +25,10 @@ export default {
     return {
       images: [
       {
+          file: "CMMDR",
+          desc: "CCMMDR, 2024 at Shiv Nadar Univerity",
+        },
+      {
           file: "Ian3",
           desc: "Best Poster award to Anisha S Menon at Indian Academy of Neuroscience, 2023",
         },
