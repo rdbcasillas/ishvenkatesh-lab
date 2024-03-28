@@ -44,9 +44,16 @@ export default {
           email: "ishwariya@ccmb.res.in",
         },
         {
+           name: "Dr. Shringika Soni",
+           position: "Research Associate",
+           image: "Shringika",
+           desc: "Dr. Shringika Soni, with her Integrated M. Tech in Cognitive Neuroscience and a notable dissertation at NIMHANS, Bengaluru, has significantly contributed to neurodevelopmental disorder research at PGIMER Chandigarh. Completing her Ph.D. in 2022 from Amity University, Noida, with a focus on aptamer-based diagnostics for psychoactive drug detection, she furthered her expertise as a Senior Project Associate at DST-TEC Centre, University of Hyderabad, Hyderabad. In March 2024, Dr. Soni embarked on an inspiring journey at the Venkatesh lab as SERB-nPDF fellow, focusing on stem cell and gene therapy for spinal cord injury animal model. Her hobbies, including cooking, sketching, and exploring new places, reflect the creativity she brings to her pioneering research. With a rich scientific background, Dr. Soni is expected to deliver ground breaking data, promising to elevate the lab to greater heights.",
+           email: "shringikasoni15@gmail.com",
+         },
+        {
           name: "Manoj Kumar",
           position: "Senior Project Associate",
-          image: "manoj4",
+          image: "manoj",
           desc: "Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy :D) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it’s published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography, Wildlife conservation, Travelling, and Gaming but importantly cooking, and he shares the output of his cooking experiments generously with the lab members!",
           email: "manojkumar@ccmb.res.in",
         },
@@ -65,6 +72,13 @@ export default {
           email: "anisha@ccmb.res.in",
         },
         {
+           name: "Rutuja Pendharkar",
+           position: "PhD student",
+           image: "Rutuja",
+           desc: "Rutuja, with a rich academic background in Biotechnology from Pune University, is at the forefront of pioneering research in stem cell therapy for spinal injuries. Holding both Bachelor's and Master's degrees, she has dedicated her career to exploring the synergistic potential of stem cell implantation at sites of spinal damage. As she embarks on this groundbreaking project, the expectations are high, and there's a palpable sense of anticipation for the remarkable outcomes we believe she will achieve. Outside the lab, Rutuja finds solace and creativity in Mandela art, a passion that complements her scientific pursuits. Her journey is just beginning, and we eagerly look forward to the innovative solutions she is bound to uncover for spinal injury treatment.",
+           email: "rutuja.arun@ccmb.res.in",
+         },
+        {
           name: "Sneha Manjunath",
           position: "Project Associate",
           image: "sneha2",
@@ -78,21 +92,6 @@ export default {
           desc: "Katha Sanyal is a current master's student at St. Thomas College, Bhilai. Her journey from being a summer trainee to a dissertation trainee in the lab has been extraordinary. She is driving a project centered on CRISPR-based knockdown of inhibitory factors in the context of regeneration. The enthusiasm of her labmates has fueled her interest in neuroscience, inspiring her to pursue a Ph.D. in this field. Immersing herself in the world of neuroscience has been a transformative experience for Katha. She has been exposed to cutting-edge research and has had the opportunity to contribute to exciting projects that have deepened her understanding of the subject. The lab has become her second home, providing a space where she can explore her curiosity and challenge herself to expand the boundaries of knowledge. Apart from her academic pursuits, Katha enjoys exploring new places with friends and finding joy in cooking dinner. This experience has truly ignited her passion for neuroscience and has significantly influenced both her academic and personal endeavors.",
           email: "kathasanyal@gmail.com",
         },
-        // {
-        //   name: "Sanjana Sinha",
-        //   position: "Project Associate",
-        //   image: "sanjana2",
-        //   desc: "Sanjana joined the lab in  May of 2022 as a guest worker, to rotate and get experience in Molecular Biology. She has a Bachelor's degree in Biotechnology from MITS School of Biotechnology (Batch of 2017) and a Master’s degree in Biotechnology from Chandigarh University (Batch of 2019). Her Master’s dissertation work was carried out in the field of Immunology at IISER, Mohali. Following that, she worked as a Junior Research Fellow in the lab of Dr.Anant Patel in CCMB where she gained experience in Animal handling and Behavioral studies. Her broad research interests are in Neurobiology and/or Immunology. Outside the lab, she’s fond of watching anime, solving sudoku, and occasionally sketching. In the long run, she wants to pursue a PhD in Neuroscience focused on psychiatric disorders.",
-        //   email: "sanjana.sinha121@gmail.com",
-        // },
-
-        // {
-        //   name: "Shaikh Shafiulla",
-        //   position: "Project based trainee",
-        //   image: "shaikh2",
-        //   desc: "Shaikh joined the lab in August 2022 as a Project based trainee. He has his Bachelor's degree from Acharya Nagarjuna University in Pharmaceutical Sciences and a Master’s degree in Pharmacology from Amity University. Prior to joining the lab, he was a Research Assistant Professor at Southern Institute of Medical Sciences. His broad research interestS are in Developmental Neuroscience and Behavioral Neuroscience.  Outside of the lab, he loves to read and  is particularly influenced by 'Thus Spoke Zarathustra' by Friedrich Nietzsche. In the future, he wants to pursue his PhD training in Neuroscience .",
-        //   email: "adroitshaikh1@gmail.com",
-        // },
         // {
         //   name: "Ishan Dutta",
         //   position: "Dissertation trainee",
