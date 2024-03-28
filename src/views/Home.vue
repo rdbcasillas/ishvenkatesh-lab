@@ -87,6 +87,15 @@
             <v-card elevation="2" class="mt-2">
               <v-card-title>Feb 2024</v-card-title>
               <v-card-text>
+                Dr. Shringika Joined with as  Serb nPDF
+              </v-card-text>
+              <v-card-text>
+                Rutuja Pendharkar joined as the 3rd PhD student !
+              </v-card-text>
+            </v-card> 
+            <v-card elevation="2" class="mt-2">
+              <v-card-title>Feb 2024</v-card-title>
+              <v-card-text>
                 Ish gave an invited talk at InSDB 2024 @ NCBS/inSTEM - February 2024 
               </v-card-text>
               <v-card-text>
