@@ -15,7 +15,7 @@
               <b-row>
           <b-col>
             <div class="video-container">
-              <iframe width="640" height="480" src="https://www.youtube.com/embed/4te7sQQBl1g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="720" height="480" src="https://www.youtube.com/embed/4te7sQQBl1g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </b-col>
         </b-row>

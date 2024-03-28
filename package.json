@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "d3-array": "^3.1.4",
     "d3-fetch": "^3.0.1",
+    "lite-youtube-embed": "^0.3.2",
     "package.json": "^0.0.0",
     "particles.js": "^2.0.0",
     "vue": "^2.6.11",
