@@ -136,8 +136,8 @@ export default {
           email: "banerjeesoupayan7@gmail.com",
         },
         {
-          name: "Meghana Madhu",
-          position: "Project Trainee",
+          name: "Deepta Susan Beji",
+          position: "Dissertation Trainee",
           image: "Deepta",
           desc: "Deepta, a final-year Integrated M.Sc. student in Biotechnology at VIT Vellore, recently joined the lab for her dissertation. With a passion for molecular biology and bioinformatics, she's eager to see how these fields can help unlock the secrets of the central nervous system. Deepta is part of the team which focuses on 3D genome architecture to understand the molecular mechanisms of axon regeneration. Beyond science, Deepta enjoys unwinding with some baking and a good book.",
           email: "deeptasusan2002@gmail.com",
