@@ -129,7 +129,7 @@ export default {
           email: "arupambiswas007@gmail.com",
         },
         {
-          name: "Soupayan",
+          name: "Soupayan Banerjee",
           position: "Project Trainee",
           image: "Soupayan",
           desc: "Hey there, Science buffs! Soupayan is a neuro-enthusiast with a Bachelor's degree in biochemistry from University of Calcutta and Master's in forensic genetics from NLU, Kolkata. He ventured beyond his course subjects to embark on a research journey in Neuroscience at the Venkatesh Lab. But now, he is all about decoding the Transcriptional control of axon regeneration in mammalian CNS neurons, primarily focusing on how our circadian clock genes can control axon regeneration. With his growing skillsets, he aspire to do PhD in near future. When he is not pipetting, he likes to explore cafes and also experiment with cooking.",
