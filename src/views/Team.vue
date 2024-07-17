@@ -48,7 +48,7 @@ export default {
            position: "SERB-nPDF",
            image: "Shringika",
            desc: "Shringika Soni is SERB-nPDF and joined the lab in March 2024. She has an Integrated M. Tech in Cognitive Neuroscience and a notable dissertation at NIMHANS, Bengaluru. Before joining PhD, she worked on pre-clinical and clinical models of autism at PGIMER Chandigarh. During her doctoral thesis at Amity University Uttar Pradesh, Noida, she designed an electrochemical nano-aptasensor to detect illicit drug abuse. In March 2024, Shringika started her journey at the Venkatesh lab, focusing on dual therapies in spinal cord injury (SCI) animal model. She is exploring how Nuclear receptor family of transcription factors based gene therapy and stem cell therapy will affect neuroregeneration and recovery in SCI, and what is the mechanism behind functional recovery and plasticity in stem cell graft-induced reconnection. She is also awarded with She Inspire program by India Biosciences to empower and motivate women to work in science. If she is not doing science, you can find her doing sketches, gardening, and exploring new places (especially eateries).",
-           email: "shringikasoni@gccmb.res.in",
+           email: "shringikasoni@ccmb.res.in",
          },
         {
           name: "Manoj Kumar",
