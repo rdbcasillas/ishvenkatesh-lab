@@ -23,7 +23,13 @@
               class="list-group-item d-flex justify-content-between align-items-center"
             >
               DBT
-              <span class="badge badge-primary badge-pill">2024-2026</span>
+              <span class="badge badge-primary badge-pill">2024-2027</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              CSIR-Neuromission
+              <span class="badge badge-primary badge-pill">2024-2027</span>
             </li>
           </ul>
         </b-col>

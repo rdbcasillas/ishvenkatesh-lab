@@ -16,6 +16,7 @@
     "package.json": "^0.0.0",
     "particles.js": "^2.0.0",
     "vue": "^2.6.11",
+    "vue-carousel": "^0.18.0",
     "vue-gtag": "^1.16.1",
     "vue-router": "^3.2.0",
     "vuetify": "^2.6.0"

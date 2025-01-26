@@ -2,7 +2,7 @@
   <div>
     <b-container>
       <b-row>
-        <b-col> <h2>Team</h2></b-col>
+        <b-col><h2>Team</h2></b-col>
       </b-row>
       <b-row v-for="(person, index) in people" :key="index" class="mb-5 mt-3">
         <b-col class="personbox">
@@ -15,9 +15,7 @@
               blank-src="null"
               :src="require(`../assets/images/team/${person.image}.jpg`)"
             ></b-img-lazy>
-            <span class="mt-3 ml-2 text-justify persondesc">{{
-              person.desc
-            }}</span>
+            <span class="mt-3 ml-2 text-justify persondesc" v-html="person.desc"></span>
           </div>
         </b-col>
         <hr />
@@ -50,11 +48,11 @@ export default {
            desc: "Shringika Soni is SERB-nPDF and joined the lab in March 2024. She has an Integrated M. Tech in Cognitive Neuroscience and a notable dissertation at NIMHANS, Bengaluru. Before joining PhD, she worked on pre-clinical and clinical models of autism at PGIMER Chandigarh. During her doctoral thesis at Amity University Uttar Pradesh, Noida, she designed an electrochemical nano-aptasensor to detect illicit drug abuse. In March 2024, Shringika started her journey at the Venkatesh lab, focusing on dual therapies in spinal cord injury (SCI) animal model. She is exploring how Nuclear receptor family of transcription factors based gene therapy and stem cell therapy will affect neuroregeneration and recovery in SCI, and what is the mechanism behind functional recovery and plasticity in stem cell graft-induced reconnection. She is also awarded with She Inspire program by India Biosciences to empower and motivate women to work in science. If she is not doing science, you can find her doing sketches, gardening, and exploring new places (especially eateries).",
            email: "shringikasoni@ccmb.res.in",
          },
-        {
+         {
           name: "Manoj Kumar",
           position: "Research Associate",
           image: "manoj_1",
-          desc: "Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy :D) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it’s published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography, Wildlife conservation, Travelling, and Gaming but importantly cooking, and he shares the output of his cooking experiments generously with the lab members!",
+          desc: `Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy :D) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it's published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography, Wildlife conservation, Travelling, and Gaming but importantly cooking, and he shares the output of his cooking experiments generously with the lab members! <a href="https://mano2991.github.io/Mano2991/" target="_blank" rel="noopener noreferrer">here</a>`,
           email: "manojkumar@ccmb.res.in",
         },
         {
@@ -156,30 +154,35 @@ export default {
       //  desc: "Riya joined the lab as a summer trainee in June 2024. She is pursuing her bachelors degree in life sciences from Hansraj College, University of Delhi. Her experience in the lab with cloning techniques has encouraged her to take up molecular biology for her further studies. Apart from academics she loves travelling and listening to good music.",
       //  email: "",
       //  },
-      ],
+      ]
     };
   },
 };
 </script>
 
 <style scoped>
-h4,
-h2,
-h6,
-p {
+h4, h2, h6, p {
   font-family: "Oswald", sans-serif !important;
   font-weight: bold;
   color: #346225 !important;
 }
+
 span {
   color: #346225 !important;
   font-size: 19px;
 }
+
+span >>> a {
+  color: #346225;
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   .persondesc {
     text-align: left !important;
   }
 }
+
 .personbox {
   border: 0.5px dotted rgb(18, 66, 26);
 }
