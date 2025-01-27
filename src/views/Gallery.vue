@@ -2,19 +2,21 @@
   <div>
     <b-container fluid class="p-4 bg-light">
       <b-row>
-        <b-col class="mb-5 gallery-col" cols="6" v-for="image in images" :key="image">
-          <h4 class="text-center">{{ image.desc }}</h4>
-          <div class="image-wrapper" @click="showImage(image)">
-            <b-img-lazy
-              blank-src="null"
-              thumbnail
-              fluid
-              :src="require(`../assets/images/gallery/${image.file}.jpg`)"
-              :alt="image.desc"
-              class="gallery-image"
-            ></b-img-lazy>
+        <b-col class="mb-5 gallery-col" cols="12" md="6" lg="4" v-for="image in images" :key="image">
+          <div class="gallery-card">
+            <h4 class="text-center">{{ image.desc }}</h4>
+            <div class="image-wrapper" @click="showImage(image)">
+              <b-img-lazy
+                blank-src="null"
+                thumbnail
+                fluid
+                :src="require(`../assets/images/gallery/${image.file}.jpg`)"
+                :alt="image.desc"
+                class="gallery-image"
+              ></b-img-lazy>
+            </div>
+            <hr />
           </div>
-          <hr />
         </b-col>
       </b-row>
     </b-container>
@@ -23,12 +25,14 @@
       <template #modal-title>
         <h5 class="modal-title">{{ selectedImage?.desc }}</h5>
       </template>
-      <img 
-        v-if="selectedImage"
-        :src="require(`../assets/images/gallery/${selectedImage.file}.jpg`)"
-        class="modal-image"
-        :alt="selectedImage.desc"
-      />
+      <div class="modal-image-container">
+        <img 
+          v-if="selectedImage"
+          :src="require(`../assets/images/gallery/${selectedImage.file}.jpg`)"
+          class="modal-image"
+          :alt="selectedImage.desc"
+        />
+      </div>
     </b-modal>
   </div>
 </template>
