@@ -126,13 +126,13 @@ export default {
       //    desc: "Apoorva, our youngest crew member, joined us in June 2023 as a summer trainee for 2 months. Currently she’s pursuing a B. Tech in Biotechnology at PES University, Bangalore (Batch of 2020-2024) Eternally curious,  she’s soaking up all she can in the 2 months she’s with us. Beyond the lab, she enjoys crafts, reading, classical dance, and travel.",
       //    email: "",
       //  },
-       {
-          name: "Arupam Biswas",
-          position: "Dissertation Student",
-          image: "arupam",
-          desc: "Arupam Biswas joined the lab in August 2023 as a one year dissertation student. He is the  final-year student of a five-year integrated M.Sc course (Life Sciences Major) at ISERC, Visva-Bharati, Santiniketan, India. His dissertation work is dedicated to enhancing High-Content Screening techniques to assess the impact of Transcription Factors in the context of spinal injuries. His academic interests revolve around Neuropsychiatric and Neurodegenerative Disorders. Beyond the lab, Either find him experimenting with delicious recipes in the kitchen or capturing moments of nature with his camera.",
-          email: "arupambiswas007@gmail.com",
-        },
+      // {
+      //   name: "Arupam Biswas",
+      //    position: "Dissertation Student",
+      //    image: "arupam",
+      //    desc: "Arupam Biswas joined the lab in August 2023 as a one year dissertation student. He is the  final-year student of a five-year integrated M.Sc course (Life Sciences Major) at ISERC, Visva-Bharati, Santiniketan, India. His dissertation work is dedicated to enhancing High-Content Screening techniques to assess the impact of Transcription Factors in the context of spinal injuries. His academic interests revolve around Neuropsychiatric and Neurodegenerative Disorders. Beyond the lab, Either find him experimenting with delicious recipes in the kitchen or capturing moments of nature with his camera.",
+      //    email: "arupambiswas007@gmail.com",
+      //  },
         {
           name: "Soupayan Banerjee",
           position: "Project Trainee",
