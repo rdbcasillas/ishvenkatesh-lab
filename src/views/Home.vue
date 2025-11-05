@@ -71,9 +71,9 @@
           <b-col cols="5" md="4">
             <h3 class="text-center">Ish's Tweets</h3>
             <v-card class="overflow-auto tweetdiv">
-              <a class="twitter-timeline" href="https://twitter.com/Ishwariya13?ref_src=twsrc%5Etfw">Tweets by Ishwariya13</a>
+                <a class="twitter-timeline" data-lang="en" data-theme="dark" href="https://twitter.com/Ishwariya13?ref_src=twsrc%5Etfw">Tweets by Ishwariya13</a>
             </v-card>
-          </b-col>
+        </b-col>
         </b-row>
       </b-container>
     </div>
@@ -116,10 +116,44 @@ export default {
       ],
       recentNews: [
         {
+          "date": "Nov",
+          "content": "<h3>November was a huge month for conference participation and awards at IAN - 2025!</h3>\n<ul>\n<li><b>Yogesh and Katha</b> gave a short talk at the IAN - 2025 conference.</li>\n  <li><b>Rutuja</b> won the <b>Best Poster Award</b> at IAN - 2025.</li>\n  <li><b>Shringika</b> won the <b>Travel Award</b> at IAN - 2025.</li>\n</ul>"
+        },
+        {
+          "date": "Oct",
+          "content": "We welcomed <b>Aarthi</b> to the lab and the research team."
+        },
+        {
+          "date": "Sep",
+          "content": "<h3>September was a busy month!</h3>\n<ul>\n  <li>The team proudly <b>won the Best Exhibit Award at CCMB</b>!</li>\n  <li>We welcomed <b>Faheem</b> to the group, adding new expertise to our growing team.</li>\n  <li>We held a heartfelt <b>farewell for Meghana</b> as she moved on to her next venture.</li>\n  <li><b>Ish</b> shared his knowledge on advanced microscopy by giving a talk at <b>CCMB</b>.</li>\n</ul>"
+        },
+        {
+          "date": "Aug",
+          "content": "<b>Praveen</b> officially joined the research group this month."
+        },
+        {
+          "date": "Jul",
+          "content": "The lab expanded significantly with the arrival of <b>Netra, Athul, and Dhanuush</b>."
+        },
+        {
+          "date": "May",
+          "content": "<b>Rutuja and Yogesh</b> were recognized for their work, winning the <b>Best Poster Award at SNCI</b>."
+        },
+        {
+          "date": "April",
+          "content": "<h3>April Speaking Engagements</h3>\n<ul>\n  <li><b>Ish</b> delivered an insightful presentation at the <b>PSG talk</b>.</li>\n  <li>A great honor for <b>Ish</b>, who was invited to serve as a <b>Chief Guest at Bannari Amman Institute of Technology</b>.</li>\n</ul>"
+        },
+        {
+          "date": "Mar",
+          "content": "<b>Ish</b> traveled to Odisha to give an invited talk at <b>Utkal University</b>."
+        }
+      ],
+        olderNews: [
+          {
           date: 'Jan 2025',
           content: 'Anisha cleared her Compre exams and is now officially promoted to Senior Research Fellow!'
         },
-        {
+          {
           date: 'Dec 2024',
           content: 'Ish wraps up the year with an invited talk at NBRC - Delhi'
         },
@@ -183,9 +217,7 @@ export default {
         {
           date: 'Jan 2024',
           content: 'Sneha Manjunath joined back as Project-associate!'
-        }
-        ],
-        olderNews: [
+        },
         {
           date: 'Nov 2023',
           content: `Ish gave an invited talk at the Indian Academy of Sciences meeting held in Goa in November 2023, her first meeting as an associate of the academy<br><br>In November 2023, Ish gave an invited talk at The India Investigator Network meeting held at CCMB`

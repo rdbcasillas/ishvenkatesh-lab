@@ -43,6 +43,10 @@ export default {
     return {
       images: [
         {
+          file: "IAN_2025",
+          desc: "Lab Crew attend IAN 2025, Yogesh and Katha gave short talk, Rutuja Won the best poster award and Shringika Won the Travel Award",
+        },
+        {
           file: "Hyd",
           desc: "Ish gave a plenary talk at Bioanveshna 2024 held at University of Hyderabad in February 2024",
         },
