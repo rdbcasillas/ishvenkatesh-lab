@@ -149,7 +149,7 @@ export default {
         olderNews: [
           {
           date: 'Jan 2025',
-          content: 'Anisha cleared her Compre exams and is now officially promoted to Senior Research Fellow!'
+          content: 'Anisha cleared her Compre exams after a big battle with the committee and is now officially promoted to Senior Research Fellow!'
         },
           {
           date: 'Dec 2024',
