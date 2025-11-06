@@ -31,6 +31,12 @@
               CSIR-Neuromission
               <span class="badge badge-primary badge-pill">2024-2027</span>
             </li>
+             <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              BFI Biome
+              <span class="badge badge-primary badge-pill">2025-2028</span>
+            </li>
           </ul>
         </b-col>
       </b-row>
