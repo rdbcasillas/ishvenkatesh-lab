@@ -127,7 +127,7 @@ export default {
         },
         {
           "date": "Aug",
-          "content": "<b>Praveen</b> officially joined the research group this month."
+          "content": "<b>Praveena Koyyada</b> officially joined the research group this month."
         },
         {
           "date": "Jul",
