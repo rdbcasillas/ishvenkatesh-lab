@@ -57,10 +57,17 @@ export default {
         },
         {
           name: "Prakesh",
-          position: "Senior Project Associate",
+          position: "CSIR - Research Associate",
           image: "Prakesh",
           desc: "Prakash joined the lab as a Senior Project Associate in September 2024. He completed his master degree in Genetic Engineering at Bharathiar University, Coimbatore, subsequently specialized in Plant Genetic Engineering through a DBT-funded program at Madurai Kamaraj University. Following this, he acquired seven years of valuable experience as a Research Associate at Rasi Seeds R&D Biotech Pvt. Ltd., Salem. He later completed his doctoral program in Molecular Biology at Aravind Medical Research Foundation, Madurai. His Ph.D. research focused on investigating the crosstalk between nuclear and mitochondrial genomes in patients with Leber’s Hereditary Optic Neuropathy (LHON). By utilizing advanced techniques like next-generation sequencing (NGS) and CRISPR-Cas9-mediated genetic knockout models, he uncovered key molecular mechanisms underlying LHON pathogenesis. During his Ph.D. tenure, he was awarded the prestigious ICMR Senior Research Fellowship. In September 2024, Prakash began his journey at the Venkatesh Lab, where he focuses primary mouse neuron culture and the differentiation of induced pluripotent stem cells (iPSCs) into neural progenitor cells for stem cell therapy in a spinal cord injury (SCI) animal model. His research aims to address the challenges posed by the hostile injury environment, with the goal of promoting tissue regeneration and behavioral recovery. Outside of his professional commitments, Prakash enjoys cooking and cherishes quality time with his son and family.",
           email: "cpge1988@gmail.com",
+        },
+         {
+          name: "Praveena Koyyada",
+          position: "Senior Project Associate",
+          image: "Praveena",
+          desc: "Praveena started here journey in neuroscience with Ish's Axon growth and regeneration lab as a Post Doctoral since August 2025. She is a professional graduate with M.Tech in Biotechnology from JNTU and has been awarded PhD in Biochemistry for her work on Systemic analysis of Mycobacterium tuberculosis and its host genome from University of Hyderabad. She bring to the table an experience of implementing Machine learning and Deep learning approaches onto the OMICs studies alongside statistics for drawing biological inferences. Her curiosity for learning, cognition and neuroscience has led to work on the a Chromatin developmental atlas, where she is utilizing the pool of epigenomics and transcriptomics data available at ENCODE consortium. She is interested to develop strategic deep learning method studying the axon development in CNS and further, wants to navigate through translational studies aimed at handling and management of neurodegenerative diseases. Apart from sciences, she is passionate about reading on world history, Indian heritage, science-fiction and fictitious works from notable writers. She also take deep craving for adventure sports, exploring places and learning arts.",
+          email: "praveena.bt94@gmail.com",
         },
         {
           name: "Yogesh Sahu",
@@ -123,7 +130,7 @@ export default {
           name: "Faheem Farooq",
           position: "Project Associate",
           image: "Faheem",
-          desc: "Faheem joined the lab in September 2025 as a Project Associate. He holds a Master’s degree in Biotechnology from the University of Kashmir. For his dissertation, he moved to IISc, Bangalore, where he studied the cross-talk between DNA supercoiling and transcription at the single-molecule level. His time at IISc sparked his interest in the field of genome organization, which led him to join CDFD, Hyderabad, as a Project Associate in where we used budding yeast as a model system to understand the role of CTCF in establishing genome organization in higher eukaryotes. Building on this foundation, in the lab he is currently investigating how genome organization regulates regenerative capacity across mouse neuronal development",
+          desc: "Faheem joined the lab in September 2025 as a Project Associate. He holds a Master’s degree in Biotechnology from the University of Kashmir. It was during His dissertation period at IISc that sparked his interest in the field of genome organization, which led him to join CDFD, Hyderabad, as a Project Associate. To gain further expertise in the field and develop his research aptitude skills he joined our group and building on his working knowledge of genome organisation, in the lab he is currently investigating how genome organization regulates regenerative capacity across mouse neuronal development.",
           email: "faheem@csirccmb.org",
          },
        //{
