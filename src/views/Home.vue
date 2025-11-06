@@ -123,7 +123,7 @@ export default {
         },
         {
           "date": "Sep",
-          "content": "<h3>September was a busy month!</h3>\n<ul>\n  <li>The team proudly <b>won the Best Exhibit Award at CCMB</b>!</li>\n  <li>We welcomed <b>Faheem</b> to the group, adding new expertise to our growing team.</li>\n  <li>We held a heartfelt <b>farewell for Meghana</b> as she moved on to her next venture.</li>\n  <li><b>Ish</b> shared his knowledge on advanced microscopy by giving a talk at <b>CCMB</b>.</li>\n</ul>"
+          "content": "<h3>September was a busy month!</h3>\n<ul>\n  <li>The team proudly <b>won the Best Exhibit Award at CCMB</b>!</li>\n  <li>We welcomed <b>Faheem</b> to the group, adding new expertise to our growing team.</li>\n  <li>We held a heartfelt <b>farewell for Meghana</b> as she moved on to her next venture.</li>\n  <li><b>Ish</b> shared her knowledge on advanced microscopy by giving a talk at <b>CCMB</b>.</li>\n</ul>"
         },
         {
           "date": "Aug",
