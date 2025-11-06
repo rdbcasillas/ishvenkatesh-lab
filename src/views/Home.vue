@@ -44,7 +44,6 @@
           <b-col cols="7" md="8" class="labnews">
             <h3 class="text-center">LAB NEWS</h3>
             
-            <!-- Recent News -->
             <div v-for="(item, index) in recentNews" :key="'recent-'+index">
               <v-card elevation="2" class="mt-2">
                 <v-card-title>{{ item.date }}</v-card-title>
@@ -52,12 +51,10 @@
               </v-card>
             </div>
 
-            <!-- Show more button -->
             <v-btn block class="mt-4 show-more-btn" @click="showOlderNews = !showOlderNews">
               {{ showOlderNews ? 'Show Less' : 'View Older News' }}
             </v-btn>
 
-            <!-- Older News -->
             <div v-if="showOlderNews">
               <div v-for="(item, index) in olderNews" :key="'older-'+index">
                 <v-card elevation="2" class="mt-2">
@@ -71,9 +68,9 @@
           <b-col cols="5" md="4">
             <h3 class="text-center">Ish's Tweets</h3>
             <v-card class="overflow-auto tweetdiv">
-                <a class="twitter-timeline" data-lang="en" data-theme="dark" href="https://twitter.com/Ishwariya13?ref_src=twsrc%5Etfw">Tweets by Ishwariya13</a>
+              <div class="elfsight-app-49b277f8-63cb-4997-abaa-e683d5b8421c" data-elfsight-app-lazy></div>
             </v-card>
-        </b-col>
+          </b-col>
         </b-row>
       </b-container>
     </div>
@@ -114,10 +111,11 @@ export default {
           image: "bioinfo.png",
         },
       ],
+      // ... (Your existing recentNews and olderNews arrays)
       recentNews: [
         {
           "date": "Nov",
-          "content": "<h3>November was a huge month for conference participation and awards at IAN - 2025!</h3>\n<ul>\n<li><b>Yogesh and Katha</b> gave a short talk at the IAN - 2025 conference.</li>\n  <li><b>Rutuja</b> won the <b>Best Poster Award</b> at IAN - 2025.</li>\n  <li><b>Shringika</b> won the <b>Travel Award</b> at IAN - 2025.</li>\n</ul>"
+          "content": "<h3>November was a huge month for conference participation and awards at IAN - 2025!</h3>\n<ul>\n<li><b>Yogesh and Katha</b> gave a short talk at the IAN - 2025 conference.</li>\n  <li><b>Rutuja</b> won the <b>Best Poster Award</b> at IAN - 2025.</li>\n  <li><b>Shringika</b> won the <b>Travel Award</b> at IAN - 2025.</li>\n</ul>"
         },
         {
           "date": "Oct",
@@ -125,7 +123,7 @@ export default {
         },
         {
           "date": "Sep",
-          "content": "<h3>September was a busy month!</h3>\n<ul>\n  <li>The team proudly <b>won the Best Exhibit Award at CCMB</b>!</li>\n  <li>We welcomed <b>Faheem</b> to the group, adding new expertise to our growing team.</li>\n  <li>We held a heartfelt <b>farewell for Meghana</b> as she moved on to her next venture.</li>\n  <li><b>Ish</b> shared his knowledge on advanced microscopy by giving a talk at <b>CCMB</b>.</li>\n</ul>"
+          "content": "<h3>September was a busy month!</h3>\n<ul>\n  <li>The team proudly <b>won the Best Exhibit Award at CCMB</b>!</li>\n  <li>We welcomed <b>Faheem</b> to the group, adding new expertise to our growing team.</li>\n  <li>We held a heartfelt <b>farewell for Meghana</b> as she moved on to her next venture.</li>\n  <li><b>Ish</b> shared his knowledge on advanced microscopy by giving a talk at <b>CCMB</b>.</li>\n</ul>"
         },
         {
           "date": "Aug",
@@ -141,7 +139,7 @@ export default {
         },
         {
           "date": "April",
-          "content": "<h3>April Speaking Engagements</h3>\n<ul>\n  <li><b>Ish</b> delivered an insightful presentation at the <b>PSG talk</b>.</li>\n  <li>A great honor for <b>Ish</b>, who was invited to serve as a <b>Chief Guest at Bannari Amman Institute of Technology</b>.</li>\n</ul>"
+          "content": "<h3>April Speaking Engagements</h3>\n<ul>\n  <li><b>Ish</b> delivered an insightful presentation at the <b>PSG talk</b>.</li>\n  <li>A great honor for <b>Ish</b>, who was invited to serve as a <b>Chief Guest at Bannari Amman Institute of Technology</b>.</li>\n</ul>"
         },
         {
           "date": "Mar",
@@ -285,8 +283,21 @@ export default {
       ]
     };
   },
+  methods: {
+    loadElfsightScript() {
+      // Check if the script is already loaded
+      if (!document.querySelector('script[src*="elfsightcdn.com"]')) {
+        const script = document.createElement('script');
+        script.src = "https://elfsightcdn.com/platform.js";
+        script.async = true;
+        document.head.appendChild(script);
+      }
+    }
+  },
   mounted() {
     console.log(this.news.split("\n"));
+    // Load the Elfsight script when the component is mounted
+    this.loadElfsightScript();
   },
 };
 </script>
