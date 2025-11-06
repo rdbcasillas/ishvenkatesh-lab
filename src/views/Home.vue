@@ -337,7 +337,7 @@ p {
   font-style: italic;
 }
 .tweetdiv {
-  height: 500px;
+  height: 800px;
   width: 400px;
 }
 .v-card__title {
