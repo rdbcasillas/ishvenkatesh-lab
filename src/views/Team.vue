@@ -158,7 +158,7 @@ export default {
           name: "Netra Krishna",
           position: "Project Trainee",
           image: "netra",
-          desc: "Netra (nay-th-raa) is currently a project trainee in the lab, after completing her bachelor's degree from Krea University. Her initial stint as a summer trainee in Venkatesh Lab sparked her curiosity for neuroscience as well as her motivation to do a PhD, bringing her back to where she first learnt about research. She is currently working on the in vivo mechanisms to study 3D genome changes post spinal cord injury, as well as sharpening her skills in bioinformatics and programming as she ventures into studying nucleosomes and their dynamics. When she's not in the lab, you can find her crocheting, hitting the gym, or on a run",
+          desc: "Netra (nay-th-raa) is currently a project trainee in the lab, after completing her bachelor's degree from Krea University. Her initial stint as a summer trainee in Venkatesh Lab sparked her curiosity for neuroscience as well as her motivation to do a PhD, bringing her back to where she first learnt about research. She is currently working on the in vivo mechanisms to study 3D genome changes post spinal cord injury, as well as sharpening her skills in bioinformatics and programming as she ventures into studying nucleosomes and their dynamics. When she's not in the lab, you can find her crocheting, hitting the gym, or on a run 🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️",
           email: "netrakrishna.21@gmail.com",
         },
         {
