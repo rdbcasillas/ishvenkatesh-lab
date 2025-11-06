@@ -169,7 +169,7 @@ export default {
           email: "dhanuush19@gmail.com",
         },
         {
-          name: "Athul Narayanayan",
+          name: "Athul Narayan PS",
           position: "Dissertation Trainee",
           image: "Athul",
           desc: "Athul joined the lab in July 2025 as a dissertation student from VIT, Vellore, where he is currently pursuing an Integrated Master’s degree in Biotechnology. His research focuses on understanding how transcription factors regulate neuronal regeneration in spinal cord injury (SCI) models, as well as developing optical clearing strategies for brain and spinal cord tissues to enable deep imaging. Outside the lab, he is passionate about football, enjoys exploring new places, and engages in light reading during his free time.",
