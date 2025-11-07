@@ -8,7 +8,7 @@
         <b-col class="personbox">
           <h4>{{ person.name }} ({{ person.position }})</h4>
           <h6>{{ person.email }}</h6>
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
             <b-img-lazy
               v-bind="imageProps"
               rounded
@@ -52,7 +52,7 @@ export default {
           name: "ManojKumar K",
           position: "Research Associate",
           image: "manoj_1",
-          desc: `Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy :D) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it's published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography, Wildlife conservation, Travelling, and Gaming but importantly cooking, and he shares the output of his cooking experiments generously with the lab members! <a href="https://mano2991.netlify.app/" target="_blank" rel="noopener noreferrer">Visit his personal webpage</a>`,
+          desc: `Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy 😜) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it's published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography 📸, Wildlife conservation 🐾, Travelling 🧳, and Gaming 🕹️ but importantly cooking 🧑🏽‍🍳, and he shares the output of his cooking experiments generously with the lab members! <a href="https://mano2991.netlify.app/" target="_blank" rel="noopener noreferrer">Visit his personal webpage</a>`,
           email: "manojkumar@ccmb.res.in",
         },
         {
@@ -80,7 +80,7 @@ export default {
           name: "Anisha S. Menon",
           position: "PhD student",
           image: "anisha",
-          desc: `Anisha S. Menon is a PhD student and has been a member of the lab since March 2023. She holds a Bachelor's degree in Zoology from Vimala College, Kerala (2018), and a Master's degree in Zoology from St. Joseph's College, Kerala (2020). Her research focuses on the fascinating field of epigenetic regulation of axon regeneration and 3D genome. Anisha investigates the intricate mechanisms underlying the ability of neurons to repair and regrow their axons after injury. Through the study of epigenetic modifications and the dynamic 3D genome architecture, she aims to unravel the molecular processes that drive axon regeneration. In addition to her scientific pursuits, Anisha has a passion for stargazing and cooking during her leisure time. Exploring the night sky and experimenting with new recipes bring her joy and provide a much-needed balance to her research endeavors. <a href="https://anisha8597.github.io/anisha/" target="_blank" rel="noopener noreferrer">Visit her personal webpage</a> `,
+          desc: `Anisha S. Menon is a PhD student who joined the lab in March 2023. She completed her Bachelor's in Zoology at Vimala College, Kerala, followed by  Master's in Zoology from St. Joseph's College, Kerala. Her research is mainly to uncover the epigenetic roadblocks that limit CNS regenerative potential. Anisha delves deeply into the world of chromatin remodelers, examining everything from chromatin accessibility and histone modifications to 3D genome architecture—essentially, leaving no epigenetic stone unturned. Beyond the lab bench, her love for reading and writing fuels her interest in science communication, letting her translate complex neuroscience into stories anyone can enjoy (whenever she gets a little downtime 😇 ). <a href="https://anisha8597.github.io/anisha/" target="_blank" rel="noopener noreferrer">Check out her work and musings on her</a> `,
           email: "anisha.ccmb@csir.res.in",
         },
         {
@@ -158,7 +158,7 @@ export default {
           name: "Netra Krishna",
           position: "Project Trainee",
           image: "netra",
-          desc: "Netra (nay-th-raa) is currently a project trainee in the lab, after completing her bachelor's degree from Krea University. Her initial stint as a summer trainee in Venkatesh Lab sparked her curiosity for neuroscience as well as her motivation to do a PhD, bringing her back to where she first learnt about research. She is currently working on the in vivo mechanisms to study 3D genome changes post spinal cord injury, as well as sharpening her skills in bioinformatics and programming as she ventures into studying nucleosomes and their dynamics. When she's not in the lab, you can find her crocheting, hitting the gym, or on a run 🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️🏃‍♀️",
+          desc: "Netra (nay-th-raa) is currently a project trainee in the lab, after completing her bachelor's degree from Krea University. Her initial stint as a summer trainee in Venkatesh Lab sparked her curiosity for neuroscience as well as her motivation to do a PhD, bringing her back to where she first learnt about research. She is currently working on the in vivo mechanisms to study 3D genome changes post spinal cord injury, as well as sharpening her skills in bioinformatics and programming as she ventures into studying nucleosomes and their dynamics. When she's not in the lab, you can find her crocheting, hitting the gym, or on a run 🏃‍♀️ 🏋🏻‍♀️ 💪🏼 🚴🏼‍♀️ ",
           email: "netrakrishna.21@gmail.com",
         },
         {
