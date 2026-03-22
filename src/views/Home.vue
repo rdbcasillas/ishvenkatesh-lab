@@ -114,6 +114,22 @@ export default {
       // ... (Your existing recentNews and olderNews arrays)
       recentNews: [
         {
+          "date": "Mar",
+          "content": "<h3>March 2026 Highlights</h3>\n<ul>\n  <li><b>Shringika</b> gave a talk at YIM.</li><br>\n  <li><b>Lab's 6th preprint</b> — Congratulations Anisha! <a href=\"https://www.biorxiv.org/content/10.64898/2026.03.12.711224v1\" target=\"_blank\" rel=\"noopener noreferrer\">Read preprint</a></li><br>\n  <li><b>Ish</b> gave an invited talk at IISER Tirupati. <a href=\"https://x.com/Ishwariya13/status/2028689265983647769?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n</ul>"
+        },
+        {
+          "date": "Feb",
+          "content": "<h3>February 2026 Highlights</h3>\n<ul>\n  <li><b>Yogesh Sahu</b> successfully completed his open DAC presentation.</li><br>\n</ul>"
+        },
+        {
+          "date": "Jan",
+          "content": "<h3>January 2026 Highlights</h3>\n<ul>\n  <li><b>Athul, Anisha, and Manoj</b> won the <b>Best Poster Award</b> at CMMDR 2026. <a href=\"https://x.com/Ishwariya13/status/2009272576627904746?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n  <li><b>Katha</b> bids farewell to the lab and embarks on an exciting new journey as a PhD student at Jena University. We wish her all the best!</li><br>\n  <li><b>Ish</b> delivered an invited talk at MSSRF. <a href=\"https://x.com/Gayatrivenkata2/status/2010683716767776819?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n  <li><b>Dhanush</b> was promoted to Project Associate.</li><br>\n  <li><b>Susmita</b> joined the lab as a RICH Fellow. Welcome!</li><br>\n</ul>"
+        },
+        {
+          "date": "Dec",
+          "content": "<h3>December 2025 Highlights</h3>\n<ul>\n  <li><b>Rutuja</b> was promoted to Senior Research Fellow. Congratulations! <a href=\"https://x.com/Ishwariya13/status/2000579852571746661?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n  <li>The lab's <b>5th preprint</b> is out — Congratulations to <b>Netra and Anisha</b>! <a href=\"https://www.biorxiv.org/content/10.64898/2025.12.22.695949v1\" target=\"_blank\" rel=\"noopener noreferrer\">Read preprint</a></li><br>\n</ul>"
+        },
+        {
           "date": "Nov",
           "content": "<h3>November was a huge month for conference participation and awards at IAN - 2025!</h3>\n<ul>\n<li><b>Yogesh and Katha</b> gave a short talk at the IAN - 2025 conference.</li>\n  <li><b>Rutuja</b> won the <b>Best Poster Award</b> at IAN - 2025.</li>\n  <li><b>Shringika</b> won the <b>Travel Award</b> at IAN - 2025.</li>\n</ul>"
         },
@@ -124,8 +140,10 @@ export default {
         {
           "date": "Sep",
           "content": "<h3>September was a busy month!</h3>\n<ul>\n  <li>The team proudly <b>won the Best Exhibit Award at CCMB</b>!</li>\n  <li>We welcomed <b>Faheem</b> to the group, adding new expertise to our growing team.</li>\n  <li>We held a heartfelt <b>farewell for Meghana</b> as she moved on to her next venture.</li>\n  <li><b>Ish</b> shared her knowledge on advanced microscopy by giving a talk at <b>CCMB</b>.</li>\n</ul>"
-        },
-        {
+        }
+      ],
+        olderNews: [
+          {
           "date": "Aug",
           "content": "<b>Praveena Koyyada</b> officially joined the research group this month."
         },
@@ -144,9 +162,7 @@ export default {
         {
           "date": "Mar",
           "content": "<b>Ish</b> traveled to Odisha to give an invited talk at <b>Utkal University</b>."
-        }
-      ],
-        olderNews: [
+        },
           {
           date: 'Jan 2025',
           content: 'Anisha cleared her Compre exams and now she is officially promoted to Senior Research Fellow!'
