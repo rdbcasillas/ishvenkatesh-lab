@@ -47,14 +47,18 @@
                 >
                   <a target="_blank" :href="pub.URL"> {{ pub.Title }}</a>
                 </li>
-                <span v-if="pub.AuthorType === 'First'" class="authorStyle">
-                  <span class="mainAuthor">{{ pub.Authors[0] }}</span
-                  >,
-                  {{ pub.Authors.slice(1).toString(" ") }}
-                </span>
-                <span v-else class="authorStyle">
-                  {{ pub.Authors.slice(1).toString(" "), }},
-                  <span class="mainAuthor">{{ pub.Authors[0] }}</span>
+                <span class="authorStyle">
+                  <span
+                    v-for="(author, authorIndex) in pub.Authors"
+                    :key="authorIndex"
+                  >
+                    <span
+                      :class="{
+                        mainAuthor: shouldHighlightAuthor(pub, author),
+                      }"
+                      >{{ author }}</span
+                    ><span v-if="authorIndex < pub.Authors.length - 1">, </span>
+                  </span>
                 </span>
               </ul>
             </b-col>
@@ -66,22 +70,27 @@
 </template>
 
 <script>
-import { json } from "d3-fetch";
 import { group } from "d3-array";
+import publicationData from "@/assets/publications.json";
 export default {
   data() {
     return {
-      publicationData: "./publications.json",
+      publicationData,
       publications: [],
       groupedData: [],
     };
   },
   methods: {
     getData() {
-      json(this.publicationData).then((data) => {
-        this.publications = data;
-        this.groupedData = group(data, (d) => d.Year);
-      });
+      this.publications = this.publicationData;
+      this.groupedData = group(this.publications, (d) => d.Year);
+    },
+    shouldHighlightAuthor(pub, author) {
+      if (pub.AuthorType === "Corresponding author") {
+        return author === "Ishwariya Venkatesh";
+      }
+
+      return pub.AuthorType === "First" && author === pub.Authors[0];
     },
   },
   mounted() {

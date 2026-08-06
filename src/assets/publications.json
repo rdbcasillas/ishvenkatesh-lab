@@ -1,5 +1,132 @@
 [
   {
+    "Title": "Combinatorial Control of Corticospinal Axon Growth by Retinoic Acid Receptors",
+    "Year": "2026",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Yogesh Sahu",
+      "Athul PS Narayan",
+      "Manojkumar Kumaran",
+      "Shringika Soni",
+      "Prakash Chermakani",
+      "Dhruvakumar Kesireddy",
+      "Meghana Konda",
+      "Anisha S Menon",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "bioRxiv",
+    "URL": "https://www.biorxiv.org/content/10.64898/2026.07.24.740479v1"
+  },
+  {
+    "Title": "Rewiring of the three-dimensional genome encodes regenerative potential in the adult central nervous system.",
+    "Year": "2026",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Anisha S. Menon",
+      "Manojkumar Kumaran",
+      "Faheem Farooq",
+      "Deepta S Beji",
+      "Dhruva Kumar Kesireddy",
+      "Yogesh Sahu",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "bioRxiv",
+    "URL": "https://www.biorxiv.org/content/10.64898/2026.03.12.711224v1"
+  },
+  {
+    "Title": "PATZ1 remodels the nucleosome landscape to promote chromatin accessibility in injured neurons.",
+    "Year": "2025",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Netra Krishna",
+      "Anisha S Menon",
+      "Manojkumar Kumaran",
+      "Dhruva Kumar Kesireddy",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "bioRxiv",
+    "URL": "https://www.biorxiv.org/content/10.64898/2025.12.22.695949v1"
+  },
+  {
+    "Title": "Deep Neurite Analysis Tool (DeNAT): A machine-learning framework for precise automated neurite outgrowth measurement",
+    "Year": "2025",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Manojkumar Kumaran",
+      "PS Athul Narayan",
+      "Yogesh Sahu",
+      "Soupayan Banerjee",
+      "Anisha S Menon",
+      "Shringika Soni",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "bioRxiv",
+    "URL": "https://www.biorxiv.org/content/10.1101/2025.09.18.676567v1"
+  },
+  {
+    "Title": "Nuclear receptor transcription factors promote axon regeneration in the adult corticospinal tract.",
+    "Year": "2025",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Yogesh Sahu",
+      "Manojkumar Kumaran",
+      "Soupayan Banerjee",
+      "PS Athul Narayan",
+      "Katha Sanyal",
+      "Meghana Konda",
+      "Shringika Soni",
+      "Dhruva Kumar",
+      "Anisha S Menon",
+      "Prakash Chermakani",
+      "Aarthi Sukumar",
+      "Faheem Farooq",
+      "Sneha Manjunath",
+      "Deepta Susan Beji",
+      "Arupam Biswas",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "bioRxiv",
+    "URL": "https://www.biorxiv.org/content/10.1101/2025.06.19.660319v2"
+  },
+  {
+    "Title": "Targeting RARβ with a stable retinoic acid mimic promotes neurite outgrowth, neurogenesis, and behavioural recovery.",
+    "Year": "2025",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Katha Sanyal",
+      "Dhanuush Balakannan",
+      "Sk Rajibul Haque",
+      "Rutuja Arun Pendharkar",
+      "Prakash Chermakani",
+      "Manojkumar Kumaran",
+      "Pratikhya Acharya",
+      "Debabrata Maity",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "bioRxiv",
+    "URL": "https://www.biorxiv.org/content/10.1101/2025.11.05.686894v2"
+  },
+  {
+    "Title": "PATZ1 Reinstates a Growth-Permissive Chromatin Landscape in Adult Corticospinal Neurons After Injury",
+    "Year": "2025",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Anisha S. Menon",
+      "Manojkumar Kumaran",
+      "Deepta Susan Beji",
+      "Dhruva Kumar Kesireddy",
+      "Netra Krishna",
+      "Shringika Soni",
+      "Yogesh Sahu",
+      "Sneha Manjunath",
+      "Katha Sanyal",
+      "Meghana Konda",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "bioRxiv",
+    "URL": "https://www.biorxiv.org/content/10.1101/2025.05.14.654166v4"
+  },
+  {
     "Title": "Single-nuclei sequencing reveals a robust corticospinal response to nearby axotomy but overall insensitivity to spinal injury",
     "Year": "2025",
     "AuthorType": "Corresponding author",
@@ -13,7 +140,7 @@
       "Murray G Blackmore",
       "Ishwariya Venkatesh"
     ],
-    "Journal": "Journal of  Neuroscience",
+    "Journal": "Journal of Neuroscience",
     "URL": "https://www.jneurosci.org/content/early/2025/01/01/JNEUROSCI.1508-24.2024.long"
   },
   {
