@@ -24,11 +24,8 @@
               >FUNDING</b-nav-item
             >
             <b-nav-item to="/team" exact-active-class="active">TEAM</b-nav-item>
-            <b-nav-item to="/gallery" exact-active-class="active"
-              >GALLERY</b-nav-item
-            >
-            <b-nav-item to="/positions" exact-active-class="active"
-              >POSITIONS</b-nav-item
+            <b-nav-item to="/social-media" exact-active-class="active"
+              >SOCIAL MEDIA</b-nav-item
             >
             <b-nav-item
               target="_blank"

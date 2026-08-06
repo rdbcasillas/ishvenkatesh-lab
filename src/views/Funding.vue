@@ -7,33 +7,11 @@
       <b-row>
         <b-col cols="10">
           <ul class="list-group">
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              SERB-SRG
-              <span class="badge badge-primary badge-pill">2023-2026</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              PanCSIR
-              <span class="badge badge-primary badge-pill">2024-2026</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
+            <li class="list-group-item d-flex justify-content-between align-items-center">
               DBT
               <span class="badge badge-primary badge-pill">2024-2027</span>
             </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              CSIR-Neuromission
-              <span class="badge badge-primary badge-pill">2024-2027</span>
-            </li>
-             <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
+             <li class="list-group-item d-flex justify-content-between align-items-center">
               BFI Biome
               <span class="badge badge-primary badge-pill">2025-2028</span>
             </li>
@@ -47,40 +25,19 @@
         <b-col cols="10">
           <ul class="list-group">
             <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
+              class="list-group-item d-flex justify-content-between align-items-center">
+              CSIR-Neuromission
+              <span class="badge badge-primary badge-pill">2024-2026</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center">
+              SERB-SRG
+              <span class="badge badge-primary badge-pill">2023-2026</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center">
               SERB Ramanujan Fellowship
               <span class="badge badge-primary badge-pill">2022-2022</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              NSF – XSEDE XRAC grant
-              <span class="badge badge-primary badge-pill">2020-2022</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              NIH R21 (Co-Investigator) - R21NS10630
-              <span class="badge badge-primary badge-pill">2018-2020</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              NSF – XSEDE XRAC grant
-              <span class="badge badge-primary badge-pill">2018-2020</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              Craig.H.Nielsen Post-doctoral fellowship
-              <span class="badge badge-primary badge-pill">2016-2018</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              NSF – XSEDE grant for Bioinformatics data analysis
-              <span class="badge badge-primary badge-pill">2016-2018</span>
             </li>
           </ul>
         </b-col>

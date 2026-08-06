@@ -47,7 +47,29 @@
             <div v-for="(item, index) in recentNews" :key="'recent-'+index">
               <v-card elevation="2" class="mt-2">
                 <v-card-title>{{ item.date }}</v-card-title>
-                <v-card-text v-html="item.content"></v-card-text>
+                <v-card-text>
+                  <div v-if="item.content" v-html="item.content"></div>
+                  <div v-else>
+                    <h3 v-if="item.title">{{ item.title }}</h3>
+                    <ul v-if="item.items && item.items.length">
+                      <li v-for="(entry, entryIndex) in item.items" :key="entryIndex">
+                        <span v-html="entry.text"></span>
+                        <template v-if="entry.links && entry.links.length">
+                          <a
+                            class="news-link"
+                            v-for="(link, linkIndex) in entry.links"
+                            :key="linkIndex"
+                            :href="link.url"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {{ link.label }}
+                          </a>
+                        </template>
+                      </li>
+                    </ul>
+                  </div>
+                </v-card-text>
               </v-card>
             </div>
 
@@ -59,7 +81,29 @@
               <div v-for="(item, index) in olderNews" :key="'older-'+index">
                 <v-card elevation="2" class="mt-2">
                   <v-card-title>{{ item.date }}</v-card-title>
-                  <v-card-text v-html="item.content"></v-card-text>
+                  <v-card-text>
+                    <div v-if="item.content" v-html="item.content"></div>
+                    <div v-else>
+                      <h3 v-if="item.title">{{ item.title }}</h3>
+                      <ul v-if="item.items && item.items.length">
+                        <li v-for="(entry, entryIndex) in item.items" :key="entryIndex">
+                          <span v-html="entry.text"></span>
+                          <template v-if="entry.links && entry.links.length">
+                            <a
+                              class="news-link"
+                              v-for="(link, linkIndex) in entry.links"
+                              :key="linkIndex"
+                              :href="link.url"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {{ link.label }}
+                            </a>
+                          </template>
+                        </li>
+                      </ul>
+                    </div>
+                  </v-card-text>
                 </v-card>
               </div>
             </div>
@@ -79,7 +123,11 @@
 
 <script>
 import ParticlesJS from "../components/ParticlesJS.vue";
-import news from "@/assets/news.txt";
+import labNews from "@/assets/lab-news.json";
+
+const GOOGLE_SHEET_CSV_URL =
+  "https://docs.google.com/spreadsheets/d/18Ta4kyJRloDNN5vlmjm5kPjP_Eh77S-MIKvs0PYdAt8/gviz/tq?tqx=out:csv";
+const RECENT_NEWS_LIMIT = 10;
 
 export default {
   components: {
@@ -88,7 +136,6 @@ export default {
   data() {
     return {
       showOlderNews: false,
-      news: news,
       techniques: [
         {
           text: "Mouse models of injury",
@@ -111,195 +158,144 @@ export default {
           image: "bioinfo.png",
         },
       ],
-      // ... (Your existing recentNews and olderNews arrays)
-      recentNews: [
-        {
-          "date": "Mar",
-          "content": "<h3>March 2026 Highlights</h3>\n<ul>\n  <li><b>Shringika</b> gave a talk at YIM.</li><br>\n  <li><b>Lab's 6th preprint</b> — Congratulations Anisha! <a href=\"https://www.biorxiv.org/content/10.64898/2026.03.12.711224v1\" target=\"_blank\" rel=\"noopener noreferrer\">Read preprint</a></li><br>\n  <li><b>Ish</b> gave an invited talk at IISER Tirupati. <a href=\"https://x.com/Ishwariya13/status/2028689265983647769?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n</ul>"
-        },
-        {
-          "date": "Feb",
-          "content": "<h3>February 2026 Highlights</h3>\n<ul>\n  <li><b>Yogesh Sahu</b> successfully completed his open DAC presentation.</li><br>\n</ul>"
-        },
-        {
-          "date": "Jan",
-          "content": "<h3>January 2026 Highlights</h3>\n<ul>\n  <li><b>Athul, Anisha, and Manoj</b> won the <b>Best Poster Award</b> at CMMDR 2026. <a href=\"https://x.com/Ishwariya13/status/2009272576627904746?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n  <li><b>Katha</b> bids farewell to the lab and embarks on an exciting new journey as a PhD student at Jena University. We wish her all the best!</li><br>\n  <li><b>Ish</b> delivered an invited talk at MSSRF. <a href=\"https://x.com/Gayatrivenkata2/status/2010683716767776819?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n  <li><b>Dhanush</b> was promoted to Project Associate.</li><br>\n  <li><b>Susmita</b> joined the lab as a RICH Fellow. Welcome!</li><br>\n</ul>"
-        },
-        {
-          "date": "Dec",
-          "content": "<h3>December 2025 Highlights</h3>\n<ul>\n  <li><b>Rutuja</b> was promoted to Senior Research Fellow. Congratulations! <a href=\"https://x.com/Ishwariya13/status/2000579852571746661?s=20\" target=\"_blank\" rel=\"noopener noreferrer\">View post</a></li><br>\n  <li>The lab's <b>5th preprint</b> is out — Congratulations to <b>Netra and Anisha</b>! <a href=\"https://www.biorxiv.org/content/10.64898/2025.12.22.695949v1\" target=\"_blank\" rel=\"noopener noreferrer\">Read preprint</a></li><br>\n</ul>"
-        },
-        {
-          "date": "Nov",
-          "content": "<h3>November was a huge month for conference participation and awards at IAN - 2025!</h3>\n<ul>\n<li><b>Yogesh and Katha</b> gave a short talk at the IAN - 2025 conference.</li>\n  <li><b>Rutuja</b> won the <b>Best Poster Award</b> at IAN - 2025.</li>\n  <li><b>Shringika</b> won the <b>Travel Award</b> at IAN - 2025.</li>\n</ul>"
-        },
-        {
-          "date": "Oct",
-          "content": "We welcomed <b>Aarthi</b> to the lab and the research team."
-        },
-        {
-          "date": "Sep",
-          "content": "<h3>September was a busy month!</h3>\n<ul>\n  <li>The team proudly <b>won the Best Exhibit Award at CCMB</b>!</li>\n  <li>We welcomed <b>Faheem</b> to the group, adding new expertise to our growing team.</li>\n  <li>We held a heartfelt <b>farewell for Meghana</b> as she moved on to her next venture.</li>\n  <li><b>Ish</b> shared her knowledge on advanced microscopy by giving a talk at <b>CCMB</b>.</li>\n</ul>"
-        }
-      ],
-        olderNews: [
-          {
-          "date": "Aug",
-          "content": "<b>Praveena Koyyada</b> officially joined the research group this month."
-        },
-        {
-          "date": "Jul",
-          "content": "The lab expanded significantly with the arrival of <b>Netra, Athul, and Dhanuush</b>."
-        },
-        {
-          "date": "May",
-          "content": "<b>Rutuja and Yogesh</b> were recognized for their work, winning the <b>Best Poster Award at SNCI</b>."
-        },
-        {
-          "date": "April",
-          "content": "<h3>April Speaking Engagements</h3>\n<ul>\n  <li><b>Ish</b> delivered an insightful presentation at the <b>PSG talk</b>.</li>\n  <li>A great honor for <b>Ish</b>, who was invited to serve as a <b>Chief Guest at Bannari Amman Institute of Technology</b>.</li>\n</ul>"
-        },
-        {
-          "date": "Mar",
-          "content": "<b>Ish</b> traveled to Odisha to give an invited talk at <b>Utkal University</b>."
-        },
-          {
-          date: 'Jan 2025',
-          content: 'Anisha cleared her Compre exams and now she is officially promoted to Senior Research Fellow!'
-        },
-          {
-          date: 'Dec 2024',
-          content: 'Ish wraps up the year with an invited talk at NBRC - Delhi'
-        },
-        {
-          date: 'Nov 2024',
-          content: 'lab is in full attendance at IAN 2024. We bag three prizes - 2 travel awards and 1 poster prize. See tweet for more <a href="https://x.com/Ishwariya13" target="_blank" rel="noopener noreferrer">click here</a>'
-        },
-        {
-          date: 'Oct 2024',
-          content: 'We win a CCMB open day prize second year in a row :star-struck:'
-        },
-        {
-          date: 'Sep 2024',
-          content: 'We put up our annual stall for CCMB open day centered on all things Neuroscience! See more <a href="https://x.com/Ishwariya13" target="_blank" rel="noopener noreferrer">here</a>'
-        },
-        {
-          date: 'Aug 2024',
-          content: `<h3>A whole lot of news to celebrate!</h3>
-          <ul>
-            <li>Manoj our senior project associate is promoted to a Research Associate II thanks to our DBT funding!</li>
-            <li>Two former short term trainees promoted to Project Associates:
-              <ul>
-                <li>Meghana Konda</li>
-                <li>Dhruva Kesireddy</li>
-              </ul>
-            </li>
-            <li>Three new 1 year trainees joining us:
-              <ul>
-                <li>Soupayan Banerjee</li>
-                <li>Deepta Beji</li>
-                <li>Pratikhya Acharya</li>
-              </ul>
-            </li>
-            <li>Yogesh cleared his Compre exams and is now officially promoted to Senior Research Fellow!</li>
-          </ul>`
-        },
-        {
-          date: 'July 2024',
-          content: 'Shringika Soni wins the She Inspires award from India Bioscience! Congrats Shringika <a href="https://x.com/Ishwariya13" target="_blank" rel="noopener noreferrer">click here</a>'
-        },
-        {
-          date: 'June 2024',
-          content: 'Two Summer interns join us! Netra Krishna from KREA and Riya Kushawa (through the Indian Academy of Sciences) from Delhi University!<br><br>Lab is awarded a DBT grant! We are now funded to look at the role of transcription factors in the regulation of axon growth and regeneration!'
-        },
-        {
-          date: 'May 2024',
-          content: 'Lab move! We move to a bigger and our more permanent space!'
-        },
-        {
-          date: 'April 2024',
-          content: 'CSIR Neuromission grant is awarded to us! This will allow us to develop clinically relevant small molecule compounds to improve outcomes after spinal injuries<br><br>Lab goes for our second annual retreat - see this tweet for more <a href="https://x.com/Ishwariya13/status/1776998423880953864" target="_blank" rel="noopener noreferrer">click here</a>'
-        },
-        {
-          date: 'Mar 2024',
-          content: 'Shringika is awarded a SERB NPDF and joins the lab as a postdoc - Welcome aboard Shringika!<br><br>Rutuja Pendharkar joins us as our 3rd PhD student. She will be helming the Functional recovery project using stem cells! Welcome aboard Rutuja!'
-        },
-        {
-          date: 'Feb 2024',
-          content: 'Ish gave an invited talk at InSDB 2024 @ NCBS/inSTEM<br><br>Ish gave a plenary talk at Bioanveshna 2024 held at University of Hyderabad<br><br>Ish and entire lab attended CMMDR2024 and presented posters<br><br>Ish gave her Talk on "Decoding the molecular blueprint of regeneration in mammalian CNS neuron"<br><br>Anisha won the best poster award at CMMDR2024<br><br>Dr. Shringika received SERB NPDF<br><br>Katha Sanyal joined back as Project-associate!'
-        },
-        {
-          date: 'Jan 2024',
-          content: 'Sneha Manjunath joined back as Project-associate!'
-        },
-        {
-          date: 'Nov 2023',
-          content: `Ish gave an invited talk at the Indian Academy of Sciences meeting held in Goa in November 2023, her first meeting as an associate of the academy<br><br>In November 2023, Ish gave an invited talk at The India Investigator Network meeting held at CCMB`
-        },
-        {
-          date: 'Oct 2023',
-          content: 'Attended 41st IAN conference at Jiwaji University,Gwalior. Anisha S Menon Won the Best Poster Presentation Award.'
-        },
-        {
-          date: 'Sep 2023',
-          content: 'Lab puts together a Know your Brain exhibit for Open Day And won 2nd Prize for the exhibit'
-        },
-        {
-          date: 'Aug 2023',
-          content: 'Lab puts together a Genomic exhibit for <b>one week one lab </b> from CSIR<br><br>Arupam Biswas Joined us - one year Dissertation Student in August, 2023'
-        },
-        {
-          date: 'Jun 2023',
-          content: 'Dhruva Kesireddy joined us - Project Associate in June 2022.<br><br>Meghana Madhu joined us - Project Associate in June 2022.'
-        },
-        {
-          date: 'Apr 2023',
-          content: 'Celebrating One Year of Innovation: Venkatesh Lab Marks its First Anniversary with an Inaugural Lab Retreat'
-        },
-        {
-          date: 'Mar 2023',
-          content: 'Anisha S Menon joined as the 2nd PhD student.'
-        },
-        {
-          date: 'Feb 2023',
-          content: 'Sneha Manjunath joins us again in her new avatar - Project Associate in February 2022. Sneha will be prepping custom AAVs and involved in all things cloning and genomics!'
-        },
-        {
-          date: 'Jan 2023',
-          content: 'Katha Sanyal comes back as a dissertation student. Welcome back Katha, we missed you! She will be crispr-ing growth inhibiting Transcription factors as part of her project!<br><br>Ishan Dutta wraps up his dissertation project and presented a poster in Jan 2023. All the best Ishan!'
-        },
-        {
-          date: 'Dec 2022',
-          content: 'Yogesh presents his research at IAN 2022 and won the first prize for best poster presentation! Congratulations Yogesh!<br><br>Sanskruti Karwa joins the lab as a dissertee in December 2022! She will be optimizing models of spinal injuries in the lab.'
-        },
-        {
-          date: 'Nov 2022',
-          content: 'Manoj Kumar joins the lab as a first postdoc! Welcome Manoj!<br><br>Ish, Sriram and Vatsal win the India Bioscience grant for scicomm outreach.'
-        },
-        {
-          date: 'Sept 2022',
-          content: 'Lab puts together a nervous system exhibit for CCMB Open Day! Some pics <b-link to="/gallery">here</b-link>.'
-        },
-        {
-          date: 'August 2022',
-          content: 'Ishan Dutta joins the lab as a dissertee in August 2022.<br><br>Shaikh Shafiulla joins the lab as a Project-based trainee in August 2022.'
-        },
-        {
-          date: 'June 2022',
-          content: 'Katha Sanyal joins the lab as a Summer Trainee, Welcome Katha!'
-        },
-        {
-          date: 'May 2022',
-          content: 'Sneha Manjunath joins the lab as a Project based trainee, welcome Sneha!<br><br>Sanjana Sinha rotates in the lab as a guest worker, welcome Sanjana!'
-        },
-        {
-          date: 'April 2022',
-          content: 'Ish activates her Ramanujan Fellowship, thanks to SERB for funding our work!'
-        }
-      ]
+      recentNews: labNews.recent,
+      olderNews: labNews.older,
     };
   },
   methods: {
+    async loadLabNewsFromSheet() {
+      try {
+        const response = await fetch(GOOGLE_SHEET_CSV_URL);
+        if (!response.ok) {
+          throw new Error(`Google Sheet request failed: ${response.status}`);
+        }
+
+        const rows = this.parseCsv(await response.text());
+        const sheetNews = rows
+          .map(this.rowToNewsItem)
+          .filter(Boolean)
+          .sort((first, second) => second.sortDate - first.sortDate);
+
+        this.setNewsLists(sheetNews);
+      } catch (error) {
+        console.error("Could not load Google Sheet news", error);
+        this.setNewsLists([]);
+      }
+    },
+    setNewsLists(sheetNews) {
+      const allNews = [...sheetNews, ...labNews.recent, ...labNews.older];
+      this.recentNews = allNews.slice(0, RECENT_NEWS_LIMIT);
+      this.olderNews = allNews.slice(RECENT_NEWS_LIMIT);
+    },
+    rowToNewsItem(row) {
+      if (!this.isApproved(row.Approved) || !row["News item"]) {
+        return null;
+      }
+
+      const links = [];
+      if (row["Link URL"]) {
+        links.push({
+          label: row["Link label"] || "Open link",
+          url: row["Link URL"],
+        });
+      }
+
+      return {
+        date: this.formatDateLabel(row["Date label"]),
+        title: row["News title"],
+        sortDate: this.parseDate(row["Date label"]) || this.parseDate(row.Timestamp) || 0,
+        items: [
+          {
+            text: this.escapeHtml(row["News item"]),
+            links,
+          },
+        ],
+      };
+    },
+    isApproved(value) {
+      return String(value || "").trim().toLowerCase() === "yes";
+    },
+    formatDateLabel(value) {
+      const date = this.parseDate(value);
+      if (!date) {
+        return value;
+      }
+
+      return new Intl.DateTimeFormat("en", {
+        month: "short",
+        year: "numeric",
+      }).format(new Date(date));
+    },
+    parseDate(value) {
+      if (!value) {
+        return null;
+      }
+
+      const [datePart] = String(value).trim().split(" ");
+      const parts = datePart.split("/");
+      if (parts.length === 3) {
+        const [day, month, year] = parts.map(Number);
+        const parsed = new Date(year, month - 1, day).getTime();
+        return Number.isNaN(parsed) ? null : parsed;
+      }
+
+      const parsed = new Date(value).getTime();
+      return Number.isNaN(parsed) ? null : parsed;
+    },
+    parseCsv(csv) {
+      const rows = [];
+      let row = [];
+      let value = "";
+      let insideQuotes = false;
+
+      for (let index = 0; index < csv.length; index += 1) {
+        const char = csv[index];
+        const nextChar = csv[index + 1];
+
+        if (char === "\"" && insideQuotes && nextChar === "\"") {
+          value += "\"";
+          index += 1;
+        } else if (char === "\"") {
+          insideQuotes = !insideQuotes;
+        } else if (char === "," && !insideQuotes) {
+          row.push(value);
+          value = "";
+        } else if ((char === "\n" || char === "\r") && !insideQuotes) {
+          if (char === "\r" && nextChar === "\n") {
+            index += 1;
+          }
+          row.push(value);
+          rows.push(row);
+          row = [];
+          value = "";
+        } else {
+          value += char;
+        }
+      }
+
+      if (value || row.length) {
+        row.push(value);
+        rows.push(row);
+      }
+
+      const [headers = [], ...dataRows] = rows;
+      return dataRows
+        .filter((dataRow) => dataRow.some((cell) => cell.trim()))
+        .map((dataRow) =>
+          headers.reduce((item, header, index) => {
+            item[header] = dataRow[index] || "";
+            return item;
+          }, {})
+        );
+    },
+    escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    },
     loadElfsightScript() {
       // Check if the script is already loaded
       if (!document.querySelector('script[src*="elfsightcdn.com"]')) {
@@ -311,7 +307,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.news.split("\n"));
+    this.loadLabNewsFromSheet();
     // Load the Elfsight script when the component is mounted
     this.loadElfsightScript();
   },
@@ -366,6 +362,9 @@ p {
   font-size: 22px !important;
   font-weight: bolder;
   opacity: 1 !important;
+}
+.news-link {
+  margin-left: 8px;
 }
 .techniques {
   border: 0.5px solid;

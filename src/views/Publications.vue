@@ -30,41 +30,49 @@
       </v-row>
     </v-container> -->
     <b-container>
-      <b-row class="mt-5" v-for="year in groupedData.keys()" :key="year">
-        <b-col cols="1">
-          <p class="yearStyle">{{ year }}</p>
-        </b-col>
-        <b-col cols="11">
-          <b-row
-            class="mt-5 mb-5"
-            v-for="(pub, index) in groupedData.get(year)"
-            :key="index"
-          >
-            <b-col>
-              <ul class="list-group">
-                <li
-                  class="d-flex justify-content-between align-items-center papertitle"
-                >
-                  <a target="_blank" :href="pub.URL"> {{ pub.Title }}</a>
-                </li>
-                <span class="authorStyle">
-                  <span
-                    v-for="(author, authorIndex) in pub.Authors"
-                    :key="authorIndex"
+      <section
+        v-for="section in publicationSections"
+        :key="section.title"
+        class="publication-section"
+      >
+        <h2>{{ section.title }}</h2>
+        <b-row class="mt-5" v-for="year in section.data.keys()" :key="year">
+          <b-col cols="1">
+            <p class="yearStyle">{{ year }}</p>
+          </b-col>
+          <b-col cols="11">
+            <b-row
+              class="mt-5 mb-5"
+              v-for="(pub, index) in section.data.get(year)"
+              :key="index"
+            >
+              <b-col>
+                <ul class="list-group">
+                  <li
+                    class="d-flex justify-content-between align-items-center papertitle"
                   >
+                    <a target="_blank" :href="pub.URL"> {{ pub.Title }}</a>
+                  </li>
+                  <span class="journalStyle">{{ pub.Journal }}</span>
+                  <span class="authorStyle">
                     <span
-                      :class="{
-                        mainAuthor: shouldHighlightAuthor(pub, author),
-                      }"
-                      >{{ author }}</span
-                    ><span v-if="authorIndex < pub.Authors.length - 1">, </span>
+                      v-for="(author, authorIndex) in pub.Authors"
+                      :key="authorIndex"
+                    >
+                      <span
+                        :class="{
+                          mainAuthor: shouldHighlightAuthor(pub, author),
+                        }"
+                        >{{ author }}</span
+                      ><span v-if="authorIndex < pub.Authors.length - 1">, </span>
+                    </span>
                   </span>
-                </span>
-              </ul>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
+                </ul>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
+      </section>
     </b-container>
   </div>
 </template>
@@ -77,13 +85,31 @@ export default {
     return {
       publicationData,
       publications: [],
-      groupedData: [],
+      publicationSections: [],
     };
   },
   methods: {
     getData() {
       this.publications = this.publicationData;
-      this.groupedData = group(this.publications, (d) => d.Year);
+      this.publicationSections = [
+        {
+          title: "Preprints",
+          data: group(
+            this.publications.filter((pub) => this.isPreprint(pub)),
+            (d) => d.Year
+          ),
+        },
+        {
+          title: "Journal Publications",
+          data: group(
+            this.publications.filter((pub) => !this.isPreprint(pub)),
+            (d) => d.Year
+          ),
+        },
+      ];
+    },
+    isPreprint(pub) {
+      return String(pub.Journal || "").toLowerCase() === "biorxiv";
     },
     shouldHighlightAuthor(pub, author) {
       if (pub.AuthorType === "Corresponding author") {
@@ -104,6 +130,15 @@ export default {
   height: 20px;
   background: steelblue;
 }
+.publication-section {
+  margin: 48px 0;
+}
+h2 {
+  color: #346225;
+  font-family: "Oswald", sans-serif !important;
+  font-size: 32px;
+  font-weight: bold;
+}
 a:hover {
   text-decoration: none;
   background: rgb(238, 217, 29);
@@ -120,8 +155,16 @@ a {
   font-weight: bold;
 }
 .authorStyle {
+  display: block;
   font-family: "Oswald", sans-serif !important;
   font-size: 18px;
+}
+.journalStyle {
+  color: #346225;
+  display: block;
+  font-family: "Oswald", sans-serif !important;
+  font-size: 18px;
+  font-style: italic;
 }
 .mainAuthor {
   font-weight: bold;
