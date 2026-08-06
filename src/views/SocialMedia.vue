@@ -136,11 +136,6 @@
     </b-row>
     <b-row class="justify-content-center">
       <b-col cols="12" lg="8">
-        <div class="embed-note">
-          Instagram renders through its official embed script. LinkedIn, Google
-          Scholar, and ResearchGate open directly because they do not expose the
-          same simple public profile embed for this site.
-        </div>
       </b-col>
     </b-row>
   </b-container>
