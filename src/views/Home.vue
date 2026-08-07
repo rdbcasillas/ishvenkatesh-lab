@@ -127,7 +127,7 @@ import labNews from "@/assets/lab-news.json";
 
 const GOOGLE_SHEET_CSV_URL =
   "https://docs.google.com/spreadsheets/d/18Ta4kyJRloDNN5vlmjm5kPjP_Eh77S-MIKvs0PYdAt8/gviz/tq?tqx=out:csv";
-const RECENT_NEWS_LIMIT = 10;
+const RECENT_NEWS_MONTH_LIMIT = 3;
 
 export default {
   components: {
@@ -171,10 +171,11 @@ export default {
         }
 
         const rows = this.parseCsv(await response.text());
-        const sheetNews = rows
+        const sheetNews = this.groupNewsByMonth(
+          rows
           .map(this.rowToNewsItem)
           .filter(Boolean)
-          .sort((first, second) => second.sortDate - first.sortDate);
+        );
 
         this.setNewsLists(sheetNews);
       } catch (error) {
@@ -184,8 +185,42 @@ export default {
     },
     setNewsLists(sheetNews) {
       const allNews = [...sheetNews, ...labNews.recent, ...labNews.older];
-      this.recentNews = allNews.slice(0, RECENT_NEWS_LIMIT);
-      this.olderNews = allNews.slice(RECENT_NEWS_LIMIT);
+      const splitIndex = this.getRecentNewsSplitIndex(allNews);
+      this.recentNews = allNews.slice(0, splitIndex);
+      this.olderNews = allNews.slice(splitIndex);
+    },
+    getRecentNewsSplitIndex(newsItems) {
+      const seenMonths = new Set();
+
+      for (let index = 0; index < newsItems.length; index += 1) {
+        seenMonths.add(newsItems[index].date);
+
+        if (seenMonths.size > RECENT_NEWS_MONTH_LIMIT) {
+          return index;
+        }
+      }
+
+      return newsItems.length;
+    },
+    groupNewsByMonth(newsItems) {
+      const grouped = newsItems.reduce((months, item) => {
+        if (!months[item.date]) {
+          months[item.date] = {
+            date: item.date,
+            sortDate: item.sortDate,
+            title: `${item.date} Highlights`,
+            items: [],
+          };
+        }
+
+        months[item.date].sortDate = Math.max(months[item.date].sortDate, item.sortDate);
+        months[item.date].items.push(...item.items);
+        return months;
+      }, {});
+
+      return Object.values(grouped).sort(
+        (first, second) => second.sortDate - first.sortDate
+      );
     },
     rowToNewsItem(row) {
       if (!this.isApproved(row.Approved) || !row["News item"]) {
@@ -222,7 +257,7 @@ export default {
       }
 
       return new Intl.DateTimeFormat("en", {
-        month: "short",
+        month: "long",
         year: "numeric",
       }).format(new Date(date));
     },
@@ -361,10 +396,26 @@ p {
   color: snow !important;
   font-size: 22px !important;
   font-weight: bolder;
+  line-height: 1.45 !important;
   opacity: 1 !important;
 }
 .news-link {
   margin-left: 8px;
+}
+.labnews >>> ul {
+  margin-bottom: 0;
+  padding-left: 24px;
+}
+.labnews >>> li {
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+.labnews >>> h3 {
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+.labnews >>> li:last-child {
+  margin-bottom: 0;
 }
 .techniques {
   border: 0.5px solid;
