@@ -259,7 +259,7 @@ export default {
           name: "Meera",
           position: "Dissertee, Short Term Trainee",
           image: "meera",
-          desc: "Profile details will be added soon.",
+          desc: "Meera Manoj joined the lab in June 2026 as a dissertation student from VIT, Vellore, where she is pursuing an Integrated Master's degree in Biotechnology. Her research focuses on understanding how transcription factors regulate neuronal regeneration following spinal cord injury (SCI). Using CRISPR-mediated gene knockdown approaches, she investigates the molecular mechanisms underlying neural repair.<br><br>Outside the lab, she is a passionate dancer and an avid traveller who enjoys discovering new places. She also loves music, films, and web series, and values spending quality time with her loved ones.",
           email: "",
         },
         {

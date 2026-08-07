@@ -1,0 +1,58 @@
+{
+  "profileUrl": "https://scholar.google.com/citations?user=gMx5yTUAAAAJ&hl=en&oi=ao",
+  "articles": "18",
+  "citations": "377",
+  "hIndex": "9",
+  "i10Index": "9",
+  "citationsByYear": [
+    {
+      "year": "2015",
+      "citations": 4
+    },
+    {
+      "year": "2016",
+      "citations": 8
+    },
+    {
+      "year": "2017",
+      "citations": 23
+    },
+    {
+      "year": "2018",
+      "citations": 31
+    },
+    {
+      "year": "2019",
+      "citations": 27
+    },
+    {
+      "year": "2020",
+      "citations": 29
+    },
+    {
+      "year": "2021",
+      "citations": 49
+    },
+    {
+      "year": "2022",
+      "citations": 36
+    },
+    {
+      "year": "2023",
+      "citations": 28
+    },
+    {
+      "year": "2024",
+      "citations": 35
+    },
+    {
+      "year": "2025",
+      "citations": 73
+    },
+    {
+      "year": "2026",
+      "citations": 25
+    }
+  ],
+  "updatedAt": "2026-08-07"
+}
