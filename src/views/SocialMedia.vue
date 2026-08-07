@@ -11,7 +11,7 @@
           <div class="panel-header">
             <h3>Twitter/X</h3>
             <a
-              href="https://x.com/Ishwariya13"
+              href="https://twitter.com/Ishwariya13"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -19,14 +19,10 @@
             </a>
           </div>
           <div class="twitter-embed">
-            <a
-              class="twitter-timeline"
-              href="https://x.com/Ishwariya13"
-              data-height="390"
-              data-chrome="noheader nofooter transparent"
-            >
-              Tweets by Ishwariya Venkatesh
-            </a>
+            <div
+              class="elfsight-app-49b277f8-63cb-4997-abaa-e683d5b8421c"
+              data-elfsight-app-lazy
+            ></div>
           </div>
         </section>
       </b-col>
@@ -119,7 +115,7 @@
 export default {
   mounted() {
     this.loadInstagramEmbed();
-    this.loadTwitterEmbed();
+    this.$nextTick(this.loadElfsightScript);
   },
   methods: {
     loadInstagramEmbed() {
@@ -135,18 +131,15 @@ export default {
         window.instgrm.Embeds.process();
       }
     },
-    loadTwitterEmbed() {
-      if (!document.querySelector('script[src*="platform.twitter.com/widgets.js"]')) {
-        const script = document.createElement("script");
-        script.src = "https://platform.twitter.com/widgets.js";
-        script.async = true;
-        document.body.appendChild(script);
-        return;
-      }
+    loadElfsightScript() {
+      document
+        .querySelectorAll('script[src*="elfsightcdn.com/platform.js"]')
+        .forEach((script) => script.remove());
 
-      if (window.twttr && window.twttr.widgets) {
-        window.twttr.widgets.load();
-      }
+      const script = document.createElement("script");
+      script.src = `https://elfsightcdn.com/platform.js?reload=${Date.now()}`;
+      script.async = true;
+      document.head.appendChild(script);
     },
   },
 };
@@ -204,12 +197,6 @@ h3 {
 
 .twitter-embed {
   align-items: stretch;
-}
-
-.twitter-timeline {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 18px;
 }
 
 .profile-widget {
