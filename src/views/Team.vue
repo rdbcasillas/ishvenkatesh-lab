@@ -158,7 +158,7 @@ export default {
           current: "PhD student, University of Jenna, Germany",
         },
         {
-          name: "Netra Krishna (2026)",
+          name: "Netra Krishna",
           current:
             "PhD Student, University of Gottingen, International Max Planck Research School, Neurosciences",
         },
