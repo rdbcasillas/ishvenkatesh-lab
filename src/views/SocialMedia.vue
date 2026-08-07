@@ -9,6 +9,36 @@
       <b-col cols="12" lg="6" class="mb-4">
         <section class="social-panel">
           <div class="panel-header">
+            <h3>Twitter/X</h3>
+            <a
+              href="https://x.com/venkateshlabccmb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open profile <b-icon icon="box-arrow-up-right"></b-icon>
+            </a>
+          </div>
+          <div class="profile-widget">
+            <p class="profile-name">Venkatesh Lab</p>
+            <p class="profile-role">Lab updates</p>
+            <p class="profile-copy">
+              Follow announcements, talks, publications, awards, and lab news
+              from the Venkatesh Lab.
+            </p>
+            <a
+              href="https://x.com/venkateshlabccmb"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="profile-button"
+            >
+              View Twitter/X Profile
+            </a>
+          </div>
+        </section>
+      </b-col>
+      <b-col cols="12" lg="6" class="mb-4">
+        <section class="social-panel">
+          <div class="panel-header">
             <h3>Instagram</h3>
             <a
               href="https://www.instagram.com/venkateshlabccmb/"
@@ -86,56 +116,6 @@
             </a>
           </div>
         </section>
-      </b-col>
-      <b-col cols="12" lg="6" class="mb-4">
-        <section class="social-panel">
-          <div class="panel-header">
-            <h3>ResearchGate</h3>
-            <a
-              href="https://www.researchgate.net/profile/Ishwariya-Venkatesh"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open profile <b-icon icon="box-arrow-up-right"></b-icon>
-            </a>
-          </div>
-          <div class="profile-widget">
-            <div>
-              <p class="profile-name">Ishwariya Venkatesh</p>
-              <p class="profile-role">Research profile</p>
-            </div>
-            <div class="profile-stats">
-              <div>
-                <span>22</span>
-                <p>Publications</p>
-              </div>
-              <div>
-                <span>2,094</span>
-                <p>Reads</p>
-              </div>
-              <div>
-                <span>279</span>
-                <p>Citations</p>
-              </div>
-            </div>
-            <p class="profile-copy">
-              Follow the lab PI's research record, preprints, articles, and
-              publication updates on ResearchGate.
-            </p>
-            <a
-              href="https://www.researchgate.net/profile/Ishwariya-Venkatesh"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="profile-button"
-            >
-              View ResearchGate Profile
-            </a>
-          </div>
-        </section>
-      </b-col>
-    </b-row>
-    <b-row class="justify-content-center">
-      <b-col cols="12" lg="8">
       </b-col>
     </b-row>
   </b-container>
