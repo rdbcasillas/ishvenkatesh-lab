@@ -21,15 +21,23 @@
         >
           <article class="person-card">
             <b-img-lazy
+              v-if="person.image"
               class="person-photo"
               blank-src="null"
               :alt="person.name"
               :src="require(`../assets/images/team/${person.image}.jpeg`)"
             ></b-img-lazy>
+            <div v-else class="person-photo person-placeholder">
+              {{ initials(person.name) }}
+            </div>
             <div class="person-info">
               <h4>{{ person.name }}</h4>
               <p class="person-position">{{ person.position }}</p>
-              <a :href="`mailto:${person.email}`" class="person-email">
+              <a
+                v-if="person.email"
+                :href="`mailto:${person.email}`"
+                class="person-email"
+              >
                 {{ person.email }}
               </a>
               <b-button class="more-button" @click="showPerson(person)">
@@ -69,13 +77,17 @@
     >
       <div v-if="selectedPerson" class="bio-modal">
         <b-img
+          v-if="selectedPerson.image"
           class="bio-photo"
           :alt="selectedPerson.name"
           :src="require(`../assets/images/team/${selectedPerson.image}.jpeg`)"
         ></b-img>
+        <div v-else class="bio-photo bio-placeholder">
+          {{ initials(selectedPerson.name) }}
+        </div>
         <div>
           <h4>{{ selectedPerson.position }}</h4>
-          <a :href="`mailto:${selectedPerson.email}`">
+          <a v-if="selectedPerson.email" :href="`mailto:${selectedPerson.email}`">
             {{ selectedPerson.email }}
           </a>
           <p class="bio-desc" v-html="selectedPerson.desc"></p>
@@ -236,6 +248,34 @@ export default {
           desc: "Athul joined the lab in July 2025 as a dissertation student from VIT, Vellore, where he is currently pursuing an Integrated Master’s degree in Biotechnology. His research focuses on understanding how transcription factors regulate neuronal regeneration in spinal cord injury (SCI) models, as well as developing optical clearing strategies for brain and spinal cord tissues to enable deep imaging. Outside the lab, he is passionate about football, enjoys exploring new places, and engages in light reading during his free time.",
           email: "athulskumar2003@gmail.com",
         },
+        {
+          name: "Achuth",
+          position: "PBST, Short Term Trainee",
+          image: null,
+          desc: "Profile details will be added soon.",
+          email: "",
+        },
+        {
+          name: "Meera",
+          position: "Dissertee, Short Term Trainee",
+          image: null,
+          desc: "Profile details will be added soon.",
+          email: "",
+        },
+        {
+          name: "Susmita",
+          position: "RICH Trainee, Short Term Trainee",
+          image: null,
+          desc: "Profile details will be added soon.",
+          email: "",
+        },
+        {
+          name: "Ankita",
+          position: "MP Young Scientist Fellowship, Short Term Trainee",
+          image: null,
+          desc: "Profile details will be added soon.",
+          email: "",
+        },
       ]
     };
   },
@@ -268,6 +308,10 @@ export default {
             "Athul Narayan PS",
           ],
         },
+        {
+          title: "Short Term Trainees",
+          names: ["Achuth", "Meera", "Susmita", "Ankita"],
+        },
       ].map((section) => ({
         title: section.title,
         members: section.names
@@ -283,6 +327,15 @@ export default {
     },
     shortName(name) {
       return name.replace(/^Dr\.\s*/, "").split(" ")[0];
+    },
+    initials(name) {
+      return name
+        .split(" ")
+        .filter(Boolean)
+        .map((part) => part[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase();
     },
   },
 };
@@ -336,6 +389,18 @@ h4 {
   object-fit: cover;
   object-position: top;
   width: 100%;
+}
+
+.person-placeholder,
+.bio-placeholder {
+  align-items: center;
+  background: #f6f0df;
+  color: #346225;
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  justify-content: center;
 }
 
 .person-info {
@@ -414,6 +479,10 @@ h4 {
   object-fit: cover;
   object-position: top;
   width: 100%;
+}
+
+.bio-placeholder {
+  min-height: 260px;
 }
 
 .bio-modal a,
