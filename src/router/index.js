@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Publications from "../views/Publications.vue";
 import Funding from "../views/Funding.vue";
+import Awards from "../views/Awards.vue";
 import Team from "../views/Team.vue";
 import Contact from "../views/Contact.vue";
 import SocialMedia from "../views/SocialMedia.vue";
@@ -25,6 +26,11 @@ const routes = [
     path: "/funding",
     name: "Funding",
     component: Funding,
+  },
+  {
+    path: "/awards",
+    name: "Awards",
+    component: Awards,
   },
   {
     path: "/team",
