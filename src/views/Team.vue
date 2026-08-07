@@ -217,7 +217,7 @@ export default {
            name: "Aarthi Sukumar",
            position: "PhD student",
            image: "aarthi",
-           desc: "Aarthi has recently joined the lab as a PhD student in August 2025, bringing with her strong technical skills and an Integrated Master’s degree in Biotechnology from VIT University. Her research will focus on deciphering the metabolic regulation of axon growth, a fundamental process underlying neural development, connectivity, and regeneration. With a vision to integrate metabolic profiling and advanced molecular approaches, she aims to uncover the key regulatory networks driving axonal growth. Outside the lab, Aarthi enjoys exploring new places and immersing herself in music, pursuits that inspire her curiosity and bring balance to her scientific endeavors. Her doctoral work is expected to contribute significantly to our understanding of the metabolic mechanisms that drive neuronal growth and repair.",
+           desc: "Aarthi has joined the lab as a PhD student in October 2025, bringing with her strong technical skills and an Integrated Master’s degree in Biotechnology from VIT University. Her research will focus on deciphering the proteomic and metabolic regulation of axon growth, a fundamental process underlying neural development, connectivity, and regeneration. With a vision to integrate multi-omic approaches, she aims to uncover the key regulatory networks driving axonal growth. Outside the lab, Aarthi enjoys exploring new places and immersing herself in music, pursuits that inspire her curiosity and bring balance to her scientific endeavors.",
            email: "aarthis@csirccmb.org",
          },
         {
