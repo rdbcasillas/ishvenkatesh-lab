@@ -19,7 +19,7 @@
           </p>
           <p>To get in touch with Dr.Ishwariya Venkatesh:</p>
           <ul class="list-group">
-            <li class="list-group-item">Email: ishwariya@ccmb.res.in</li>
+            <li class="list-group-item">Email: ishwariya.ccmb@csir.res.in</li>
             <li class="list-group-item">Phone: 040-27192825</li>
             <li class="list-group-item">
               Twitter:
