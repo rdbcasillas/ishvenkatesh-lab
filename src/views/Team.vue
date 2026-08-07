@@ -263,17 +263,17 @@ export default {
           email: "",
         },
         {
-          name: "Sushmitha",
+          name: "Susmita Das",
           position: "RICH Trainee, Short Term Trainee",
           image: "sushmitha",
-          desc: "Profile details will be added soon.",
+          desc: "Susmita Das is a researcher with a strong interest in neuroscience, mitochondrial biology, metabolomics, and regenerative medicine. She completed her postgraduate studies in Biotechnology at Brainware University and joined the lab as a RICH student in January 2026.<br><br>Her research focuses on the metabolic and mitochondrial mechanisms underlying axon regeneration and neuronal repair, with particular interest in metabolomic regulation of axonal growth and targeted mitochondrial transplantation following spinal cord injury. By integrating metabolomics, molecular biology, and cell-specific targeting approaches, she aims to uncover novel therapeutic strategies for neuronal survival and regeneration.<br><br>Outside the lab, Susmita enjoys reading storybooks, exploring new places, painting, and listening to music. A proud Bengali at heart, she also has a special love for traditional sweets.",
           email: "",
         },
         {
-          name: "Ankita",
+          name: "Ankita Dwivedi",
           position: "MP Young Scientist Fellowship, Short Term Trainee",
           image: null,
-          desc: "Profile details will be added soon.",
+          desc: "Ankita Dwivedi joined the lab in April 2026 as an MP Young Scientist Fellow through a fellowship for the training of young scientists. She completed her PhD in Neuroscience from Dr. Harisingh Gour University, Sagar, Madhya Pradesh, and brings a strong research background in neurodegeneration and cognitive dysfunction.<br><br>Her current work focuses on the metabolic control of axonal regeneration, exploring diverse metabolic pathways and their roles in regulating axonal growth and neuronal repair. By integrating metabolic profiling with advanced molecular approaches, she aims to uncover the key metabolic mechanisms driving axonal regeneration.<br><br>Outside the lab, Ankita enjoys exploring new places, playing basketball, and listening to music, which keep her inspired and energized.",
           email: "",
         },
       ]
@@ -310,7 +310,7 @@ export default {
         },
         {
           title: "Short Term Trainees",
-          names: ["Achuth", "Meera", "Sushmitha", "Ankita"],
+          names: ["Achuth", "Meera", "Susmita Das", "Ankita Dwivedi"],
         },
       ].map((section) => ({
         title: section.title,
