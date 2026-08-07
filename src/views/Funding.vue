@@ -4,6 +4,22 @@
       <b-row class="mt-5">
         <h3 class="text-center">Current Supporters</h3>
       </b-row>
+      <b-row class="mt-4">
+        <b-col cols="12">
+          <div class="supporter-logos">
+            <div
+              v-for="supporter in supporters"
+              :key="supporter.name"
+              class="supporter-logo"
+            >
+              <img
+                :src="require(`../assets/images/logo/${supporter.logo}`)"
+                :alt="supporter.name"
+              />
+            </div>
+          </div>
+        </b-col>
+      </b-row>
       <b-row>
         <b-col cols="10">
           <ul class="list-group">
@@ -92,6 +108,28 @@ export default {
           years: "2026-2030",
         },
       ],
+      supporters: [
+        {
+          name: "CSIR",
+          logo: "CSIR_logo.png",
+        },
+        {
+          name: "DBT",
+          logo: "dbt-logo.jpg",
+        },
+        {
+          name: "BFI Biome",
+          logo: "BiF_biome.png",
+        },
+        {
+          name: "ANRF",
+          logo: "ANRF_Logo.jpeg",
+        },
+        {
+          name: "ICMR",
+          logo: "ICMV_logo.png",
+        },
+      ],
     };
   },
 };
@@ -115,6 +153,26 @@ export default {
 .badge {
   flex: 0 0 auto;
   font-size: 14px;
+}
+.supporter-logos {
+  align-items: center;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-bottom: 28px;
+}
+.supporter-logo {
+  align-items: center;
+  border: 1px solid rgba(52, 98, 37, 0.25);
+  display: flex;
+  height: 110px;
+  justify-content: center;
+  padding: 14px;
+}
+.supporter-logo img {
+  max-height: 82px;
+  max-width: 100%;
+  object-fit: contain;
 }
 h3 {
   font-family: "Oswald", sans-serif !important;
