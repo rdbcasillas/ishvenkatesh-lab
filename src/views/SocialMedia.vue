@@ -11,27 +11,21 @@
           <div class="panel-header">
             <h3>Twitter/X</h3>
             <a
-              href="https://x.com/venkateshlabccmb"
+              href="https://x.com/Ishwariya13"
               target="_blank"
               rel="noopener noreferrer"
             >
               Open profile <b-icon icon="box-arrow-up-right"></b-icon>
             </a>
           </div>
-          <div class="profile-widget">
-            <p class="profile-name">Venkatesh Lab</p>
-            <p class="profile-role">Lab updates</p>
-            <p class="profile-copy">
-              Follow announcements, talks, publications, awards, and lab news
-              from the Venkatesh Lab.
-            </p>
+          <div class="twitter-embed">
             <a
-              href="https://x.com/venkateshlabccmb"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="profile-button"
+              class="twitter-timeline"
+              href="https://x.com/Ishwariya13"
+              data-height="390"
+              data-chrome="noheader nofooter transparent"
             >
-              View Twitter/X Profile
+              Tweets by Ishwariya Venkatesh
             </a>
           </div>
         </section>
@@ -125,6 +119,7 @@
 export default {
   mounted() {
     this.loadInstagramEmbed();
+    this.loadTwitterEmbed();
   },
   methods: {
     loadInstagramEmbed() {
@@ -138,6 +133,19 @@ export default {
 
       if (window.instgrm) {
         window.instgrm.Embeds.process();
+      }
+    },
+    loadTwitterEmbed() {
+      if (!document.querySelector('script[src*="platform.twitter.com/widgets.js"]')) {
+        const script = document.createElement("script");
+        script.src = "https://platform.twitter.com/widgets.js";
+        script.async = true;
+        document.body.appendChild(script);
+        return;
+      }
+
+      if (window.twttr && window.twttr.widgets) {
+        window.twttr.widgets.load();
       }
     },
   },
@@ -186,11 +194,22 @@ h3 {
   text-decoration: none;
 }
 
-.instagram-embed {
+.instagram-embed,
+.twitter-embed {
   display: flex;
   flex: 1;
   justify-content: center;
   overflow: auto;
+}
+
+.twitter-embed {
+  align-items: stretch;
+}
+
+.twitter-timeline {
+  color: #346225;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
 }
 
 .profile-widget {

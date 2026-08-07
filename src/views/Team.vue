@@ -219,7 +219,7 @@ export default {
           name: "Faheem Farooq",
           position: "Project Associate",
           image: "faheem",
-          desc: "Faheem joined the lab in September 2025 as a Project Associate. He holds a Master’s degree in Biotechnology from the University of Kashmir. It was during His dissertation period at IISc that sparked his interest in the field of genome organization, which led him to join CDFD, Hyderabad, as a Project Associate. To gain further expertise in the field and develop his research aptitude skills he joined our group and building on his working knowledge of genome organisation, in the lab he is currently investigating how genome organization regulates regenerative capacity across mouse neuronal development.",
+          desc: "Faheem joined the lab in September 2025 as a Project Associate. He holds a Master's degree in Biotechnology from the University of Kashmir. It was during his dissertation period at IISc that his interest in the field of genome organization and regulation was sparked. Building on his working knowledge of genome organization, he is currently investigating in the lab how genome organization regulates regenerative capacity across mouse neuronal development. Apart from science, Faheem loves to play football and is a lifelong Real Madrid fan!",
           email: "faheem@csirccmb.org",
          },
         {
