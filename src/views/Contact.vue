@@ -14,7 +14,7 @@
         <b-col cols="8" md="6">
           <h4>Contact Us</h4>
           <p>
-            Our lab is located in the fifth floor of the R&D Building in the
+            Our lab is located in the fourth floor of the R&D Building in the
             main campus of CSIR-CCMB.
           </p>
           <p>To get in touch with Dr.Ishwariya Venkatesh:</p>
