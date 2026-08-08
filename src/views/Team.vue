@@ -207,14 +207,14 @@ export default {
            position: "Research Associate",
            image: "shringika",
            desc: "Shringika Soni joined the Venkatesh Lab in March 2024 as a SERB National Postdoctoral Fellow (nPDF) and currently serves as a DBT Research Associate. She holds an Integrated M.Tech. in Cognitive Neuroscience and completed her dissertation at NIMHANS, Bengaluru. Before joining the lab, she worked on preclinical and clinical models of autism at PGIMER, Chandigarh. During her doctoral research at Amity University Uttar Pradesh, Noida, she developed an electrochemical nano-aptasensor for detecting illicit drugs.<br><br>At the Venkatesh Lab, Shringika is investigating combinatorial therapies for spinal cord injury (SCI), focusing on integrating nuclear receptor-based gene therapy and stem cell therapy to promote neuroregeneration and functional recovery. She is also expanding her research into gene therapy for peripheral nervous system (PNS) regeneration, with the goal of testing the same gene therapy approach in both CNS and PNS regeneration.<br><br>Outside the lab, she loves getting her hands dirty in the garden, experimenting with new recipes, practicing yoga, and exploring cafes and hidden food gems. She believes the best ideas often come with a good meal, a little greenery, and a curious mind.",
-           email: "shringikasoni@ccmb.res.in",
+           email: "shringikasoni@csirccmb.org",
          },
          {
           name: "ManojKumar K",
           position: "Research Associate",
           image: "manoj",
           desc: `Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy 😜) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it's published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography 📸, Wildlife conservation 🐾, Travelling 🧳, and Gaming 🕹️ but importantly cooking 🧑🏽‍🍳, and he shares the output of his cooking experiments generously with the lab members! <a href="https://mano2991.netlify.app/" target="_blank" rel="noopener noreferrer">Visit his personal webpage</a>`,
-          email: "manojkumar@ccmb.res.in",
+          email: "manojkumarbioinfo@gmail.com",
         },
         {
           name: "Yogesh Sahu",
@@ -248,7 +248,7 @@ export default {
           name: "Dhruva Kesireddy",
           position: "Lab Manager, Project Associate",
           image: "dhruva",
-          desc: "Dhruva has recently joined the lab as a Project-based Student Trainee, bringing with him a Master's degree in Animal Biology and Biotechnology from the University of Hyderabad. His research during his Master's program focused on the  topic of dynamic relocalization of Denovo Methyltransferases of  Dnmt3a and Dnmt3b in Mouse Mammary Epithelial cells during lactogenic differentiation.His research interests include epigenetics and epigenetic regulation. With a keen interest in this field, Dhruva aspires to pursue a Ph.D. in the future. Beyond his academic pursuits, Dhruva  enjoys engaging in various activities outside of the lab. He likes to sing and finds solace in music. In his leisure time, he indulges in watching movies and web series, appreciating the art of storytelling.He likes hanging out with his friends and cousins.",
+          desc: "Dhruva joined the lab as a Project-Based Trainee and subsequently took up the role of Project Associate before transitioning into the position of Lab Manager. He holds a Master's degree in Animal Biology and Biotechnology from the University of Hyderabad. His work encompasses molecular biology, cell culture, and genomics, along with coordinating laboratory procurement, inventory management, and day-to-day lab operations. Beyond the lab, Dhruva enjoys singing and listening to music.",
           email: "dhruvakesireddy@gmail.com",
         },
         {
