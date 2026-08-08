@@ -10,13 +10,37 @@
       class="team-section"
     >
       <h3>{{ section.title }}</h3>
-      <b-row>
+      <div v-if="section.featured && section.members.length" class="pi-feature">
+        <article class="person-card pi-person-card">
+          <b-img-lazy
+            class="person-photo"
+            blank-src="null"
+            :alt="section.members[0].name"
+            :src="require(`../assets/images/team/${section.members[0].image}.jpeg`)"
+          ></b-img-lazy>
+          <div class="person-info">
+            <h4>{{ section.members[0].name }}</h4>
+            <p class="person-position">{{ section.members[0].position }}</p>
+            <a
+              v-if="section.members[0].email"
+              :href="`mailto:${section.members[0].email}`"
+              class="person-email"
+            >
+              {{ section.members[0].email }}
+            </a>
+          </div>
+        </article>
+        <div class="pi-writeup">
+          <p v-html="section.members[0].desc"></p>
+        </div>
+      </div>
+      <b-row v-else>
         <b-col
           v-for="person in section.members"
           :key="person.name"
           cols="12"
           md="6"
-          xl="4"
+          xl="3"
           class="mb-4"
         >
           <article class="person-card">
@@ -57,7 +81,7 @@
           :key="alum.name"
           cols="12"
           md="6"
-          xl="4"
+          xl="3"
           class="mb-3"
         >
           <div class="alumni-item">
@@ -284,6 +308,7 @@ export default {
       return [
         {
           title: "Principal Investigator",
+          featured: true,
           names: ["Dr. Ishwariya Venkatesh"],
         },
         {
@@ -314,6 +339,7 @@ export default {
         },
       ].map((section) => ({
         title: section.title,
+        featured: section.featured,
         members: section.names
           .map((name) => this.people.find((person) => person.name === name))
           .filter(Boolean),
@@ -380,15 +406,43 @@ h4 {
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 460px;
+  margin: 0 auto;
+  max-width: 260px;
+  min-height: 0;
 }
 
 .person-photo {
   aspect-ratio: 4 / 5;
-  height: 300px;
+  display: block;
+  height: 325px;
   object-fit: cover;
-  object-position: top;
+  object-position: center top;
   width: 100%;
+}
+
+.pi-feature {
+  align-items: start;
+  display: grid;
+  gap: 34px;
+  grid-template-columns: 260px 1fr;
+}
+
+.pi-person-card {
+  margin: 0;
+}
+
+.pi-writeup {
+  color: #346225;
+  font-family: "Oswald", sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding-top: 2px;
+  text-align: justify;
+}
+
+.pi-writeup p {
+  margin: 0;
 }
 
 .person-placeholder,
@@ -511,7 +565,19 @@ span >>> a {
   }
 
   .person-photo {
-    height: 260px;
+    height: 325px;
+  }
+
+  .pi-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .pi-person-card {
+    margin: 0 auto;
+  }
+
+  .pi-writeup {
+    text-align: left;
   }
 
   .bio-modal {
