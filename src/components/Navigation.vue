@@ -30,6 +30,9 @@
             <b-nav-item to="/social-media" exact-active-class="active"
               >SOCIAL MEDIA</b-nav-item
             >
+            <b-nav-item to="/lab-retreat" exact-active-class="active"
+              >LAB RETREAT</b-nav-item
+            >
             <b-nav-item
               target="_blank"
               href="https://docs.google.com/document/d/1MidvYKM1vxX2XK6MjtpegF370Rwq50Kc72tBSYR9-Ko/edit?usp=sharing"
@@ -80,11 +83,14 @@ nav.bg-info {
   font-family: "Oswald", sans-serif !important;
 }
 .nav-item {
-  margin: 6px !important;
-  font-size: 20px;
+  font-size: 16px;
+  margin: 3px !important;
+  white-space: nowrap;
 }
 a.nav-link {
   color: rgba(0, 0, 0, 0.87) !important;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
 }
 a.nav-link:hover {
   color: green !important;
@@ -94,11 +100,28 @@ a.nav-link.active {
   font-weight: bold;
 }
 .navbar-brand {
-  font-size: 30px;
+  font-size: 26px;
+  white-space: nowrap;
+}
+@media (max-width: 1200px) {
+  .nav-item {
+    font-size: 14px;
+    margin: 2px !important;
+  }
+
+  a.nav-link {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .navbar-brand {
+    font-size: 22px;
+  }
 }
 @media (max-width: 600px) {
   .navbar-brand {
     font-size: 15px;
+    white-space: normal;
   }
 }
 </style>

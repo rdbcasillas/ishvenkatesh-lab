@@ -109,14 +109,14 @@ export default {
           image: "IAN_2025_Shringika.jpeg",
         },
         {
-          name: "IAN Short Talk Presentation",
+          name: "IAN Short Talk Award",
           event: "Indian Academy of Neuroscience",
           year: "2025",
           recipients: "Yogesh Sahu",
           image: "IAN_2025_Yogesh.jpeg",
         },
         {
-          name: "IAN Short Talk Presentation",
+          name: "IAN Short Talk Award",
           event: "Indian Academy of Neuroscience",
           year: "2025",
           recipients: "Katha Sanyal",

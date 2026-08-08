@@ -147,7 +147,7 @@ export default {
         },
         {
           name: "Ishan Dutta",
-          current: "M.Tech, IIT-Warangal",
+          current: "M.Tech, NIT-Warangal",
         },
         {
           name: "Sanskruti Karwa",

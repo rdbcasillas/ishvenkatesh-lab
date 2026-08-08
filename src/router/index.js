@@ -7,6 +7,7 @@ import Awards from "../views/Awards.vue";
 import Team from "../views/Team.vue";
 import Contact from "../views/Contact.vue";
 import SocialMedia from "../views/SocialMedia.vue";
+import LabRetreat from "../views/LabRetreat.vue";
 import Resources from "../views/Resources.vue";
 
 Vue.use(VueRouter);
@@ -46,6 +47,11 @@ const routes = [
     path: "/social-media",
     name: "social-media",
     component: SocialMedia,
+  },
+  {
+    path: "/lab-retreat",
+    name: "lab-retreat",
+    component: LabRetreat,
   },
   {
     path: "/resources",
