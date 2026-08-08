@@ -75,6 +75,12 @@ export default {
     return {
       awards: [
         {
+          name: "IBRO/SfN Travel Grant",
+          year: "2026",
+          recipients: "Anisha S Menon",
+          image: "Anisha_2026_award.jpeg",
+        },
+        {
           name: "Lalita and Ravindranath International Travel Award (IAN)",
           event: "Indian Academy of Neuroscience",
           year: "2026",
@@ -82,10 +88,11 @@ export default {
           image: "Manoj_2026_award.jpeg",
         },
         {
-          name: "IBRO/SfN Travel Grant",
+          name: "Young Investigator Meeting Award",
+          event: "18th Young Investigator Meeting (YIM 2026), March 2026",
           year: "2026",
-          recipients: "Anisha S Menon",
-          image: "Anisha_2026_award.jpeg",
+          recipients: "Dr. Shringika Soni",
+          image: "Shringika_YIM 2026.jpg",
         },
         {
           name: "CMMDR Best Poster Award",
@@ -107,6 +114,13 @@ export default {
           year: "2025",
           recipients: "Dr. Shringika Soni",
           image: "IAN_2025_Shringika.jpeg",
+        },
+        {
+          name: "She Inspires Award",
+          event: "IndiaBioscience",
+          year: "2025",
+          recipients: "Dr. Shringika Soni",
+          image: "Shringika_she_insipire_2025.jpg",
         },
         {
           name: "IAN Short Talk Award",
