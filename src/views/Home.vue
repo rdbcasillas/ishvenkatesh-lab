@@ -12,16 +12,14 @@
               <h1 color="orange lighten-5">
                 Regulatory Networks Encoding Axon Growth in the Nervous System
               </h1>
-              <b-row>
-                <b-col>
-                  <div class="video-container">
-                    <iframe width="720" height="480" src="https://www.youtube.com/embed/4te7sQQBl1g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-                </b-col>
-              </b-row>
             </b-row>
-            <b-row class="pa-8">
-              <b-col>
+            <b-row class="intro-section align-items-center">
+              <b-col cols="12" lg="6" class="intro-video-col">
+                <div class="video-container">
+                  <iframe src="https://www.youtube.com/embed/4te7sQQBl1g" title="Venkatesh Lab video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </b-col>
+              <b-col cols="12" lg="6" class="intro-copy-col">
                 <p color="orange lighten-5" class="pa-6 labvision">
                   <span class="vision">How is axon growth regulated during development and regeneration in mammals?</span>
                   Communication in the nervous system is achieved via long cables called axons which connect neurons in the brain with the rest of the body. Intact axons are critical for proper nervous system function. When injured, young neurons are remarkably good at regeneration and repair. In contrast, adult neurons fail to regenerate resulting in permanent irreversible nervous system damage. What molecular pathways drive the observed loss of regenerative capacity across development? What regulatory mechanisms modulate developmental axon growth? Does successful CNS regeneration in adult neurons require a faithful recapitulation of developmental mechanisms? Are there development independent pathways that co-ordinate repair? These are some of the questions we are currently tackling. To get at these questions, we use a combinatorial approach which includes Bioinformatics, Functional Genomics (Single-cell RNA-Seq, ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth, in vivo mouse models of injury and behavioral assessments.
@@ -375,8 +373,34 @@ p {
 .emptyspace {
   height: 50px;
 }
+.intro-section {
+  margin-bottom: 32px;
+}
+.intro-video-col,
+.intro-copy-col {
+  padding: 16px;
+}
+.video-container {
+  border: 1px solid rgba(255, 250, 250, 0.65);
+  position: relative;
+  width: 100%;
+}
+.video-container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+.video-container iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 .labvision {
   font-size: 20px !important;
+  line-height: 1.45;
+  margin-bottom: 0;
   text-align: justify;
 }
 .vision {
@@ -433,6 +457,10 @@ p {
 @media (max-width: 600px) {
   .labvision {
     text-align: center;
+  }
+  .intro-video-col,
+  .intro-copy-col {
+    padding: 8px 15px;
   }
 }
 @media (max-width: 600px) {
