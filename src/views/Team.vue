@@ -32,6 +32,15 @@
         </article>
         <div class="pi-writeup">
           <p v-html="section.members[0].desc"></p>
+          <a
+            class="cv-button"
+            :href="require('../assets/cv/Ish_CV.pdf')"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <b-icon icon="file-earmark-person"></b-icon>
+            View CV
+          </a>
         </div>
       </div>
       <b-row v-else>
@@ -477,6 +486,27 @@ h4 {
   margin-bottom: 20px;
   overflow-wrap: anywhere;
   text-decoration: underline;
+}
+
+.cv-button {
+  align-items: center;
+  border: 1px solid #346225;
+  color: #346225;
+  display: inline-flex;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 10px 14px;
+  text-decoration: none;
+}
+
+.cv-button:hover,
+.cv-button:focus {
+  background: #fff3e0;
+  color: #346225;
+  text-decoration: none;
 }
 
 .more-button {
