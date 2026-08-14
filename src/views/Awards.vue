@@ -1,10 +1,9 @@
 <template>
   <b-container class="awards-page">
-    <b-row>
-      <b-col>
-        <h2 class="text-center">Awards</h2>
-      </b-col>
-    </b-row>
+    <div class="page-header">
+      <p class="page-kicker">Recognition</p>
+      <h1 class="page-title">Awards</h1>
+    </div>
     <b-row
       v-for="year in groupedAwards.keys()"
       :key="year"
@@ -246,40 +245,44 @@ export default {
 
 <style scoped>
 .awards-page {
-  padding-top: 48px;
-}
-
-h2 {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 36px;
-  margin-bottom: 32px;
+  padding-bottom: 56px;
+  padding-top: 56px;
 }
 
 .award-year {
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .year-label {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 28px;
-  font-weight: bold;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .award-card {
-  border: 1px solid rgba(52, 98, 37, 0.25);
-  color: #346225;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-ink);
   display: flex;
   flex-direction: column;
-  font-family: "Oswald", sans-serif !important;
-  font-size: 20px;
+  font-family: var(--font-body) !important;
+  font-size: 1rem;
   height: 100%;
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.award-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .award-image-wrapper {
+  background: var(--color-surface-muted);
   border: 0;
-  background: #f7f7f7;
+  border-bottom: 1px solid var(--color-border);
   cursor: pointer;
   display: block;
   height: 220px;
@@ -296,11 +299,19 @@ h2 {
 
 .award-content {
   flex: 1;
-  padding: 16px;
+  padding: 18px;
+}
+
+.award-content strong {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 600;
 }
 
 .award-content p {
-  font-size: 18px;
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
   margin: 6px 0 0;
 }
 
@@ -317,10 +328,15 @@ h2 {
 .award-list strong,
 .award-list span {
   display: block;
-  font-size: 17px;
+  font-size: 0.9rem;
+}
+
+.award-list strong {
+  color: var(--color-ink);
 }
 
 .award-list span {
+  color: var(--color-muted);
   font-weight: normal;
 }
 
@@ -333,6 +349,7 @@ h2 {
 }
 
 .modal-image {
+  border-radius: var(--radius-sm);
   max-height: 80vh;
   max-width: 100%;
   object-fit: contain;

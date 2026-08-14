@@ -1,47 +1,92 @@
 <template>
   <div>
-    <ParticlesJS> </ParticlesJS>
-    <div class="labinfo" color="orange lighten-5">
+    <section class="hero">
+      <NeuronBackground class="hero-bg" />
+      <b-container class="hero-content">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="page-kicker">Venkatesh Lab &middot; CSIR-CCMB</p>
+            <h1>Regulatory Networks Encoding Axon Growth in the Nervous System</h1>
+            <p class="hero-question">
+              How is axon growth regulated during development and regeneration in mammals?
+            </p>
+            <p class="hero-body">
+              Communication in the nervous system is achieved via long cables called axons which connect neurons in the brain with the rest of the body. Intact axons are critical for proper nervous system function. When injured, young neurons are remarkably good at regeneration and repair. In contrast, adult neurons fail to regenerate resulting in permanent irreversible nervous system damage. What molecular pathways drive the observed loss of regenerative capacity across development? What regulatory mechanisms modulate developmental axon growth? Does successful CNS regeneration in adult neurons require a faithful recapitulation of developmental mechanisms? Are there development independent pathways that co-ordinate repair? These are some of the questions we are currently tackling. To get at these questions, we use a combinatorial approach which includes Bioinformatics, Functional Genomics (Single-cell RNA-Seq, ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth, in vivo mouse models of injury and behavioral assessments.
+            </p>
+          </div>
+          <div class="hero-media">
+            <div class="video-container">
+              <iframe width="720" height="480" src="https://www.youtube.com/embed/4te7sQQBl1g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </b-container>
+    </section>
+
+    <section class="toolkit-section">
       <b-container>
-        <b-row>
-          <div class="emptyspace"></div>
-        </b-row>
-        <b-row>
-          <b-col>
-            <b-row class="d-flex justify-space-around pa-3 text-center">
-              <h1 color="orange lighten-5">
-                Regulatory Networks Encoding Axon Growth in the Nervous System
-              </h1>
-              <b-row>
-                <b-col>
-                  <div class="video-container">
-                    <iframe width="720" height="480" src="https://www.youtube.com/embed/4te7sQQBl1g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-                </b-col>
-              </b-row>
-            </b-row>
-            <b-row class="pa-8">
-              <b-col>
-                <p color="orange lighten-5" class="pa-6 labvision">
-                  <span class="vision">How is axon growth regulated during development and regeneration in mammals?</span>
-                  Communication in the nervous system is achieved via long cables called axons which connect neurons in the brain with the rest of the body. Intact axons are critical for proper nervous system function. When injured, young neurons are remarkably good at regeneration and repair. In contrast, adult neurons fail to regenerate resulting in permanent irreversible nervous system damage. What molecular pathways drive the observed loss of regenerative capacity across development? What regulatory mechanisms modulate developmental axon growth? Does successful CNS regeneration in adult neurons require a faithful recapitulation of developmental mechanisms? Are there development independent pathways that co-ordinate repair? These are some of the questions we are currently tackling. To get at these questions, we use a combinatorial approach which includes Bioinformatics, Functional Genomics (Single-cell RNA-Seq, ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth, in vivo mouse models of injury and behavioral assessments.
-                </p>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col><h2 class="text-center">Research Toolkit</h2></b-col>
-        </b-row>
-        <b-row class="techniques mb-5">
-          <b-col class="mt-2 mr-2 ml-4 mb-2" cols="5" sm="3" md="2" v-for="(tech, index) in techniques" :key="index">
-            <h4 class="text-center">{{ tech.text }}</h4>
-            <b-img :src="require(`../assets/images/homepage/${tech.image}`)" fluid class="ml-2" width="160" height="160"></b-img>
-          </b-col>
-        </b-row>
-        <hr />
-        <b-row class="mt-12 bottompage mb-6">
-          <b-col cols="7" md="8" class="labnews">
+        <h2 class="text-center section-title">Research Gallery</h2>
+        <div class="slideshow">
+          <div class="slideshow-viewport">
+            <button
+              class="slideshow-frame"
+              type="button"
+              v-for="(item, index) in galleryImages"
+              :key="index"
+              v-show="index === activeSlide"
+              @click="showSlideDetail(item)"
+            >
+              <b-img :src="require(`../assets/images/lab_webpage/${item.image}`)" fluid class="slideshow-img"></b-img>
+              <span class="slideshow-caption">{{ item.text }}</span>
+            </button>
+
+            <button
+              class="slideshow-arrow slideshow-arrow-prev"
+              type="button"
+              aria-label="Previous image"
+              @click="goToSlide((activeSlide - 1 + galleryImages.length) % galleryImages.length)"
+            >&#10094;</button>
+            <button
+              class="slideshow-arrow slideshow-arrow-next"
+              type="button"
+              aria-label="Next image"
+              @click="goToSlide((activeSlide + 1) % galleryImages.length)"
+            >&#10095;</button>
+          </div>
+
+          <div class="slideshow-dots">
+            <button
+              v-for="(item, index) in galleryImages"
+              :key="`dot-${index}`"
+              type="button"
+              class="slideshow-dot"
+              :class="{ active: index === activeSlide }"
+              :aria-label="`Show ${item.text}`"
+              @click="goToSlide(index)"
+            ></button>
+          </div>
+        </div>
+      </b-container>
+    </section>
+
+    <b-modal v-model="showGalleryModal" size="lg" hide-footer centered>
+      <template #modal-title>
+        <span v-if="selectedGalleryItem">{{ selectedGalleryItem.text }}</span>
+      </template>
+      <div class="gallery-modal" v-if="selectedGalleryItem">
+        <b-img
+          :src="require(`../assets/images/lab_webpage/${selectedGalleryItem.image}`)"
+          fluid
+          class="gallery-modal-img"
+        ></b-img>
+        <p class="gallery-modal-desc">{{ selectedGalleryItem.description }}</p>
+      </div>
+    </b-modal>
+
+    <section class="lower-section">
+      <b-container>
+        <b-row class="bottompage">
+          <b-col cols="12" md="8" class="labnews">
             <h3 class="text-center">LAB NEWS</h3>
             
             <div v-for="(item, index) in recentNews" :key="'recent-'+index">
@@ -108,8 +153,8 @@
               </div>
             </div>
           </b-col>
-          
-          <b-col cols="5" md="4">
+
+          <b-col cols="12" md="4">
             <h3 class="text-center">Ish's Tweets</h3>
             <v-card class="overflow-auto tweetdiv">
               <div class="elfsight-app-49b277f8-63cb-4997-abaa-e683d5b8421c" data-elfsight-app-lazy></div>
@@ -117,12 +162,12 @@
           </b-col>
         </b-row>
       </b-container>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
-import ParticlesJS from "../components/ParticlesJS.vue";
+import NeuronBackground from "../components/NeuronBackground.vue";
 import labNews from "@/assets/lab-news.json";
 
 const GOOGLE_SHEET_CSV_URL =
@@ -131,31 +176,39 @@ const RECENT_NEWS_MONTH_LIMIT = 3;
 
 export default {
   components: {
-    ParticlesJS,
+    NeuronBackground,
   },
   data() {
     return {
       showOlderNews: false,
-      techniques: [
+      activeSlide: 0,
+      slideTimer: null,
+      showGalleryModal: false,
+      selectedGalleryItem: null,
+      galleryImages: [
         {
-          text: "Mouse models of injury",
-          image: "mice.png",
+          text: "DRG Neuron Culture",
+          image: "DRG.png",
+          description:
+            "Dorsal root ganglion neurons in culture, immunostained to reveal axon outgrowth (green) against a background of supporting cells (red) and cell nuclei (blue). Cultures like this let us test how genetic and molecular manipulations affect the ability of neurons to extend new axons.",
         },
         {
-          text: "Molecular Biology",
-          image: "molbio.png",
+          text: "Gait Analysis",
+          image: "Gait.png",
+          description:
+            "Pose-tracking analysis of mouse locomotion on a horizontal ladder, used to quantify hindlimb coordination and stepping accuracy. Automated tracking of key joints lets us measure functional recovery after spinal cord injury with high precision.",
         },
         {
-          text: "Single Cell Genomics",
-          image: "scg.png",
+          text: "Hi-C Chromatin Mapping",
+          image: "HiC.png",
+          description:
+            "Hi-C contact maps comparing 3D genome architecture across developmental (P0), adult, and injured neuronal states. Changes in chromatin looping and compartmentalization reveal how genome organization shifts to enable or restrict regenerative gene programs.",
         },
         {
-          text: "Cell Culture",
-          image: "cellcult.png",
-        },
-        {
-          text: "Bioinformatics",
-          image: "bioinfo.png",
+          text: "Motor Cortex Injection",
+          image: "Motor_cortext_Injection.png",
+          description:
+            "Anterograde tracing of corticospinal neurons via AAV-GFP injection into the primary motor cortex. Coronal sections show GFP expression confined to layer 5 neurons, with high-magnification imaging confirming transduction of individual corticospinal neurons for downstream axon tracing studies.",
         },
       ],
       recentNews: labNews.recent,
@@ -339,105 +392,384 @@ export default {
         script.async = true;
         document.head.appendChild(script);
       }
-    }
+    },
+    goToSlide(index) {
+      this.activeSlide = index;
+      this.restartSlideTimer();
+    },
+    startSlideTimer() {
+      this.slideTimer = setInterval(() => {
+        this.activeSlide = (this.activeSlide + 1) % this.galleryImages.length;
+      }, 4500);
+    },
+    restartSlideTimer() {
+      clearInterval(this.slideTimer);
+      this.startSlideTimer();
+    },
+    showSlideDetail(item) {
+      this.selectedGalleryItem = item;
+      this.showGalleryModal = true;
+    },
   },
   mounted() {
     this.loadLabNewsFromSheet();
     // Load the Elfsight script when the component is mounted
     this.loadElfsightScript();
+    this.startSlideTimer();
+  },
+  beforeDestroy() {
+    clearInterval(this.slideTimer);
   },
 };
 </script>
 
 <style scoped>
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgb(6, 44, 2);
-  background-repeat: no-repeat;
-}
-.labinfo {
+.hero {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  min-height: 560px;
+  overflow: hidden;
+  padding: 56px 0 48px;
   position: relative;
 }
-h1 {
-  color: oldlace;
-  font-size: 60px;
-  font-family: "Oswald", sans-serif;
+
+.hero-bg {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 38%,
+    rgba(0, 0, 0, 0.35) 55%,
+    transparent 72%
+  );
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 38%,
+    rgba(0, 0, 0, 0.35) 55%,
+    transparent 72%
+  );
 }
-h2, h3, h4, h5 {
-  color: snow;
-  font-family: "Oswald", sans-serif;
+
+.hero-content {
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
 }
-p {
-  color: oldlace;
+
+.hero-content a,
+.hero-content button,
+.hero-content iframe {
+  pointer-events: auto;
 }
-.emptyspace {
-  height: 50px;
+
+.hero-grid {
+  align-items: start;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1.1fr 1fr;
 }
-.labvision {
-  font-size: 20px !important;
+
+.hero-copy h1 {
+  color: var(--color-ink);
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 10px 0 22px;
+}
+
+.hero-question {
+  color: var(--color-accent-dark);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.hero-body {
+  color: var(--color-ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.7;
   text-align: justify;
 }
-.vision {
-  font-weight: bold;
-  font-style: italic;
+
+.hero-media {
+  align-self: center;
 }
+
+.video-container {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: relative;
+  padding-top: 66.66%;
+  width: 100%;
+}
+
+.video-container iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.toolkit-section {
+  background: var(--color-surface-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding: 48px 0;
+}
+
+.section-title {
+  color: var(--color-ink);
+  font-size: 1.7rem;
+  margin-bottom: 32px;
+}
+
+.slideshow {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.slideshow-viewport {
+  position: relative;
+}
+
+.slideshow-frame {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  width: 100%;
+}
+
+.slideshow-frame:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.slideshow-img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.slideshow-caption {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  bottom: 0;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  left: 0;
+  padding: 32px 20px 16px;
+  position: absolute;
+  right: 0;
+  text-align: left;
+}
+
+.slideshow-arrow {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  border: 0;
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.1rem;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.15s ease;
+  width: 40px;
+  z-index: 2;
+}
+
+.slideshow-arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.slideshow-arrow-prev {
+  left: 14px;
+}
+
+.slideshow-arrow-next {
+  right: 14px;
+}
+
+.slideshow-dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.slideshow-dot {
+  background: var(--color-border-strong);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  height: 9px;
+  padding: 0;
+  transition: background 0.15s ease, width 0.15s ease;
+  width: 9px;
+}
+
+.slideshow-dot.active {
+  background: var(--color-accent);
+  width: 24px;
+}
+
+.gallery-modal {
+  text-align: center;
+}
+
+.gallery-modal-img {
+  border-radius: var(--radius-md);
+  margin-bottom: 18px;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.gallery-modal-desc {
+  color: var(--color-ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+.lower-section {
+  padding: 56px 0 72px;
+}
+
+.bottompage h3 {
+  color: var(--color-ink);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
 .tweetdiv {
-  height: 800px;
-  width: 400px;
+  height: 700px;
+  width: 100%;
 }
+
+.v-card {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: none !important;
+}
+
 .v-card__title {
-  color: snow !important;
-  font-size: 24px !important;
+  color: var(--color-ink) !important;
+  font-family: var(--font-heading) !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
 }
+
 .v-card__text {
-  font-family: "Oswald", sans-serif !important;
-  color: snow !important;
-  font-size: 22px !important;
-  font-weight: bolder;
-  line-height: 1.45 !important;
+  color: var(--color-ink-soft) !important;
+  font-family: var(--font-body) !important;
+  font-size: 1rem !important;
+  font-weight: 400;
+  line-height: 1.6 !important;
   opacity: 1 !important;
 }
+
 .news-link {
+  color: var(--color-accent);
+  font-weight: 600;
   margin-left: 8px;
 }
+
 .labnews >>> ul {
   margin-bottom: 0;
-  padding-left: 24px;
+  padding-left: 22px;
 }
+
 .labnews >>> li {
-  line-height: 1.45;
-  margin-bottom: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
+
 .labnews >>> h3 {
   line-height: 1.35;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
+
 .labnews >>> li:last-child {
   margin-bottom: 0;
 }
-.techniques {
-  border: 0.5px solid;
-  border-color: snow;
-}
-.theme--light.v-sheet {
-  background-color: #193311;
-  border-color: #ffffff;
-  color: snow;
+
+.show-more-btn {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border-strong) !important;
+  box-shadow: none !important;
+  color: var(--color-accent) !important;
+  font-weight: 600;
+  text-transform: none !important;
 }
 
-.labnews > .v-sheet {
-  opacity: 0.6;
+.show-more-btn:hover {
+  background: var(--color-accent-light) !important;
 }
-@media (max-width: 600px) {
-  .labvision {
-    text-align: center;
+
+@media (max-width: 991px) {
+  .hero-grid {
+    gap: 32px;
+    grid-template-columns: 1fr;
   }
+
+  .hero-media {
+    order: -1;
+  }
+
+  .hero-bg {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      black 45%,
+      black 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      black 45%,
+      black 100%
+    );
+  }
+
 }
+
 @media (max-width: 600px) {
-  .techniques {
-    border: 0px;
+  .hero {
+    padding: 40px 0 32px;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-body {
+    text-align: left;
+  }
+
+  .slideshow-caption {
+    font-size: 0.95rem;
+    padding: 26px 16px 14px;
+  }
+
+  .tweetdiv {
+    height: 520px;
   }
 }
 </style>

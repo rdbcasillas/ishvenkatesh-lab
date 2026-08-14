@@ -1,32 +1,24 @@
 <template>
   <div>
-    <b-container>
-      <b-row>
-        <h2 class="m-auto pt-3">Useful Resources</h2>
-      </b-row>
-      <b-row class="mt-5">
-        <b-col cols="4" v-for="(item, index) in resources" :key="index">
-          <b-card
-            :title="item.name"
-            :img-src="require(`../assets/images/resources/${item.image}`)"
-            img-alt="Image"
-            border-variant="primary"
-            img-top
-            img-height="160px"
-            style="max-width: 20rem"
-            class="mb-2"
-          >
-            <b-card-text>
-              {{ item.desc }}
-            </b-card-text>
-
-            <b-button variant="primary" class="cardbutton" href="#"
-              >Explore</b-button
-            >
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
+    <div class="page-container">
+      <div class="page-header">
+        <p class="page-kicker">For the Lab</p>
+        <h1 class="page-title">Useful Resources</h1>
+      </div>
+      <div class="resources-grid">
+        <article class="resource-card" v-for="(item, index) in resources" :key="index">
+          <img
+            class="resource-image"
+            :src="require(`../assets/images/resources/${item.image}`)"
+            alt=""
+          />
+          <div class="resource-body">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.desc }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -57,12 +49,46 @@ export default {
 </script>
 
 <style scoped>
-.cardbutton {
-  color: snow;
+.resources-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
-h2 {
-  font-family: "Oswald", sans-serif !important;
-  font-weight: bold;
-  color: #346225 !important;
+
+.resource-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.resource-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.resource-image {
+  display: block;
+  height: 160px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.resource-body {
+  padding: 20px;
+}
+
+.resource-body h3 {
+  color: var(--color-ink);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.resource-body p {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
 }
 </style>

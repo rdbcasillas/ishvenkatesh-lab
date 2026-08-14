@@ -1,69 +1,57 @@
 <template>
   <div>
-    <b-container>
-      <b-row class="mt-5">
-        <h3 class="text-center">Current Supporters</h3>
-      </b-row>
-      <b-row class="mt-4">
-        <b-col cols="12">
-          <div class="supporter-logos">
-            <div
-              v-for="supporter in supporters"
-              :key="supporter.name"
-              class="supporter-logo"
-            >
-              <img
-                :src="require(`../assets/images/logo/${supporter.logo}`)"
-                :alt="supporter.name"
-              />
-            </div>
+    <div class="page-container">
+      <div class="page-header">
+        <p class="page-kicker">Support</p>
+        <h1 class="page-title">Funding</h1>
+      </div>
+
+      <h3>Current Supporters</h3>
+      <div class="supporter-logos">
+        <div
+          v-for="supporter in supporters"
+          :key="supporter.name"
+          class="supporter-logo"
+        >
+          <img
+            :src="require(`../assets/images/logo/${supporter.logo}`)"
+            :alt="supporter.name"
+          />
+        </div>
+      </div>
+
+      <ul class="list-group">
+        <li
+          v-for="project in currentProjects"
+          :key="project.title"
+          class="list-group-item funding-item"
+        >
+          <div>
+            <strong>{{ project.funder }}</strong>
+            <span class="project-title"> &mdash; {{ project.title }}</span>
           </div>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="10">
-          <ul class="list-group">
-            <li
-              v-for="project in currentProjects"
-              :key="project.title"
-              class="list-group-item funding-item"
-            >
-              <div>
-                <strong>{{ project.funder }}</strong>
-                <span class="project-title"> - {{ project.title }}</span>
-              </div>
-              <span class="badge badge-primary badge-pill">{{
-                project.years
-              }}</span>
-            </li>
-          </ul>
-        </b-col>
-      </b-row>
-      <b-row class="mt-5">
-        <h3 class="text-center">Past Supporters</h3>
-      </b-row>
-      <b-row>
-        <b-col cols="10">
-          <ul class="list-group">
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center">
-              CSIR-Neuromission
-              <span class="badge badge-primary badge-pill">2024-2026</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center">
-              SERB-SRG
-              <span class="badge badge-primary badge-pill">2023-2026</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center">
-              SERB Ramanujan Fellowship
-              <span class="badge badge-primary badge-pill">2022-2022</span>
-            </li>
-          </ul>
-        </b-col>
-      </b-row>
-    </b-container>
+          <span class="badge badge-primary badge-pill">{{
+            project.years
+          }}</span>
+        </li>
+      </ul>
+
+      <h3 class="past-supporters-title">Past Supporters</h3>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          CSIR-Neuromission
+          <span class="badge badge-primary badge-pill">2024-2026</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          SERB-SRG
+          <span class="badge badge-primary badge-pill">2023-2026</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          SERB Ramanujan Fellowship
+          <span class="badge badge-primary badge-pill">2022-2022</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -136,48 +124,79 @@ export default {
 </script>
 
 <style scoped>
-.list-group-item {
-  font-family: "Oswald", sans-serif !important;
-  font-size: 20px;
-  color: #346225 !important;
+h3 {
+  color: var(--color-ink);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
 }
+
+.past-supporters-title {
+  margin-top: 40px;
+}
+
+.list-group-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm) !important;
+  color: var(--color-ink) !important;
+  font-family: var(--font-body) !important;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding: 14px 18px;
+}
+
+.list-group-item strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
 .funding-item {
   align-items: center;
   display: flex;
   gap: 16px;
   justify-content: space-between;
 }
+
 .project-title {
+  color: var(--color-ink-soft);
   font-weight: normal;
 }
+
 .badge {
+  background: var(--color-accent-light) !important;
+  color: var(--color-accent-dark) !important;
   flex: 0 0 auto;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 12px;
 }
+
 .supporter-logos {
   align-items: center;
   display: grid;
   gap: 18px;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
+
 .supporter-logo {
   align-items: center;
-  border: 1px solid rgba(52, 98, 37, 0.25);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   display: flex;
   height: 110px;
   justify-content: center;
   padding: 14px;
 }
+
 .supporter-logo img {
   max-height: 82px;
   max-width: 100%;
   object-fit: contain;
 }
-h3 {
-  font-family: "Oswald", sans-serif !important;
-  font-weight: bold;
-}
+
 @media (max-width: 600px) {
   .funding-item {
     align-items: flex-start;

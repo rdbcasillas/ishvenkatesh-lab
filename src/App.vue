@@ -1,14 +1,13 @@
 <template>
   <v-app>
     <Navigation />
-    <v-main>
+    <v-main class="app-main">
       <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-//import particlesJS from "./components/ParticlesJS";
 import Navigation from "./components/Navigation.vue";
 
 export default {
@@ -24,4 +23,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.app-main {
+  padding-top: 66px;
+}
+
+@media (max-width: 600px) {
+  .app-main {
+    padding-top: 58px;
+  }
+}
+</style>

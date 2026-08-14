@@ -32,6 +32,20 @@
         </article>
         <div class="pi-writeup">
           <p v-html="section.members[0].desc"></p>
+          <div v-if="section.members[0].cv" class="cv-container mt-3">
+            <a
+              :href="section.members[0].cv"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cv-button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5v2.121a.379.379 0 0 0 .379.379H12"/>
+                <path d="M4.5 12.5A.5.5 0 0 1 5 12h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+              View Curriculum Vitae (CV)
+            </a>
+          </div>
         </div>
       </div>
       <b-row v-else>
@@ -115,6 +129,20 @@
             {{ selectedPerson.email }}
           </a>
           <p class="bio-desc" v-html="selectedPerson.desc"></p>
+          <div v-if="selectedPerson.cv" class="cv-container mt-3">
+            <a
+              :href="selectedPerson.cv"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cv-button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5v2.121a.379.379 0 0 0 .379.379H12"/>
+                <path d="M4.5 12.5A.5.5 0 0 1 5 12h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+              View Curriculum Vitae (CV)
+            </a>
+          </div>
         </div>
       </div>
     </b-modal>
@@ -192,6 +220,7 @@ export default {
           name: "Dr. Ishwariya Venkatesh",
           position: "Principal Investigator",
           image: "ish",
+          cv: process.env.BASE_URL + "cv/Ish_CV.pdf",
           desc: "Ishwariya (prefers to go by Ish) was smitten with Science in high school,  when she spent a summer traveling to different research labs in South India as part of an internship at the MS Swaminathan Research Foundation. She received her Bachelor’s degree in Biotechnology from BIT, Sathy (affiliated to Anna University) and doctoral degree in Molecular Neuroscience from The University of Wisconsin - Milwaukee. She underwent post-doctoral training in the lab of Dr.Murray Blackmore at Marquette University, focusing on transcriptional and epigenetic regulation of axon regeneration in the mammalian nervous system. As a Research Asst Professor at Marquette, she continued that line of work, developing Bioinformatic workflows to identify co-operative Transcription Factors that regulate regenerative capacity in the injured spinal cord. At CCMB, she is continuing to probe and identify molecular pathways that regulate regenerative capacity in the injured mammalian nervous system. Outside of the lab, Ish loves to read, cook, explore different forms of art (currently obsessed with Madhubani art) and tend to her home garden.",
           email: "ishwariya.ccmb@csir.res.in",
         },
@@ -369,46 +398,61 @@ export default {
 
 <style scoped>
 .team-page {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-bottom: 64px;
+  padding-top: 56px;
 }
 
-h4, h2, h3, h6, p {
-  font-family: "Oswald", sans-serif !important;
-  font-weight: bold;
-  color: #346225 !important;
+h2, h3, h4 {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
 }
 
 h2 {
-  font-size: 36px;
-  margin-bottom: 34px;
+  font-size: 2.3rem;
+  margin-bottom: 40px;
 }
 
 h3 {
-  border-bottom: 1px solid #346225;
-  font-size: 28px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-accent-dark);
+  font-size: 1.55rem;
   margin-bottom: 24px;
   padding-bottom: 10px;
 }
 
 h4 {
-  font-size: 24px;
-  line-height: 1.2;
-  margin-bottom: 8px;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  margin-bottom: 6px;
 }
 
 .team-section {
-  margin-bottom: 42px;
+  margin-bottom: 48px;
 }
 
 .person-card {
-  border: 1px solid #346225;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   height: 100%;
   margin: 0 auto;
   max-width: 260px;
   min-height: 0;
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.person-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .person-photo {
@@ -423,7 +467,7 @@ h4 {
 .pi-feature {
   align-items: start;
   display: grid;
-  gap: 34px;
+  gap: 36px;
   grid-template-columns: 260px 1fr;
 }
 
@@ -432,11 +476,10 @@ h4 {
 }
 
 .pi-writeup {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 19px;
-  font-weight: bold;
-  line-height: 1.5;
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
   padding-top: 2px;
   text-align: justify;
 }
@@ -445,15 +488,45 @@ h4 {
   margin: 0;
 }
 
+.cv-container {
+  display: flex;
+  margin-top: 16px;
+}
+
+.cv-button {
+  align-items: center;
+  background-color: var(--color-accent, #0b66c2);
+  border: 1px solid var(--color-accent, #0b66c2);
+  border-radius: var(--radius-sm, 6px);
+  color: #ffffff !important;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 8px;
+  padding: 8px 16px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.cv-button:hover,
+.cv-button:focus {
+  background-color: var(--color-accent-dark, #084e96);
+  border-color: var(--color-accent-dark, #084e96);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
 .person-placeholder,
 .bio-placeholder {
   align-items: center;
-  background: #f6f0df;
-  color: #346225;
+  background: var(--color-surface-muted);
+  color: var(--color-accent);
   display: flex;
-  font-family: "Oswald", sans-serif;
-  font-size: 48px;
-  font-weight: bold;
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 600;
   justify-content: center;
 }
 
@@ -465,37 +538,46 @@ h4 {
 }
 
 .person-position {
-  font-size: 20px;
-  line-height: 1.25;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.3;
   margin-bottom: 8px;
 }
 
 .person-email {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 17px;
-  margin-bottom: 20px;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 18px;
   overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.person-email:hover {
   text-decoration: underline;
 }
 
 .more-button {
   align-self: flex-start;
   background: transparent;
-  border: 1px solid #346225;
-  border-radius: 0;
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 18px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
   margin-top: auto;
-  padding: 10px 14px;
+  padding: 9px 14px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .more-button:hover,
 .more-button:focus {
-  background: #fff3e0;
-  border-color: #346225;
-  color: #346225;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 .alumni-section {
@@ -503,32 +585,37 @@ h4 {
 }
 
 .alumni-item {
-  border: 1px solid rgba(52, 98, 37, 0.55);
-  color: #346225;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
   display: flex;
   flex-direction: column;
-  font-family: "Oswald", sans-serif;
+  font-family: var(--font-body);
   height: 100%;
   padding: 14px 16px;
 }
 
 .alumni-item strong {
-  font-size: 19px;
+  font-size: 1.02rem;
+  font-weight: 600;
   margin-bottom: 4px;
 }
 
 .alumni-item span {
-  font-size: 16px;
+  color: var(--color-muted);
+  font-size: 0.9rem;
 }
 
 .bio-modal {
-  color: #346225;
+  color: var(--color-ink-soft);
   display: grid;
   gap: 22px;
   grid-template-columns: 220px 1fr;
 }
 
 .bio-photo {
+  border-radius: var(--radius-sm);
   max-height: 300px;
   object-fit: cover;
   object-position: top;
@@ -536,26 +623,26 @@ h4 {
 }
 
 .bio-placeholder {
+  border-radius: var(--radius-sm);
   min-height: 260px;
 }
 
 .bio-modal a,
 .bio-desc >>> a {
-  color: #346225;
+  color: var(--color-accent);
   text-decoration: underline;
 }
 
 .bio-desc {
-  color: #346225 !important;
-  font-family: "Oswald", sans-serif;
-  font-size: 19px;
-  font-weight: bold;
-  line-height: 1.5;
+  color: var(--color-ink-soft) !important;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.65;
   margin-top: 16px;
 }
 
 span >>> a {
-  color: #346225;
+  color: var(--color-accent);
   text-decoration: underline;
 }
 

@@ -1,10 +1,9 @@
 <template>
   <b-container class="social-page">
-    <b-row>
-      <b-col>
-        <h2 class="text-center">Social Media</h2>
-      </b-col>
-    </b-row>
+    <div class="page-header">
+      <p class="page-kicker">Follow Along</p>
+      <h1 class="page-title">Social Media</h1>
+    </div>
     <b-row class="justify-content-center">
       <b-col cols="12" lg="6" class="mb-4">
         <section class="social-panel">
@@ -189,22 +188,18 @@ export default {
 
 <style scoped>
 .social-page {
-  padding-top: 48px;
-}
-
-h2 {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 36px;
-  margin-bottom: 32px;
+  padding-bottom: 56px;
+  padding-top: 56px;
 }
 
 .social-panel {
-  border: 1px solid #346225;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   height: 500px;
-  padding: 20px;
+  padding: 22px;
 }
 
 .panel-header {
@@ -215,17 +210,17 @@ h2 {
 }
 
 h3 {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 28px;
+  color: var(--color-ink);
+  font-size: 1.4rem;
   margin: 0;
 }
 
 .panel-header a,
 .profile-button {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-  font-size: 18px;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -244,20 +239,20 @@ h3 {
 }
 
 .profile-widget {
-  color: #346225;
+  color: var(--color-accent);
   display: flex;
   flex: 1;
   flex-direction: column;
-  font-family: "Oswald", sans-serif;
+  font-family: var(--font-body);
   justify-content: center;
 }
 
 .scholar-widget {
-  color: #346225;
+  color: var(--color-accent);
   display: flex;
   flex: 1;
   flex-direction: column;
-  font-family: "Oswald", sans-serif;
+  font-family: var(--font-body);
   justify-content: space-between;
 }
 
@@ -268,18 +263,24 @@ h3 {
 }
 
 .scholar-stats div {
-  border: 1px solid #346225;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   padding: 10px 6px;
   text-align: center;
 }
 
 .scholar-stats span {
+  color: var(--color-accent-dark);
   display: block;
+  font-family: var(--font-heading);
   font-size: 27px;
+  font-weight: 600;
   line-height: 1.1;
 }
 
 .scholar-stats p {
+  color: var(--color-muted);
   font-size: 15px;
   line-height: 1.2;
   margin: 6px 0 0;
@@ -287,7 +288,7 @@ h3 {
 
 .scholar-chart {
   align-items: end;
-  border-bottom: 1px solid #346225;
+  border-bottom: 1px solid var(--color-border-strong);
   display: grid;
   gap: 5px;
   grid-template-columns: repeat(12, 1fr);
@@ -310,7 +311,7 @@ h3 {
 }
 
 .scholar-bar div {
-  background: #346225;
+  background: var(--color-accent);
   min-height: 8px;
   width: 100%;
 }
@@ -347,7 +348,9 @@ h3 {
 }
 
 .profile-stats div {
-  border: 1px solid #346225;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   padding: 16px 8px;
   text-align: center;
 }
@@ -369,7 +372,8 @@ h3 {
 }
 
 .profile-button {
-  border: 1px solid #346225;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
   display: inline-block;
   margin-top: 16px;
   padding: 12px 16px;
@@ -377,14 +381,14 @@ h3 {
 
 .panel-header a:hover,
 .profile-button:hover {
-  background: #fff3e0;
-  color: #346225;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
 .embed-note {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
+  color: var(--color-accent);
+  font-family: var(--font-body);
   font-size: 18px;
   margin-bottom: 32px;
   text-align: center;

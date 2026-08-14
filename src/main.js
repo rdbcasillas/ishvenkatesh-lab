@@ -16,8 +16,8 @@ Vue.use(BootstrapVueIcons);
 
 Vue.use(VueParticles);
 Vue.use(VueGtag, {
-  config: { id: "G-X805J20SC4" },
-});
+  config: { id: "G-F84NDYL2Y4" },
+}, router);
 Vue.config.productionTip = false;
 
 new Vue({

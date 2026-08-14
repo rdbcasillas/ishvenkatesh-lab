@@ -1,10 +1,9 @@
 <template>
   <b-container class="retreat-page">
-    <b-row>
-      <b-col>
-        <h2 class="text-center">Lab Retreat</h2>
-      </b-col>
-    </b-row>
+    <div class="page-header">
+      <p class="page-kicker">Lab Culture</p>
+      <h1 class="page-title">Lab Retreat</h1>
+    </div>
 
     <b-row class="retreat-selector">
       <b-col
@@ -77,7 +76,7 @@
       </b-row>
 
       <div class="tweet-diary">
-        <h3>Retreat Diary</h3>
+        <h3>Retreat Diaries</h3>
         <b-row>
           <b-col
             v-for="tweet in selectedRetreat.tweets"
@@ -370,46 +369,41 @@ export default {
 
 <style scoped>
 .retreat-page {
-  padding-bottom: 48px;
-  padding-top: 48px;
-}
-
-h2,
-h3 {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
-}
-
-h2 {
-  font-size: 36px;
-  margin-bottom: 32px;
+  padding-bottom: 56px;
+  padding-top: 56px;
 }
 
 h3 {
-  font-size: 28px;
+  color: var(--color-ink);
+  font-size: 1.5rem;
   margin-bottom: 8px;
 }
 
 .retreat-selector {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .retreat-card {
-  background: transparent;
-  border: 1px solid #346225;
-  color: #346225;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-ink);
   display: flex;
   flex-direction: column;
-  font-family: "Oswald", sans-serif;
+  font-family: var(--font-body);
   height: 100%;
+  overflow: hidden;
   padding: 0;
   text-align: left;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
   width: 100%;
 }
 
 .retreat-card.active,
 .retreat-card:hover {
-  background: #fff3e0;
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .retreat-card img {
@@ -419,25 +413,30 @@ h3 {
 }
 
 .retreat-card span {
-  font-size: 25px;
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 1.2;
   padding: 14px 14px 4px;
 }
 
 .retreat-card strong {
-  font-size: 17px;
-  line-height: 1.25;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.3;
   padding: 0 14px 16px;
 }
 
 .retreat-detail {
-  color: #346225;
-  font-family: "Oswald", sans-serif;
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
 }
 
 .detail-header {
   align-items: start;
-  border-bottom: 1px solid #346225;
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   gap: 24px;
   justify-content: space-between;
@@ -446,18 +445,20 @@ h3 {
 }
 
 .detail-header p {
-  color: #346225;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.4;
+  color: var(--color-ink-soft);
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.5;
   margin: 0;
 }
 
 .detail-header a {
-  border: 1px solid #346225;
-  color: #346225;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
   flex: 0 0 auto;
-  font-size: 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
   padding: 10px 14px;
   text-decoration: none;
 }
@@ -467,8 +468,9 @@ h3 {
 }
 
 .media-tile {
-  background: transparent;
-  border: 1px solid rgba(52, 98, 37, 0.35);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   display: block;
   height: 230px;
   overflow: hidden;
@@ -488,36 +490,45 @@ h3 {
 }
 
 .tweet-card {
-  border: 1px solid rgba(52, 98, 37, 0.35);
-  color: #346225;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-ink-soft);
   display: flex;
   flex-direction: column;
-  font-family: "Oswald", sans-serif;
+  font-family: var(--font-body);
   height: 100%;
-  padding: 16px;
+  padding: 18px;
   text-decoration: none;
+  transition: box-shadow 0.15s ease;
 }
 
 .tweet-card:hover {
-  background: #fff3e0;
-  color: #346225;
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink-soft);
   text-decoration: none;
 }
 
 .tweet-card strong {
-  font-size: 21px;
-  line-height: 1.2;
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
   margin-bottom: 8px;
 }
 
 .tweet-card span {
-  font-size: 17px;
-  line-height: 1.35;
+  font-size: 0.95rem;
+  line-height: 1.5;
   margin-bottom: 12px;
 }
 
 .tweet-card small {
-  font-size: 15px;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
   margin-top: auto;
 }
 

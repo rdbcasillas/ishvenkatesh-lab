@@ -29,51 +29,47 @@
         </v-col>
       </v-row>
     </v-container> -->
-    <b-container>
+    <div class="page-container">
+      <div class="page-header">
+        <p class="page-kicker">Research Output</p>
+        <h1 class="page-title">Publications</h1>
+      </div>
       <section
         v-for="section in publicationSections"
         :key="section.title"
         class="publication-section"
       >
         <h2>{{ section.title }}</h2>
-        <b-row class="mt-5" v-for="year in section.data.keys()" :key="year">
-          <b-col cols="1">
+        <div class="year-block" v-for="year in section.data.keys()" :key="year">
+          <div class="year-label-col">
             <p class="yearStyle">{{ year }}</p>
-          </b-col>
-          <b-col cols="11">
-            <b-row
-              class="mt-5 mb-5"
+          </div>
+          <div class="year-entries">
+            <article
+              class="pub-entry"
               v-for="(pub, index) in section.data.get(year)"
               :key="index"
             >
-              <b-col>
-                <ul class="list-group">
-                  <li
-                    class="d-flex justify-content-between align-items-center papertitle"
-                  >
-                    <a target="_blank" :href="pub.URL"> {{ pub.Title }}</a>
-                  </li>
-                  <span class="journalStyle">{{ pub.Journal }}</span>
-                  <span class="authorStyle">
-                    <span
-                      v-for="(author, authorIndex) in pub.Authors"
-                      :key="authorIndex"
-                    >
-                      <span
-                        :class="{
-                          mainAuthor: shouldHighlightAuthor(pub, author),
-                        }"
-                        >{{ author }}</span
-                      ><span v-if="authorIndex < pub.Authors.length - 1">, </span>
-                    </span>
-                  </span>
-                </ul>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
+              <a class="papertitle" target="_blank" :href="pub.URL">{{ pub.Title }}</a>
+              <span class="journalStyle">{{ pub.Journal }}</span>
+              <span class="authorStyle">
+                <span
+                  v-for="(author, authorIndex) in pub.Authors"
+                  :key="authorIndex"
+                >
+                  <span
+                    :class="{
+                      mainAuthor: shouldHighlightAuthor(pub, author),
+                    }"
+                    >{{ author }}</span
+                  ><span v-if="authorIndex < pub.Authors.length - 1">, </span>
+                </span>
+              </span>
+            </article>
+          </div>
+        </div>
       </section>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -112,11 +108,7 @@ export default {
       return String(pub.Journal || "").toLowerCase() === "biorxiv";
     },
     shouldHighlightAuthor(pub, author) {
-      if (pub.AuthorType === "Corresponding author") {
-        return author === "Ishwariya Venkatesh";
-      }
-
-      return pub.AuthorType === "First" && author === pub.Authors[0];
+      return author === "Ishwariya Venkatesh";
     },
   },
   mounted() {
@@ -126,55 +118,83 @@ export default {
 </script>
 
 <style scoped>
-.pubheader {
-  height: 20px;
-  background: steelblue;
-}
 .publication-section {
-  margin: 48px 0;
+  margin: 0 0 48px;
 }
-h2 {
-  color: #346225;
-  font-family: "Oswald", sans-serif !important;
-  font-size: 32px;
-  font-weight: bold;
+
+.publication-section h2 {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink);
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
 }
-a:hover {
-  text-decoration: none;
-  background: rgb(238, 217, 29);
+
+.year-block {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 80px 1fr;
+  margin-bottom: 8px;
 }
-a {
-  text-decoration: none;
-  font-size: 24px;
-  font-family: "Oswald", sans-serif !important;
-  color: #346225 !important;
-}
+
 .yearStyle {
-  font-size: 22px;
-  color: #346225;
-  font-weight: bold;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
 }
-.authorStyle {
-  display: block;
-  font-family: "Oswald", sans-serif !important;
-  font-size: 18px;
+
+.year-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
+
+.pub-entry {
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 22px;
+}
+
+.papertitle {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.papertitle:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
 .journalStyle {
-  color: #346225;
-  display: block;
-  font-family: "Oswald", sans-serif !important;
-  font-size: 18px;
+  color: var(--color-accent-dark);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
   font-style: italic;
 }
+
+.authorStyle {
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 .mainAuthor {
-  font-weight: bold;
+  color: var(--color-ink);
+  font-weight: 700;
 }
-.pubtitle {
-  width: 200px;
-}
-.papertitle {
-  font-size: 16px;
-  color: #346225;
-  font-family: "Oswald", sans-serif !important;
+
+@media (max-width: 600px) {
+  .year-block {
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
 }
 </style>
