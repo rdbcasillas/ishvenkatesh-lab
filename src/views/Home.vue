@@ -210,6 +210,12 @@ export default {
           description:
             "Anterograde tracing of corticospinal neurons via AAV-GFP injection into the primary motor cortex. Coronal sections show GFP expression confined to layer 5 neurons, with high-magnification imaging confirming transduction of individual corticospinal neurons for downstream axon tracing studies.",
         },
+        {
+          text: "AAV Production",
+          image: "AAV_production.png",
+          description:
+            "In-house production, packaging, and quality control of high-titer recombinant adeno-associated viruses (rAAVs) for targeted neuronal gene delivery and cell-type specific expression.",
+        },
       ],
       recentNews: labNews.recent,
       olderNews: labNews.older,
