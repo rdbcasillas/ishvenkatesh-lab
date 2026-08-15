@@ -193,6 +193,24 @@ export default {
             "Dorsal root ganglion neurons in culture, immunostained to reveal axon outgrowth (green) against a background of supporting cells (red) and cell nuclei (blue). Cultures like this let us test how genetic and molecular manipulations affect the ability of neurons to extend new axons.",
         },
         {
+          text: "Primary Neuron Outgrowth",
+          image: "Primary_neuron.png",
+          description:
+            "Primary neuron cultures transduced with recombinant AAV vectors (AAV-tdTomato, AAV-NR2F1, AAV-NR2F6) and immunostained for βIII-tubulin (green) and tdTomato (red) to assess neurite outgrowth, branching complexity, and morphological responses to candidate regenerative factors in vitro.",
+        },
+        {
+          text: "Spinal Cord Injury & Regeneration",
+          image: "Spinal_cord_injury.png",
+          description:
+            "Fluorescence microscopy of spinal cord injury lesion site illustrating regenerating axon tracts navigating through the injury microenvironment and glial scar boundaries following targeted molecular interventions.",
+        },
+        {
+          text: "Motor Cortex Injection",
+          image: "Motor_cortext_Injection.png",
+          description:
+            "Anterograde tracing of corticospinal neurons via AAV-GFP injection into the primary motor cortex. Coronal sections show GFP expression confined to layer 5 neurons, with high-magnification imaging confirming transduction of individual corticospinal neurons for downstream axon tracing studies.",
+        },
+        {
           text: "Gait Analysis",
           image: "Gait.png",
           description:
@@ -205,10 +223,28 @@ export default {
             "Hi-C contact maps comparing 3D genome architecture across developmental (P0), adult, and injured neuronal states. Changes in chromatin looping and compartmentalization reveal how genome organization shifts to enable or restrict regenerative gene programs.",
         },
         {
-          text: "Motor Cortex Injection",
-          image: "Motor_cortext_Injection.png",
+          text: "snATAC-Seq Trajectory Analysis",
+          image: "snATAC.png",
           description:
-            "Anterograde tracing of corticospinal neurons via AAV-GFP injection into the primary motor cortex. Coronal sections show GFP expression confined to layer 5 neurons, with high-magnification imaging confirming transduction of individual corticospinal neurons for downstream axon tracing studies.",
+            "Single-nucleus ATAC-seq (snATAC-seq) developmental trajectory and pseudotime analysis across embryonic to adult corticospinal projection neuron differentiation (E10–P60). Dynamics of chromatin accessibility capture transition states from apical and intermediate progenitors to deep-layer projection neurons (L5/L6), mapping regulatory changes that govern axon growth potential.",
+        },
+        {
+          text: "snRNA-Seq Expression Profiling",
+          image: "snRNA.png",
+          description:
+            "Single-nucleus RNA sequencing (snRNA-seq) UMAP feature plots showing cell-type-specific transcriptional markers (Sox2, Eomes, Nrp1, Tubb3, Satb2, Bcl11b, Tle4, Pdgfra, Apoe, Aif1, Cldn5) across developing and mature cortical populations, enabling high-resolution mapping of gene regulatory networks driving axon regeneration.",
+        },
+        {
+          text: "CUT&RUN Chromatin Profiling",
+          image: "cut_and_run.png",
+          description:
+            "Cleavage Under Targets and Release Using Nuclease (CUT&RUN) profiling of transcription factor binding (e.g. NR2F1 and NR2F6 motifs) showing Fraction of Reads in Peaks (FRiP) and transcriptional start site (TSS) enrichment heatmaps under injured and perturbed states to identify key chromatin regulatory hubs in axon growth.",
+        },
+        {
+          text: "Ribo-Seq Translational Profiling",
+          image: "Riboseq.png",
+          description:
+            "Ribosome profiling (Ribo-seq) and translational efficiency analysis quantifying changes across functional gene networks (protein translation, motor proteins, cytoskeleton, axon guidance, and synaptic signaling) upon NR2F1 and NR2F6 transcription factor modulation.",
         },
         {
           text: "AAV Production",
