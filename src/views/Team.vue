@@ -306,7 +306,7 @@ export default {
         },
         {
           name: "Ishan Dutta",
-          current: "M.Tech, NIT-Warangal",
+          current: "Product Researcher at Encompass",
         },
       ],
       people: [
