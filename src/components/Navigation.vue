@@ -95,12 +95,72 @@ export default {
   data() {
     return {
       isDark: false,
+      mediaQuery: null,
+      mediaListener: null,
     };
   },
   mounted() {
-    this.isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    this.initTheme();
+  },
+  beforeDestroy() {
+    if (this.mediaQuery && this.mediaListener) {
+      if (this.mediaQuery.removeEventListener) {
+        this.mediaQuery.removeEventListener("change", this.mediaListener);
+      } else if (this.mediaQuery.removeListener) {
+        this.mediaQuery.removeListener(this.mediaListener);
+      }
+    }
   },
   methods: {
+    initTheme() {
+      let saved = null;
+      try {
+        saved = localStorage.getItem(THEME_KEY);
+      } catch (e) {
+        saved = null;
+      }
+
+      if (saved === "dark") {
+        this.isDark = true;
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else if (saved === "light") {
+        this.isDark = false;
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        const systemPrefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        this.isDark = systemPrefersDark;
+        document.documentElement.setAttribute(
+          "data-theme",
+          systemPrefersDark ? "dark" : "light"
+        );
+      }
+
+      if (window.matchMedia) {
+        this.mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        this.mediaListener = (e) => {
+          let hasSaved = false;
+          try {
+            hasSaved = Boolean(localStorage.getItem(THEME_KEY));
+          } catch (err) {
+            hasSaved = false;
+          }
+          if (!hasSaved) {
+            this.isDark = e.matches;
+            document.documentElement.setAttribute(
+              "data-theme",
+              e.matches ? "dark" : "light"
+            );
+          }
+        };
+        if (this.mediaQuery.addEventListener) {
+          this.mediaQuery.addEventListener("change", this.mediaListener);
+        } else if (this.mediaQuery.addListener) {
+          this.mediaQuery.addListener(this.mediaListener);
+        }
+      }
+    },
     toggleTheme() {
       this.isDark = !this.isDark;
       const theme = this.isDark ? "dark" : "light";

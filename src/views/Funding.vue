@@ -182,7 +182,7 @@ h3 {
 
 .supporter-logo {
   align-items: center;
-  background: var(--color-surface);
+  background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   display: flex;

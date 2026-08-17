@@ -31,7 +31,7 @@
   color-scheme: light;
 }
 
-/* Dark palette only applies when the visitor explicitly picks it via the toggle */
+/* Dark palette applies when explicitly selected or automatically when visitor's OS is set to dark mode */
 :root[data-theme="dark"] {
   --color-bg: #14170f;
   --color-surface: #1b1f16;
@@ -52,6 +52,30 @@
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45);
 
   color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #14170f;
+    --color-surface: #1b1f16;
+    --color-surface-muted: #21261a;
+    --color-border: #333a29;
+    --color-border-strong: #454e37;
+
+    --color-ink: #eef1e8;
+    --color-ink-soft: #c4cabb;
+    --color-muted: #93998a;
+
+    --color-accent: #6ba578;
+    --color-accent-dark: #8fc19a;
+    --color-accent-light: #23301f;
+    --color-accent-contrast: #0f130b;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45);
+
+    color-scheme: dark;
+  }
 }
 
 * {
