@@ -87,23 +87,62 @@
       </b-row>
     </section>
 
-    <section class="alumni-section">
-      <h3>Former Lab Members</h3>
-      <b-row>
-        <b-col
-          v-for="alum in alumni"
+    <section class="alumni-section" id="alumni">
+      <div class="alumni-header">
+        <p class="alumni-kicker">Lab Alumni</p>
+        <h3 class="alumni-title">From Venkatesh Lab to PhD Journeys Globally</h3>
+        <div class="alumni-statement">
+          <p>
+            Many of our one-year trainees join us with a clear goal: to build the research foundation, mentorship network, and application support needed to pursue PhD training in India or abroad. Our commitment to their training does not depend on whether they continue with us or move on to another lab. We guide them in choosing programs and mentors, preparing for interviews, strengthening applications, and provide recommendation letters across multiple application cycles, even after their formal lab tenure has ended.
+          </p>
+        </div>
+      </div>
+
+      <div class="phd-alumni-grid">
+        <article
+          v-for="alum in phdAlumni"
           :key="alum.name"
-          cols="12"
-          md="6"
-          xl="3"
-          class="mb-3"
+          class="phd-alum-card"
         >
-          <div class="alumni-item">
+          <div class="phd-alum-photo-wrap">
+            <img
+              v-if="alum.image"
+              class="phd-alum-photo"
+              :src="require(`../assets/images/alumini/${alum.image}`)"
+              :alt="alum.name"
+              loading="lazy"
+            />
+            <div v-else class="phd-alum-photo phd-alum-placeholder">
+              <span>{{ initials(alum.name) }}</span>
+            </div>
+          </div>
+          <div class="phd-alum-info">
+            <h4 class="phd-alum-name">{{ alum.name }}</h4>
+            <div class="phd-alum-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+              <span>{{ alum.position }}</span>
+            </div>
+            <p class="phd-alum-institution">{{ alum.institution }}</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="other-alumni-block" v-if="otherAlumni && otherAlumni.length">
+        <h4 class="other-alumni-title">Additional Lab Alumni</h4>
+        <div class="other-alumni-grid">
+          <div
+            v-for="alum in otherAlumni"
+            :key="alum.name"
+            class="alumni-item"
+          >
             <strong>{{ alum.name }}</strong>
             <span>{{ alum.current }}</span>
           </div>
-        </b-col>
-      </b-row>
+        </div>
+      </div>
     </section>
 
     <b-modal
@@ -160,14 +199,62 @@ export default {
         height: 160,
         class: "m1",
       },
-      alumni: [
+      phdAlumni: [
         {
-          name: "Sanjana Sinha",
-          current: "late",
+          name: "Katha Sanyal",
+          institution: "University of Jena, Germany",
+          position: "PhD Student",
+          image: "katha2.jpg",
+        },
+        {
+          name: "Arupam Biswas",
+          institution: "Johannes Gutenberg University Mainz, Germany",
+          position: "PhD Candidate",
+          image: "arupam.jpg",
+        },
+        {
+          name: "Soupayan Banerjee",
+          institution: "Texas A&M University, USA",
+          position: "PhD Student",
+          image: "Soupayan.jpg",
+        },
+        {
+          name: "Pratikhya Acharya",
+          institution: "Aix-Marseille University, France",
+          position: "PhD Student",
+          image: "Pratikhya.jpg",
+        },
+        {
+          name: "Aastha Khiwani",
+          institution: "PGIMER Chandigarh, India",
+          position: "PhD Student",
+          image: "aastha.jpg",
+        },
+        {
+          name: "Netra Krishna",
+          institution: "International Max Planck Research School (IMPRS) / University of Göttingen, Germany",
+          position: "PhD Student",
+          image: "netra.jpg",
+        },
+        {
+          name: "Meghana Madhu",
+          institution: "Umeå University, Sweden",
+          position: "PhD Student",
+          image: "meghana.jpg",
+        },
+      ],
+      otherAlumni: [
+        {
+          name: "Deepta Beji",
+          current: "Masters in International Medicine, EU",
         },
         {
           name: "Sneha Manjunath",
-          current: "Thermofisher Scientific",
+          current: "Thermo Fisher Scientific",
+        },
+        {
+          name: "Sanskruti Karwa",
+          current: "Research Officer, Gennova Biopharmaceuticals",
         },
         {
           name: "Shaik Shafiulla",
@@ -178,41 +265,8 @@ export default {
           current: "M.Tech, NIT-Warangal",
         },
         {
-          name: "Sanskruti Karwa",
-          current: "Research Officer - Gennova Biopharmaceuticals",
-        },
-        {
-          name: "Aastha Khiwani",
-          current: "PhD student, PGIMER Chandigarh",
-        },
-        {
-          name: "Arupam Biswas",
-          current: "PhD Candidate, Johannes Gutenberg University Mainz, Germany",
-        },
-        {
-          name: "Soupayan Banerjee",
-          current: "PhD student, Texas A&M",
-        },
-        {
-          name: "Deepta Beji",
-          current: "Masters in International Medicine, EU",
-        },
-        {
-          name: "Meghana Madhu",
-          current: "PhD student, Umea University, Sweden",
-        },
-        {
-          name: "Pratikhya Acharya",
-          current: "PhD student, Aix Marseilles University, France",
-        },
-        {
-          name: "Katha Sanyal",
-          current: "PhD student, University of Jenna, Germany",
-        },
-        {
-          name: "Netra Krishna",
-          current:
-            "PhD Student, University of Gottingen, International Max Planck Research School, Neurosciences",
+          name: "Sanjana Sinha",
+          current: "Late",
         },
       ],
       people: [
@@ -581,7 +635,165 @@ h4 {
 }
 
 .alumni-section {
-  margin-top: 18px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 56px;
+  padding-top: 40px;
+}
+
+.alumni-header {
+  margin-bottom: 28px;
+}
+
+.alumni-kicker {
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.alumni-title {
+  border-bottom: none;
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 18px;
+  padding-bottom: 0;
+}
+
+.alumni-statement {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  padding: 22px 26px;
+}
+
+.alumni-statement p {
+  color: var(--color-ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+.phd-alumni-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-bottom: 48px;
+}
+
+.phd-alum-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.phd-alum-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.phd-alum-photo-wrap {
+  aspect-ratio: 1 / 1;
+  background: var(--color-surface-muted);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.phd-alum-photo {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+}
+
+.phd-alum-placeholder {
+  align-items: center;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  display: flex;
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.phd-alum-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.phd-alum-name {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.phd-alum-badge {
+  align-items: center;
+  align-self: flex-start;
+  background: var(--color-accent-light);
+  border-radius: 999px;
+  color: var(--color-accent-dark);
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+}
+
+.phd-alum-institution {
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.other-alumni-block {
+  border-top: 1px solid var(--color-border);
+  margin-top: 12px;
+  padding-top: 32px;
+}
+
+.other-alumni-title {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.other-alumni-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .alumni-item {
