@@ -298,7 +298,7 @@ export default {
         },
         {
           name: "Sneha Manjunath",
-          current: "Finn Partners",
+          current: "Manager, Finn Partners",
         },
         {
           name: "Sanskruti Karwa",
