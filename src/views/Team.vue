@@ -130,6 +130,20 @@
         </article>
       </div>
 
+      <div class="other-alumni-block" v-if="summerTrainees && summerTrainees.length">
+        <h4 class="other-alumni-title">Summer Trainees</h4>
+        <div class="other-alumni-grid">
+          <div
+            v-for="trainee in summerTrainees"
+            :key="trainee.name"
+            class="alumni-item"
+          >
+            <strong>{{ trainee.name }}</strong>
+            <span v-if="trainee.institution">{{ trainee.institution }}</span>
+          </div>
+        </div>
+      </div>
+
       <div class="other-alumni-block" v-if="otherAlumni && otherAlumni.length">
         <h4 class="other-alumni-title">Additional Lab Alumni</h4>
         <div class="other-alumni-grid">
@@ -243,6 +257,40 @@ export default {
           image: "meghana.jpg",
         },
       ],
+      summerTrainees: [
+        {
+          name: "Pranjal Dubey",
+          institution: "University of Delhi",
+        },
+        {
+          name: "Nandana Raghunandan",
+          institution: "Pondicherry University",
+        },
+        {
+          name: "Riya Kushawa",
+          institution: "University of Delhi",
+        },
+        {
+          name: "Netra Krishna",
+          institution: "KREA University",
+        },
+        {
+          name: "Apoorva Atmuri",
+          institution: "M.Tech in IIT, Hyderabad",
+        },
+        {
+          name: "Katha Sanyal",
+          institution: "Project Associate CCMB",
+        },
+        {
+          name: "Abhilaya Makkuva",
+          institution: "Center for Human Genetics, Bangalore",
+        },
+        {
+          name: "Tumu Vinit Reddy",
+          institution: "",
+        },
+      ],
       otherAlumni: [
         {
           name: "Deepta Beji",
@@ -257,16 +305,8 @@ export default {
           current: "Research Officer, Gennova Biopharmaceuticals",
         },
         {
-          name: "Shaik Shafiulla",
-          current: "PhD student, Germany",
-        },
-        {
           name: "Ishan Dutta",
           current: "M.Tech, NIT-Warangal",
-        },
-        {
-          name: "Sanjana Sinha",
-          current: "Late",
         },
       ],
       people: [
