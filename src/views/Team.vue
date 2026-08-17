@@ -288,7 +288,7 @@ export default {
         },
         {
           name: "Tumu Vinit Reddy",
-          institution: "",
+          institution: "Babasaheb Bhimrao Ambedkar University, Lucknow",
         },
       ],
       otherAlumni: [
