@@ -267,7 +267,7 @@ export default {
           institution: "Pondicherry University",
         },
         {
-          name: "Riya Kushawa",
+          name: "Riya Kushwaha",
           institution: "University of Delhi",
         },
         {
@@ -288,7 +288,7 @@ export default {
         },
         {
           name: "Tumu Vinit Reddy",
-          institution: "Babasaheb Bhimrao Ambedkar University, Lucknow",
+          institution: "Babasaheb Bhimrao Ambedkar University",
         },
       ],
       otherAlumni: [
@@ -298,7 +298,7 @@ export default {
         },
         {
           name: "Sneha Manjunath",
-          current: "Thermo Fisher Scientific",
+          current: "Finn Partners",
         },
         {
           name: "Sanskruti Karwa",
