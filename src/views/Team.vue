@@ -103,6 +103,8 @@
           v-for="alum in phdAlumni"
           :key="alum.name"
           class="phd-alum-card"
+          :class="{ 'has-testimonial': hasTestimonial(alum.name) }"
+          @click="hasTestimonial(alum.name) ? openAlumModal(alum) : null"
         >
           <div class="phd-alum-photo-wrap">
             <img
@@ -115,6 +117,12 @@
             <div v-else class="phd-alum-photo phd-alum-placeholder">
               <span>{{ initials(alum.name) }}</span>
             </div>
+            <div v-if="hasTestimonial(alum.name)" class="alum-card-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <span>{{ getTestimonial(alum.name).totalSkillsCount }} Techniques</span>
+            </div>
           </div>
           <div class="phd-alum-info">
             <h4 class="phd-alum-name">{{ alum.name }}</h4>
@@ -126,6 +134,15 @@
               <span>{{ alum.position }}</span>
             </div>
             <p class="phd-alum-institution">{{ alum.institution }}</p>
+
+            <button
+              v-if="hasTestimonial(alum.name)"
+              type="button"
+              class="alum-card-btn"
+              @click.stop="openAlumModal(alum)"
+            >
+              Read Experience & Skills →
+            </button>
           </div>
         </article>
       </div>
@@ -151,14 +168,22 @@
             v-for="alum in otherAlumni"
             :key="alum.name"
             class="alumni-item"
+            :class="{ 'alumni-item-clickable': hasTestimonial(alum.name) }"
+            @click="hasTestimonial(alum.name) ? openAlumModal(alum) : null"
           >
-            <strong>{{ alum.name }}</strong>
-            <span>{{ alum.current }}</span>
+            <div class="alumni-item-main">
+              <strong>{{ alum.name }}</strong>
+              <span>{{ alum.current }}</span>
+            </div>
+            <span v-if="hasTestimonial(alum.name)" class="alumni-item-tag">
+              💬 View Journey & Skills ({{ getTestimonial(alum.name).totalSkillsCount }}) →
+            </span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Lab Member Bio Modal -->
     <b-modal
       v-model="showBio"
       :title="selectedPerson ? selectedPerson.name : ''"
@@ -199,15 +224,293 @@
         </div>
       </div>
     </b-modal>
+
+    <!-- Alumni Testimonial & Skills Modal -->
+    <b-modal
+      v-model="showAlumModal"
+      size="xl"
+      hide-footer
+      centered
+      dialog-class="alum-modal-dialog"
+    >
+      <div v-if="selectedAlum" class="alum-modal-container">
+        <!-- Modal Top Header -->
+        <div class="alum-modal-header">
+          <div class="alum-header-profile">
+            <div class="alum-header-avatar">
+              <img
+                v-if="selectedAlum.image"
+                :src="require(`../assets/images/alumini/${selectedAlum.image}`)"
+                :alt="selectedAlum.name"
+              />
+              <div v-else class="alum-avatar-placeholder">
+                {{ initials(selectedAlum.name) }}
+              </div>
+            </div>
+            <div class="alum-header-meta">
+              <span class="alum-header-kicker">Alumni Journey & Training</span>
+              <h3 class="alum-header-name">{{ selectedAlum.name }}</h3>
+              <p class="alum-header-dest">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+                <span>{{ selectedAlum.currentPosition || selectedAlum.institution || selectedAlum.current }}</span>
+              </p>
+            </div>
+          </div>
+          <button type="button" class="alum-close-btn" @click="showAlumModal = false" aria-label="Close">
+            ✕
+          </button>
+        </div>
+
+        <!-- Quick Facts Bar -->
+        <div class="alum-quick-bar">
+          <div class="alum-quick-item" v-if="selectedAlum.tenure">
+            <span class="quick-icon">⏳</span>
+            <div>
+              <span class="quick-title">Lab Tenure</span>
+              <span class="quick-val">{{ selectedAlum.tenure }}</span>
+            </div>
+          </div>
+          <div class="alum-quick-item" v-if="selectedAlum.trainingType">
+            <span class="quick-icon">🎓</span>
+            <div>
+              <span class="quick-title">Training Track</span>
+              <span class="quick-val">{{ selectedAlum.trainingType }}</span>
+            </div>
+          </div>
+          <div class="alum-quick-item" v-if="selectedAlum.totalSkillsCount">
+            <span class="quick-icon">🔬</span>
+            <div>
+              <span class="quick-title">Techniques Mastered</span>
+              <span class="quick-val highlight">{{ selectedAlum.totalSkillsCount }} Specialized Skills</span>
+            </div>
+          </div>
+          <div class="alum-quick-item" v-if="selectedAlum.importanceRating">
+            <span class="quick-icon">⭐</span>
+            <div>
+              <span class="quick-title">Career Impact</span>
+              <span class="quick-val">{{ selectedAlum.importanceRating }} / 10</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="alum-qual-row" v-if="selectedAlum.qualification">
+          <span class="qual-label">🏛️ Academic background upon joining:</span>
+          <span class="qual-text">{{ selectedAlum.qualification }}</span>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="alum-tabs-nav">
+          <button
+            type="button"
+            class="alum-tab-item"
+            :class="{ active: activeAlumTab === 'testimonial' }"
+            @click="activeAlumTab = 'testimonial'"
+          >
+            💬 Testimonial & Mentorship
+          </button>
+          <button
+            type="button"
+            class="alum-tab-item"
+            :class="{ active: activeAlumTab === 'skills' }"
+            @click="activeAlumTab = 'skills'"
+          >
+            🔬 Bench Skills & Techniques ({{ selectedAlum.totalSkillsCount || 0 }})
+          </button>
+          <button
+            type="button"
+            class="alum-tab-item"
+            :class="{ active: activeAlumTab === 'professional' }"
+            @click="activeAlumTab = 'professional'"
+          >
+            🚀 Conferences, Preprints & Soft Skills
+          </button>
+        </div>
+
+        <!-- Tab 1: Testimonial & Mentorship -->
+        <div v-if="activeAlumTab === 'testimonial'" class="alum-tab-pane">
+          <div class="alum-quote-card" v-if="selectedAlum.testimonial">
+            <div class="quote-header-row">
+              <svg class="quote-svg-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <h4>Personal Experience & Testimonial</h4>
+            </div>
+            <div class="quote-content-body">
+              <p v-for="(paragraph, idx) in formatParagraphs(selectedAlum.testimonial)" :key="'testi-' + idx">
+                {{ paragraph }}
+              </p>
+            </div>
+          </div>
+
+          <div class="alum-info-card" v-if="selectedAlum.mentorSupport">
+            <div class="info-card-header">
+              <span class="info-icon">🧭</span>
+              <h4>Mentorship & Application Support</h4>
+            </div>
+            <div class="info-card-body">
+              <p v-for="(p, idx) in formatParagraphs(selectedAlum.mentorSupport)" :key="'supp-' + idx">
+                {{ p }}
+              </p>
+            </div>
+          </div>
+
+          <div class="alum-info-card" v-if="selectedAlum.investmentFeedback">
+            <div class="info-card-header">
+              <span class="info-icon">💡</span>
+              <h4>Perspective on Training & Investment</h4>
+            </div>
+            <div class="info-card-body">
+              <p v-for="(p, idx) in formatParagraphs(selectedAlum.investmentFeedback)" :key="'inv-' + idx">
+                {{ p }}
+              </p>
+            </div>
+          </div>
+
+          <div class="alum-info-card" v-if="selectedAlum.additionalComments && selectedAlum.additionalComments !== 'No' && selectedAlum.additionalComments !== 'NA' && selectedAlum.additionalComments !== '.'">
+            <div class="info-card-header">
+              <span class="info-icon">✨</span>
+              <h4>Additional Reflections</h4>
+            </div>
+            <div class="info-card-body">
+              <p v-for="(p, idx) in formatParagraphs(selectedAlum.additionalComments)" :key="'add-' + idx">
+                {{ p }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Bench Skills & Techniques -->
+        <div v-if="activeAlumTab === 'skills'" class="alum-tab-pane">
+          <div class="skills-overview-card">
+            <div class="overview-stat">
+              <span class="overview-num">{{ selectedAlum.totalSkillsCount }}</span>
+              <span class="overview-sub">Hands-On Techniques</span>
+            </div>
+            <div class="overview-copy">
+              <h5>Comprehensive Experimental Training</h5>
+              <p>Rigorous bench training received across molecular biology, neuroanatomy, surgery, imaging, genomics, and computation.</p>
+            </div>
+          </div>
+
+          <div class="skill-categories-container" v-if="selectedAlum.categorizedSkills">
+            <div
+              v-for="(techniques, catName) in selectedAlum.categorizedSkills"
+              :key="catName"
+              class="cat-skill-block"
+            >
+              <div class="cat-title-row">
+                <span class="cat-emoji">{{ getCategoryIcon(catName) }}</span>
+                <span class="cat-name">{{ catName }}</span>
+                <span class="cat-badge-count">{{ techniques.length }}</span>
+              </div>
+              <div class="technique-tags">
+                <span v-for="tech in techniques" :key="tech" class="tech-tag">
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="facility-card" v-if="selectedAlum.facilityTraining && selectedAlum.facilityTraining.length">
+            <div class="info-card-header">
+              <span class="info-icon">🏛️</span>
+              <h4>Formal Facility Training & Certifications at CSIR-CCMB</h4>
+            </div>
+            <div class="facility-tags">
+              <span v-for="fac in selectedAlum.facilityTraining" :key="fac" class="fac-tag">
+                ✓ {{ fac }}
+              </span>
+            </div>
+          </div>
+
+          <div class="prior-card" v-if="selectedAlum.priorSkills && selectedAlum.priorSkills !== 'NA'">
+            <div class="info-card-header">
+              <span class="info-icon">🌱</span>
+              <h4>Skills Prior to Joining Venkatesh Lab</h4>
+            </div>
+            <div class="info-card-body">
+              <p v-for="(p, idx) in formatParagraphs(selectedAlum.priorSkills)" :key="'prior-' + idx">
+                {{ p }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Conferences, Preprints & Soft Skills -->
+        <div v-if="activeAlumTab === 'professional'" class="alum-tab-pane">
+          <div class="prof-cards-grid">
+            <div class="prof-card" v-if="selectedAlum.publications && selectedAlum.publications !== '0' && selectedAlum.publications !== 'NA' && selectedAlum.publications !== '.'">
+              <div class="info-card-header">
+                <span class="info-icon">📄</span>
+                <h4>Publications & Preprints</h4>
+              </div>
+              <div class="info-card-body">
+                <p v-for="(p, idx) in formatParagraphs(selectedAlum.publications)" :key="'pub-' + idx">
+                  {{ p }}
+                </p>
+              </div>
+            </div>
+
+            <div class="prof-card" v-if="selectedAlum.conferencesAttended && selectedAlum.conferencesAttended !== 'NA' && selectedAlum.conferencesAttended !== '0'">
+              <div class="info-card-header">
+                <span class="info-icon">🗺️</span>
+                <h4>Conferences & Presentations</h4>
+              </div>
+              <div class="info-card-body">
+                <div class="conf-sub" v-if="selectedAlum.conferencesAttended">
+                  <strong>Attended:</strong>
+                  <p v-for="(p, idx) in formatParagraphs(selectedAlum.conferencesAttended)" :key="'c-att-' + idx">
+                    {{ p }}
+                  </p>
+                </div>
+                <div class="conf-sub" v-if="selectedAlum.conferencesPresented && selectedAlum.conferencesPresented !== 'NA' && selectedAlum.conferencesPresented !== '0'">
+                  <strong>Presented:</strong>
+                  <p v-for="(p, idx) in formatParagraphs(selectedAlum.conferencesPresented)" :key="'c-pres-' + idx">
+                    {{ p }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="prof-card full-span" v-if="selectedAlum.softSkills && selectedAlum.softSkills.length">
+              <div class="info-card-header">
+                <span class="info-icon">🎯</span>
+                <h4>Professional & Soft Skills Mentorship</h4>
+              </div>
+              <div class="info-card-body">
+                <p class="soft-skills-intro">
+                  Every trainee receives individualized coaching on communication, scientific reasoning, and organizational tools:
+                </p>
+                <div class="soft-skills-pills">
+                  <div v-for="skill in selectedAlum.softSkills" :key="skill" class="soft-pill">
+                    <span class="check-mark">✓</span>
+                    <span>{{ skill }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </b-modal>
   </b-container>
 </template>
 
 <script>
+import testimonialsData from "@/assets/testimonials.json";
+
 export default {
   data() {
     return {
       selectedPerson: null,
       showBio: false,
+      selectedAlum: null,
+      showAlumModal: false,
+      activeAlumTab: "testimonial",
+      testimonials: testimonialsData || {},
       imageProps: {
         width: 140,
         height: 160,
@@ -485,6 +788,42 @@ export default {
         .join("")
         .slice(0, 2)
         .toUpperCase();
+    },
+    hasTestimonial(name) {
+      return Boolean(this.testimonials && this.testimonials[name]);
+    },
+    getTestimonial(name) {
+      return this.testimonials ? this.testimonials[name] : null;
+    },
+    openAlumModal(alum) {
+      const details = (this.testimonials && this.testimonials[alum.name]) || {};
+      this.selectedAlum = {
+        ...alum,
+        ...details,
+      };
+      this.activeAlumTab = "testimonial";
+      this.showAlumModal = true;
+    },
+    formatParagraphs(text) {
+      if (!text) return [];
+      return text
+        .split("\n")
+        .map((p) => p.trim())
+        .filter((p) => p.length > 0);
+    },
+    getCategoryIcon(category) {
+      const icons = {
+        "Molecular Biology": "🧬",
+        "Cell Culture & Viral Vectors": "🧫",
+        "Animal Surgeries & In Vivo": "🔬",
+        "Tissue Processing & Histology": "🔪",
+        "Microscopy & Imaging": "📷",
+        "Genomics & Sequencing": "📊",
+        "Behavioral Analysis": "🏃",
+        "Bioinformatics & Computational": "💻",
+        "Other Specialized Techniques": "⚙️",
+      };
+      return icons[category] || "🔬";
     },
   },
 };
@@ -808,55 +1147,556 @@ h4 {
   padding: 4px 10px;
 }
 
-.phd-alum-institution {
-  color: var(--color-ink-soft);
+.phd-alum-card.has-testimonial {
+  cursor: pointer;
+}
+
+.alum-card-pill {
+  align-items: center;
+  background: rgba(18, 53, 91, 0.88);
+  backdrop-filter: blur(4px);
+  border-radius: 999px;
+  bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  display: inline-flex;
   font-family: var(--font-body);
-  font-size: 0.94rem;
-  line-height: 1.5;
+  font-size: 0.76rem;
+  font-weight: 600;
+  gap: 5px;
+  left: 10px;
+  padding: 4px 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+.alum-card-btn {
+  align-self: flex-start;
+  background: var(--color-accent-light);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-dark);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 14px;
+  padding: 7px 12px;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.alum-card-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.alumni-item-clickable {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.alumni-item-clickable:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.alumni-item-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.alumni-item-tag {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* --- Alumni Testimonial & Skills Modal Styles --- */
+.alum-modal-container {
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  padding: 4px;
+}
+
+.alum-modal-header {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.alum-header-profile {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.alum-header-avatar {
+  background: var(--color-surface-muted);
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  flex-shrink: 0;
+  height: 84px;
+  overflow: hidden;
+  width: 84px;
+}
+
+.alum-header-avatar img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+}
+
+.alum-avatar-placeholder {
+  align-items: center;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  display: flex;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.alum-header-kicker {
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.alum-header-name {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 2px 0 6px 0;
+}
+
+.alum-header-dest {
+  align-items: center;
+  color: var(--color-ink-soft);
+  display: flex;
+  font-size: 0.95rem;
+  font-weight: 500;
+  gap: 6px;
   margin: 0;
 }
 
-.other-alumni-block {
-  border-top: 1px solid var(--color-border);
-  margin-top: 12px;
-  padding-top: 32px;
+.alum-header-dest svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
 
-.other-alumni-title {
-  color: var(--color-ink);
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 20px;
+.alum-close-btn {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  font-size: 1.2rem;
+  height: 36px;
+  line-height: 1;
+  transition: all 0.15s ease;
+  width: 36px;
 }
 
-.other-alumni-grid {
+.alum-close-btn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+/* Quick Bar */
+.alum-quick-bar {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 20px 0 14px 0;
+  padding: 14px 18px;
 }
 
-.alumni-item {
+.alum-quick-item {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.quick-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.quick-title {
+  color: var(--color-muted);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quick-val {
+  color: var(--color-ink);
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.quick-val.highlight {
+  color: var(--color-accent);
+}
+
+.alum-qual-row {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  color: var(--color-ink);
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font-body);
-  height: 100%;
-  padding: 14px 16px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin-bottom: 22px;
+  padding: 10px 16px;
 }
 
-.alumni-item strong {
-  font-size: 1.02rem;
+.qual-label {
+  color: var(--color-muted);
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.qual-text {
+  color: var(--color-ink-soft);
+}
+
+/* Tabs Navigation */
+.alum-tabs-nav {
+  border-bottom: 2px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.alum-tab-item {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 0.96rem;
+  font-weight: 600;
+  margin-bottom: -2px;
+  padding: 10px 16px;
+  transition: all 0.2s ease;
+}
+
+.alum-tab-item:hover {
+  color: var(--color-ink);
+}
+
+.alum-tab-item.active {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Tab Panes */
+.alum-tab-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Quote Card */
+.alum-quote-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 22px 26px;
+}
+
+.quote-header-row {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.quote-svg-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.quote-header-row h4 {
+  color: var(--color-ink);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.quote-content-body p {
+  color: var(--color-ink-soft);
+  font-size: 1.01rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+.quote-content-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Generic Info Card */
+.alum-info-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 20px 24px;
+}
+
+.info-card-header {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.info-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.info-card-header h4 {
+  color: var(--color-ink);
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.info-card-body p {
+  color: var(--color-ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.info-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Skills Overview */
+.skills-overview-card {
+  align-items: center;
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-surface));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  gap: 24px;
+  padding: 18px 24px;
+}
+
+.overview-stat {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.overview-num {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.overview-sub {
+  color: var(--color-ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.overview-copy h5 {
+  color: var(--color-ink);
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 4px;
 }
 
-.alumni-item span {
-  color: var(--color-muted);
-  font-size: 0.9rem;
+.overview-copy p {
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Skills Category Grid */
+.skill-categories-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.cat-skill-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+}
+
+.cat-title-row {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cat-emoji {
+  font-size: 1.1rem;
+}
+
+.cat-name {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.cat-badge-count {
+  background: var(--color-accent-light);
+  border-radius: 999px;
+  color: var(--color-accent-dark);
+  font-size: 0.74rem;
+  font-weight: 700;
+  margin-left: auto;
+  padding: 2px 8px;
+}
+
+.technique-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  padding: 4px 8px;
+}
+
+/* Facility and Prior Cards */
+.facility-card,
+.prior-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+}
+
+.facility-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.fac-tag {
+  background: var(--color-accent-light);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+}
+
+/* Professional Growth */
+.prof-cards-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.prof-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px;
+}
+
+.prof-card.full-span {
+  grid-column: 1 / -1;
+}
+
+.conf-sub {
+  margin-bottom: 12px;
+}
+
+.conf-sub:last-child {
+  margin-bottom: 0;
+}
+
+.conf-sub strong {
+  color: var(--color-ink);
+  display: block;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.soft-skills-intro {
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.soft-skills-pills {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.soft-pill {
+  align-items: center;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-soft);
+  display: flex;
+  font-size: 0.84rem;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+.check-mark {
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .bio-modal {

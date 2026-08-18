@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "update-scholar": "node scripts/update-scholar.js",
-    "build": "npm run update-scholar && vue-cli-service build",
+    "update-testimonials": "node scripts/update-testimonials.js",
+    "build": "npm run update-testimonials && npm run update-scholar && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
