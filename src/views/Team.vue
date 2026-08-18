@@ -291,7 +291,7 @@
             <span class="quick-icon">⭐</span>
             <div>
               <span class="quick-title">Career Impact</span>
-              <span class="quick-val">{{ selectedAlum.importanceRating }} / 10</span>
+              <span class="quick-val">{{ formatRating(selectedAlum.importanceRating) }}</span>
             </div>
           </div>
         </div>
@@ -824,6 +824,11 @@ export default {
         "Other Specialized Techniques": "⚙️",
       };
       return icons[category] || "🔬";
+    },
+    formatRating(rating) {
+      if (!rating) return "";
+      const match = String(rating).match(/(\d+)/);
+      return match ? `${match[1]} / 10` : String(rating);
     },
   },
 };

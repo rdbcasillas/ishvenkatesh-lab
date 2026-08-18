@@ -231,10 +231,12 @@ function run() {
         row["How many conferences did you PRESENT ? Where and When?"] || ""
       ).trim(),
       importanceRating: (
-        row[
-          "How important was your training here at V lab for your PhD/PostDoc/Career on a scale of 1- 10"
-        ] || ""
-      ).trim(),
+        (
+          row[
+            "How important was your training here at V lab for your PhD/PostDoc/Career on a scale of 1- 10"
+          ] || ""
+        ).match(/\d+/)?.[0] || ""
+      ),
       mentorSupport: (
         row[
           "What kind of support did you receive for your applications to the Master's/PhD program? How important was it to you to receive admission?"
