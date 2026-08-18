@@ -1068,7 +1068,7 @@ h4 {
 .phd-alumni-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   margin-bottom: 48px;
 }
 
@@ -1089,9 +1089,14 @@ h4 {
   transform: translateY(-3px);
 }
 
+.phd-alum-card.has-testimonial {
+  cursor: pointer;
+}
+
 .phd-alum-photo-wrap {
   aspect-ratio: 1 / 1;
   background: var(--color-surface-muted);
+  height: 280px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -1113,7 +1118,28 @@ h4 {
   font-family: var(--font-heading);
   font-size: 2.4rem;
   font-weight: 600;
+  height: 100%;
   justify-content: center;
+  width: 100%;
+}
+
+.alum-card-pill {
+  align-items: center;
+  background: rgba(18, 53, 91, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 999px;
+  bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  gap: 5px;
+  left: 10px;
+  padding: 4px 10px;
+  position: absolute;
+  z-index: 2;
 }
 
 .phd-alum-info {
@@ -1129,7 +1155,7 @@ h4 {
   font-size: 1.22rem;
   font-weight: 600;
   line-height: 1.3;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .phd-alum-badge {
@@ -1147,27 +1173,12 @@ h4 {
   padding: 4px 10px;
 }
 
-.phd-alum-card.has-testimonial {
-  cursor: pointer;
-}
-
-.alum-card-pill {
-  align-items: center;
-  background: rgba(18, 53, 91, 0.88);
-  backdrop-filter: blur(4px);
-  border-radius: 999px;
-  bottom: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  color: #ffffff;
-  display: inline-flex;
+.phd-alum-institution {
+  color: var(--color-ink-soft);
   font-family: var(--font-body);
-  font-size: 0.76rem;
-  font-weight: 600;
-  gap: 5px;
-  left: 10px;
-  padding: 4px 10px;
-  position: absolute;
-  z-index: 2;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin: 0 0 16px 0;
 }
 
 .alum-card-btn {
@@ -1180,8 +1191,9 @@ h4 {
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
-  margin-top: 14px;
-  padding: 7px 12px;
+  margin-top: auto;
+  padding: 8px 12px;
+  text-align: center;
   transition: all 0.2s ease;
   width: 100%;
 }
@@ -1191,15 +1203,40 @@ h4 {
   color: var(--color-accent-contrast);
 }
 
-.alumni-item-clickable {
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+.other-alumni-block {
+  border-top: 1px solid var(--color-border);
+  margin-top: 40px;
+  padding-top: 32px;
 }
 
-.alumni-item-clickable:hover {
-  border-color: var(--color-accent);
+.other-alumni-title {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.other-alumni-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.alumni-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
+  color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  height: 100%;
+  justify-content: space-between;
+  min-height: 95px;
+  padding: 16px 18px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 .alumni-item-main {
@@ -1207,11 +1244,34 @@ h4 {
   flex-direction: column;
 }
 
-.alumni-item-tag {
-  color: var(--color-accent);
-  font-size: 0.8rem;
+.alumni-item strong {
+  color: var(--color-ink);
+  font-size: 1.02rem;
   font-weight: 600;
-  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.alumni-item span {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.alumni-item-clickable {
+  cursor: pointer;
+}
+
+.alumni-item-clickable:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.alumni-item-tag {
+  color: var(--color-accent) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  margin-top: 10px;
 }
 
 /* --- Alumni Testimonial & Skills Modal Styles --- */
