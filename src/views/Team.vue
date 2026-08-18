@@ -1067,8 +1067,8 @@ h4 {
 
 .phd-alumni-grid {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 48px;
 }
 
@@ -1096,7 +1096,7 @@ h4 {
 .phd-alum-photo-wrap {
   aspect-ratio: 1 / 1;
   background: var(--color-surface-muted);
-  height: 280px;
+  height: 250px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -1798,7 +1798,21 @@ span >>> a {
   text-decoration: underline;
 }
 
+@media (max-width: 992px) {
+  .phd-alumni-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 600px) {
+  .phd-alumni-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phd-alum-photo-wrap {
+    height: 300px;
+  }
+
   .person-card {
     min-height: 0;
   }
