@@ -469,9 +469,9 @@ export default {
 .hero {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
-  min-height: 560px;
+  min-height: 520px;
   overflow: hidden;
-  padding: 56px 0 48px;
+  padding: 24px 0 36px;
   position: relative;
 }
 

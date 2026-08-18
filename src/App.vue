@@ -23,14 +23,17 @@ export default {
 };
 </script>
 
-<style scoped>
-.app-main {
-  padding-top: 66px;
+<style>
+.v-main.app-main,
+.v-main.app-main > .v-main__wrap {
+  background-color: var(--color-bg) !important;
+  padding-top: 64px !important;
 }
 
-@media (max-width: 600px) {
-  .app-main {
-    padding-top: 58px;
+@media (max-width: 991px) {
+  .v-main.app-main,
+  .v-main.app-main > .v-main__wrap {
+    padding-top: 62px !important;
   }
 }
 </style>

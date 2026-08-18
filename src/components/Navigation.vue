@@ -1,89 +1,90 @@
 <template>
   <div>
     <b-navbar toggleable="lg" variant="info" sticky>
-        <b-navbar-brand to="/" class="brand-lockup">
-          <b-img
-            fluid
-            width="42px"
-            :src="require('../assets/ishlab-icon.png')"
-            class="d-inline-block align-top brand-mark"
-            alt="Venkatesh Lab logo"
-          />
-          <span class="brand-text">
-            <span class="brand-title">Venkatesh Lab</span>
-            <span class="brand-subtitle">Axon Growth &amp; Regeneration &middot; CSIR-CCMB</span>
-          </span>
-        </b-navbar-brand>
+      <b-navbar-brand to="/" class="brand-lockup">
+        <b-img
+          fluid
+          width="42px"
+          :src="require('../assets/ishlab-icon.png')"
+          class="d-inline-block align-top brand-mark"
+          alt="Venkatesh Lab logo"
+        />
+        <span class="brand-text">
+          <span class="brand-title">Venkatesh Lab</span>
+          <span class="brand-subtitle">Axon Growth &amp; Regeneration &middot; CSIR-CCMB</span>
+        </span>
+      </b-navbar-brand>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav class="ml-auto">
-            <b-nav-item to="/team" exact-active-class="active">Team</b-nav-item>
-            <b-nav-item to="/publications" exact-active-class="active"
-              >Publications</b-nav-item
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item to="/team" exact-active-class="active">Team</b-nav-item>
+          <b-nav-item to="/training" exact-active-class="active">Training</b-nav-item>
+          <b-nav-item to="/publications" exact-active-class="active"
+            >Publications</b-nav-item
+          >
+          <b-nav-item to="/funding" exact-active-class="active"
+            >Funding</b-nav-item
+          >
+          <b-nav-item to="/awards" exact-active-class="active"
+            >Awards</b-nav-item
+          >
+          <b-nav-item to="/social-media" exact-active-class="active"
+            >Social Media</b-nav-item
+          >
+          <b-nav-item to="/lab-retreat" exact-active-class="active"
+            >Lab Retreat</b-nav-item
+          >
+          <b-nav-item
+            target="_blank"
+            href="https://docs.google.com/document/d/1MidvYKM1vxX2XK6MjtpegF370Rwq50Kc72tBSYR9-Ko/edit?usp=sharing"
+          >
+            Resources
+            <b-icon scale="0.55" icon="box-arrow-up-right"></b-icon>
+          </b-nav-item>
+          <b-nav-item to="/contact" exact-active-class="active" class="nav-cta"
+            >Contact</b-nav-item
+          >
+          <li class="nav-item theme-toggle-item">
+            <button
+              type="button"
+              class="theme-toggle"
+              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+              :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+              @click="toggleTheme"
             >
-            <b-nav-item to="/funding" exact-active-class="active"
-              >Funding</b-nav-item
-            >
-            <b-nav-item to="/awards" exact-active-class="active"
-              >Awards</b-nav-item
-            >
-            <b-nav-item to="/social-media" exact-active-class="active"
-              >Social Media</b-nav-item
-            >
-            <b-nav-item to="/lab-retreat" exact-active-class="active"
-              >Lab Retreat</b-nav-item
-            >
-            <b-nav-item
-              target="_blank"
-              href="https://docs.google.com/document/d/1MidvYKM1vxX2XK6MjtpegF370Rwq50Kc72tBSYR9-Ko/edit?usp=sharing"
-            >
-              Resources
-              <b-icon scale="0.55" icon="box-arrow-up-right"></b-icon>
-            </b-nav-item>
-            <b-nav-item to="/contact" exact-active-class="active" class="nav-cta"
-              >Contact</b-nav-item
-            >
-            <li class="nav-item theme-toggle-item">
-              <button
-                type="button"
-                class="theme-toggle"
-                :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-                :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-                @click="toggleTheme"
+              <svg
+                v-if="isDark"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <svg
-                  v-if="isDark"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="12" r="4"></circle>
-                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-                </svg>
-                <svg
-                  v-else
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              </button>
-            </li>
-          </b-navbar-nav>
-        </b-collapse>
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+              </svg>
+              <svg
+                v-else
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </button>
+          </li>
+        </b-navbar-nav>
+      </b-collapse>
     </b-navbar>
   </div>
 </template>
@@ -304,7 +305,7 @@ a.nav-link.active::after {
 }
 
 @media (max-width: 1200px) {
-  nav.bg-info {
+  .site-navbar {
     padding: 10px 18px;
   }
 

@@ -117,7 +117,7 @@ a {
 .page-container {
   margin: 0 auto;
   max-width: var(--container-max);
-  padding: 56px 24px 72px;
+  padding: 24px 24px 60px;
 }
 
 .page-title {
@@ -145,7 +145,7 @@ a {
 
 @media (max-width: 600px) {
   .page-container {
-    padding: 40px 18px 56px;
+    padding: 16px 18px 48px;
   }
 
   .page-title {

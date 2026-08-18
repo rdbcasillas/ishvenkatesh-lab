@@ -58,6 +58,15 @@ const routes = [
     name: "resources",
     component: Resources,
   },
+  {
+    path: "/training",
+    name: "Training",
+    component: () => import("../views/Training.vue"),
+  },
+  {
+    path: "/dashboard",
+    redirect: "/training",
+  },
 ];
 
 const router = new VueRouter({
