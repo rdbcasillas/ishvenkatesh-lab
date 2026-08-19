@@ -218,7 +218,23 @@
             <div class="grid-scroll">
             <table class="grid">
               <caption class="vh">Technique domains each of twelve trainees was trained in</caption>
-              <thead><tr><td></td><th scope="col" class="vh">Trainee 1</th><th scope="col" class="vh">Trainee 2</th><th scope="col" class="vh">Trainee 3</th><th scope="col" class="vh">Trainee 4</th><th scope="col" class="vh">Trainee 5</th><th scope="col" class="vh">Trainee 6</th><th scope="col" class="vh">Trainee 7</th><th scope="col" class="vh">Trainee 8</th><th scope="col" class="vh">Trainee 9</th><th scope="col" class="vh">Trainee 10</th><th scope="col" class="vh">Trainee 11</th><th scope="col" class="vh">Trainee 12</th></tr></thead>
+              <thead>
+                <tr>
+                  <th scope="col" class="grid-corner-th">Technique Domain</th>
+                  <th scope="col" title="Trainee 1">T1</th>
+                  <th scope="col" title="Trainee 2">T2</th>
+                  <th scope="col" title="Trainee 3">T3</th>
+                  <th scope="col" title="Trainee 4">T4</th>
+                  <th scope="col" title="Trainee 5">T5</th>
+                  <th scope="col" title="Trainee 6">T6</th>
+                  <th scope="col" title="Trainee 7">T7</th>
+                  <th scope="col" title="Trainee 8">T8</th>
+                  <th scope="col" title="Trainee 9">T9</th>
+                  <th scope="col" title="Trainee 10">T10</th>
+                  <th scope="col" title="Trainee 11">T11</th>
+                  <th scope="col" title="Trainee 12">T12</th>
+                </tr>
+              </thead>
               <tbody>
                   <tr data-d="tissue" data-name="Tissue and histology" data-n="17" data-cov="12" tabindex="0">
                     <th scope="row">Tissue and histology</th><td data-t="1"><span class="dot on"></span></td><td data-t="2"><span class="dot on"></span></td><td data-t="3"><span class="dot on"></span></td><td data-t="4"><span class="dot on"></span></td><td data-t="5"><span class="dot on"></span></td><td data-t="6"><span class="dot on"></span></td><td data-t="7"><span class="dot on"></span></td><td data-t="8"><span class="dot on"></span></td><td data-t="9"><span class="dot on"></span></td><td data-t="10"><span class="dot on"></span></td><td data-t="11"><span class="dot on"></span></td><td data-t="12"><span class="dot on"></span></td>
@@ -252,9 +268,34 @@
             </div>
 
             <div class="strip-wrap">
-              <div class="strip-label">Techniques learned, per trainee</div>
-              <div class="strip"><div class="axis"></div><button class="sdot" data-t="1" data-c="68" data-dom="9" data-ten="30 months" style="left:94.44%" aria-label="Trainee 1: 68 techniques"></button><button class="sdot" data-t="2" data-c="57" data-dom="6" data-ten="3 years" style="left:79.17%" aria-label="Trainee 2: 57 techniques"></button><button class="sdot" data-t="3" data-c="49" data-dom="8" data-ten="21 months" style="left:68.06%" aria-label="Trainee 3: 49 techniques"></button><button class="sdot" data-t="4" data-c="46" data-dom="7" data-ten="2 years 2 months" style="left:63.89%" aria-label="Trainee 4: 46 techniques"></button><button class="sdot" data-t="5" data-c="43" data-dom="7" data-ten="10 months" style="left:59.72%" aria-label="Trainee 5: 43 techniques"></button><button class="sdot" data-t="6" data-c="42" data-dom="7" data-ten="1 year" style="left:58.33%" aria-label="Trainee 6: 42 techniques"></button><button class="sdot" data-t="7" data-c="41" data-dom="7" data-ten="11 months" style="left:56.94%" aria-label="Trainee 7: 41 techniques"></button><button class="sdot" data-t="8" data-c="32" data-dom="6" data-ten="1 year" style="left:44.44%" aria-label="Trainee 8: 32 techniques"></button><button class="sdot" data-t="9" data-c="24" data-dom="6" data-ten="1 year" style="left:33.33%" aria-label="Trainee 9: 24 techniques"></button><button class="sdot" data-t="10" data-c="23" data-dom="5" data-ten="12 months" style="left:31.94%" aria-label="Trainee 10: 23 techniques"></button><button class="sdot" data-t="11" data-c="12" data-dom="3" data-ten="6 months" style="left:16.67%" aria-label="Trainee 11: 12 techniques"></button><button class="sdot" data-t="12" data-c="11" data-dom="3" data-ten="7 months" style="left:15.28%" aria-label="Trainee 12: 11 techniques"></button></div>
-              <div class="ticks"><span class="tick" style="left:0.00%">0</span><span class="tick" style="left:27.78%">20</span><span class="tick" style="left:55.56%">40</span><span class="tick" style="left:83.33%">60</span></div>
+              <div class="strip-header">
+                <span class="strip-label">Techniques learned, per trainee</span>
+                <span class="strip-sublabel">Hover dot to highlight trainee</span>
+              </div>
+              <div class="strip-track-container">
+                <div class="strip">
+                  <div class="axis"></div>
+                  <button class="sdot" data-t="1" data-c="68" data-dom="9" data-ten="30 months" style="left:94.44%" aria-label="Trainee 1: 68 techniques"></button>
+                  <button class="sdot" data-t="2" data-c="57" data-dom="6" data-ten="3 years" style="left:79.17%" aria-label="Trainee 2: 57 techniques"></button>
+                  <button class="sdot" data-t="3" data-c="49" data-dom="8" data-ten="21 months" style="left:68.06%" aria-label="Trainee 3: 49 techniques"></button>
+                  <button class="sdot" data-t="4" data-c="46" data-dom="7" data-ten="2 years 2 months" style="left:63.89%" aria-label="Trainee 4: 46 techniques"></button>
+                  <button class="sdot" data-t="5" data-c="43" data-dom="7" data-ten="10 months" style="left:59.72%" aria-label="Trainee 5: 43 techniques"></button>
+                  <button class="sdot" data-t="6" data-c="42" data-dom="7" data-ten="1 year" style="left:58.33%" aria-label="Trainee 6: 42 techniques"></button>
+                  <button class="sdot" data-t="7" data-c="41" data-dom="7" data-ten="11 months" style="left:56.94%" aria-label="Trainee 7: 41 techniques"></button>
+                  <button class="sdot" data-t="8" data-c="32" data-dom="6" data-ten="1 year" style="left:44.44%" aria-label="Trainee 8: 32 techniques"></button>
+                  <button class="sdot" data-t="9" data-c="24" data-dom="6" data-ten="1 year" style="left:33.33%" aria-label="Trainee 9: 24 techniques"></button>
+                  <button class="sdot" data-t="10" data-c="23" data-dom="5" data-ten="12 months" style="left:31.94%" aria-label="Trainee 10: 23 techniques"></button>
+                  <button class="sdot" data-t="11" data-c="12" data-dom="3" data-ten="6 months" style="left:16.67%" aria-label="Trainee 11: 12 techniques"></button>
+                  <button class="sdot" data-t="12" data-c="11" data-dom="3" data-ten="7 months" style="left:15.28%" aria-label="Trainee 12: 11 techniques"></button>
+                </div>
+                <div class="ticks">
+                  <span class="tick" style="left:0.00%">0</span>
+                  <span class="tick" style="left:27.78%">20</span>
+                  <span class="tick" style="left:55.56%">40</span>
+                  <span class="tick" style="left:83.33%">60</span>
+                  <span class="tick" style="left:100.00%">72</span>
+                </div>
+              </div>
             </div>
 
             <p class="readout" id="readout" role="status" aria-live="polite"><span class="ro-default">Ten of the twelve were trained in more than twenty techniques, seven in more than forty. The two narrowest trainings were also the two shortest stays &mdash; six and seven months. Breadth is the norm here; specialisation is what happens when there isn&rsquo;t time.</span></p>
@@ -840,40 +881,48 @@ export default {
     text-transform:uppercase;color:var(--accent);transition:border-color .15s,background .15s;}
 .ivl-training .expand-all:hover{border-color:var(--accent);background:var(--surface-alt)}
 .ivl-training /* matrix */
-  .matrix{margin:3.6rem 0 0;padding:2.4rem 1.8rem 2rem;
-    background:var(--surface);border:1px solid var(--rule);border-radius:3px;}
-.ivl-training .matrix figcaption{font-family:var(--sans);font-size:.98rem;line-height:1.6;color:var(--faint);
-    margin:.7rem 0 0;max-width:42em;}
-.ivl-training .grid-scroll{overflow-x:auto;margin-top:1.9rem}
-.ivl-training .grid{border-collapse:collapse;table-layout:fixed;width:auto}
-.ivl-training .grid th[scope="row"]{text-align:left;font-family:var(--sans);font-weight:500;font-size:.92rem;
-    color:var(--soft);padding:.5rem 1.2rem .5rem 0;white-space:nowrap;border:0;width:13rem;}
-.ivl-training .grid td{padding:.5rem 0;text-align:center;border:0;width:2.3rem;transition:background .12s}
-.ivl-training .grid tbody tr{cursor:pointer;transition:background .12s}
-.ivl-training .grid tbody tr.hl, .ivl-training .grid td.hl{background:var(--hl)}
+  .matrix{margin:3.6rem 0 0;padding:2.4rem 2rem 2.2rem;
+    background:var(--color-surface, #ffffff);border:1px solid var(--color-border, #e2e0d6);border-radius:var(--radius-sm, 6px);box-shadow:var(--shadow-sm);}
+.ivl-training .matrix figcaption{font-family:var(--font-body);font-size:.98rem;line-height:1.6;color:var(--color-ink-soft, #4b5647);
+    margin:.7rem 0 0;max-width:48em;}
+.ivl-training .grid-scroll{overflow-x:auto;margin-top:1.8rem}
+.ivl-training .grid{border-collapse:collapse;table-layout:fixed;width:100%;min-width:760px}
+.ivl-training .grid thead th{font-family:var(--font-body);font-size:.76rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--color-accent, #2f5233);text-align:center;padding:.7rem 0;
+    border-bottom:1.5px solid var(--color-border, #e2e0d6);}
+.ivl-training .grid thead th.grid-corner-th{text-align:left;font-family:var(--font-body);font-size:.78rem;letter-spacing:.08em;width:28%;}
+.ivl-training .grid th[scope="row"]{text-align:left;font-family:var(--font-heading);font-weight:600;font-size:.95rem;
+    color:var(--color-ink, #1f2a1c);padding:.7rem 1rem .7rem 0;white-space:nowrap;border:0;width:28%;}
+.ivl-training .grid td{padding:.7rem 0;text-align:center;border:0;width:6%;transition:background .12s}
+.ivl-training .grid tbody tr{cursor:pointer;border-bottom:1px solid rgba(0,0,0,0.05);transition:background .12s}
+.ivl-training .grid tbody tr.hl, .ivl-training .grid td.hl{background:var(--hl, rgba(47,82,51,0.08))}
 .ivl-training .grid tbody tr:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .ivl-training .grid td.hl .dot.off{border-color:var(--accent);opacity:.65}
-.ivl-training .grid td.hl .dot.on{box-shadow:0 0 0 3px var(--hl)}
-.ivl-training .dot{display:inline-block;width:11px;height:11px;border-radius:50%;box-sizing:border-box;vertical-align:middle}
-.ivl-training .dot.on{background:var(--accent)}
-.ivl-training .dot.off{border:1.5px solid var(--rule-strong)}
-.ivl-training .strip-wrap{margin-top:2.8rem}
-.ivl-training .strip-label{font-family:var(--sans);font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--faint);margin-bottom:1.1rem}
-.ivl-training .strip{position:relative;height:24px;margin:0 9px}
-.ivl-training .strip .axis{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule-strong)}
-.ivl-training .sdot{position:absolute;top:50%;width:13px;height:13px;padding:0;margin:-6.5px 0 0 -6.5px;
-    border:0;border-radius:50%;background:var(--accent);
-    box-shadow:0 0 0 2px var(--surface);cursor:pointer;transition:transform .12s;}
-.ivl-training .sdot:hover, .ivl-training .sdot.hl{transform:scale(1.45)}
-.ivl-training .sdot:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.ivl-training .ticks{position:relative;height:1.3rem;margin:.6rem 9px 0}
-.ivl-training .tick{position:absolute;transform:translateX(-50%);font-family:var(--sans);font-size:.74rem;color:var(--rule-strong)}
-.ivl-training .readout{margin:2.2rem 0 0;min-height:3.4em;font-family:var(--sans);
-    font-size:1rem;line-height:1.65;color:var(--soft);max-width:44em;}
-.ivl-training .readout .ro-default{color:var(--faint)}
-.ivl-training .readout b{font-weight:600;color:var(--ink)}
+.ivl-training .grid td.hl .dot.on{box-shadow:0 0 0 3px var(--hl, rgba(47,82,51,0.18))}
+.ivl-training .dot{display:inline-block;width:12px;height:12px;border-radius:50%;box-sizing:border-box;vertical-align:middle;transition:transform .12s ease;}
+.ivl-training .dot.on{background:var(--color-accent, #2f5233)}
+.ivl-training .dot.off{border:1.5px solid var(--color-border, #c4c0b4);background:transparent;}
+
+.ivl-training .strip-wrap{margin-top:2.6rem;padding:1.6rem 1.8rem;background:var(--color-surface-muted, #f4f2ec);border-radius:var(--radius-sm, 6px);border:1px solid var(--color-border, #e2e0d6);}
+.ivl-training .strip-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.4rem;}
+.ivl-training .strip-label{font-family:var(--font-heading);font-size:.96rem;font-weight:600;color:var(--color-ink, #1f2a1c);}
+.ivl-training .strip-sublabel{font-family:var(--font-body);font-size:.8rem;color:var(--color-muted, #6f7a6a);}
+.ivl-training .strip-track-container{padding:.5rem .8rem;}
+.ivl-training .strip{position:relative;height:28px;margin:0 10px}
+.ivl-training .strip .axis{position:absolute;left:0;right:0;top:50%;height:2px;background:var(--color-border, #c4c0b4);border-radius:1px;}
+.ivl-training .sdot{position:absolute;top:50%;width:16px;height:16px;padding:0;margin:-8px 0 0 -8px;
+    border:0;border-radius:50%;background:var(--color-accent, #2f5233);
+    box-shadow:0 0 0 3px var(--color-surface, #ffffff);cursor:pointer;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;}
+.ivl-training .sdot:hover, .ivl-training .sdot.hl{transform:scale(1.4);background:var(--color-accent-deep, #1b3a20);box-shadow:0 0 0 4px rgba(47,82,51,0.25);z-index:10;}
+.ivl-training .sdot:focus-visible{outline:2px solid var(--color-accent, #2f5233);outline-offset:4px}
+.ivl-training .ticks{position:relative;height:1.4rem;margin:.6rem 10px 0}
+.ivl-training .tick{position:absolute;transform:translateX(-50%);font-family:var(--font-body);font-size:.78rem;font-weight:600;color:var(--color-ink-soft, #4b5647)}
+.ivl-training .readout{margin:1.8rem 0 0;padding:1rem 1.4rem;background:var(--color-surface, #ffffff);border:1px solid var(--color-border, #e2e0d6);border-radius:var(--radius-sm, 4px);min-height:3.2em;font-family:var(--font-body);
+    font-size:.96rem;line-height:1.6;color:var(--color-ink, #1f2a1c);display:flex;align-items:center;}
+.ivl-training .readout .ro-default{color:var(--color-muted, #6f7a6a)}
+.ivl-training .readout b{font-weight:600;color:var(--color-ink, #1f2a1c)}
 .ivl-training .key{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:1.8rem;padding-top:1.1rem;
-    border-top:1px solid var(--rule);font-family:var(--sans);font-size:.88rem;color:var(--faint);}
+    border-top:1px solid var(--color-border, #e2e0d6);font-family:var(--font-body);font-size:.88rem;color:var(--color-ink-soft, #4b5647);}
 .ivl-training .key span{display:inline-flex;align-items:center;gap:.5rem}
 .ivl-training .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .ivl-training /* lists */
