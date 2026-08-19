@@ -344,7 +344,7 @@
             <div class="col-label">Where our trainees <b>presented</b> (Conferences &amp; Symposia)</div>
             <div class="dest-plain-grid">
               <div class="dest-plain-item">
-                <span class="dest-tag doctoral">HySci</span>
+                <h4 class="dest-heading-underlined">HySci</h4>
                 <ul class="dest-bullet-list">
                   <li>IIT Hyderabad</li>
                   <li>2023, 2024 &middot; Oral &amp; Poster</li>
@@ -352,7 +352,7 @@
               </div>
 
               <div class="dest-plain-item">
-                <span class="dest-tag masters">IAN</span>
+                <h4 class="dest-heading-underlined">IAN</h4>
                 <ul class="dest-bullet-list">
                   <li>2022 &middot; Shillong (Poster)</li>
                   <li>2023 &middot; Gwalior (Poster)</li>
@@ -362,7 +362,7 @@
               </div>
 
               <div class="dest-plain-item">
-                <span class="dest-tag industry">CMMDR</span>
+                <h4 class="dest-heading-underlined">CMMDR</h4>
                 <ul class="dest-bullet-list">
                   <li>Shiv Nadar University, Delhi NCR</li>
                   <li>2024, 2026 &middot; Poster</li>
@@ -370,7 +370,7 @@
               </div>
 
               <div class="dest-plain-item">
-                <span class="dest-tag internal">SNCI</span>
+                <h4 class="dest-heading-underlined">SNCI</h4>
                 <ul class="dest-bullet-list">
                   <li>CSIR&ndash;IICT, Hyderabad</li>
                   <li>2025 &middot; Oral &amp; Poster</li>
@@ -423,7 +423,7 @@
             <div class="col-label">Where they <b>went</b> (Post-Lab Destinations)</div>
             <div class="dest-plain-grid">
               <div class="dest-plain-item">
-                <span class="dest-tag doctoral">Doctoral / PhD</span>
+                <h4 class="dest-heading-underlined">Doctoral / PhD</h4>
                 <ul class="dest-bullet-list">
                   <li>Johannes Gutenberg University Mainz</li>
                   <li>Texas A&amp;M University</li>
@@ -434,14 +434,14 @@
               </div>
 
               <div class="dest-plain-item">
-                <span class="dest-tag masters">Master&rsquo;s</span>
+                <h4 class="dest-heading-underlined">Master&rsquo;s</h4>
                 <ul class="dest-bullet-list">
                   <li>Erasmus Mundus Joint Master (EMJM), International Master in Innovative Medicine</li>
                 </ul>
               </div>
 
               <div class="dest-plain-item">
-                <span class="dest-tag industry">Industry</span>
+                <h4 class="dest-heading-underlined">Industry</h4>
                 <ul class="dest-bullet-list">
                   <li>Clinical Research Associate, Gennova Biopharmaceuticals</li>
                   <li>Manager, Finn Partners</li>
@@ -449,7 +449,7 @@
               </div>
 
               <div class="dest-plain-item">
-                <span class="dest-tag internal">Stayed On</span>
+                <h4 class="dest-heading-underlined">Stayed On</h4>
                 <ul class="dest-bullet-list">
                   <li>Six of twelve offered paid positions (6 mo &ndash; 3 yrs)</li>
                   <li>Three currently serve as Project Associates in this lab</li>
@@ -1259,12 +1259,20 @@ export default {
   flex-direction: column;
 }
 
-.dest-plain-item .dest-tag {
+.dest-heading-underlined {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent, #2f5233);
+  margin: 0 0 12px 0;
+  display: inline-block;
   align-self: flex-start;
-  margin-bottom: 12px;
-  font-size: 0.78rem;
-  padding: 4px 10px;
-  border-radius: 4px;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent, #2f5233);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
 }
 
 .dest-bullet-list {
@@ -1292,36 +1300,6 @@ export default {
   font-size: 1.1rem;
   line-height: 1;
   top: 0px;
-}
-
-.dest-tag {
-  display: inline-block;
-  align-self: flex-start;
-  font-family: var(--font-body);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 3px;
-  margin-bottom: 12px;
-}
-
-.dest-tag.doctoral { background: #e3f2fd; color: #0d47a1; }
-.dest-tag.masters { background: #f3e5f5; color: #4a148c; }
-.dest-tag.industry { background: #e8f5e9; color: #1b5e20; }
-.dest-tag.internal { background: #fff3e0; color: #e65100; }
-
-:root[data-theme="dark"] .dest-tag.doctoral { background: #15293d; color: #90caf9; }
-:root[data-theme="dark"] .dest-tag.masters { background: #2a1b33; color: #ce93d8; }
-:root[data-theme="dark"] .dest-tag.industry { background: #182e1d; color: #a5d6a7; }
-:root[data-theme="dark"] .dest-tag.internal { background: #332314; color: #ffcc80; }
-
-.dest-item p {
-  margin: 0;
-  font-size: 0.94rem;
-  line-height: 1.6;
-  color: var(--color-ink, #1f2a1c);
 }
 
 /* Module 04: Floating Gallery Avatar Strip */
