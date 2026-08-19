@@ -397,23 +397,24 @@
             </div>
           </div>
 
-          <div class="career-cards-grid">
-            <div class="career-feature-card">
-              <h3>Taught Directly</h3>
-              <p>PhD application guidance &middot; PhD interview preparation &middot; crafting your CV &middot; Gantt charts for project planning &middot; the Eisenhower matrix for time management &middot; overcoming the planning fallacy.</p>
+          <!-- Clean Text Flow (No pop-up cards) -->
+          <div class="presentation-text-flow" style="margin-bottom:2.8rem">
+            <div class="pres-text-block">
+              <h3>Taught directly</h3>
+              <p>PhD application guidance &middot; PhD interview preparation &middot; crafting your CV &middot; Gantt charts for project planning &middot; the Eisenhower matrix for time management &middot; the planning fallacy and how to overcome it.</p>
             </div>
-            
-            <div class="career-feature-card">
-              <h3>Mentorship Commitments</h3>
-              <ul class="plain-compact">
-                <li><strong>Uncapped Recommendation Letters:</strong> Provided without a count, across multiple application cycles.</li>
-                <li><strong>On-Time Submissions:</strong> Submitted well ahead of all deadlines.</li>
-                <li><strong>Interview Coaching:</strong> Mock presentations, crisp answering coaching, and practice defenses.</li>
-                <li><strong>Targeted Lab Selection:</strong> Guidance on matching research interests and reading a group&rsquo;s papers before reaching out.</li>
-                <li><strong>Application Review:</strong> Email and motivation letters thoroughly reviewed with peer feedback.</li>
-                <li><strong>Protected Lab Time:</strong> Dedicated schedule allocated for preparing applications and exams.</li>
-                <li><strong>Resilience:</strong> Encouragement held steady through rejections until the right placement is secured.</li>
-                <li><strong>Non-Academic Paths:</strong> Guidance and strategic networking for trainees choosing industry.</li>
+
+            <div class="pres-text-block">
+              <ul class="dest-bullet-list">
+                <li>Recommendation letters, without a count &mdash; and again across more than one application cycle.</li>
+                <li>Submitted before the deadline.</li>
+                <li>Interview preparation: mock presentations, practice on how to answer, coaching to present crisply.</li>
+                <li>Guidance on which labs and which PIs to target, and how to read a group&rsquo;s work before writing to it.</li>
+                <li>Application emails reviewed before they were sent, for students who asked.</li>
+                <li>Lab time set aside for preparing applications.</li>
+                <li>Labmates reading motivation letters and working through hard papers alongside the applicant.</li>
+                <li>Encouragement held steady through rejections, until a place was found.</li>
+                <li>Support for leaving academia too &mdash; time to decide, then guidance into an industry route.</li>
               </ul>
             </div>
           </div>
@@ -1215,63 +1216,7 @@ export default {
   color: var(--color-ink, #1f2a1c);
 }
 
-/* Module 03 Career Guidance Cards */
-.career-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 24px;
-  margin-bottom: 2.5rem;
-}
-
-.career-feature-card {
-  padding: 28px 32px;
-  background: var(--color-surface-muted, #f4f2ec);
-  border: 1px solid var(--color-border, #e2e0d6);
-  border-radius: var(--radius-sm, 4px);
-  border-left: 4px solid var(--color-accent, #2f5233);
-}
-
-.career-feature-card h3 {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-accent, #2f5233);
-  margin: 0 0 12px 0;
-}
-
-.career-feature-card p {
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--color-ink, #1f2a1c);
-}
-
-.plain-compact {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.plain-compact li {
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--color-ink, #1f2a1c);
-  margin-bottom: 10px;
-  padding-left: 1.4rem;
-  position: relative;
-}
-
-.plain-compact li::before {
-  content: "•";
-  color: var(--color-accent, #2f5233);
-  position: absolute;
-  left: 0;
-  font-weight: bold;
-}
-
-/* Module 02 Presentation Clean Text Flow (No pop-up cards) */
+/* Module 02 & 03 Clean Text Flow (No pop-up cards) */
 .presentation-text-flow {
   display: flex;
   flex-direction: column;
@@ -1617,9 +1562,6 @@ export default {
 
 @media (max-width: 900px) {
   .module-cards-grid {
-    grid-template-columns: 1fr;
-  }
-  .career-cards-grid {
     grid-template-columns: 1fr;
   }
   .ba {
