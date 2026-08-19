@@ -3,9 +3,9 @@
   <div class="page">
     <header class="masthead">
       <p class="eyebrow">Venkatesh Lab &middot; CSIR&ndash;CCMB, Hyderabad</p>
-      <h1>One Year Training in the Lab: 101</h1>
+      <h1 class="main-heading">One Year Training in the Lab: 101</h1>
       
-      <!-- Full Intro, Philosophy & Fee Information (Directly Visible) -->
+      <!-- Full Intro, Philosophy & Fee Information -->
       <div class="intro-section">
         <p class="opening">A core group of our personnel are one-year trainees, either dissertation or project-based. Because our experiments are lengthy, we no longer take six-month interns, except through the RICH programme. We did take them in the past, and two of the accounts below are from that period.</p>
 
@@ -21,88 +21,77 @@
 
         <p>I have found that when students are not clear about what the lab provides and arrive with mismatched expectations, the experience is an unsatisfactory one. I am happy when students are forthcoming with their questions, and I try to brief them where they are not &mdash; but I wanted a low-stakes landing page they could explore on their own. It is also there for candidates who decide the lab is not for them, as a template of what to ask when they go looking elsewhere.</p>
 
+        <!-- Mentoring Philosophy Card -->
         <div class="philosophy">
-          <h2>Mentoring philosophy</h2>
+          <div class="philosophy-kicker">Mentoring philosophy</div>
           <p>It is simple. Everyone in the lab is held to the same standard, and I adapt my mentoring style to each candidate&rsquo;s training level and eventual goals. I will not shame anyone for their choices. Stay on here to continue, fly away for a PhD in India or abroad, or explore roles outside academia &mdash; all of these are supported equally, and I give training to the best of my abilities.</p>
         </div>
 
-        <p class="lead-in">The data below comes from former trainees who filled in a Google form and consented to their responses being used publicly. It is split into four modules below. Click any module card below to open its contents:</p>
+        <p class="lead-in">The data below comes from former trainees who filled in a Google form and consented to their responses being used publicly. It is split into four interactive modules below. Click any module card to explore:</p>
       </div>
 
-      <!-- Spacious 4-Module Card Grid (Generous Padding, Left-Border Highlight, No Text Cropping) -->
+      <!-- Clean Actionable Module Cards (No Inner Buttons, Centered Text, Underline on Selected Module) -->
       <div class="module-nav-wrapper">
         <div class="module-cards-grid" role="tablist" aria-label="Training Modules">
-          <button
-            type="button"
-            role="tab"
+          <div
+            role="button"
+            tabindex="0"
             :aria-selected="activeModule === 'technical'"
-            class="module-card-btn"
-            :class="{ active: activeModule === 'technical' }"
+            class="training-module-card"
+            :class="{ 'is-active': activeModule === 'technical' }"
             @click="setModule('technical')"
+            @keydown.enter="setModule('technical')"
+            @keydown.space.prevent="setModule('technical')"
           >
-            <div class="card-top-row">
-              <span class="card-num">MODULE 1</span>
-            </div>
-            <div class="card-title">Technical Skill Building</div>
-            <div class="card-desc">Comprehensive training across 9 domains &middot; on-arrival baseline vs lab mastery &middot; interactive dot matrix</div>
-            <div class="card-cta">
-              <span>{{ activeModule === 'technical' ? 'Module Open ▲ (Click to close)' : 'Click to View Protocols &amp; Matrix &rarr;' }}</span>
-            </div>
-          </button>
+            <div class="card-kicker-badge">MODULE 1</div>
+            <h3 class="card-main-title">Technical Skill Building</h3>
+            <p class="card-body-text">Comprehensive wet-lab, animal surgery, tissue histology, microscopy, genomics, and bioinformatics training across 9 domains &middot; on-arrival baseline vs lab mastery &middot; interactive dot matrix.</p>
+          </div>
 
-          <button
-            type="button"
-            role="tab"
+          <div
+            role="button"
+            tabindex="0"
             :aria-selected="activeModule === 'presentation'"
-            class="module-card-btn"
-            :class="{ active: activeModule === 'presentation' }"
+            class="training-module-card"
+            :class="{ 'is-active': activeModule === 'presentation' }"
             @click="setModule('presentation')"
+            @keydown.enter="setModule('presentation')"
+            @keydown.space.prevent="setModule('presentation')"
           >
-            <div class="card-top-row">
-              <span class="card-num">MODULE 2</span>
-            </div>
-            <div class="card-title">Presentation &amp; Voice</div>
-            <div class="card-desc">Oral talks &middot; research posters &middot; manuscript preparation &middot; defense coaching &middot; conference venues</div>
-            <div class="card-cta">
-              <span>{{ activeModule === 'presentation' ? 'Module Open ▲ (Click to close)' : 'Click to View Presentation Training &rarr;' }}</span>
-            </div>
-          </button>
+            <div class="card-kicker-badge">MODULE 2</div>
+            <h3 class="card-main-title">Presentation &amp; Voice</h3>
+            <p class="card-body-text">Oral presentation coaching, scientific poster design, manuscript preparation, defense coaching, and national and international conference presentations across 4 major venues.</p>
+          </div>
 
-          <button
-            type="button"
-            role="tab"
+          <div
+            role="button"
+            tabindex="0"
             :aria-selected="activeModule === 'career'"
-            class="module-card-btn"
-            :class="{ active: activeModule === 'career' }"
+            class="training-module-card"
+            :class="{ 'is-active': activeModule === 'career' }"
             @click="setModule('career')"
+            @keydown.enter="setModule('career')"
+            @keydown.space.prevent="setModule('career')"
           >
-            <div class="card-top-row">
-              <span class="card-num">MODULE 3</span>
-            </div>
-            <div class="card-title">Career Guidance</div>
-            <div class="card-desc">Direct mentorship &middot; uncapped recommendation letters &middot; interview preparation &middot; PhD &amp; industry destinations</div>
-            <div class="card-cta">
-              <span>{{ activeModule === 'career' ? 'Module Open ▲ (Click to close)' : 'Click to View Career Guidance &rarr;' }}</span>
-            </div>
-          </button>
+            <div class="card-kicker-badge">MODULE 3</div>
+            <h3 class="card-main-title">Career Guidance</h3>
+            <p class="card-body-text">Direct mentorship for PhD &amp; Master&rsquo;s applications, uncapped recommendation letters, mock interview coaching, protected prep time, and diverse academic &amp; industry destinations.</p>
+          </div>
 
-          <button
-            type="button"
-            role="tab"
+          <div
+            role="button"
+            tabindex="0"
             :aria-selected="activeModule === 'testimonials'"
-            class="module-card-btn"
-            :class="{ active: activeModule === 'testimonials' }"
+            class="training-module-card"
+            :class="{ 'is-active': activeModule === 'testimonials' }"
             @click="setModule('testimonials')"
+            @keydown.enter="setModule('testimonials')"
+            @keydown.space.prevent="setModule('testimonials')"
           >
-            <div class="card-top-row">
-              <span class="card-num">MODULE 4</span>
-            </div>
-            <div class="card-title">Trainee Testimonials</div>
-            <div class="card-desc">Personal reflections from 12 former trainees with verified portraits &middot; post-lab career trajectories</div>
-            <div class="card-cta">
-              <span>{{ activeModule === 'testimonials' ? 'Module Open ▲ (Click to close)' : 'Click to Read Trainee Accounts &rarr;' }}</span>
-            </div>
-          </button>
+            <div class="card-kicker-badge">MODULE 4</div>
+            <h3 class="card-main-title">Trainee Testimonials</h3>
+            <p class="card-body-text">Reflections and candid accounts from 12 former trainees with verified portraits, describing lab culture, skills gained, and post-lab career trajectories.</p>
+          </div>
         </div>
       </div>
     </header>
@@ -114,7 +103,7 @@
       <transition name="fade-slide" mode="out-in">
         <section v-if="activeModule === 'technical'" key="technical" class="module-panel" id="technical">
           <div class="panel-header-bar">
-            <span class="panel-badge">Module 1 Open</span>
+            <span class="panel-badge">Module 01 Open</span>
             <button type="button" class="close-panel-btn" @click="activeModule = null" title="Close Module">Close ✕</button>
           </div>
 
@@ -282,7 +271,7 @@
       <transition name="fade-slide" mode="out-in">
         <section v-if="activeModule === 'presentation'" key="presentation" class="module-panel" id="presentation">
           <div class="panel-header-bar">
-            <span class="panel-badge">Module 2 Open</span>
+            <span class="panel-badge">Module 02 Open</span>
             <button type="button" class="close-panel-btn" @click="activeModule = null" title="Close Module">Close ✕</button>
           </div>
 
@@ -309,28 +298,33 @@
             </div>
           </div>
 
-          <div class="venues-section">
-            <div class="col-label" style="margin-top:2.5rem">Where our trainees <b>presented</b></div>
-            <div class="venues-grid">
-              <div class="venue-card">
-                <div class="venue-name">HySci</div>
-                <div class="venue-loc">IIT Hyderabad</div>
-                <div class="venue-years">2023, 2024 &middot; poster, oral</div>
-              </div>
-              <div class="venue-card">
-                <div class="venue-name">Indian Academy of Neurosciences</div>
-                <div class="venue-loc">Gwalior &middot; NIMHANS Bengaluru &middot; Kerala</div>
-                <div class="venue-years">2023, 2024, 2025 &middot; poster, oral</div>
-              </div>
-              <div class="venue-card">
-                <div class="venue-name">CMMDR</div>
-                <div class="venue-loc">Shiv Nadar University, Delhi NCR</div>
-                <div class="venue-years">2024, 2026 &middot; poster</div>
-              </div>
-              <div class="venue-card">
-                <div class="venue-name">SNCI Mini Symposium</div>
-                <div class="venue-loc">CSIR&ndash;IICT, Hyderabad</div>
-                <div class="venue-years">2025 &middot; poster, oral</div>
+          <div class="venues-section-wrap" style="margin-top:2rem">
+            <div class="col-label">Where our trainees <b>presented</b> (Conferences &amp; Symposia)</div>
+            <div class="conf-module-card">
+              <div class="conferences-grid">
+                <div class="conf-box-card">
+                  <span class="dest-tag doctoral conf-pill">HySci</span>
+                  <h4 class="conf-inst">IIT Hyderabad</h4>
+                  <p class="conf-meta">2023, 2024 &middot; poster, oral</p>
+                </div>
+
+                <div class="conf-box-card">
+                  <span class="dest-tag masters conf-pill">IAN</span>
+                  <h4 class="conf-inst">Gwalior &middot; NIMHANS &middot; Kerala</h4>
+                  <p class="conf-meta">2023, 2024, 2025 &middot; poster, oral</p>
+                </div>
+
+                <div class="conf-box-card">
+                  <span class="dest-tag industry conf-pill">CMMDR</span>
+                  <h4 class="conf-inst">Shiv Nadar University, Delhi NCR</h4>
+                  <p class="conf-meta">2024, 2026 &middot; poster</p>
+                </div>
+
+                <div class="conf-box-card">
+                  <span class="dest-tag internal conf-pill">SNCI</span>
+                  <h4 class="conf-inst">CSIR&ndash;IICT, Hyderabad</h4>
+                  <p class="conf-meta">2025 &middot; poster, oral</p>
+                </div>
               </div>
             </div>
           </div>
@@ -341,7 +335,7 @@
       <transition name="fade-slide" mode="out-in">
         <section v-if="activeModule === 'career'" key="career" class="module-panel" id="career">
           <div class="panel-header-bar">
-            <span class="panel-badge">Module 3 Open</span>
+            <span class="panel-badge">Module 03 Open</span>
             <button type="button" class="close-panel-btn" @click="activeModule = null" title="Close Module">Close ✕</button>
           </div>
 
@@ -402,7 +396,7 @@
       <transition name="fade-slide" mode="out-in">
         <section v-if="activeModule === 'testimonials'" key="testimonials" class="module-panel" id="testimonials">
           <div class="panel-header-bar">
-            <span class="panel-badge">Module 4 Open</span>
+            <span class="panel-badge">Module 04 Open</span>
             <button type="button" class="close-panel-btn" @click="activeModule = null" title="Close Module">Close ✕</button>
           </div>
 
@@ -410,11 +404,10 @@
             <div class="sec-num">04</div>
             <div>
               <h2>Testimonials from past trainees</h2>
-              <p class="sec-note">Click on any portrait below to read their account. The active person is highlighted; all others are softened.</p>
             </div>
           </div>
 
-          <!-- Top Bar: All Trainee Pictures (Spacious 12-avatar strip with clear gaps) -->
+          <!-- Top Bar: All Trainee Pictures -->
           <div 
             class="floating-gallery-wrap"
             @mouseenter="pauseCarousel"
@@ -435,17 +428,16 @@
             </div>
           </div>
 
-          <!-- Generous Horizontal Divider Line between Top Pictures and Testimonial Card -->
+          <!-- Horizontal Divider -->
           <div class="gallery-quote-divider"></div>
 
-          <!-- Spotlight Testimonial Card with Generous Whitespace Before/After Speaker Name -->
+          <!-- Spotlight Testimonial Card -->
           <div 
             class="spotlight-quote-card" 
             v-if="currentTestimonial"
             @mouseenter="pauseCarousel"
             @mouseleave="resumeCarousel"
           >
-            <!-- Speaker Identity Block (Generous Spacing Before & After Testimonial Label and Name) -->
             <div class="quote-header">
               <div class="trainee-identity">
                 <img class="spotlight-face" :src="currentTestimonial.imgSrc" :alt="currentTestimonial.name" />
@@ -465,7 +457,6 @@
               </div>
             </div>
 
-            <!-- Quote Text with Generous Top/Bottom Whitespace -->
             <div class="quote-body">
               <p v-html="currentTestimonial.quoteHtml"></p>
             </div>
@@ -487,7 +478,7 @@ export default {
   name: "Training",
   data() {
     return {
-      activeModule: null, // Closed by default!
+      activeModule: null,
       selectedTraineeIdx: 0,
       carouselTimer: null,
       isPaused: false,
@@ -663,6 +654,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 /* Venkatesh Lab - Training page
    Every rule is scoped under .ivl-training so nothing here can affect,
    or be affected by, the rest of the site stylesheet. */
@@ -734,7 +728,7 @@ export default {
 .ivl-training{margin:0;background:var(--paper);color:var(--ink);
     font-family:var(--serif);font-size:21px;line-height:1.65;
     -webkit-font-smoothing:antialiased;}
-.ivl-training .page{max-width:880px;margin:0 auto;padding:4.5rem 1.6rem 7rem}
+.ivl-training .page{max-width:var(--container-max, 1160px);margin:0 auto;padding:3rem 1.5rem 6rem;}
 .ivl-training /* masthead */
   .eyebrow{font-family:var(--sans);font-size:.78rem;font-weight:500;
     letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
@@ -750,11 +744,7 @@ export default {
 .ivl-training .asks li{font-size:1.06rem;line-height:1.5;color:var(--ink);
     padding:.3rem 0;}
 .ivl-training .fees{font-size:.98rem;color:var(--faint);margin:0 0 1.5rem}
-.ivl-training .philosophy{margin:2rem 0;padding:1.5rem 1.7rem;
-    background:var(--surface);border:1px solid var(--rule);border-radius:3px;}
-.ivl-training .philosophy h2{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--accent);margin:0 0 .8rem;}
-.ivl-training .philosophy p{margin:0;font-size:1.08rem;line-height:1.7;color:var(--ink)}
+.ivl-training 
 .ivl-training .lead-in{font-size:1.1rem;line-height:1.7;color:var(--soft);max-width:36em;margin:2rem 0 0}
 .ivl-training .intro a, .ivl-training .plain a, .ivl-training .quote a{color:var(--accent);
     text-decoration:underline;
@@ -906,280 +896,281 @@ export default {
 .ivl-training .grid td{width:1.8rem}
 }
 
-/* --- Refined Spacious Modular Card-Based UI --- */
+
+
+
+
+
+
+/* --- Spacious Academic Card Layout & Centered Inner Content --- */
+
+.ivl-training .page {
+  max-width: var(--container-max, 1160px);
+  margin: 0 auto;
+  padding: 3.5rem 1.8rem 6rem;
+}
 
 .intro-section {
-  margin: 2rem 0 3.2rem;
-  max-width: 48em;
+  margin: 2.2rem 0 3rem;
+  max-width: 56em;
 }
 
 .intro-section p {
-  font-size: 1.1rem;
-  line-height: 1.72;
-  color: var(--soft);
-  margin: 0 0 1.3rem;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft, #4b5647);
+  margin: 0 0 1.4rem;
 }
 
 .intro-section p.opening {
-  font-size: 1.25rem;
-  line-height: 1.65;
-  color: var(--ink);
-  margin-bottom: 1.5rem;
+  font-size: 1.24rem;
+  line-height: 1.7;
+  color: var(--color-ink, #1f2a1c);
+  margin-bottom: 1.6rem;
 }
 
 .intro-section p.lead-in {
-  margin-top: 2.2rem;
-  margin-bottom: 2.8rem;
+  margin-top: 2.8rem;
+  margin-bottom: 2.5rem;
   font-weight: 500;
   font-size: 1.14rem;
-  color: var(--ink);
+  color: var(--color-ink, #1f2a1c);
 }
 
-/* Module Nav Cards Grid (Spacious 2x2 Grid, Left-Border Highlight Only, Generous Padding, No Text Cropping) */
+/* Philosophy Card */
+.ivl-training .philosophy {
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-left: 5px solid var(--color-accent, #2f5233);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-sm);
+  padding: 32px 38px !important;
+  margin: 32px 0;
+}
+
+.philosophy-kicker {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent, #2f5233);
+  margin-bottom: 12px !important;
+  display: block;
+}
+
+.ivl-training .philosophy p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft, #4b5647);
+  margin: 0;
+}
+
+/* Training Module Cards Grid */
 .module-nav-wrapper {
-  margin-top: 2.5rem;
-  margin-bottom: 4rem;
+  margin-top: 2.8rem;
+  margin-bottom: 4.5rem;
   clear: both;
 }
 
 .module-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 28px;
 }
 
-.module-card-btn {
+.training-module-card {
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink, #1f2a1c);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  background: var(--surface);
-  border: 1.5px solid var(--rule);
-  border-left: 6px solid var(--rule);
-  border-radius: 12px;
-  padding: 2.4rem 2.8rem;
-  min-height: 195px;
+  justify-content: center;
+  min-height: 220px;
+  padding: 36px 40px !important;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease;
-  position: relative;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   box-sizing: border-box;
-  width: 100%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  position: relative;
 }
 
-.module-card-btn:hover {
-  border-color: var(--accent);
-  border-left-color: var(--accent);
-  background: var(--surface-alt);
+.training-module-card:hover {
+  border-color: var(--color-accent, #2f5233);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
-.module-card-btn.active {
-  border-color: var(--accent);
-  border-left: 8px solid var(--accent);
-  background: var(--surface-alt);
-  box-shadow: 0 4px 16px rgba(47, 82, 51, 0.08);
+.training-module-card.is-active {
+  border-color: var(--color-border, #e2e0d6);
+  background: var(--color-surface, #ffffff);
+  box-shadow: var(--shadow-sm);
 }
 
-.card-top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.card-num {
-  font-family: var(--sans);
-  font-size: 0.82rem;
+.card-kicker-badge {
+  align-self: flex-start;
+  color: var(--color-accent, #2f5233);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px !important;
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, text-decoration 0.2s ease;
 }
 
-.card-title {
-  font-family: var(--serif);
-  font-size: 1.48rem;
+.training-module-card.is-active .card-kicker-badge {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent, #2f5233);
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 6px;
+  color: var(--color-accent, #2f5233);
+}
+
+.card-main-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
   font-weight: 600;
-  line-height: 1.35;
-  color: var(--ink);
-  margin-bottom: 0.7rem;
-  word-break: normal;
+  line-height: 1.3;
+  color: var(--color-ink, #1f2a1c);
+  margin: 0 0 12px 0 !important;
+  display: block;
 }
 
-.module-card-btn.active .card-title {
-  color: var(--accent);
+.card-body-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.68;
+  color: var(--color-ink-soft, #4b5647);
+  margin: 0 !important;
+  display: block;
 }
 
-.card-desc {
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--soft);
-  margin-bottom: 1.4rem;
-  flex: 1;
-  word-break: normal;
-}
-
-.card-cta {
-  font-family: var(--sans);
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin-top: auto;
-}
-
-/* Active Module Panel with Ample Top Spacing */
+/* Active Module Panel Container */
 .active-module-container {
-  margin-top: 4rem;
+  margin-top: 4.5rem;
   padding-top: 1rem;
 }
 
 .module-panel {
   margin-top: 0;
-  padding: 2.8rem 2.8rem;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.05);
+  padding: 40px 44px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-sm);
 }
 
 .panel-header-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1.2rem;
-  margin-bottom: 1.8rem;
-  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border, #e2e0d6);
 }
 
 .panel-badge {
-  font-family: var(--sans);
-  font-size: 0.76rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: var(--surface-alt);
-  padding: 0.35rem 0.85rem;
-  border-radius: 4px;
-  border: 1px solid var(--rule);
+  color: var(--color-accent, #2f5233);
+  background: var(--color-accent-light, #eef2ea);
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 
 .close-panel-btn {
-  font-family: var(--sans);
-  font-size: 0.84rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--soft);
-  background: var(--surface-alt);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: 0.35rem 0.85rem;
+  color: var(--color-ink-soft, #4b5647);
+  background: var(--color-surface-muted, #f4f2ec);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-sm, 4px);
+  padding: 6px 14px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .close-panel-btn:hover {
-  background: var(--rule);
-  color: var(--ink);
+  background: var(--color-accent, #2f5233);
+  border-color: var(--color-accent, #2f5233);
+  color: #ffffff;
 }
 
-/* Module 02 Presentation Cards (Clean, No Emojis/Symbols) */
+/* Module 02 Presentation Cards */
 .presentation-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
   margin-bottom: 2.5rem;
 }
 
 .pres-card {
-  padding: 1.8rem;
-  background: var(--surface-alt);
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  border-left: 4px solid var(--accent);
+  padding: 26px 30px;
+  background: var(--color-surface-muted, #f4f2ec);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-sm, 4px);
+  border-left: 4px solid var(--color-accent, #2f5233);
 }
 
 .pres-card h3 {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 0.88rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 0.75rem;
+  color: var(--color-accent, #2f5233);
+  margin: 0 0 10px 0;
 }
 
 .pres-card p {
   margin: 0;
-  font-size: 1.04rem;
+  font-size: 0.98rem;
   line-height: 1.65;
-  color: var(--ink);
-}
-
-.venues-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1.3rem;
-}
-
-.venue-card {
-  padding: 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  border-left: 4px solid var(--accent);
-}
-
-.venue-name {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.venue-loc {
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  color: var(--soft);
-  margin: 0.3rem 0 0.5rem;
-}
-
-.venue-years {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  color: var(--faint);
+  color: var(--color-ink, #1f2a1c);
 }
 
 /* Module 03 Career Guidance Cards */
 .career-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
-  gap: 1.6rem;
+  gap: 24px;
   margin-bottom: 2.5rem;
 }
 
 .career-feature-card {
-  padding: 1.9rem;
-  background: var(--surface-alt);
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  border-left: 4px solid var(--accent);
+  padding: 28px 32px;
+  background: var(--color-surface-muted, #f4f2ec);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-sm, 4px);
+  border-left: 4px solid var(--color-accent, #2f5233);
 }
 
 .career-feature-card h3 {
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 0.95rem;
+  color: var(--color-accent, #2f5233);
+  margin: 0 0 12px 0;
 }
 
 .career-feature-card p {
   margin: 0;
-  font-size: 1.06rem;
+  font-size: 0.98rem;
   line-height: 1.65;
-  color: var(--ink);
+  color: var(--color-ink, #1f2a1c);
 }
 
 .plain-compact {
@@ -1189,52 +1180,154 @@ export default {
 }
 
 .plain-compact li {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--ink);
-  margin-bottom: 0.8rem;
-  padding-left: 1.3rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-ink, #1f2a1c);
+  margin-bottom: 10px;
+  padding-left: 1.4rem;
   position: relative;
 }
 
 .plain-compact li::before {
   content: "•";
-  color: var(--accent);
+  color: var(--color-accent, #2f5233);
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
 .dest-module-card {
-  padding: 1.9rem;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: 8px;
+  padding: 28px 32px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-sm, 4px);
 }
 
 .dest-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.4rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .dest-item {
-  padding: 1.4rem;
-  background: var(--surface-alt);
-  border-radius: 8px;
-  border: 1px solid var(--rule);
+  padding: 22px 24px;
+  background: var(--color-surface-muted, #f4f2ec);
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--color-border, #e2e0d6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.venue-item-title {
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--color-ink, #1f2a1c);
+  margin: 0 0 6px 0;
+  line-height: 1.35;
+}
+
+.venue-item-loc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-ink-soft, #4b5647);
+  margin: 0 0 10px 0;
+  line-height: 1.45;
+}
+
+.venue-item-details {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-accent, #2f5233);
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* Module 02: Conferences & Symposia Table Card */
+.conf-module-card {
+  padding: 22px 24px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-sm, 4px);
+}
+
+.conferences-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.conf-box-card {
+  padding: 18px 14px;
+  background: var(--color-surface-muted, #f4f2ec);
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--color-border, #e2e0d6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.conf-box-card:hover {
+  border-color: var(--color-accent, #2f5233);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.conf-box-card .conf-pill {
+  align-self: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.conf-inst {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-ink, #1f2a1c);
+  margin: 4px 0 8px 0;
+  line-height: 1.35;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7em;
+}
+
+.conf-meta {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-muted, #6f7a6a);
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .dest-tag {
   display: inline-block;
-  font-family: var(--sans);
+  align-self: flex-start;
+  font-family: var(--font-body);
   font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.24rem 0.6rem;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 12px;
 }
 
 .dest-tag.doctoral { background: #e3f2fd; color: #0d47a1; }
@@ -1249,17 +1342,17 @@ export default {
 
 .dest-item p {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   line-height: 1.6;
-  color: var(--ink);
+  color: var(--color-ink, #1f2a1c);
 }
 
-/* Module 04: Floating Gallery Avatar Strip (Gaps in between images so they never overlap) */
+/* Module 04: Floating Gallery Avatar Strip */
 .floating-gallery-wrap {
   margin: 2rem 0 2.2rem;
-  padding: 1.5rem 1.8rem;
-  background: var(--surface-alt);
-  border: 1px solid var(--rule);
+  padding: 1.5rem 2rem;
+  background: var(--color-surface-muted, #f4f2ec);
+  border: 1px solid var(--color-border, #e2e0d6);
   border-radius: 999px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -1273,7 +1366,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem; /* Generous 32px gap between photos */
+  gap: 2rem;
   min-width: max-content;
   margin: 0 auto;
   padding: 0.4rem 0.6rem;
@@ -1303,7 +1396,7 @@ export default {
 .gallery-avatar-btn.active {
   opacity: 1 !important;
   filter: none !important;
-  border-color: var(--accent);
+  border-color: var(--color-accent, #2f5233);
   box-shadow: 0 0 0 4px rgba(47, 82, 51, 0.22);
 }
 
@@ -1315,20 +1408,20 @@ export default {
   display: block;
 }
 
-/* Clean Horizontal Divider with Generous Spacing */
+/* Clean Horizontal Divider */
 .gallery-quote-divider {
-  margin: 3rem 0 3.2rem;
-  border-top: 1px solid var(--rule);
+  margin: 1.8rem 0 2rem;
+  border-top: 1px solid var(--color-border, #e2e0d6);
   width: 100%;
 }
 
-/* Spotlight Testimonial Card with Generous Breathing Space */
+/* Spotlight Testimonial Card */
 .spotlight-quote-card {
-  padding: 3.2rem 3.4rem;
-  background: var(--surface);
-  border: 2px solid var(--rule);
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+  padding: 38px 44px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e2e0d6);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-sm);
   position: relative;
 }
 
@@ -1336,9 +1429,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 2.2rem;
-  margin-bottom: 2.4rem;
+  border-bottom: 1px solid var(--color-border, #e2e0d6);
+  padding-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 
 .trainee-identity {
@@ -1352,7 +1445,7 @@ export default {
   height: 86px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--accent);
+  border: 3px solid var(--color-accent, #2f5233);
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   flex-shrink: 0;
 }
@@ -1362,38 +1455,42 @@ export default {
   flex-direction: column;
 }
 
-/* Dedicated Generous Spacing Before and After "Testimonial" */
 .speaker-pill {
-  font-family: var(--sans);
-  font-size: 0.78rem;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-top: 0.4rem;
-  margin-bottom: 1.1rem; /* Generous space AFTER "Testimonial" */
+  color: var(--color-accent, #2f5233);
+  background: var(--color-accent-light, #eef2ea);
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+  margin-top: 0.2rem;
+  margin-bottom: 0.85rem;
 }
 
 .trainee-name {
-  font-family: var(--serif);
+  font-family: var(--font-heading);
   font-size: 1.85rem;
   font-weight: 600;
-  margin: 0 0 0.5rem; /* Generous space AFTER Trainee Name */
-  color: var(--ink);
+  margin: 0 0 0.5rem;
+  color: var(--color-ink, #1f2a1c);
   line-height: 1.25;
 }
 
 .trainee-role {
-  font-family: var(--sans);
+  font-family: var(--font-body);
   font-size: 0.96rem;
-  color: var(--soft);
+  color: var(--color-ink-soft, #4b5647);
   margin: 0 0 0.5rem;
 }
 
 .trainee-now {
-  font-family: var(--sans);
+  font-family: var(--font-body);
   font-size: 0.94rem;
-  color: var(--accent);
+  color: var(--color-accent, #2f5233);
   margin: 0.35rem 0 0;
   font-weight: 500;
 }
@@ -1416,9 +1513,9 @@ export default {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid var(--rule);
-  background: var(--surface-alt);
-  color: var(--ink);
+  border: 1px solid var(--color-border, #e2e0d6);
+  background: var(--color-surface-muted, #f4f2ec);
+  color: var(--color-ink, #1f2a1c);
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -1428,35 +1525,39 @@ export default {
 }
 
 .nav-arrow-btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--color-accent, #2f5233);
+  border-color: var(--color-accent, #2f5233);
   color: #ffffff;
 }
 
 .trainee-counter {
-  font-family: var(--sans);
+  font-family: var(--font-body);
   font-size: 0.85rem;
-  color: var(--faint);
+  color: var(--color-muted, #6f7a6a);
   font-weight: 600;
+  white-space: nowrap;
+  min-width: 54px;
+  text-align: center;
+  display: inline-block;
 }
 
 .quote-body p {
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   line-height: 1.8;
-  color: var(--ink);
+  color: var(--color-ink, #1f2a1c);
   margin: 0;
   font-style: italic;
   padding: 0.5rem 0;
 }
 
 .training-footer {
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--rule);
-  font-family: var(--sans);
+  margin-top: 2.8rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--color-border, #e2e0d6);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   line-height: 1.65;
-  color: var(--faint);
+  color: var(--color-muted, #6f7a6a);
 }
 
 /* Transitions */
@@ -1476,16 +1577,31 @@ export default {
 }
 
 /* Responsive Breakpoints */
-@media (max-width: 860px) {
+@media (max-width: 992px) {
+  .dest-grid,
+  .conferences-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
   .module-cards-grid {
     grid-template-columns: 1fr;
   }
   .career-cards-grid {
     grid-template-columns: 1fr;
   }
+  .ba {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }
 
 @media (max-width: 600px) {
+  .dest-grid,
+  .conferences-grid {
+    grid-template-columns: 1fr;
+  }
   .quote-header {
     flex-direction: column;
     gap: 1.4rem;
@@ -1497,10 +1613,13 @@ export default {
     justify-content: flex-start;
   }
   .spotlight-quote-card {
-    padding: 2rem 1.6rem;
+    padding: 26px 22px;
   }
-  .module-card-btn {
-    padding: 1.8rem 1.6rem;
+  .training-module-card {
+    padding: 26px 22px !important;
+  }
+  .module-panel {
+    padding: 26px 22px;
   }
 }
 </style>

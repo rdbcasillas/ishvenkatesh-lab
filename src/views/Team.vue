@@ -148,7 +148,7 @@
             class="alumni-item"
           >
             <strong>{{ trainee.name }}</strong>
-            <span v-if="trainee.institution">{{ trainee.institution }}</span>
+            <span v-if="trainee.institution" v-html="trainee.institution"></span>
           </div>
         </div>
       </div>
@@ -162,7 +162,7 @@
             class="alumni-item"
           >
             <strong>{{ alum.name }}</strong>
-            <span>{{ alum.current }}</span>
+            <span v-html="alum.current"></span>
           </div>
         </div>
       </div>
@@ -286,11 +286,11 @@ export default {
         },
         {
           name: "Apoorva Atmuri",
-          institution: "M.Tech in IIT, Hyderabad",
+          institution: "M.Tech, IIT<br>Hyderabad",
         },
         {
           name: "Katha Sanyal",
-          institution: "Project Associate CCMB",
+          institution: "Project Associate,<br>CCMB",
         },
         {
           name: "Abhilaya Makkuva",
@@ -308,7 +308,7 @@ export default {
         },
         {
           name: "Sneha Manjunath",
-          current: "Account Executive, Finn Partners",
+          current: "Account Executive,<br>Finn Partners",
         },
         {
           name: "Sanskruti Karwa",
