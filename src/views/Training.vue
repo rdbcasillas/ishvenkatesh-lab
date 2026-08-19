@@ -283,48 +283,57 @@
             </div>
           </div>
 
-          <div class="presentation-grid">
-            <div class="pres-card">
+          <!-- Clean Text Flow (No pop-up cards) -->
+          <div class="presentation-text-flow">
+            <div class="pres-text-block">
               <h3>Posters and talks</h3>
               <p>Poster presentation &middot; designing research posters &middot; oral presentation &middot; SciComm presentations for Open Day and public audiences &middot; BioRender for scientific figures.</p>
             </div>
-            <div class="pres-card">
+            <div class="pres-text-block">
               <h3>Scientific Writing</h3>
               <p>Writing scientific abstracts &middot; manuscript writing &middot; figure assembly &middot; strategy for collecting data towards a manuscript &middot; formatting and submission &middot; addressing reviewer comments.</p>
             </div>
-            <div class="pres-card">
+            <div class="pres-text-block">
               <h3>Defending your work</h3>
               <p>Handling questions as part of a comprehensive exam &mdash; how to answer, and how to defend &middot; building a personal website, why and how.</p>
             </div>
           </div>
 
-          <div class="venues-section-wrap" style="margin-top:2rem">
+          <div class="dest-plain-section" style="margin-top:2.8rem">
             <div class="col-label">Where our trainees <b>presented</b> (Conferences &amp; Symposia)</div>
-            <div class="conf-module-card">
-              <div class="conferences-grid">
-                <div class="conf-box-card">
-                  <span class="dest-tag doctoral conf-pill">HySci</span>
-                  <h4 class="conf-inst">IIT Hyderabad</h4>
-                  <p class="conf-meta">2023, 2024 &middot; poster, oral</p>
-                </div>
+            <div class="dest-plain-grid">
+              <div class="dest-plain-item">
+                <span class="dest-tag doctoral">HySci</span>
+                <ul class="dest-bullet-list">
+                  <li>IIT Hyderabad</li>
+                  <li>2023, 2024 &middot; Oral &amp; Poster</li>
+                </ul>
+              </div>
 
-                <div class="conf-box-card">
-                  <span class="dest-tag masters conf-pill">IAN</span>
-                  <h4 class="conf-inst">Gwalior &middot; NIMHANS &middot; Kerala</h4>
-                  <p class="conf-meta">2023, 2024, 2025 &middot; poster, oral</p>
-                </div>
+              <div class="dest-plain-item">
+                <span class="dest-tag masters">IAN</span>
+                <ul class="dest-bullet-list">
+                  <li>2022 &middot; Shillong (Poster)</li>
+                  <li>2023 &middot; Gwalior (Poster)</li>
+                  <li>2024 &middot; NIMHANS Bengaluru (Poster)</li>
+                  <li>2025 &middot; Kerala (Oral &amp; Poster)</li>
+                </ul>
+              </div>
 
-                <div class="conf-box-card">
-                  <span class="dest-tag industry conf-pill">CMMDR</span>
-                  <h4 class="conf-inst">Shiv Nadar University, Delhi NCR</h4>
-                  <p class="conf-meta">2024, 2026 &middot; poster</p>
-                </div>
+              <div class="dest-plain-item">
+                <span class="dest-tag industry">CMMDR</span>
+                <ul class="dest-bullet-list">
+                  <li>Shiv Nadar University, Delhi NCR</li>
+                  <li>2024, 2026 &middot; Poster</li>
+                </ul>
+              </div>
 
-                <div class="conf-box-card">
-                  <span class="dest-tag internal conf-pill">SNCI</span>
-                  <h4 class="conf-inst">CSIR&ndash;IICT, Hyderabad</h4>
-                  <p class="conf-meta">2025 &middot; poster, oral</p>
-                </div>
+              <div class="dest-plain-item">
+                <span class="dest-tag internal">SNCI</span>
+                <ul class="dest-bullet-list">
+                  <li>CSIR&ndash;IICT, Hyderabad</li>
+                  <li>2025 &middot; Oral &amp; Poster</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -368,24 +377,41 @@
             </div>
           </div>
 
-          <div class="dest-module-card">
+          <div class="dest-plain-section" style="margin-top:2.8rem">
             <div class="col-label">Where they <b>went</b> (Post-Lab Destinations)</div>
-            <div class="dest-grid">
-              <div class="dest-item">
+            <div class="dest-plain-grid">
+              <div class="dest-plain-item">
                 <span class="dest-tag doctoral">Doctoral / PhD</span>
-                <p>Johannes Gutenberg University Mainz &middot; Texas A&amp;M University &middot; IBDM, Aix-Marseille University &middot; Ume&aring; University Sweden &middot; Microverse</p>
+                <ul class="dest-bullet-list">
+                  <li>Johannes Gutenberg University Mainz</li>
+                  <li>Texas A&amp;M University</li>
+                  <li>IBDM, Aix-Marseille University</li>
+                  <li>Ume&aring; University Sweden</li>
+                  <li>Microverse</li>
+                </ul>
               </div>
-              <div class="dest-item">
+
+              <div class="dest-plain-item">
                 <span class="dest-tag masters">Master&rsquo;s</span>
-                <p>Erasmus Mundus Joint Master (EMJM), International Master in Innovative Medicine</p>
+                <ul class="dest-bullet-list">
+                  <li>Erasmus Mundus Joint Master (EMJM), International Master in Innovative Medicine</li>
+                </ul>
               </div>
-              <div class="dest-item">
+
+              <div class="dest-plain-item">
                 <span class="dest-tag industry">Industry</span>
-                <p>Clinical Research Associate, Gennova Biopharmaceuticals &middot; Manager, Finn Partners</p>
+                <ul class="dest-bullet-list">
+                  <li>Clinical Research Associate, Gennova Biopharmaceuticals</li>
+                  <li>Manager, Finn Partners</li>
+                </ul>
               </div>
-              <div class="dest-item">
+
+              <div class="dest-plain-item">
                 <span class="dest-tag internal">Stayed On</span>
-                <p>Six of twelve offered paid positions (6 mo &ndash; 3 yrs). Three currently serve as Project Associates in this lab.</p>
+                <ul class="dest-bullet-list">
+                  <li>Six of twelve offered paid positions (6 mo &ndash; 3 yrs)</li>
+                  <li>Three currently serve as Project Associates in this lab</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -1196,125 +1222,82 @@ export default {
   font-weight: bold;
 }
 
-.dest-module-card {
-  padding: 28px 32px;
-  background: var(--color-surface, #ffffff);
-  border: 1px solid var(--color-border, #e2e0d6);
-  border-radius: var(--radius-sm, 4px);
-}
-
-.dest-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.dest-item {
-  padding: 22px 24px;
-  background: var(--color-surface-muted, #f4f2ec);
-  border-radius: var(--radius-sm, 4px);
-  border: 1px solid var(--color-border, #e2e0d6);
+/* Module 02 Presentation Clean Text Flow (No pop-up cards) */
+.presentation-text-flow {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  box-sizing: border-box;
+  gap: 1.5rem;
+  margin-bottom: 2.8rem;
+  max-width: 52em;
 }
 
-.venue-item-title {
-  font-family: var(--font-heading);
-  font-size: 1.12rem;
-  font-weight: 600;
-  color: var(--color-ink, #1f2a1c);
-  margin: 0 0 6px 0;
-  line-height: 1.35;
-}
-
-.venue-item-loc {
+.pres-text-block h3 {
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--color-ink-soft, #4b5647);
-  margin: 0 0 10px 0;
-  line-height: 1.45;
-}
-
-.venue-item-details {
-  font-family: var(--font-body);
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--color-accent, #2f5233);
-  margin-top: auto;
-  padding-top: 10px;
-}
-
-/* Module 02: Conferences & Symposia Table Card */
-.conf-module-card {
-  padding: 22px 24px;
-  background: var(--color-surface, #ffffff);
-  border: 1px solid var(--color-border, #e2e0d6);
-  border-radius: var(--radius-sm, 4px);
-}
-
-.conferences-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  align-items: stretch;
-}
-
-.conf-box-card {
-  padding: 18px 14px;
-  background: var(--color-surface-muted, #f4f2ec);
-  border-radius: var(--radius-sm, 4px);
-  border: 1px solid var(--color-border, #e2e0d6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  height: 100%;
-  box-sizing: border-box;
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.conf-box-card:hover {
-  border-color: var(--color-accent, #2f5233);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.conf-box-card .conf-pill {
-  align-self: center;
-  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 999px;
-  margin-bottom: 8px;
+  color: var(--color-accent, #2f5233);
+  margin: 0 0 4px 0;
 }
 
-.conf-inst {
-  font-family: var(--font-heading);
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--color-ink, #1f2a1c);
-  margin: 4px 0 8px 0;
-  line-height: 1.35;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.7em;
-}
-
-.conf-meta {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  color: var(--color-muted, #6f7a6a);
+.pres-text-block p {
   margin: 0;
-  line-height: 1.4;
-  text-align: center;
+  font-size: 1.04rem;
+  line-height: 1.62;
+  color: var(--color-ink, #1f2a1c);
+}
+
+.dest-plain-section {
+  margin-top: 2.8rem;
+}
+
+.dest-plain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 1.2rem;
+  align-items: start;
+}
+
+.dest-plain-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.dest-plain-item .dest-tag {
+  align-self: flex-start;
+  margin-bottom: 12px;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.dest-bullet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dest-bullet-list li {
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  line-height: 1.45;
+  color: var(--color-ink, #1f2a1c);
+  margin-bottom: 8px;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.dest-bullet-list li::before {
+  content: "•";
+  color: var(--color-accent, #2f5233);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1;
+  top: 0px;
 }
 
 .dest-tag {
@@ -1578,8 +1561,7 @@ export default {
 
 /* Responsive Breakpoints */
 @media (max-width: 992px) {
-  .dest-grid,
-  .conferences-grid {
+  .dest-plain-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1598,8 +1580,7 @@ export default {
 }
 
 @media (max-width: 600px) {
-  .dest-grid,
-  .conferences-grid {
+  .dest-plain-grid {
     grid-template-columns: 1fr;
   }
   .quote-header {
