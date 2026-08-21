@@ -5,7 +5,7 @@
       <h1 class="page-title">Social Media</h1>
     </div>
     <b-row class="justify-content-center">
-      <b-col cols="12" lg="6" class="mb-4">
+      <b-col cols="12" md="6" lg="4" class="mb-4">
         <section class="social-panel">
           <div class="panel-header">
             <h3>Twitter/X</h3>
@@ -25,7 +25,7 @@
           </div>
         </section>
       </b-col>
-      <b-col cols="12" lg="6" class="mb-4">
+      <b-col cols="12" md="6" lg="4" class="mb-4">
         <section class="social-panel">
           <div class="panel-header">
             <h3>Instagram</h3>
@@ -46,7 +46,7 @@
           </div>
         </section>
       </b-col>
-      <b-col cols="12" lg="6" class="mb-4">
+      <b-col cols="12" md="6" lg="4" class="mb-4">
         <section class="social-panel">
           <div class="panel-header">
             <h3>LinkedIn</h3>
@@ -66,94 +66,12 @@
           </div>
         </section>
       </b-col>
-      <b-col cols="12" lg="6" class="mb-4">
-        <section class="social-panel">
-          <div class="panel-header">
-            <h3>Google Scholar</h3>
-            <a
-              href="https://scholar.google.com/citations?user=gMx5yTUAAAAJ&hl=en&oi=ao"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open profile <b-icon icon="box-arrow-up-right"></b-icon>
-            </a>
-          </div>
-          <div class="scholar-widget">
-            <div class="scholar-stats">
-              <div v-for="stat in scholarStats" :key="stat.label">
-                <span>{{ stat.value }}</span>
-                <p>{{ stat.label }}</p>
-              </div>
-            </div>
-            <div class="scholar-chart" aria-label="Google Scholar citations by year">
-              <div
-                v-for="point in scholarCitationsByYear"
-                :key="point.year"
-                class="scholar-bar"
-              >
-                <span>{{ point.citations }}</span>
-                <div
-                  :style="{
-                    height: `${Math.max(
-                      8,
-                      (point.citations / maxScholarCitations) * 112
-                    )}px`,
-                  }"
-                ></div>
-                <p>{{ point.year }}</p>
-              </div>
-            </div>
-            <p class="scholar-note">Citation profile updated from Google Scholar.</p>
-            <a
-              href="https://scholar.google.com/citations?user=gMx5yTUAAAAJ&hl=en&oi=ao"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="profile-button"
-            >
-              View Google Scholar
-            </a>
-          </div>
-        </section>
-      </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-import scholarProfile from "@/assets/google-scholar.json";
-
 export default {
-  data() {
-    return {
-      scholarStats: [
-        {
-          label: "Articles",
-          value: scholarProfile.articles,
-        },
-        {
-          label: "Citations",
-          value: scholarProfile.citations,
-        },
-        {
-          label: "h-index",
-          value: scholarProfile.hIndex,
-        },
-        {
-          label: "i10-index",
-          value: scholarProfile.i10Index,
-        },
-      ],
-      scholarCitationsByYear: scholarProfile.citationsByYear,
-      scholarUpdatedAt: scholarProfile.updatedAt,
-    };
-  },
-  computed: {
-    maxScholarCitations() {
-      return Math.max(
-        ...this.scholarCitationsByYear.map((point) => point.citations)
-      );
-    },
-  },
   mounted() {
     this.loadInstagramEmbed();
     this.$nextTick(this.loadElfsightScript);
@@ -198,7 +116,7 @@ export default {
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 520px;
   padding: 22px;
 }
 
@@ -215,8 +133,7 @@ h3 {
   margin: 0;
 }
 
-.panel-header a,
-.profile-button {
+.panel-header a {
   color: var(--color-accent);
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -238,182 +155,22 @@ h3 {
   align-items: stretch;
 }
 
-.profile-widget {
-  color: var(--color-accent);
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  font-family: var(--font-body);
-  justify-content: center;
-}
-
-.scholar-widget {
-  color: var(--color-accent);
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  font-family: var(--font-body);
-  justify-content: space-between;
-}
-
-.scholar-stats {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.scholar-stats div {
-  background: var(--color-surface-muted);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 10px 6px;
-  text-align: center;
-}
-
-.scholar-stats span {
-  color: var(--color-accent-dark);
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 27px;
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.scholar-stats p {
-  color: var(--color-muted);
-  font-size: 15px;
-  line-height: 1.2;
-  margin: 6px 0 0;
-}
-
-.scholar-chart {
-  align-items: end;
-  border-bottom: 1px solid var(--color-border-strong);
-  display: grid;
-  gap: 5px;
-  grid-template-columns: repeat(12, 1fr);
-  margin-top: 22px;
-  min-height: 158px;
-}
-
-.scholar-bar {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  min-width: 0;
-}
-
-.scholar-bar span {
-  font-size: 12px;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.scholar-bar div {
-  background: var(--color-accent);
-  min-height: 8px;
-  width: 100%;
-}
-
-.scholar-bar p {
-  font-size: 11px;
-  line-height: 1;
-  margin: 7px 0 8px;
-  transform: rotate(-45deg);
-}
-
-.scholar-note {
-  font-size: 15px;
-  line-height: 1.2;
-  margin: 12px 0 0;
-}
-
-.profile-name {
-  font-size: 34px;
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-
-.profile-role {
-  font-size: 24px;
-  margin-bottom: 28px;
-}
-
-.profile-stats {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 28px;
-}
-
-.profile-stats div {
-  background: var(--color-surface-muted);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 16px 8px;
-  text-align: center;
-}
-
-.profile-stats span {
-  display: block;
-  font-size: 30px;
-  line-height: 1.4;
-}
-
-.profile-stats p {
-  font-size: 16px;
-  margin: 0;
-}
-
-.profile-copy {
-  font-size: 22px;
-  line-height: 1.35;
-}
-
-.profile-button {
-  border: 1px solid var(--color-accent);
-  border-radius: var(--radius-sm);
-  display: inline-block;
-  margin-top: 16px;
-  padding: 12px 16px;
-}
-
-.panel-header a:hover,
-.profile-button:hover {
+.panel-header a:hover {
   background: var(--color-accent-light);
   color: var(--color-accent);
   text-decoration: none;
 }
 
-.embed-note {
-  color: var(--color-accent);
-  font-family: var(--font-body);
-  font-size: 18px;
-  margin-bottom: 32px;
-  text-align: center;
+@media (max-width: 992px) {
+  .social-panel {
+    height: 480px;
+  }
 }
 
 @media (max-width: 600px) {
   .social-panel {
     height: auto;
     min-height: 420px;
-  }
-
-  .profile-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .scholar-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .scholar-chart {
-    overflow-x: auto;
-  }
-
-  .scholar-bar {
-    min-width: 28px;
   }
 }
 </style>
