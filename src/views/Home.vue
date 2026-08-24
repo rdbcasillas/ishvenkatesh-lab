@@ -315,15 +315,20 @@ export default {
         }
       }
 
-      // 2. Process JSON news items
+      // 2. Process JSON news items (for months not in Google Sheets)
       for (const item of jsonItems) {
         const monthKey = this.formatDateLabel(item.date);
-        const m = getOrCreateMonth(monthKey, item.sortDate);
-        if (item.content && !m.contents.includes(item.content)) {
-          m.contents.push(item.content);
-        }
-        if (item.items && item.items.length) {
-          m.items.push(...item.items);
+        const hasSheetItems = sheetNewsItems.some(
+          (s) => this.formatDateLabel(s.date || s.sortDate) === monthKey
+        );
+        if (!hasSheetItems) {
+          const m = getOrCreateMonth(monthKey, item.sortDate);
+          if (item.content && !m.contents.includes(item.content)) {
+            m.contents.push(item.content);
+          }
+          if (item.items && item.items.length) {
+            m.items.push(...item.items);
+          }
         }
       }
 
