@@ -93,17 +93,15 @@
               <v-card elevation="2" class="mt-2">
                 <v-card-title>{{ item.date }}</v-card-title>
                 <v-card-text>
-                  <div v-if="item.content" v-html="item.content"></div>
-                  <div v-else>
-                    <h3 v-if="item.title">{{ item.title }}</h3>
-                    <ul v-if="item.items && item.items.length">
-                      <li v-for="(entry, entryIndex) in item.items" :key="entryIndex">
+                  <div v-if="item.items && item.items.length">
+                    <ul>
+                      <li v-for="(entry, entryIndex) in item.items" :key="'entry-'+entryIndex">
                         <span v-html="entry.text"></span>
                         <template v-if="entry.links && entry.links.length">
                           <a
                             class="news-link"
                             v-for="(link, linkIndex) in entry.links"
-                            :key="linkIndex"
+                            :key="'link-'+linkIndex"
                             :href="link.url"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -114,6 +112,11 @@
                       </li>
                     </ul>
                   </div>
+
+                  <div v-if="item.contents && item.contents.length">
+                    <div v-for="(c, cIdx) in item.contents" :key="'c-'+cIdx" v-html="c"></div>
+                  </div>
+                  <div v-else-if="item.content && (!item.items || !item.items.length)" v-html="item.content"></div>
                 </v-card-text>
               </v-card>
             </div>
@@ -127,17 +130,15 @@
                 <v-card elevation="2" class="mt-2">
                   <v-card-title>{{ item.date }}</v-card-title>
                   <v-card-text>
-                    <div v-if="item.content" v-html="item.content"></div>
-                    <div v-else>
-                      <h3 v-if="item.title">{{ item.title }}</h3>
-                      <ul v-if="item.items && item.items.length">
-                        <li v-for="(entry, entryIndex) in item.items" :key="entryIndex">
+                    <div v-if="item.items && item.items.length">
+                      <ul>
+                        <li v-for="(entry, entryIndex) in item.items" :key="'older-entry-'+entryIndex">
                           <span v-html="entry.text"></span>
                           <template v-if="entry.links && entry.links.length">
                             <a
                               class="news-link"
                               v-for="(link, linkIndex) in entry.links"
-                              :key="linkIndex"
+                              :key="'older-link-'+linkIndex"
                               :href="link.url"
                               target="_blank"
                               rel="noopener noreferrer"
@@ -148,6 +149,11 @@
                         </li>
                       </ul>
                     </div>
+
+                    <div v-if="item.contents && item.contents.length">
+                      <div v-for="(c, cIdx) in item.contents" :key="'older-c-'+cIdx" v-html="c"></div>
+                    </div>
+                    <div v-else-if="item.content && (!item.items || !item.items.length)" v-html="item.content"></div>
                   </v-card-text>
                 </v-card>
               </div>
@@ -253,9 +259,12 @@ export default {
             "In-house production, packaging, and quality control of high-titer recombinant adeno-associated viruses (rAAVs) for targeted neuronal gene delivery and cell-type specific expression.",
         },
       ],
-      recentNews: labNews.recent,
-      olderNews: labNews.older,
+      recentNews: [],
+      olderNews: [],
     };
+  },
+  created() {
+    this.setNewsLists([]);
   },
   methods: {
     async loadLabNewsFromSheet() {
@@ -266,56 +275,81 @@ export default {
         }
 
         const rows = this.parseCsv(await response.text());
-        const sheetNews = this.groupNewsByMonth(
-          rows
+        const sheetNewsItems = rows
           .map(this.rowToNewsItem)
-          .filter(Boolean)
-        );
+          .filter(Boolean);
 
-        this.setNewsLists(sheetNews);
+        this.setNewsLists(sheetNewsItems);
       } catch (error) {
         console.error("Could not load Google Sheet news", error);
         this.setNewsLists([]);
       }
     },
-    setNewsLists(sheetNews) {
-      const allNews = [...sheetNews, ...labNews.recent, ...labNews.older];
-      const splitIndex = this.getRecentNewsSplitIndex(allNews);
-      this.recentNews = allNews.slice(0, splitIndex);
-      this.olderNews = allNews.slice(splitIndex);
-    },
-    getRecentNewsSplitIndex(newsItems) {
-      const seenMonths = new Set();
+    setNewsLists(sheetNewsItems = []) {
+      const jsonItems = [...labNews.recent, ...labNews.older].map(this.normalizeJsonNews);
+      const monthMap = new Map();
 
-      for (let index = 0; index < newsItems.length; index += 1) {
-        seenMonths.add(newsItems[index].date);
+      const getOrCreateMonth = (monthKey, initialSortDate) => {
+        if (!monthMap.has(monthKey)) {
+          monthMap.set(monthKey, {
+            date: monthKey,
+            sortDate: initialSortDate || 0,
+            title: `${monthKey} Highlights`,
+            items: [],
+            contents: [],
+          });
+        }
+        const m = monthMap.get(monthKey);
+        if (initialSortDate && initialSortDate > m.sortDate) {
+          m.sortDate = initialSortDate;
+        }
+        return m;
+      };
 
-        if (seenMonths.size > RECENT_NEWS_MONTH_LIMIT) {
-          return index;
+      // 1. Process Google Sheet news items
+      for (const item of sheetNewsItems) {
+        const monthKey = this.formatDateLabel(item.date || item.sortDate);
+        const m = getOrCreateMonth(monthKey, item.sortDate);
+        if (item.items && item.items.length) {
+          m.items.push(...item.items);
         }
       }
 
-      return newsItems.length;
-    },
-    groupNewsByMonth(newsItems) {
-      const grouped = newsItems.reduce((months, item) => {
-        if (!months[item.date]) {
-          months[item.date] = {
-            date: item.date,
-            sortDate: item.sortDate,
-            title: `${item.date} Highlights`,
-            items: [],
-          };
+      // 2. Process JSON news items
+      for (const item of jsonItems) {
+        const monthKey = this.formatDateLabel(item.date);
+        const m = getOrCreateMonth(monthKey, item.sortDate);
+        if (item.content && !m.contents.includes(item.content)) {
+          m.contents.push(item.content);
         }
+        if (item.items && item.items.length) {
+          m.items.push(...item.items);
+        }
+      }
 
-        months[item.date].sortDate = Math.max(months[item.date].sortDate, item.sortDate);
-        months[item.date].items.push(...item.items);
-        return months;
-      }, {});
+      // 3. For each month: sort its items descending by sortDate (most recent on top!)
+      const allMonths = Array.from(monthMap.values()).map((m) => {
+        m.items.sort((a, b) => (b.sortDate || 0) - (a.sortDate || 0));
+        return m;
+      });
 
-      return Object.values(grouped).sort(
-        (first, second) => second.sortDate - first.sortDate
-      );
+      // 4. Sort all months descending by sortDate (most recent month on top!)
+      allMonths.sort((a, b) => (b.sortDate || 0) - (a.sortDate || 0));
+
+      // 5. Split into recent and older
+      const splitIndex = RECENT_NEWS_MONTH_LIMIT;
+      this.recentNews = allMonths.slice(0, splitIndex);
+      this.olderNews = allMonths.slice(splitIndex);
+    },
+    normalizeJsonNews(item) {
+      const sortDate = this.parseDate(item.date) || 0;
+      return {
+        date: item.date,
+        sortDate,
+        content: item.content || null,
+        title: item.title || `${item.date} Highlights`,
+        items: item.items || [],
+      };
     },
     rowToNewsItem(row) {
       if (!this.isApproved(row.Approved) || !row["News item"]) {
@@ -330,14 +364,19 @@ export default {
         });
       }
 
+      const rawDate = row["Date label"] || row.Timestamp;
+      const sortDate = this.parseDate(rawDate) || this.parseDate(row.Timestamp) || 0;
+      const dateLabel = this.formatDateLabel(rawDate);
+
       return {
-        date: this.formatDateLabel(row["Date label"]),
-        title: row["News title"],
-        sortDate: this.parseDate(row["Date label"]) || this.parseDate(row.Timestamp) || 0,
+        date: dateLabel,
+        title: row["News title"] || `${dateLabel} Highlights`,
+        sortDate,
         items: [
           {
             text: this.escapeHtml(row["News item"]),
             links,
+            sortDate,
           },
         ],
       };
@@ -346,31 +385,56 @@ export default {
       return String(value || "").trim().toLowerCase() === "yes";
     },
     formatDateLabel(value) {
-      const date = this.parseDate(value);
-      if (!date) {
-        return value;
+      const timestamp = this.parseDate(value);
+      if (!timestamp) {
+        return String(value || "");
       }
 
-      return new Intl.DateTimeFormat("en", {
-        month: "long",
-        year: "numeric",
-      }).format(new Date(date));
+      const d = new Date(timestamp);
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      return `${monthNames[d.getMonth()]} ${d.getFullYear()}`;
     },
     parseDate(value) {
       if (!value) {
-        return null;
+        return 0;
       }
 
-      const [datePart] = String(value).trim().split(" ");
-      const parts = datePart.split("/");
-      if (parts.length === 3) {
-        const [day, month, year] = parts.map(Number);
-        const parsed = new Date(year, month - 1, day).getTime();
-        return Number.isNaN(parsed) ? null : parsed;
+      const str = String(value).trim();
+
+      // Check DD/MM/YYYY or DD-MM-YYYY (with optional HH:mm:ss)
+      const dmyMatch = str.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/);
+      if (dmyMatch) {
+        const day = parseInt(dmyMatch[1], 10);
+        const month = parseInt(dmyMatch[2], 10) - 1;
+        const year = parseInt(dmyMatch[3], 10);
+        const hours = dmyMatch[4] ? parseInt(dmyMatch[4], 10) : 12;
+        const minutes = dmyMatch[5] ? parseInt(dmyMatch[5], 10) : 0;
+        const seconds = dmyMatch[6] ? parseInt(dmyMatch[6], 10) : 0;
+        return new Date(year, month, day, hours, minutes, seconds).getTime();
       }
 
-      const parsed = new Date(value).getTime();
-      return Number.isNaN(parsed) ? null : parsed;
+      // Check "Month YYYY" or "Mon YYYY" (e.g. "August 2026", "Jan 2025", "Sep 2024", "Jun 2023")
+      const monthNames = [
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december"
+      ];
+      const myMatch = str.match(/^([a-zA-Z]+)\s+(\d{4})/);
+      if (myMatch) {
+        const monthStr = myMatch[1].toLowerCase();
+        const year = parseInt(myMatch[2], 10);
+        const monthIndex = monthNames.findIndex(
+          (m) => m.startsWith(monthStr) || monthStr.startsWith(m.slice(0, 3))
+        );
+        if (monthIndex !== -1) {
+          return new Date(year, monthIndex, 1, 12, 0, 0).getTime();
+        }
+      }
+
+      const parsed = new Date(str).getTime();
+      return Number.isNaN(parsed) ? 0 : parsed;
     },
     parseCsv(csv) {
       const rows = [];
