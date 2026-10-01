@@ -331,7 +331,7 @@ export default {
       people: [
         {
           name: "Dr. Ishwariya Venkatesh",
-          position: "Principal Investigator",
+          position: "Senior Scientist",
           image: "ish",
           cv: process.env.BASE_URL + "cv/Ish_CV.pdf",
           desc: "Ishwariya (prefers to go by Ish) was smitten with Science in high school,  when she spent a summer traveling to different research labs in South India as part of an internship at the MS Swaminathan Research Foundation. She received her Bachelor’s degree in Biotechnology from BIT, Sathy (affiliated to Anna University) and doctoral degree in Molecular Neuroscience from The University of Wisconsin - Milwaukee. She underwent post-doctoral training in the lab of Dr.Murray Blackmore at Marquette University, focusing on transcriptional and epigenetic regulation of axon regeneration in the mammalian nervous system. As a Research Asst Professor at Marquette, she continued that line of work, developing Bioinformatic workflows to identify co-operative Transcription Factors that regulate regenerative capacity in the injured spinal cord. At CCMB, she is continuing to probe and identify molecular pathways that regulate regenerative capacity in the injured mammalian nervous system. Outside of the lab, Ish loves to read, cook, explore different forms of art (currently obsessed with Madhubani art) and tend to her home garden.",
@@ -431,10 +431,10 @@ export default {
         },
         {
           name: "Susmita Das",
-          position: "RICH Trainee, Short Term Trainee",
+          position: "Project Associate",
           image: "sushmitha",
           desc: "Susmita Das is a researcher with a strong interest in neuroscience, mitochondrial biology, metabolomics, and regenerative medicine. She completed her postgraduate studies in Biotechnology at Brainware University and joined the lab as a RICH student in January 2026.<br><br>Her research focuses on the metabolic and mitochondrial mechanisms underlying axon regeneration and neuronal repair, with particular interest in metabolomic regulation of axonal growth and targeted mitochondrial transplantation following spinal cord injury. By integrating metabolomics, molecular biology, and cell-specific targeting approaches, she aims to uncover novel therapeutic strategies for neuronal survival and regeneration.<br><br>Outside the lab, Susmita enjoys reading storybooks, exploring new places, painting, and listening to music. A proud Bengali at heart, she also has a special love for traditional sweets.",
-          email: "",
+          email: "dassusmita4726@gmail.com",
         },
         {
           name: "Ankita Dwivedi",
@@ -458,7 +458,7 @@ export default {
     teamSections() {
       return [
         {
-          title: "Principal Investigator",
+          title: "Senior Scientist",
           featured: true,
           names: ["Dr. Ishwariya Venkatesh"],
         },
@@ -480,6 +480,7 @@ export default {
           names: [
             "Dhruva Kesireddy",
             "Aparna",
+            "Susmita Das",
             "Dhanuush Balakannan",
             "Athul Narayan PS",
           ],
@@ -489,7 +490,6 @@ export default {
           names: [
             "Achuth",
             "Meera",
-            "Susmita Das",
             "Ankita Dwivedi",
             "Soyrav Das",
           ],

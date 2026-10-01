@@ -34,11 +34,12 @@
         <p class="page-kicker">Research Output</p>
         <h1 class="page-title">Publications</h1>
       </div>
-      <section
-        v-for="section in publicationSections"
-        :key="section.title"
-        class="publication-section"
-      >
+      <div class="publication-columns">
+        <section
+          v-for="section in publicationSections"
+          :key="section.title"
+          class="publication-section"
+        >
         <h2>{{ section.title }}</h2>
         <div class="year-block" v-for="year in section.data.keys()" :key="year">
           <div class="year-label-col">
@@ -68,7 +69,8 @@
             </article>
           </div>
         </div>
-      </section>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -89,16 +91,16 @@ export default {
       this.publications = this.publicationData;
       this.publicationSections = [
         {
-          title: "Preprints",
+          title: "Publications",
           data: group(
-            this.publications.filter((pub) => this.isPreprint(pub)),
+            this.publications.filter((pub) => !this.isPreprint(pub)),
             (d) => d.Year
           ),
         },
         {
-          title: "Journal Publications",
+          title: "Preprints",
           data: group(
-            this.publications.filter((pub) => !this.isPreprint(pub)),
+            this.publications.filter((pub) => this.isPreprint(pub)),
             (d) => d.Year
           ),
         },
@@ -118,8 +120,16 @@ export default {
 </script>
 
 <style scoped>
+.publication-columns {
+  align-items: start;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .publication-section {
   margin: 0 0 48px;
+  min-width: 0;
 }
 
 .publication-section h2 {
@@ -189,6 +199,13 @@ export default {
 .mainAuthor {
   color: var(--color-ink);
   font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .publication-columns {
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
