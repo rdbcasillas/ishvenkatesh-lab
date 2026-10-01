@@ -63,7 +63,7 @@
               class="person-photo"
               blank-src="null"
               :alt="person.name"
-              :src="require(`../assets/images/team/${person.image}.jpeg`)"
+              :src="require(`../assets/images/team/${person.image}.${person.imageExtension || 'jpeg'}`)"
             ></b-img-lazy>
             <div v-else class="person-photo person-placeholder">
               {{ initials(person.name) }}
@@ -117,7 +117,9 @@
             <img
               v-if="alum.image"
               class="phd-alum-photo"
-              :src="require(`../assets/images/alumini/${alum.image}`)"
+              :src="alum.imageFolder === 'team'
+                ? require(`../assets/images/team/${alum.image}`)
+                : require(`../assets/images/alumini/${alum.image}`)"
               :alt="alum.name"
               loading="lazy"
             />
@@ -181,7 +183,7 @@
           v-if="selectedPerson.image"
           class="bio-photo"
           :alt="selectedPerson.name"
-          :src="require(`../assets/images/team/${selectedPerson.image}.jpeg`)"
+          :src="require(`../assets/images/team/${selectedPerson.image}.${selectedPerson.imageExtension || 'jpeg'}`)"
         ></b-img>
         <div v-else class="bio-photo bio-placeholder">
           {{ initials(selectedPerson.name) }}
@@ -224,6 +226,13 @@ export default {
         class: "m1",
       },
       phdAlumni: [
+        {
+          name: "Faheem Farooq",
+          institution: "Marseille Developmental Biology Institute (IBDM), Aix-Marseille University, France",
+          position: "PhD Student",
+          image: "faheem.jpeg",
+          imageFolder: "team",
+        },
         {
           name: "Katha Sanyal",
           institution: "University of Jena, Germany",
@@ -385,12 +394,13 @@ export default {
           email: "dhruvakesireddy@gmail.com",
         },
         {
-          name: "Faheem Farooq",
+          name: "Aparna",
           position: "Project Associate",
-          image: "faheem",
-          desc: "Faheem joined the lab in September 2025 as a Project Associate. He holds a Master's degree in Biotechnology from the University of Kashmir. It was during his dissertation period at IISc that his interest in the field of genome organization and regulation was sparked. Building on his working knowledge of genome organization, he is currently investigating in the lab how genome organization regulates regenerative capacity across mouse neuronal development. Apart from science, Faheem loves to play football and is a lifelong Real Madrid fan!",
-          email: "faheem@csirccmb.org",
-         },
+          image: "aparana",
+          imageExtension: "jpg",
+          desc: "Aparna joined the lab in September 2026 as a Project Associate. She holds a Master’s degree in Biotechnology from South Asian University. Her research journey has taken her across a range of biological questions, from cancer to neuroscience. Her broader interest lies in understanding neuroplasticity, and she sees this lab as a great place to study one of its many variations.<br><br>Outside the lab, she enjoys solving Sudoku, reading, and keeping up with world geopolitics.",
+          email: "aparnau986@gmail.com",
+        },
         {
           name: "Dhanuush Balakannan",
           position: "Project Associate",
@@ -433,6 +443,14 @@ export default {
           desc: "Ankita Dwivedi joined the lab in April 2026 as an MP Young Scientist Fellow through a fellowship for the training of young scientists. She completed her PhD in Neuroscience from Dr. Harisingh Gour University, Sagar, Madhya Pradesh, and brings a strong research background in neurodegeneration and cognitive dysfunction.<br><br>Her current work focuses on the metabolic control of axonal regeneration, exploring diverse metabolic pathways and their roles in regulating axonal growth and neuronal repair. By integrating metabolic profiling with advanced molecular approaches, she aims to uncover the key metabolic mechanisms driving axonal regeneration.<br><br>Outside the lab, Ankita enjoys exploring new places, playing basketball, and listening to music, which keep her inspired and energized.",
           email: "",
         },
+        {
+          name: "Soyrav Das",
+          position: "Dissertation Trainee",
+          image: "soyrav",
+          imageExtension: "jpg",
+          desc: "Soyrav Das joined the lab in September 2026 as a one-year dissertation trainee. He is currently pursuing an M.Tech. in Biotechnology and Biochemical Engineering at NIT Agartala. He completed his M.Sc. in Biotechnology at South Asian University, New Delhi, where he gained research experience in protein science.<br><br>His current research focuses on stem cell-mediated therapy for spinal cord injury. He is particularly interested in stem cell-based therapies, gene editing, and emerging biotechnologies.<br><br>Outside the lab, Soyrav enjoys reading, travelling to new places, and exploring different environments and cultures.",
+          email: "",
+        },
       ]
     };
   },
@@ -461,14 +479,20 @@ export default {
           title: "Project Associates",
           names: [
             "Dhruva Kesireddy",
-            "Faheem Farooq",
+            "Aparna",
             "Dhanuush Balakannan",
             "Athul Narayan PS",
           ],
         },
         {
           title: "Short Term Trainees",
-          names: ["Achuth", "Meera", "Susmita Das", "Ankita Dwivedi"],
+          names: [
+            "Achuth",
+            "Meera",
+            "Susmita Das",
+            "Ankita Dwivedi",
+            "Soyrav Das",
+          ],
         },
       ].map((section) => ({
         title: section.title,
