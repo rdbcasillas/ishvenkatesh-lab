@@ -90,6 +90,11 @@ export default {
           years: "2026-2029",
         },
         {
+          funder: "ICMR Small Grant (PI)",
+          title: "Small Molecules for Spinal Cord Repair",
+          years: "2026-2029",
+        },
+        {
           funder: "ICMR Intermediate (Co-PI)",
           title:
             "Unlocking Intrinsic Regenerative Programs: Preclinical Validation of the Small-Molecule LPA-1",

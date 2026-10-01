@@ -38,7 +38,10 @@
               <div class="award-content">
                 <strong>{{ award.name }}</strong>
                 <p class="award-meta" v-if="award.event">{{ award.event }}</p>
-                <p v-if="award.recipients">{{ award.recipients }}</p>
+                <p v-if="award.recipients" class="award-recipient">{{ award.recipients }}</p>
+                <p v-if="award.description" class="award-description">
+                  {{ award.description }}
+                </p>
                 <ul v-if="award.items" class="award-list">
                   <li v-for="item in award.items" :key="item.name">
                     <strong>{{ item.name }}</strong>
@@ -73,6 +76,38 @@ export default {
   data() {
     return {
       awards: [
+        {
+          name: "IAN Travel Award",
+          event: "Indian Academy of Neuroscience (IAN), 2026",
+          year: "2026",
+          recipients: "Athul Narayan PS",
+          description: "Awarded in support of Athul’s participation and research presentation at the 2026 IAN meeting.",
+          image: "Athul_Travel_award.jpeg",
+        },
+        {
+          name: "SfN Trainee Professional Development Award (TPDA)",
+          event: "Society for Neuroscience, Neuroscience 2026",
+          year: "2026",
+          recipients: "Yogesh Sahu",
+          description: "Recognized by SfN for his scientific promise and selected for professional-development support at Neuroscience 2026.",
+          image: "Yogesh_Travel.jpeg",
+        },
+        {
+          name: "IAN John Miller Travel Award",
+          event: "Indian Academy of Neuroscience (IAN), 2026",
+          year: "2026",
+          recipients: "Dhruva Kesireddy",
+          description: "Recognized with the John Miller Travel Award in support of his conference participation and research presentation.",
+          image: "Dhruva_Travel_award.jpeg",
+        },
+        {
+          name: "CCMB Open Day Best Booth Award",
+          event: "CCMB Open Day 2026",
+          year: "2026",
+          recipients: "Venkatesh Lab",
+          description: "The lab was recognized for creating an engaging and memorable public-science exhibit at CCMB Open Day.",
+          image: "Open_Day_2026.jpeg",
+        },
         {
           name: "IBRO/SfN Travel Grant",
           year: "2026",
@@ -342,6 +377,18 @@ export default {
 
 .award-meta {
   font-style: italic;
+}
+
+.award-recipient {
+  color: var(--color-ink) !important;
+  font-weight: 600;
+}
+
+.award-description {
+  border-top: 1px solid var(--color-border);
+  line-height: 1.55;
+  margin-top: 12px !important;
+  padding-top: 12px;
 }
 
 .modal-image-container {

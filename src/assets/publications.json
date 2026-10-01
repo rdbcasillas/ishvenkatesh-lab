@@ -60,20 +60,20 @@
     "URL": "https://www.biorxiv.org/content/10.64898/2025.12.22.695949v1"
   },
   {
-    "Title": "Deep Neurite Analysis Tool (DeNAT): A machine-learning framework for precise automated neurite outgrowth measurement",
-    "Year": "2025",
+    "Title": "Deep Neurite Analysis Tool (DeNAT): a machine-learning framework for high-sensitivity automated neurite outgrowth measurement",
+    "Year": "2026",
     "AuthorType": "Corresponding author",
     "Authors": [
       "Manojkumar Kumaran",
-      "PS Athul Narayan",
+      "Athul PS Narayan",
       "Yogesh Sahu",
       "Soupayan Banerjee",
       "Anisha S Menon",
       "Shringika Soni",
       "Ishwariya Venkatesh"
     ],
-    "Journal": "bioRxiv",
-    "URL": "https://www.biorxiv.org/content/10.1101/2025.09.18.676567v1"
+    "Journal": "BMC Bioinformatics",
+    "URL": "https://link.springer.com/article/10.1186/s12859-026-06661-3"
   },
   {
     "Title": "Nuclear receptor transcription factors promote axon regeneration in the adult corticospinal tract.",
