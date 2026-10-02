@@ -77,6 +77,22 @@ export default {
     return {
       awards: [
         {
+          name: "ISDN 2027 Travel Award",
+          event: "International Society for Developmental Neuroscience (ISDN 2027)",
+          year: "2026",
+          recipients: "Rutuja Pendharkar",
+          description: "Awarded US$400 in travel support to attend ISDN 2027, held from 1–5 February 2027 at JNCASR, Bengaluru.",
+          image: "Rutuja.png",
+        },
+        {
+          name: "ISDN 2027 Travel Award",
+          event: "International Society for Developmental Neuroscience (ISDN 2027)",
+          year: "2026",
+          recipients: "Aarthi Sukumar",
+          description: "Awarded US$400 in travel support to attend ISDN 2027, held from 1–5 February 2027 at JNCASR, Bengaluru.",
+          image: "Aarthi.png",
+        },
+        {
           name: "IAN Travel Award",
           event: "Indian Academy of Neuroscience (IAN), 2026",
           year: "2026",

@@ -444,11 +444,11 @@ export default {
           email: "",
         },
         {
-          name: "Soyrav Das",
+          name: "Sourav Das",
           position: "Dissertation Trainee",
           image: "soyrav",
           imageExtension: "jpg",
-          desc: "Soyrav Das joined the lab in September 2026 as a one-year dissertation trainee. He is currently pursuing an M.Tech. in Biotechnology and Biochemical Engineering at NIT Agartala. He completed his M.Sc. in Biotechnology at South Asian University, New Delhi, where he gained research experience in protein science.<br><br>His current research focuses on stem cell-mediated therapy for spinal cord injury. He is particularly interested in stem cell-based therapies, gene editing, and emerging biotechnologies.<br><br>Outside the lab, Soyrav enjoys reading, travelling to new places, and exploring different environments and cultures.",
+          desc: "Sourav Das joined the lab in September 2026 as a one-year dissertation trainee. He is currently pursuing an M.Tech. in Biotechnology and Biochemical Engineering at NIT Agartala. He completed his M.Sc. in Biotechnology at South Asian University, New Delhi, where he gained research experience in protein science.<br><br>His current research focuses on stem cell-mediated therapy for spinal cord injury. He is particularly interested in stem cell-based therapies, gene editing, and emerging biotechnologies.<br><br>Outside the lab, Sourav enjoys reading, travelling to new places, and exploring different environments and cultures.",
           email: "",
         },
       ]
@@ -491,7 +491,7 @@ export default {
             "Achuth",
             "Meera",
             "Ankita Dwivedi",
-            "Soyrav Das",
+            "Sourav Das",
           ],
         },
       ].map((section) => ({
