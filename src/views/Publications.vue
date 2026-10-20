@@ -66,6 +66,39 @@
                   ><span v-if="authorIndex < pub.Authors.length - 1">, </span>
                 </span>
               </span>
+              <button
+                v-if="pub.SummaryURL"
+                type="button"
+                class="showMoreBtn"
+                :aria-expanded="expandedSummaries[pub.URL] ? 'true' : 'false'"
+                @click="toggleSummary(pub)"
+              >
+                <span class="chev" :class="{ open: expandedSummaries[pub.URL] }"></span>
+                {{ expandedSummaries[pub.URL] ? "Show less" : "Show more" }}
+              </button>
+              <div
+                v-if="pub.SummaryURL && expandedSummaries[pub.URL]"
+                class="summaryPanel"
+              >
+                <video
+                  controls
+                  autoplay
+                  muted
+                  preload="auto"
+                  playsinline
+                  class="summaryVideo"
+                  :src="pub.SummaryVideo"
+                >
+                  Your browser doesn't support embedded video.
+                </video>
+                <p class="summaryBlurb">{{ pub.SummaryBlurb }}</p>
+                <a
+                  class="summaryLink"
+                  target="_blank"
+                  :href="pub.SummaryURL"
+                  >Read the full interactive summary &rarr;</a
+                >
+              </div>
             </article>
           </div>
         </div>
@@ -84,9 +117,16 @@ export default {
       publicationData,
       publications: [],
       publicationSections: [],
+      expandedSummaries: {},
     };
   },
   methods: {
+    toggleSummary(pub) {
+      this.expandedSummaries = {
+        ...this.expandedSummaries,
+        [pub.URL]: !this.expandedSummaries[pub.URL],
+      };
+    },
     getData() {
       this.publications = this.publicationData;
       this.publicationSections = [
@@ -199,6 +239,83 @@ export default {
 .mainAuthor {
   color: var(--color-ink);
   font-weight: 700;
+}
+
+.showMoreBtn {
+  align-items: center;
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  color: var(--color-accent-dark);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 6px 14px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.showMoreBtn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.showMoreBtn .chev {
+  border-bottom: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  display: inline-block;
+  height: 0.4rem;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  width: 0.4rem;
+}
+
+.showMoreBtn .chev.open {
+  transform: rotate(225deg);
+}
+
+.summaryPanel {
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 16px;
+}
+
+.summaryVideo {
+  background: #000;
+  border-radius: var(--radius-sm);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.summaryBlurb {
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.summaryLink {
+  align-self: flex-start;
+  color: var(--color-accent-dark);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.summaryLink:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
