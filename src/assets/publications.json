@@ -47,7 +47,7 @@
   },
   {
     "Title": "PATZ1 remodels the nucleosome landscape to promote chromatin accessibility in injured neurons.",
-    "Year": "2025",
+    "Year": "2026",
     "AuthorType": "Corresponding author",
     "Authors": [
       "Netra Krishna",
@@ -56,8 +56,11 @@
       "Dhruva Kumar Kesireddy",
       "Ishwariya Venkatesh"
     ],
-    "Journal": "bioRxiv",
-    "URL": "https://www.biorxiv.org/content/10.64898/2025.12.22.695949v1"
+    "Journal": "Communications Biology",
+    "URL": "https://www.nature.com/articles/s42003-026-11196-7",
+    "SummaryURL": "research/patz1-explainer.html",
+    "SummaryVideo": "research/patz1-summary.mp4",
+    "SummaryBlurb": "A short video walkthrough of how PATZ1 clears nucleosomes off growth-gene enhancers in injured corticospinal neurons, making room for the regeneration program to switch back on."
   },
   {
     "Title": "Deep Neurite Analysis Tool (DeNAT): a machine-learning framework for high-sensitivity automated neurite outgrowth measurement",

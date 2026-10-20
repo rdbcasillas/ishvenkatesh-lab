@@ -1,0 +1,1250 @@
+<title>PATZ1, Nucleosome by Nucleosome</title>
+<link rel="icon" href="../ishlab.png">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="An explorable guide to Krishna, Menon et al. (2026), PATZ1 remodels the nucleosome landscape to promote chromatin accessibility in injured neurons. Communications Biology.">
+<script>
+(function(){
+  try{
+    var saved=localStorage.getItem('theme');
+    if(saved==='dark'||saved==='light'){ document.documentElement.setAttribute('data-theme', saved); }
+  }catch(e){ /* localStorage unavailable */ }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+<style>
+/* Layout: a 60rem page. Text runs in the left 39rem with definitions in the right margin (Tufte style); figures span the full width. Below 1080px the margin notes drop in under their paragraph. */
+/* Palette remapped to match the main ishvenkatesh-lab site theme (forest green on warm cream). */
+:root{
+  --paper:#FBFAF7; --surface:#FFFFFF; --wash:#EEF2EA; --rule:#E2E0D6;
+  --ink:#1F2A1C; --ink-2:#4B5647; --ink-3:#6F7A6A;
+  --c-un:#8A949B; --c-inj:#C0544A; --c-patz:#2F5233; --c-k27:#7B5CA8; --c-hat:#3A6DB3; --bead:#223D26;
+  --f-display:"Source Serif 4",Georgia,serif;
+  --f-body:"Source Serif 4","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.125rem; --s-lg:1.375rem; --s-xl:2rem; --s-2xl:clamp(2.1rem,5.2vw,3.4rem);
+  --wide:60rem; --margin:21rem; --ease:cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#14170F; --surface:#1B1F16; --wash:#21261A; --rule:#333A29;
+    --ink:#EEF1E8; --ink-2:#C4CABB; --ink-3:#93998A;
+    --c-un:#9AA4AB; --c-inj:#E57D70; --c-patz:#6BA578; --c-k27:#AA8DD8; --c-hat:#719EE5; --bead:#8FC19A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#14170F; --surface:#1B1F16; --wash:#21261A; --rule:#333A29;
+  --ink:#EEF1E8; --ink-2:#C4CABB; --ink-3:#93998A;
+  --c-un:#9AA4AB; --c-inj:#E57D70; --c-patz:#6BA578; --c-k27:#AA8DD8; --c-hat:#719EE5; --bead:#8FC19A;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s-md);line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+@media (max-width:560px){body{font-size:1.0625rem}}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.col,.wide{max-width:var(--wide);margin-inline:auto}
+@media (min-width:1080px){.col{padding-right:var(--margin)}}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.12;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:var(--s-2xl);font-weight:650;letter-spacing:-.025em;font-variation-settings:"opsz" 96}
+h2{font-size:clamp(1.6rem,4vw,var(--s-xl));font-variation-settings:"opsz" 48}
+p{margin:0}
+a{color:inherit;text-decoration-color:var(--c-patz);text-underline-offset:.18em;text-decoration-thickness:1.5px}
+a:hover{color:var(--c-patz)}
+i.g{font-style:italic}
+.kw{font-weight:600}
+:focus-visible{outline:2px solid var(--c-patz);outline-offset:2px;border-radius:3px}
+.eyebrow{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+.small{font-size:var(--s-sm)}
+.stack{display:flex;flex-direction:column;gap:1.1rem}
+
+/* header */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.bar-in{max-width:var(--wide);margin-inline:auto;display:flex;align-items:center;gap:.9rem;min-height:3.25rem}
+.brand{font-family:var(--f-display);font-weight:600;text-decoration:none;font-size:1rem;white-space:nowrap}
+.brand span{color:var(--ink-2);font-weight:450}
+.where{flex:1;min-width:0;font-family:var(--f-mono);font-size:var(--s-xs);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.04em}
+.btn{font:500 var(--s-xs)/1 var(--f-mono);letter-spacing:.03em;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:.6rem .85rem;min-height:2.25rem;cursor:pointer;transition:border-color .2s,background .2s;white-space:nowrap}
+.btn:hover{border-color:var(--ink-3)}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+@media (max-width:620px){.brand span{display:none}}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;padding:.6rem;width:2.25rem;flex:none}
+.theme-toggle .icon-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-sun{display:inline}
+
+/* sections */
+section{padding-block:clamp(3rem,8vw,5.5rem);border-top:1px solid var(--rule)}
+section.hero{border-top:0;padding-block:clamp(2rem,6vw,4rem) 3rem}
+.sec-head{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
+.prose{display:block}
+.prose>p{margin:0 0 1.1rem}
+.prose>:last-child{margin-bottom:0}
+.prose::after{content:"";display:block;clear:both}
+.prose strong{font-weight:600}
+.dek{font-size:clamp(1.1rem,2.4vw,1.25rem);line-height:1.55;color:var(--ink-2)}
+.byline{font-size:var(--s-sm);color:var(--ink-2);display:flex;flex-direction:column;gap:.25rem}
+.byline b{color:var(--ink);font-weight:600}
+.takeaways{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.takeaways li{background:var(--surface);padding:1rem 1.1rem;font-size:var(--s-sm);line-height:1.5;display:flex;flex-direction:column;gap:.35rem}
+.takeaways .k{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--ink-2);letter-spacing:.05em;text-transform:uppercase}
+
+/* margin notes: inline cards on small screens, floated into the margin on wide ones */
+.mn{display:block;margin:-.45rem 0 1.1rem;padding:.65rem .85rem;background:var(--wash);border-left:2px solid var(--c-patz);border-radius:0 8px 8px 0;font-size:.875rem;line-height:1.5;color:var(--ink-2);font-family:var(--f-body)}
+.mn b{display:block;font-family:var(--f-display);font-weight:600;font-size:.92rem;color:var(--ink);margin-bottom:.1rem}
+@media (min-width:1080px){
+  .mn{float:right;clear:right;width:calc(var(--margin) - 2.5rem);margin:.3rem calc(var(--margin) * -1) 1rem 0;padding:.05rem 0 .05rem .85rem;background:none;border-left:1px solid var(--rule);border-radius:0}
+  .mn b{color:var(--ink)}
+}
+
+/* glossary popovers (for terms inside figures and notes) */
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;border-bottom:1.5px dotted var(--ink-3);line-height:inherit;transition:border-color .2s,color .2s}
+.term:hover,.term[aria-expanded="true"]{border-bottom-color:var(--c-patz);color:var(--c-patz)}
+#pop{position:absolute;z-index:40;background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-radius:10px;padding:.85rem 1rem;box-shadow:0 10px 30px -12px rgba(10,20,25,.35);font-size:var(--s-sm);line-height:1.5;animation:popin .18s var(--ease)}
+#pop .pop-t{font-family:var(--f-display);font-weight:600;font-size:1rem;margin-bottom:.25rem}
+@keyframes popin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+/* figures */
+figure{margin:0}
+.fig{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:clamp(.9rem,2.5vw,1.6rem);display:flex;flex-direction:column;gap:1rem;min-width:0}
+.fig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}
+.fig-title{font-family:var(--f-display);font-weight:600;font-size:1.05rem;line-height:1.3}
+figcaption,.cap{font-size:var(--s-sm);color:var(--ink-2);line-height:1.5}
+.tag{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--rule);border-radius:4px;padding:.15rem .4rem;white-space:nowrap}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--wash);border-radius:18px;padding:3px;gap:2px}
+.seg button{font:500 var(--s-xs)/1 var(--f-mono);letter-spacing:.02em;border:0;background:transparent;color:var(--ink-2);padding:.6rem .85rem;min-height:2.25rem;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.sw{width:.6rem;height:.6rem;border-radius:50%;display:inline-block;flex:none}
+.sw.un{background:var(--c-un)} .sw.inj{background:var(--c-inj)} .sw.patz{background:var(--c-patz)} .sw.k27{background:var(--c-k27)} .sw.hat{background:var(--c-hat)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;font-size:var(--s-xs);font-family:var(--f-mono);color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+
+/* folded notes */
+.more{border-top:1px solid var(--rule);margin-top:.25rem}
+.fig .more{margin-top:0}
+.more-btn{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;align-items:center;gap:.6rem;padding:.85rem 0 .3rem;min-height:2.5rem;font:500 var(--s-xs)/1.35 var(--f-mono);letter-spacing:.04em;color:var(--ink-2)}
+.more-btn:hover{color:var(--ink)}
+.more-btn:focus-visible{outline:2px solid var(--c-patz);outline-offset:2px}
+.more-btn .chev{width:1.1rem;height:1.1rem;border:1px solid var(--rule);border-radius:50%;display:grid;place-items:center;flex:none;transition:transform .35s var(--ease)}
+.more-btn .chev::before{content:"";width:.32rem;height:.32rem;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-1px) rotate(45deg)}
+.more.open .more-btn .chev{transform:rotate(180deg)}
+.more-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.more.open .more-body{grid-template-rows:1fr}
+.more-inner{overflow:hidden;min-height:0}
+.more-content{padding:.8rem 0 .4rem;display:flex;flex-direction:column;gap:.8rem;font-size:var(--s-sm);line-height:1.6;color:var(--ink);opacity:0;transform:translateY(-4px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.more.open .more-content{opacity:1;transform:none}
+.more-content ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.4rem}
+.stat{font-family:var(--f-mono);font-size:.85em;font-variant-numeric:tabular-nums}
+
+/* hero locus */
+#locus{display:block;width:100%;height:auto;overflow:visible}
+#locus text{font-family:var(--f-mono);fill:var(--ink-2)}
+#locus .lbl-strong{fill:var(--ink)}
+.nuc-in,.patz-g,.ac,.halo{transition:transform .9s var(--ease),opacity .7s var(--ease);transform-box:fill-box;transform-origin:center}
+.enh-band{transition:opacity .8s var(--ease)}
+.hero-read{display:grid;grid-template-columns:1fr auto;gap:1rem 2rem;align-items:start}
+.hero-cap{min-height:4.6em}
+.hero-nums{display:flex;gap:1.6rem}
+.num{display:flex;flex-direction:column;gap:.1rem}
+.num b{font-family:var(--f-display);font-weight:600;font-size:1.6rem;font-variant-numeric:tabular-nums;line-height:1.1;transition:color .5s}
+.num span{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+@media (max-width:640px){.hero-read{grid-template-columns:1fr}.hero-cap{min-height:6.2em}}
+
+/* primer */
+.primer{display:grid;grid-template-columns:minmax(0,1fr) 15rem;gap:1.5rem}
+@media (max-width:760px){.primer{grid-template-columns:1fr}}
+#cells{width:100%;height:auto;display:block}
+.ctrl{display:flex;flex-direction:column;gap:1.1rem}
+.slider{display:flex;flex-direction:column;gap:.35rem}
+.slider label{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--s-sm)}
+.slider output{font-family:var(--f-mono);font-size:var(--s-sm);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--c-patz);height:2rem;margin:0}
+.presets{display:flex;flex-direction:column;gap:.4rem}
+.preset{all:unset;box-sizing:border-box;cursor:pointer;font-size:var(--s-xs);font-family:var(--f-mono);padding:.6rem .7rem;min-height:2.5rem;border:1px solid var(--rule);border-radius:8px;display:flex;align-items:center;gap:.5rem;color:var(--ink-2);transition:border-color .2s,color .2s}
+.preset:hover{border-color:var(--ink-3);color:var(--ink)}
+.preset:focus-visible{outline:2px solid var(--c-patz);outline-offset:2px}
+.readout{font-size:var(--s-sm);line-height:1.5;padding:.75rem .85rem;background:var(--wash);border-radius:8px}
+
+/* experiment */
+.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.groups div{background:var(--surface);padding:.85rem 1rem;display:flex;flex-direction:column;gap:.25rem;font-size:var(--s-sm)}
+.groups b{font-family:var(--f-display);font-weight:600;display:flex;align-items:center;gap:.45rem}
+@media (max-width:640px){.groups{grid-template-columns:1fr}}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;position:relative}
+.steps::before{content:"";position:absolute;left:10%;right:10%;top:1.05rem;height:1px;background:var(--rule)}
+.steps button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;width:100%;position:relative}
+.steps .dot{width:2.1rem;height:2.1rem;border-radius:50%;background:var(--surface);border:1px solid var(--rule);display:grid;place-items:center;font:500 .78rem var(--f-mono);color:var(--ink-2);transition:all .3s var(--ease);flex:none}
+.steps .lbls{display:flex;flex-direction:column;align-items:center;gap:.1rem}
+.steps .st{font-family:var(--f-display);font-weight:600;font-size:var(--s-sm)}
+.steps .sd{font-family:var(--f-mono);font-size:.72rem;color:var(--ink-2);letter-spacing:.04em}
+.steps button[aria-selected="true"] .dot{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.steps button:focus-visible .dot{outline:2px solid var(--c-patz);outline-offset:2px}
+.step-panel{background:var(--wash);border-radius:10px;padding:1rem 1.15rem;font-size:var(--s-sm);line-height:1.6;min-height:7.5rem}
+@media (max-width:560px){
+  .steps{grid-template-columns:1fr;gap:.2rem}
+  .steps::before{left:1.05rem;right:auto;top:1rem;bottom:1rem;width:1px;height:auto}
+  .steps button{flex-direction:row;text-align:left;gap:.75rem;min-height:2.6rem}
+  .steps .lbls{flex-direction:row;align-items:baseline;gap:.6rem}
+}
+.vplot svg{width:100%;height:auto;display:block}
+.vplot text{font-family:var(--f-mono);fill:var(--ink-2)}
+
+/* bar charts (HTML, drawn to scale) */
+.chart{display:flex;flex-direction:column;gap:1.4rem}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.6rem 2rem}
+.panel{display:flex;flex-direction:column;gap:.6rem;min-width:0}
+.panel-t{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.brow{display:grid;grid-template-columns:7rem minmax(0,1fr);align-items:center;gap:.75rem;transition:opacity .45s var(--ease)}
+.brow.dim{opacity:.28}
+.blab{font-size:var(--s-sm);line-height:1.25}
+.track{position:relative;height:1.6rem}
+.grid-l{position:absolute;top:-.2rem;bottom:-.2rem;width:1px;background:var(--rule)}
+.bfill{position:absolute;left:0;top:.2rem;bottom:.2rem;border-radius:0 4px 4px 0}
+.bval{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--f-mono);font-size:var(--s-xs);color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;padding-left:.45rem}
+.bval.in{transform:translate(-100%,-50%);padding-left:0;padding-right:.45rem;color:var(--paper)}
+.ticks{position:relative;height:1.1rem;margin-left:calc(7rem + .75rem)}
+.ticks span{position:absolute;transform:translateX(-50%);font-family:var(--f-mono);font-size:.7rem;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ticks span:first-child{transform:none}
+.ticks span:last-child{transform:translateX(-100%)}
+.delta{font-size:var(--s-sm);line-height:1.5;padding:.75rem .9rem;border-left:3px solid var(--c-patz);background:var(--wash);border-radius:0 8px 8px 0}
+.fill-un{background:var(--c-un)} .fill-inj{background:var(--c-inj)} .fill-patz{background:var(--c-patz)} .fill-k27{background:var(--c-k27)} .fill-hat{background:var(--c-hat)}
+
+/* effect ruler */
+.ruler{display:flex;flex-direction:column;gap:.5rem}
+.r-bands{position:relative;height:1.6rem;margin-left:calc(5.5rem + .75rem)}
+.r-bands div{position:absolute;top:0;bottom:0;border-left:1px dashed var(--rule);font-family:var(--f-mono);font-size:.68rem;color:var(--ink-3);padding-left:.25rem;letter-spacing:.02em;white-space:nowrap;overflow:hidden}
+.r-bands .s{display:none}
+.r-row{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.75rem;align-items:center}
+.r-track{position:relative;height:2rem;border-radius:4px;background:linear-gradient(90deg,var(--wash) 0 14.7%,transparent 14.7%)}
+.r-track::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule)}
+.r-dot{position:absolute;top:50%;width:.8rem;height:.8rem;border-radius:50%;transform:translate(-50%,-50%);z-index:1;box-shadow:0 0 0 2px var(--surface)}
+.r-lab{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--f-mono);font-size:var(--s-xs);white-space:nowrap;padding-left:.7rem;color:var(--ink)}
+.r-lab.left{transform:translate(-100%,-50%);padding-left:0;padding-right:.7rem}
+.ruler .ticks{margin-left:calc(5.5rem + .75rem)}
+@media (max-width:560px){.r-bands .l{display:none}.r-bands .s{display:inline}}
+
+/* nucleosome fate bar */
+.cbar{display:flex;gap:2px;height:3rem;border-radius:6px;overflow:hidden}
+.cseg{all:unset;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:var(--s-xs);transition:flex-basis .8s var(--ease),opacity .3s;min-width:3px;overflow:hidden;white-space:nowrap}
+.cseg:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.cseg[aria-pressed="false"]{opacity:.55}
+.cseg:hover{opacity:1}
+.c-evicted{background:var(--c-patz);color:var(--paper)}
+.c-free{background:var(--wash);color:var(--ink);box-shadow:inset 0 0 0 1px var(--rule)}
+.c-retained{background:var(--ink-3);color:var(--paper)}
+.c-gained{background:repeating-linear-gradient(45deg,var(--ink-2) 0 3px,var(--ink-3) 3px 6px);color:var(--paper)}
+.clegend{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.4rem}
+.clegend button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:.5rem;font-size:var(--s-xs);font-family:var(--f-mono);padding:.55rem .6rem;min-height:2.4rem;border-radius:6px;border:1px solid transparent;color:var(--ink-2)}
+.clegend button[aria-pressed="true"]{border-color:var(--rule);color:var(--ink);background:var(--wash)}
+.clegend button:focus-visible{outline:2px solid var(--c-patz)}
+.clegend i{width:.8rem;height:.8rem;border-radius:3px;flex:none}
+.cdetail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15rem);gap:1.25rem;align-items:center;padding:1rem 1.1rem;background:var(--wash);border-radius:10px}
+.cdetail svg{width:100%;max-width:20rem;height:auto;display:block}
+.cdetail svg text{font-family:var(--f-mono);fill:var(--ink-2)}
+@media (max-width:640px){.cdetail{grid-template-columns:1fr}}
+@media (max-width:420px){.clegend{grid-template-columns:1fr 1fr}}
+
+/* pathways */
+.pw{display:flex;flex-direction:column;gap:.15rem}
+.pw-row,button.pw-row{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:.75rem;align-items:center;padding:.35rem .4rem;border-radius:6px}
+button.pw-row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:.75rem;align-items:center;padding:.35rem .4rem;border-radius:6px;cursor:pointer;width:100%}
+button.pw-row:hover,button.pw-row[aria-expanded="true"]{background:var(--wash)}
+button.pw-row:focus-visible{outline:2px solid var(--c-patz)}
+.pw-name{font-size:var(--s-sm);display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.pw-name .plus{font-family:var(--f-mono);font-size:.7rem;color:var(--c-patz);border:1px solid currentColor;border-radius:3px;padding:0 .3rem;line-height:1.5}
+.pw-genes{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.pw-genes.open{grid-template-rows:1fr}
+.pw-genes>div{overflow:hidden;min-height:0}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;padding:.5rem .4rem .8rem}
+.chip{font-style:italic;font-size:var(--s-sm);padding:.15rem .55rem;border-radius:999px;background:var(--surface);border:1px solid var(--rule)}
+@media (max-width:560px){.pw-row,button.pw-row{grid-template-columns:1fr;gap:.25rem}}
+
+/* dumbbell */
+.db-row{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:.75rem;align-items:center}
+.db-track{position:relative;height:2.6rem}
+.db-line{position:absolute;top:62%;height:2px;background:var(--rule);transform:translateY(-50%)}
+.db-dot{position:absolute;top:62%;width:.85rem;height:.85rem;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 2px var(--surface)}
+.db-val{position:absolute;top:0;transform:translateX(-50%);font-family:var(--f-mono);font-size:.72rem;color:var(--ink);white-space:nowrap}
+.dumb-ticks{margin-left:calc(9rem + .75rem)}
+@media (max-width:560px){.db-row{grid-template-columns:1fr;gap:.1rem}.dumb-ticks{margin-left:0}}
+
+/* overlap */
+.ov{position:relative;display:flex;flex-direction:column;gap:.5rem;padding-block:.25rem}
+.ov-row{position:relative;height:2.2rem}
+.ov-bar{position:absolute;top:0;bottom:0;border-radius:4px;overflow:hidden;display:flex}
+.ov-guide{position:absolute;top:1.6rem;bottom:1.6rem;border-left:1px dashed var(--ink-3);opacity:.6}
+.ov-lab{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--ink-2)}
+.ov-lab b{color:var(--ink);font-weight:500}
+
+/* waffle */
+.waffle-wrap{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:1.5rem;align-items:center}
+@media (max-width:640px){.waffle-wrap{grid-template-columns:1fr}}
+.waffle{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:17rem;width:100%}
+.waffle i{aspect-ratio:1;border-radius:3px;background:var(--c-patz);transition:background .5s var(--ease)}
+.waffle i.closed{background:var(--c-hat)}
+.waffle i.gain{background:var(--ink)}
+.wl{display:flex;flex-direction:column;gap:.7rem}
+.wl div{display:grid;grid-template-columns:.9rem 1fr;gap:.6rem;align-items:start;font-size:var(--s-sm);line-height:1.4;transition:opacity .4s}
+.wl div i{width:.9rem;height:.9rem;border-radius:3px;margin-top:.2rem}
+.wl .off{opacity:.3}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+.list-card{border:1px solid var(--rule);border-radius:10px;padding:.9rem 1rem;display:flex;flex-direction:column;gap:.5rem}
+.list-card h3{margin:0;font-family:var(--f-display);font-weight:600;font-size:var(--s-sm);display:flex;align-items:center;gap:.45rem}
+.list-card ul{margin:0;padding-left:1rem;font-size:var(--s-sm);line-height:1.5;color:var(--ink-2)}
+.callout{border:1px solid var(--rule);border-radius:10px;padding:1rem 1.1rem;font-size:var(--s-sm);line-height:1.6;display:flex;flex-direction:column;gap:.35rem}
+.callout .eyebrow{color:var(--c-inj)}
+
+/* summary */
+.chain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;counter-reset:c}
+.chain li{display:grid;grid-template-columns:2.2rem 1fr;gap:.9rem;padding-block:1rem;border-top:1px solid var(--rule);counter-increment:c}
+.chain li:first-child{border-top:0}
+.chain li::before{content:counter(c);font-family:var(--f-display);font-weight:600;font-size:1.5rem;color:var(--c-patz);line-height:1.2}
+.chain a{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--ink-2)}
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}
+.q{border:1px solid var(--rule);border-radius:10px;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;font-size:var(--s-sm);line-height:1.55;background:var(--surface)}
+.q b{font-family:var(--f-display);font-weight:600;font-size:1rem;line-height:1.3}
+
+.cite{font-size:var(--s-sm);line-height:1.6;padding:1rem 1.1rem;background:var(--wash);border-radius:10px;overflow-wrap:anywhere}
+.links{display:flex;flex-wrap:wrap;gap:.5rem}
+.links a{font:500 var(--s-xs)/1 var(--f-mono);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:.7rem .9rem;background:var(--surface)}
+.links a:hover{border-color:var(--c-patz)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.9rem 1.5rem;margin:0}
+.gloss div{display:flex;flex-direction:column;gap:.15rem;font-size:var(--s-sm);line-height:1.5}
+.gloss dt{font-family:var(--f-display);font-weight:600}
+.gloss dd{margin:0;color:var(--ink-2)}
+footer{padding-block:2.5rem 3.5rem;border-top:1px solid var(--rule);font-size:var(--s-xs);color:var(--ink-3);font-family:var(--f-mono)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important;transition-delay:0s!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<header class="bar">
+  <div class="bar-in gutter">
+    <a class="brand" href="#top">PATZ1 <span>· nucleosome by nucleosome</span></a>
+    <span class="where" id="where"></span>
+    <button class="btn" id="allNotes" type="button" aria-pressed="false">Open all notes</button>
+    <button
+      type="button"
+      class="btn theme-toggle"
+      id="themeToggle"
+      aria-label="Switch to dark mode"
+      title="Switch to dark mode"
+    >
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero gutter" data-label="Overview">
+  <div class="col stack" style="gap:1.4rem">
+    <p class="eyebrow">An explorable guide to our 2026 paper in Communications Biology</p>
+    <h1>How PATZ1 clears nucleosomes off the genes injured neurons need to regrow</h1>
+    <p class="dek">When a spinal cord injury cuts the axons of adult brain neurons, those axons almost never grow back. Part of the reason is how the neurons package their DNA. The switches that control their growth genes stay wrapped up in nucleosomes, where most transcription factors can't get at them. In this paper we show that a transcription factor called PATZ1 pushes many of those nucleosomes off.</p>
+    <div class="byline">
+      <span><b>Netra Krishna*, Anisha S. Menon*, Manojkumar Kumaran, Dhruva Kumar Kesireddy, Ishwariya Venkatesh</b></span>
+      <span>CSIR-Centre for Cellular and Molecular Biology, Hyderabad · *equal contribution · <a href="https://doi.org/10.1038/s42003-026-11196-7" target="_blank" rel="noopener">doi:10.1038/s42003-026-11196-7</a></span>
+    </div>
+  </div>
+
+  <div class="wide" style="margin-top:2.2rem">
+    <figure class="fig" id="heroFig">
+      <div class="fig-head">
+        <div class="seg" role="group" aria-label="Choose a condition" id="heroSeg">
+          <button type="button" data-s="un" aria-pressed="true"><i class="sw un"></i>Uninjured</button>
+          <button type="button" data-s="inj" aria-pressed="false"><i class="sw inj"></i>Injured</button>
+          <button type="button" data-s="patz" aria-pressed="false"><i class="sw patz"></i>Injured + PATZ1</button>
+        </div>
+        <span class="tag">Schematic</span>
+      </div>
+      <svg id="locus" role="img" aria-label="Cartoon of a growth gene and its enhancer, with nucleosomes along the DNA"></svg>
+      <div class="legend" aria-hidden="true">
+        <span><i class="sw" style="background:var(--bead)"></i>nucleosome (darker = higher occupancy)</span>
+        <span><i class="sw" style="background:var(--bead);opacity:.25;width:1.1rem;border-radius:6px"></i>halo width = fuzziness</span>
+        <span><i class="sw k27"></i>H3K27ac mark</span>
+      </div>
+      <div class="hero-read">
+        <p class="hero-cap" id="heroCap"></p>
+        <div class="hero-nums" aria-live="polite">
+          <div class="num"><b id="hOcc">0.105</b><span>median occupancy</span></div>
+          <div class="num"><b id="hFuz">23.55</b><span>median fuzziness, bp</span></div>
+        </div>
+      </div>
+      <p class="cap small">The drawing is a cartoon of one gene. The two numbers next to it are the genome-wide medians we actually measured in each group.</p>
+    </figure>
+  </div>
+
+  <div class="wide" style="margin-top:1.6rem">
+    <ul class="takeaways">
+      <li><span class="k">Injury alone</span>Injury by itself barely changes how nucleosomes are arranged in corticospinal neurons.</li>
+      <li><span class="k">With PATZ1</span>PATZ1 lowers median nucleosome occupancy by 86%, and the nucleosomes that remain sit in more consistent positions.</li>
+      <li><span class="k">At enhancers</span>Most of the change happens at enhancers. PATZ1 binds them, and the number of active (H3K27ac-marked) enhancer regions more than triples.</li>
+    </ul>
+  </div>
+  <div class="col" style="margin-top:1.4rem">
+    <p class="small muted">A quick note on reading this page. Key terms are defined in the margin, or right under the paragraph if you're on a phone. Each figure also has a few folded notes with the full statistics, for when you want them. The button at the top opens all of them at once.</p>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section class="gutter" id="why" data-label="Why adult neurons don't regrow">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Background</p><h2>Why adult neurons don't regrow</h2></div>
+    <div class="prose">
+      <p><span class="kw">Corticospinal neurons</span> live in the motor cortex and send their axons all the way down the spinal cord. A spinal cord injury cuts those axons. Peripheral neurons can regrow a cut axon at any age, and so can young cortical neurons, but adult corticospinal neurons mostly can't.</p>
+      <aside class="mn" data-t="corticospinal"></aside>
+      <p>Some of the blame goes to the scar that forms in the injured cord. A lot of it, though, sits inside the neuron. As cortical neurons mature, they gradually close off the regulatory DNA around their growth genes. Once that happens, the transcription factors that could turn those genes back on can't reach them.</p>
+      <p>In our earlier work, we found that giving injured corticospinal neurons extra PATZ1 reopened many growth-related genes and <span class="kw">enhancers</span>. That study measured <span class="kw">accessibility</span>, which tells you whether a piece of DNA is open or closed. It couldn't tell us what was happening to the packaging itself, so in this paper we looked at it one nucleosome at a time.</p>
+      <aside class="mn" data-t="enhancer"></aside>
+      <aside class="mn" data-t="atac"></aside>
+    </div>
+    <div class="more"><button class="more-btn" type="button"><span class="chev"></span>More about PATZ1</button><div class="more-body"><div class="more-inner"><div class="more-content">
+      <p><button type="button" class="term" data-t="patz1">PATZ1</button> (POZ/BTB and AT-hook containing zinc finger 1) belongs to the POK family of transcription factors. It grips DNA with zinc fingers and an AT-hook at one end. At the other end, its BTB domain pulls in co-repressors and chromatin-modifying complexes.</p>
+      <p>It has also been described as a "stripe" transcription factor, meaning it binds GC-rich DNA all over the genome, helps open it up, and helps partner factors bind (Zhao et al., <i>Mol. Cell</i> 2022). That made it a good candidate for physically rearranging chromatin.</p>
+      <p>Our earlier study is Menon et al., <a href="https://doi.org/10.1101/2025.05.14.654166" target="_blank" rel="noopener">bioRxiv 2025</a>. The single-nucleus ATAC-seq data we reanalyse here come from that work.</p>
+    </div></div></div></div>
+  </div>
+</section>
+
+<!-- PRIMER -->
+<section class="gutter" id="primer" data-label="Two numbers that describe a nucleosome">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Primer</p><h2>Two numbers that describe a nucleosome</h2></div>
+    <div class="prose">
+      <p>DNA wraps around little spools of histone proteins, about 147 base pairs per spool. Each wrapped spool is a <span class="kw">nucleosome</span>. Most transcription factors can't bind DNA that's wrapped up like this.</p>
+      <aside class="mn" data-t="nucleosome"></aside>
+      <p>We can't watch one nucleosome in one cell. What we can measure is a whole population of cells, and for each nucleosome position we get two numbers. <span class="kw">Occupancy</span> is the fraction of cells that have a nucleosome at that spot. <span class="kw">Fuzziness</span> is how much its exact position shifts from cell to cell. You can play with both below.</p>
+      <aside class="mn" data-t="occupancy"></aside>
+      <aside class="mn" data-t="fuzziness"></aside>
+    </div>
+  </div>
+  <div class="wide" style="margin-top:2rem">
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">48 cells, one spot in the genome</span><span class="tag">Simulation</span></div>
+      <div class="primer">
+        <canvas id="cells" aria-label="Simulated nucleosome positions across 48 cells and the combined signal"></canvas>
+        <div class="ctrl">
+          <div class="slider"><label for="occR">Occupancy <output id="occO" for="occR">0.60</output></label><input type="range" id="occR" min="0" max="1" step="0.005" value="0.6"></div>
+          <div class="slider"><label for="fuzR">Fuzziness <output id="fuzO" for="fuzR">20 bp</output></label><input type="range" id="fuzR" min="0" max="60" step="0.5" value="20"></div>
+          <div class="presets">
+            <span class="eyebrow">Our measured medians</span>
+            <button type="button" class="preset" data-o="0.100" data-f="22.81"><i class="sw inj"></i>Injured · 0.100, 22.81 bp</button>
+            <button type="button" class="preset" data-o="0.013" data-f="17.63"><i class="sw patz"></i>Injured + PATZ1 · 0.013, 17.63 bp</button>
+            <button type="button" class="preset" id="resample">↻ Draw new random cells</button>
+          </div>
+          <p class="readout" id="primerRead"></p>
+        </div>
+      </div>
+      <figcaption>Each line is the same stretch of DNA in a different cell, and the grey bars are nucleosomes (147 bp). The curve at the bottom adds up nucleosome centres across all 48 cells, which is roughly what sequencing sees. Occupancy sets how tall the bump is, and fuzziness sets how wide it is.</figcaption>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>Why we care about fuzziness</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <p>If PATZ1 just loosened chromatin in a general way, you'd expect the leftover nucleosomes to wander around more, which would push fuzziness up. We saw fuzziness go down instead. The remaining nucleosomes are being held in more defined spots, which looks more like active rearrangement than chromatin falling apart.</p>
+        <p>Positioning also matters for gene control. When the nucleosomes around a binding site are well positioned, that site is reliably covered or reliably uncovered across cells.</p>
+        <p>In NucleoATAC, occupancy runs from 0 to 1 and fuzziness is a spread in base pairs. Both are calculated for each called nucleosome. The genome-wide medians are low (around 0.1) because they include lots of weakly positioned nucleosomes inside accessible regions.</p>
+      </div></div></div></div>
+    </figure>
+  </div>
+</section>
+
+<!-- EXPERIMENT -->
+<section class="gutter" id="experiment" data-label="The experiment">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Method</p><h2>The experiment</h2></div>
+    <div class="prose">
+      <p>We compared three groups of adult mice. The colours match the paper's figures and stay the same for the rest of this page. Tap through the steps below to see what we did to each group.</p>
+    </div>
+  </div>
+  <div class="wide stack" style="margin-top:1.6rem;gap:1.4rem">
+    <div class="groups">
+      <div><b><i class="sw un"></i>Uninjured</b><span class="muted">AAV-GFP only, no surgery</span></div>
+      <div><b><i class="sw inj"></i>Injured</b><span class="muted">AAV-GFP, then spinal cord crush</span></div>
+      <div><b><i class="sw patz"></i>Injured + PATZ1</b><span class="muted">AAV-GFP + AAV-PATZ1, then crush</span></div>
+    </div>
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">From virus to nucleosome map</span><span class="tag">Pick a step</span></div>
+      <ol class="steps" role="tablist" aria-label="Experiment steps" id="steps"></ol>
+      <div class="step-panel" id="stepPanel" role="tabpanel" aria-live="polite"></div>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>How NucleoATAC finds nucleosomes in ATAC-seq data</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <p>ATAC-seq uses an enzyme called Tn5 to cut DNA wherever it's exposed. It can cut open stretches and the short linkers between nucleosomes, but it can't reach DNA that's wrapped around a histone spool. So the fragment sizes carry a signature. Short fragments come from open DNA, and fragments of about 150 to 250 bp usually span one nucleosome.</p>
+        <div class="vplot"><svg viewBox="0 0 720 210" role="img" aria-label="Diagram of Tn5 cuts and fragment sizes around nucleosomes"><g id="vplotG"></g></svg></div>
+        <p><button type="button" class="term" data-t="nucleoatac">NucleoATAC</button> (Schep et al., <i>Genome Res.</i> 2015) plots fragment size against position around possible nucleosome centres. Real nucleosomes make a V-shaped pattern, called a <button type="button" class="term" data-t="vplot">V-plot</button>. The method scans the genome for that pattern to find each nucleosome's centre (its <button type="button" class="term" data-t="dyad">dyad</button>), along with its occupancy and fuzziness. All three of our groups gave the expected V, centred near 147 bp.</p>
+        <p>The pipeline in brief: we down-sampled all datasets to the same depth, called broad peaks with MACS2 (<span class="stat">--broad</span>, mm10) to define where to look, ran NucleoATAC on the reads, peaks and mm10 genome, and annotated the results with ChIPseeker.</p>
+      </div></div></div></div>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>How we tested differences</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <p>Occupancy and fuzziness aren't normally distributed (we checked with Shapiro-Wilk tests and Q-Q plots), so we used non-parametric tests throughout. Group comparisons used Kruskal-Wallis with Dunn's post-hoc tests and Bonferroni correction. Matched nucleosomes were compared with Wilcoxon tests, and whole distributions with Kolmogorov-Smirnov tests.</p>
+        <p>With tens of thousands of nucleosomes, even a tiny difference gives a tiny p-value. That's why we also report <button type="button" class="term" data-t="cliff">Cliff's δ</button>, an effect size that asks how often a value from one group beats a value from the other. It helps tell a real shift apart from a statistically detectable blip. For the link between occupancy and fuzziness we used <button type="button" class="term" data-t="kendall">Kendall's τ</button>.</p>
+        <p>We used 3 mice per group for each sequencing assay, both males and females, assigned at random. Investigators weren't blinded, but all groups ran through the same automated pipelines (NucleoATAC, nf-core/cutandrun, MACS2).</p>
+      </div></div></div></div>
+    </figure>
+  </div>
+</section>
+
+<!-- FINDING 1 -->
+<section class="gutter" id="f1" data-label="Finding 1 · Injury alone">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Finding 1</p><h2>Injury alone leaves nucleosomes where they were</h2></div>
+    <div class="prose">
+      <p>First we needed a baseline. One week after injury, nucleosomes in <span class="kw">L5 ET neurons</span> looked almost exactly like they did in uninjured mice. Median occupancy went from 0.105 to 0.100, and median fuzziness went from 23.55 to 22.81 bp.</p>
+      <aside class="mn" data-t="l5et"></aside>
+    </div>
+  </div>
+  <div class="wide" style="margin-top:2rem">
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">Uninjured vs injured</span><span class="tag">Measured · Figs 1, 2</span></div>
+      <div class="chart" data-cond="un,inj"></div>
+      <p class="delta">That's a 4.8% change in occupancy and a 3.1% change in fuzziness. Both come out statistically significant, but only because the samples are huge. The effect sizes are negligible (Cliff's δ of 0.046 and 0.092).</p>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>All the numbers for uninjured vs injured</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <ul>
+          <li>Nucleosome calls: 72,576 uninjured, 123,950 injured.</li>
+          <li>Occupancy: median 0.105 vs 0.100, mean 0.124 vs 0.121, IQR 0.099 vs 0.107. Dunn's test after Kruskal-Wallis (Bonferroni) gave <span class="stat">Z = −18.98, p = 7.73 × 10⁻⁸⁰</span>, with <span class="stat">Cliff's δ = 0.046</span>.</li>
+          <li>Fuzziness: median 23.55 vs 22.81 bp, both peaking at around 20 to 25. Wilcoxon rank-sum <span class="stat">W = 6.97 × 10⁹, p &lt; 2.2 × 10⁻¹⁶</span>, <span class="stat">Cliff's δ = 0.092</span>, Kolmogorov-Smirnov <span class="stat">D = 0.074</span>.</li>
+          <li>61,741 nucleosomes sat at the same coordinates in both groups. Their change in fuzziness was centred on zero (median −0.39 bp, mean −0.75), with 53.3% getting sharper and 46.7% getting fuzzier.</li>
+          <li>Changes in occupancy and fuzziness were nearly independent of each other (<span class="stat">Kendall's τ = 0.14</span>).</li>
+          <li>Array sizes (runs of one, two, three or more regularly spaced nucleosomes), the spread relative to the <button type="button" class="term" data-t="tss">TSS</button>, and nucleosome counts within 1 kb of the TSS were all similar between groups.</li>
+        </ul>
+        <p>This lines up with other single-nucleus work showing that corticospinal cell bodies barely respond, at the chromatin level, to an injury far away in the thoracic cord (Wang et al., <i>J. Neurosci.</i> 2025).</p>
+      </div></div></div></div>
+    </figure>
+  </div>
+  <div class="col" style="margin-top:1.6rem"><p>So the injured neuron isn't clearing its growth-gene packaging on its own, which fits with how poorly these neurons regrow. It also gives us a clean comparison. Whatever changes once we add PATZ1, we know injury alone wouldn't have done it.</p></div>
+</section>
+
+<!-- FINDING 2 -->
+<section class="gutter" id="f2" data-label="Finding 2 · PATZ1 removes nucleosomes">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Finding 2</p><h2>PATZ1 removes nucleosomes and sharpens the ones that stay</h2></div>
+    <div class="prose">
+      <p>Adding PATZ1 to injured neurons made a big difference. Median occupancy dropped from 0.100 to 0.013, an 86% fall. NucleoATAC also found far fewer nucleosomes overall, 33,448 compared with 123,950 in injured neurons.</p>
+      <p>The nucleosomes that were left also sat in more consistent positions, with median fuzziness going from 22.81 to 17.63 bp. This second result helps explain what PATZ1 is doing. If it were just making chromatin generally unstable, the leftover nucleosomes should have become fuzzier, and they became sharper instead. That looks like active reorganization.</p>
+      <p>The second chart below puts both experiments on the same effect-size scale, so you can see how different they are.</p>
+      <aside class="mn" data-t="cliff"></aside>
+    </div>
+  </div>
+  <div class="wide stack" style="margin-top:2rem;gap:1.4rem">
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">Injured vs injured + PATZ1</span><span class="tag">Measured · Figs 3, 4</span></div>
+      <div class="chart" data-cond="inj,patz"></div>
+      <p class="delta">Occupancy is down 86% and fuzziness is down 22.7%. Both effects are large (Cliff's δ of 0.603 and 0.57).</p>
+    </figure>
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">How big is each effect?</span><span class="tag">Cliff's δ, 0 to 1</span></div>
+      <div class="ruler" id="ruler"></div>
+      <figcaption>Each row is one comparison. The two injury-only changes sit in the negligible band, and both PATZ1 changes land in the large band. The bands use the usual cut-offs for Cliff's δ (negligible below 0.147, small below 0.33, medium below 0.474).</figcaption>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>All the numbers for injured vs PATZ1</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <ul>
+          <li>Occupancy: median 0.100 vs 0.013. Dunn's test after Kruskal-Wallis (Bonferroni) gave <span class="stat">Z = 259.49, p &lt; 2.2 × 10⁻¹⁶</span>, with <span class="stat">Cliff's δ = 0.603</span>. Half of all PATZ1 nucleosomes have an occupancy below 0.014, compared with 0.100 in injured neurons.</li>
+          <li>There were fewer nucleosomes at every array size. Longer, regularly spaced arrays (more than three in a row) lost the most, so PATZ1 may be especially good at breaking up ordered arrays.</li>
+          <li>Occupancy was lower at all distances from the TSS, including within 1 kb of it, where nucleosome calls dropped across genes.</li>
+          <li>Fuzziness: median 22.81 vs 17.63 bp, with the PATZ1 distribution peaking at 12 to 15. <span class="stat">Z = 155.95, p &lt; 2.2 × 10⁻¹⁶</span>, <span class="stat">Cliff's δ = 0.57</span>. Kolmogorov-Smirnov <span class="stat">D = 0.435</span> (compared with 0.074 for injury alone), and the PATZ1 values sit below the injured ones at every quantile.</li>
+          <li>Of 25,823 nucleosomes matched by position, 81.8% got sharper. The median change was −4.44 bp (Wilcoxon signed-rank <span class="stat">p = 1.79 × 10⁻⁷¹</span>).</li>
+          <li>Sharpening was strongest away from the TSS, which is where enhancers usually sit.</li>
+          <li>Most matched nucleosomes lost occupancy and got sharper at the same time, although the two changes were only weakly correlated (<span class="stat">Kendall's τ = 0.21</span>).</li>
+        </ul>
+      </div></div></div></div>
+    </figure>
+  </div>
+</section>
+
+<!-- FINDING 3 -->
+<section class="gutter" id="f3" data-label="Finding 3 · Where it happens">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Finding 3</p><h2>Where the nucleosomes go missing</h2></div>
+    <div class="prose">
+      <p>A genome-wide median can hide where things are actually changing, so we zoomed in on two sets of regions. The first was the set of open regions whose ATAC signal changed with PATZ1 (<span class="kw">differentially accessible regions</span>). The second was the set of genes whose RNA levels changed with PATZ1 (<span class="kw">differentially expressed genes</span>). For each region we asked what had happened to its nucleosome.</p>
+      <aside class="mn" data-t="dapeaks"></aside>
+      <aside class="mn" data-t="de"></aside>
+    </div>
+  </div>
+  <div class="wide stack" style="margin-top:2rem;gap:1.4rem">
+    <figure class="fig">
+      <div class="fig-head">
+        <div class="seg" role="group" aria-label="Choose a region set" id="classSeg">
+          <button type="button" data-k="peaks" aria-pressed="true">Regions PATZ1 opened</button>
+          <button type="button" data-k="genes" aria-pressed="false">Genes PATZ1 changed</button>
+        </div>
+        <span class="tag">Measured · Figs 5, 6</span>
+      </div>
+      <div class="cbar" id="cbar" role="group" aria-label="What happened to the nucleosome"></div>
+      <div class="clegend" id="clegend"></div>
+      <div class="cdetail" id="cdetail"></div>
+      <p class="cap" id="cfoot"></p>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>All the numbers for these regions</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <p><b>Differentially accessible regions</b></p>
+        <ul>
+          <li>81.3% had no called nucleosome in either group, 11.1% lost one with PATZ1, 4.6% kept one, and 3.1% gained one.</li>
+          <li>The more a region's accessibility went up, the less likely it was to contain a nucleosome. About 40% of regions with small changes had one, compared with under 10% of regions with the biggest changes.</li>
+          <li>Median occupancy 0.1 vs 0.01, median fuzziness 23.00 vs 17.58 bp (Dunn's test after Kruskal-Wallis, Bonferroni, <span class="stat">p &lt; 0.001</span>).</li>
+          <li>85% of regions lost occupancy, 80% got sharper, and 75.76% lost nucleosomes outright while 24.24% gained some. Matched occupancies were only weakly correlated (<span class="stat">τ = 0.206</span>), so PATZ1 doesn't simply scale the injured pattern down. It sets up a different one.</li>
+        </ul>
+        <p><b>Differentially expressed genes</b> (from single-nucleus RNA-seq)</p>
+        <ul>
+          <li>73.9% kept a nucleosome, 20.3% lost one, 4.0% had none in either group, and 1.8% gained one.</li>
+          <li>Median occupancy 0.1 vs 0.01, median fuzziness 23.61 vs 16.98 bp (<span class="stat">p &lt; 0.001</span>, from 1,134 vs 2,177 nucleosome calls).</li>
+          <li>92.94% of genes lost occupancy and 94.04% got sharper. Matched occupancies were essentially uncorrelated (<span class="stat">τ = 0.069</span>).</li>
+        </ul>
+      </div></div></div></div>
+    </figure>
+    <div class="col">
+      <div class="prose">
+        <p>Most of the regions PATZ1 opened had already lost their nucleosomes in injured neurons, and PATZ1 opened them up further. A smaller group, about 11% of regions and 20% of responsive genes, still had a nucleosome that PATZ1 then removed. Even where a nucleosome stayed, it nearly always got sparser and more sharply positioned.</p>
+        <p>We then used <span class="kw">Gene Ontology</span> pathways to ask which kinds of genes were losing nucleosomes.</p>
+        <aside class="mn" data-t="go"></aside>
+      </div>
+    </div>
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">Which kinds of genes lost nucleosomes?</span><span class="tag">Gene Ontology · Fig. 6</span></div>
+      <div class="pw" id="pw"></div>
+      <figcaption>How many responsive genes in each GO pathway lost nucleosome occupancy with PATZ1 (1,564 genes in total). Tap a row marked <span class="mono" style="color:var(--c-patz)">genes</span> to see the individual genes we highlight in the paper.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FINDING 4 -->
+<section class="gutter" id="f4" data-label="Finding 4 · Enhancers">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Finding 4</p><h2>PATZ1 opens up enhancers</h2></div>
+    <div class="prose">
+      <p>Enhancers switch genes on, often from quite far away, and active ones carry a histone mark called <span class="kw">H3K27ac</span>. We mapped H3K27ac with <span class="kw">CUT&amp;RUN</span> in the motor cortex of injured and PATZ1 mice. Then we checked what the nucleosomes at those enhancers were doing.</p>
+      <aside class="mn" data-t="h3k27ac"></aside>
+      <aside class="mn" data-t="cutrun"></aside>
+    </div>
+  </div>
+  <div class="wide stack" style="margin-top:2rem;gap:1.4rem">
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">H3K27ac-marked enhancer regions</span><span class="tag">Measured · Fig. 7</span></div>
+      <div class="chart" id="enhBars"></div>
+      <p class="delta">With PATZ1, 3,735 enhancer regions carried H3K27ac, and 2,842 of them weren't there in injured neurons. That's more than three times the 1,134 regions found only in injured neurons.</p>
+    </figure>
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">Median nucleosome occupancy at those enhancers</span><span class="tag">Measured · Fig. 7</span></div>
+      <div class="stack" id="dumb" style="gap:.6rem"></div>
+      <div class="legend"><span><i class="sw inj"></i>Injured</span><span><i class="sw patz"></i>Injured + PATZ1</span></div>
+      <figcaption>Occupancy at both shared and PATZ1-specific enhancers dropped to about a third of its injured level. The spread also got narrower, so most enhancers lost nucleosomes by a similar amount.</figcaption>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>The enhancer genes with the biggest change</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <p>These are the 20 genes at PATZ1-specific enhancers with the largest drop in occupancy (drops of roughly 0.2 to 0.6):</p>
+        <div class="chips" id="top20" style="padding:0"></div>
+        <p>A heatmap of the top 40 PATZ1-specific enhancer genes (Fig. 7f) shows the same pairing everywhere: strong H3K27ac enrichment with PATZ1, and nucleosome occupancy that was high in injured neurons and much lower with PATZ1. Examples include <i class="g">Tlr7</i>, <i class="g">Plpp3</i>, <i class="g">Trim71</i>, <i class="g">Lpar3</i>, <i class="g">Kcnk9</i>, <i class="g">Cd200</i>, <i class="g">Nrf1</i> and <i class="g">Pvt1</i>.</p>
+        <p>The H3K27ac CUT&amp;RUN was pooled from 3 mice per group, 7 days after injury.</p>
+      </div></div></div></div>
+    </figure>
+  </div>
+  <div class="col" style="margin-top:1.6rem"><p>About three-quarters of the enhancers with nucleosome calls (76.1%) were PATZ1-specific. So most of what PATZ1 does here is open enhancers that were closed in injured neurons, with a smaller effect on enhancers that were already active.</p></div>
+</section>
+
+<!-- FINDING 5 -->
+<section class="gutter" id="f5" data-label="Finding 5 · Histone H3 check">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Finding 5</p><h2>Checking the result with a histone antibody</h2></div>
+    <div class="prose">
+      <p>Everything up to this point relies on working out nucleosome positions from DNA fragment sizes. To check it a different way, we ran CUT&amp;RUN with an antibody against <span class="kw">histone H3</span>, a protein found in every nucleosome.</p>
+      <aside class="mn" data-t="h3"></aside>
+    </div>
+  </div>
+  <div class="wide stack" style="margin-top:2rem;gap:1.4rem">
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">Where the histone H3 peaks were</span><span class="tag">Measured · Fig. 8</span></div>
+      <div id="h3bar"></div>
+      <figcaption>Hardly any H3 peaks were shared between the two groups. Where PATZ1 neurons did have H3 peaks, the signal was about twice as strong (fold enrichment, Wilcoxon rank-sum <span class="stat">p &lt; 0.0001</span>).</figcaption>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>What the H3 data add</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <p>With PATZ1 there were fewer H3 peaks, they were stronger, and they were almost all in new places. PATZ1 seems to move histones to a new set of sites as well as taking them away from old ones. That fits with the NucleoATAC result that the remaining nucleosomes at PATZ1-responsive loci are more sharply positioned.</p>
+        <ul>
+          <li>Peaks: 4,967 in injured neurons (4,942 unique) and 1,689 with PATZ1 (1,664 unique). In both groups they fell across promoters, UTRs, exons, introns and intergenic DNA.</li>
+          <li>Genes near PATZ1-only H3 peaks (456 genes) were enriched for cell differentiation, nervous system development, cell migration, positive regulation of gene expression, cell adhesion, synapse assembly, axon guidance, signal transduction and neurogenesis.</li>
+          <li>Genes near shared peaks (14 genes) pointed to a smaller set of processes, including axonogenesis, cadherin-mediated adhesion, neuron migration and fat cell differentiation.</li>
+          <li>Some example loci: at <i class="g">Atf3</i>, H3 was sharper in injured neurons and broader with PATZ1. At <i class="g">Sox11</i> it went the other way, with a taller, tighter H3 peak with PATZ1. At <i class="g">Cdc73</i>, H3 looked about the same in both.</li>
+          <li>We sequenced six libraries (H3, input and IgG for each group) and processed them with nf-core/cutandrun. The final peaks were called with MACS2 against pooled IgG and input controls.</li>
+        </ul>
+      </div></div></div></div>
+    </figure>
+  </div>
+</section>
+
+<!-- FINDING 6 -->
+<section class="gutter" id="f6" data-label="Finding 6 · PATZ1 on enhancers">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Finding 6</p><h2>PATZ1 sits right on active enhancers</h2></div>
+    <div class="prose">
+      <p>Next we wanted to know whether PATZ1 is physically sitting at these enhancers. CUT&amp;RUN against PATZ1 found 5,764 binding <span class="kw">peaks</span> in the injured motor cortex, and we lined these up against the 3,708 H3K27ac peaks.</p>
+      <aside class="mn" data-t="peak"></aside>
+    </div>
+  </div>
+  <div class="wide stack" style="margin-top:2rem;gap:1.4rem">
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">PATZ1 peaks and H3K27ac peaks, to scale</span><span class="tag">Measured · Fig. 9</span></div>
+      <div id="overlap"></div>
+      <figcaption>1,579 peaks are co-bound. That's 42.6% of the H3K27ac peaks and 27.3% of the PATZ1 peaks. We counted two peaks as overlapping if they shared at least 1 bp on the same chromosome.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="fig-head"><span class="fig-title">Stretches of genome with both: observed vs chance</span><span class="tag">Measured · Fig. 9</span></div>
+      <div class="chart" id="obsExp"></div>
+      <figcaption>We split the genome into 200 bp bins. If PATZ1 and H3K27ac landed independently, we'd expect about 7 bins to carry both. We found 3,489 (Fisher's exact test, odds ratio 1,216, <span class="stat">p &lt; 10⁻³⁰⁰</span>).</figcaption>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>More on the co-bound enhancers</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <ul>
+          <li>Co-bound enhancers had stronger H3K27ac signal than the 2,129 H3K27ac peaks without PATZ1 (one-sided Mann-Whitney <span class="stat">U = 2,859,840, p = 1.8 × 10⁻²⁹³</span>). PATZ1 seems to favour the most strongly active enhancers.</li>
+          <li>Genes near co-bound peaks (1,405 genes) were enriched for axon guidance, calcium ion transport, cell adhesion, synapse organization, nervous system development, signal transduction and transcription.</li>
+          <li>At those co-bound loci, NucleoATAC occupancy and fuzziness were both significantly lower (two-sided Mann-Whitney). This held whether we centred on the H3K27ac peaks or the PATZ1 peaks (±200 bp), and it links PATZ1 binding directly to the nucleosome loss in Findings 2 to 4.</li>
+          <li>Antibodies: PATZ1, MyBioSource MBS9403528; H3K27ac, Abcam ab4729; H3, Invitrogen PA5-16183. All were used at 1:50.</li>
+        </ul>
+      </div></div></div></div>
+    </figure>
+  </div>
+</section>
+
+<!-- FINDING 7 -->
+<section class="gutter" id="f7" data-label="Finding 7 · Acetylation">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Finding 7</p><h2>Does PATZ1 need acetylation?</h2></div>
+    <div class="prose">
+      <p>H3K27ac is added by <span class="kw">histone acetyltransferases</span> (HATs) like p300 and CBP, and earlier studies have tied these enzymes to axon regeneration. So we wondered whether PATZ1 needs them to keep chromatin open.</p>
+      <aside class="mn" data-t="hat"></aside>
+      <p>We tested this in <span class="kw">N2A cells</span>, where we can block HAT activity with a drug called <span class="kw">A-485</span>. In these cells PATZ1 opened 9,887 regions that were closed in control cells. Then we added the inhibitor to see which of them stayed open.</p>
+      <aside class="mn" data-t="n2a"></aside>
+      <aside class="mn" data-t="a485"></aside>
+    </div>
+  </div>
+  <div class="wide stack" style="margin-top:2rem;gap:1.4rem">
+    <figure class="fig">
+      <div class="fig-head">
+        <span class="fig-title">9,887 PATZ1-opened regions in N2A cells</span>
+        <button class="btn" id="hatBtn" type="button" aria-pressed="false">Add A-485</button>
+      </div>
+      <div class="waffle-wrap">
+        <div class="waffle" id="waffle" aria-hidden="true"></div>
+        <div class="wl" id="wl">
+          <div data-w="open"><i class="fill-patz"></i><span><b>Open with PATZ1</b><br><span class="muted">Each square is about 1% of the regions (around 99).</span></span></div>
+          <div data-w="stable" class="off"><i class="fill-patz"></i><span><b>5,366 stayed open (54.5%)</b><br><span class="muted">These don't need ongoing acetylation.</span></span></div>
+          <div data-w="closed" class="off"><i class="fill-hat"></i><span><b>4,326 closed (43.5%)</b><br><span class="muted">These depend on HAT activity.</span></span></div>
+          <div data-w="gain" class="off"><i style="background:var(--ink)"></i><span><b>195 opened further (2%)</b></span></div>
+        </div>
+      </div>
+      <figcaption>Accessibility at matched peaks, PATZ1 + DMSO vs PATZ1 + A-485 (bulk ATAC-seq, r² = 0.76). The inhibitor closed off a specific subset of regions and left the rest mostly alone.</figcaption>
+    </figure>
+    <div class="two">
+      <div class="list-card"><h3><i class="sw patz"></i>Stayed open without acetylation</h3><ul><li>Axon guidance</li><li>Nervous system development</li><li>System development</li><li>Intracellular signalling, signal transduction</li><li>Protein autophosphorylation</li><li>RNA polymerase II activation, transcription activation</li></ul></div>
+      <div class="list-card"><h3><i class="sw hat"></i>Closed when acetylation was blocked</h3><ul><li>Cell differentiation</li><li>Negative regulation of proliferation</li><li>Heart and muscle organ development</li><li>Reactive oxygen species metabolism</li><li>SMAD signalling, small GTPase signalling</li><li>Regulation of transcription by RNA polymerase II</li></ul></div>
+    </div>
+    <div class="col"><p>The growth-related regions mostly stayed open without acetylation. So PATZ1 probably has another way of keeping them open, perhaps by bringing in a different remodelling complex, although we haven't tested that directly.</p></div>
+    <div class="callout">
+      <span class="eyebrow">A caveat</span>
+      <p>N2A cells aren't corticospinal neurons, so we read these results with some care. In N2A cells PATZ1 changed accessibility at specific peaks, but it didn't cause the large-scale nucleosome loss we saw in injured neurons, and the inhibitor barely changed nucleosome profiles. The full effect seems to need something about neurons, maybe cofactors that N2A cells lack. PATZ1 is known to act differently in different cell types. In fibroblasts, for example, it actually slows down reprogramming.</p>
+      <div class="more"><button class="more-btn" type="button"><span class="chev"></span>All the numbers for N2A cells</button><div class="more-body"><div class="more-inner"><div class="more-content">
+        <ul>
+          <li>Total peak counts were similar in all four conditions: DMSO 63,280; A-485 59,644; PATZ1 + DMSO 63,663; PATZ1 + A-485 60,188.</li>
+          <li>PATZ1 + DMSO vs DMSO: 53,489 shared peaks (75%), 9,887 only with PATZ1 (14%), and 7,591 only in controls (11%).</li>
+          <li>Accessibility near the TSS was weaker with PATZ1 in N2A cells, which is the opposite of what we see in injured corticospinal neurons.</li>
+          <li>Running NucleoATAC on the N2A data, occupancy and fuzziness barely changed with A-485, with or without PATZ1. Matched nucleosomes leaned slightly toward higher occupancy under A-485 (67.7% went up with GFP only, 55.7% with PATZ1), with no overall change in fuzziness.</li>
+          <li>Protocol: PEI transfection of PATZ1 + GFP plasmids (2:1) or GFP alone, A-485 at 10 μM from 48 h, harvest at 72 h, Active Motif bulk ATAC at about 30 million read pairs per library. The paper calls the A-485-resistant set "A-485-agonistic".</li>
+        </ul>
+      </div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="gutter" id="summary" data-label="Putting it together">
+  <div class="col">
+    <div class="sec-head"><p class="eyebrow">Summary</p><h2>Putting it together</h2></div>
+    <ol class="chain">
+      <li><div class="stack" style="gap:.3rem"><p>After a spinal cord injury, corticospinal neurons keep their nucleosomes more or less where they were, and the enhancers of growth genes stay packed.</p><a href="#f1">Finding 1</a></div></li>
+      <li><div class="stack" style="gap:.3rem"><p>PATZ1 binds strongly active enhancers far more often than you'd expect by chance.</p><a href="#f6">Finding 6</a></div></li>
+      <li><div class="stack" style="gap:.3rem"><p>At those regions nucleosomes get removed, and the ones left behind sit in more precise positions. Our H3 antibody data agree with this.</p><a href="#f2">Findings 2, 3 and 5</a></div></li>
+      <li><div class="stack" style="gap:.3rem"><p>The number of active enhancers more than triples, mostly near genes for axon guidance, neuron development and synapses. Some of this opening doesn't depend on acetylation.</p><a href="#f4">Findings 4 and 7</a></div></li>
+    </ol>
+    <div style="margin-top:1.4rem"><button class="btn" type="button" id="replay">Watch the locus again ↑</button></div>
+    <p style="margin-top:2rem">Our reading of this is that adult neurons haven't lost their growth programme for good. A lot of it is packed away under nucleosomes, and PATZ1 can clear some of that away.</p>
+  </div>
+</section>
+
+<!-- OPEN QUESTIONS -->
+<section class="gutter" id="open" data-label="What we don't know yet">
+  <div class="col"><div class="sec-head"><p class="eyebrow">Limitations</p><h2>What we don't know yet</h2></div></div>
+  <div class="wide qs" style="margin-top:.6rem">
+    <div class="q"><b>We only see open chromatin</b><span>NucleoATAC only calls nucleosomes inside accessible regions. MNase-seq would also cover closed chromatin.</span></div>
+    <div class="q"><b>Opening DNA isn't the same as regrowing axons</b><span>We haven't shown that PATZ1 binding at these sites makes axons regenerate. PATZ1 may get these regions ready, and another factor may be needed to actually use them.</span></div>
+    <div class="q"><b>Do the nucleosomes come back?</b><span>We looked one week after injury. We don't yet know whether these regions stay open long enough to help in chronic injury.</span></div>
+    <div class="q"><b>How the pieces fit together</b><span>Nucleosome removal, histone marks and 3D looping (such as cohesin-driven promoter-enhancer contacts) all seem to matter, but we don't know which comes first.</span></div>
+  </div>
+</section>
+
+<!-- REFERENCE -->
+<section class="gutter" id="ref" data-label="Paper, data and code">
+  <div class="col stack" style="gap:1.4rem">
+    <div class="sec-head" style="margin:0"><p class="eyebrow">Reference</p><h2>Paper, data and code</h2></div>
+    <p class="cite">Krishna, N.*, Menon, A. S.*, Kumaran, M., Kesireddy, D. K. &amp; Venkatesh, I. PATZ1 remodels the nucleosome landscape to promote chromatin accessibility in injured neurons. <i>Communications Biology</i> (2026). https://doi.org/10.1038/s42003-026-11196-7</p>
+    <div class="links">
+      <a href="https://doi.org/10.1038/s42003-026-11196-7" target="_blank" rel="noopener">Read the paper ↗</a>
+      <a href="https://github.com/mano2991/Targeted-chromatin-remodeller-PATZ1" target="_blank" rel="noopener">Analysis code ↗</a>
+      <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1217518" target="_blank" rel="noopener">Sequencing data · PRJNA1217518 ↗</a>
+      <a href="https://doi.org/10.1101/2025.05.14.654166" target="_blank" rel="noopener">Earlier PATZ1 preprint ↗</a>
+    </div>
+    <p class="small muted">Correspondence: Ishwariya Venkatesh, ishwariya.ccmb@csir.res.in. Funded by CSIR, DBT, SERB/ANRF, CSIR Neuromission, ICMR and BFIBiome. Animal procedures were approved by the CCMB Institutional Animal Ethics Committee and are reported following ARRIVE 2.0.</p>
+    <div class="more"><button class="more-btn" type="button"><span class="chev"></span>Glossary of every term on this page</button><div class="more-body"><div class="more-inner"><div class="more-content"><dl class="gloss" id="glossList"></dl></div></div></div></div>
+  </div>
+</section>
+</main>
+
+<footer class="gutter"><div class="wide">An explorable companion to the article. Figures marked "Measured" are drawn to scale from values reported in the paper. "Schematic" and "Simulation" figures are illustrations.</div></footer>
+
+<div id="pop" role="dialog" aria-modal="false" hidden><div class="pop-t"></div><div class="pop-d"></div></div>
+
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+/* ---------- theme toggle (shared "theme" localStorage key with the main site) ---------- */
+(function initTheme(){
+  const THEME_KEY='theme';
+  const root=document.documentElement;
+  const toggle=$('#themeToggle');
+  const apply=(theme)=>{
+    root.setAttribute('data-theme', theme);
+    if(toggle){
+      const toDark = theme!=='dark';
+      toggle.setAttribute('aria-label', toDark?'Switch to dark mode':'Switch to light mode');
+      toggle.setAttribute('title', toDark?'Switch to dark mode':'Switch to light mode');
+    }
+  };
+  let saved=null;
+  try{ saved=localStorage.getItem(THEME_KEY); }catch(e){ saved=null; }
+  if(saved==='dark'||saved==='light'){ apply(saved); }
+  else{
+    const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    apply(prefersDark?'dark':'light');
+  }
+  if(toggle){
+    toggle.addEventListener('click', ()=>{
+      const next = root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+      apply(next);
+      try{ localStorage.setItem(THEME_KEY, next); }catch(e){ /* unavailable */ }
+    });
+  }
+})();
+
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+const WIDE=matchMedia('(min-width:1080px)');
+const tok=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmt=n=>n.toLocaleString('en-US');
+
+/* ---------- glossary ---------- */
+const GLOSS={
+  nucleosome:['Nucleosome','About 147 bp of DNA wrapped around a spool of eight histone proteins. Nucleosomes repeat along the genome like beads on a string, and most proteins can\'t bind the DNA they cover.'],
+  occupancy:['Occupancy','The fraction of cells that have a nucleosome at a given spot, from 0 (none of them) to 1 (all of them).'],
+  fuzziness:['Fuzziness','How much a nucleosome\'s position shifts from cell to cell, in base pairs. Low fuzziness means it sits in the same place in most cells.'],
+  dyad:['Dyad','The centre of a nucleosome, where the wrapped DNA crosses the middle of the histone spool.'],
+  corticospinal:['Corticospinal neurons','Neurons in the motor cortex whose axons run down the spinal cord and control voluntary movement. In adults, these axons don\'t regrow after they are cut.'],
+  l5et:['L5 ET neurons','Layer 5 extratelencephalic neurons, the group of cortical neurons that includes the corticospinal ones. We pulled these out of the single-nucleus data.'],
+  atac:['Accessibility','How open a stretch of DNA is. We measure it with ATAC-seq, where an enzyme cuts and tags exposed DNA, so open regions collect more cuts.'],
+  snatac:['snATAC-seq','Single-nucleus ATAC-seq. It measures which DNA is open, one nucleus at a time.'],
+  nucleoatac:['NucleoATAC','A method (Schep et al., 2015) that works out nucleosome positions from ATAC-seq fragment sizes, and gives each nucleosome an occupancy and a fuzziness score.'],
+  vplot:['V-plot','Fragment size plotted against position around nucleosome centres. DNA protected by a nucleosome makes a V shape centred near 147 bp.'],
+  cutrun:['CUT&RUN','A method where an antibody guides a DNA-cutting enzyme to one protein or histone mark. Only the DNA attached to that target gets released and sequenced.'],
+  h3:['Histone H3','One of the four core histones. Every nucleosome contains it, so mapping H3 shows where nucleosomes are.'],
+  h3k27ac:['H3K27ac','An acetyl group on lysine 27 of histone H3. It is a standard mark of active enhancers and promoters.'],
+  enhancer:['Enhancer','A stretch of regulatory DNA, often far from its gene, that switches the gene on when the right transcription factors bind it.'],
+  tss:['TSS','Transcription start site, where a gene\'s RNA copy begins. The promoter sits just around it.'],
+  patz1:['PATZ1','POZ/BTB and AT-hook containing zinc finger 1. A transcription factor that binds GC-rich DNA and recruits chromatin-modifying complexes.'],
+  cliff:['Cliff\'s δ','An effect size for comparing two groups. It runs from 0 (the groups overlap completely) to 1 (every value in one group beats every value in the other).'],
+  kendall:['Kendall\'s τ','A rank correlation from −1 to 1. Values near 0 mean two measurements change independently.'],
+  hat:['Histone acetyltransferase (HAT)','An enzyme that adds acetyl marks such as H3K27ac to histones. p300 and CBP are the main ones at enhancers.'],
+  a485:['A-485','A drug that blocks the p300 and CBP acetyltransferases. We used it at 10 μM.'],
+  n2a:['N2A cells','Neuro-2a, a mouse neuroblastoma cell line. They are neuron-like and easy to treat with drugs.'],
+  dapeaks:['Differentially accessible regions','Open regions whose ATAC-seq signal differs between injured and PATZ1 neurons.'],
+  de:['Differentially expressed genes','Genes whose RNA levels differ between injured and PATZ1 neurons, here measured by single-nucleus RNA-seq.'],
+  go:['Gene Ontology (GO)','A shared catalogue of biological processes. It lets you test whether a gene list has more genes from one process than chance would give.'],
+  peak:['Peak','A spot where sequencing reads pile up well above background, marking where a protein or histone mark sits on the DNA.'],
+  aav:['AAV9','Adeno-associated virus serotype 9, a harmless virus used to deliver genes (here GFP and PATZ1) into neurons.'],
+  fans:['FANS','Fluorescence-activated nuclei sorting. We used it to keep the GFP-positive nuclei, which come from virus-infected neurons.'],
+  dpi:['dpi','Days post-injury.']
+};
+
+/* margin notes: fill, then place before their paragraph on wide screens and after it on small ones */
+$$('.mn').forEach(n=>{ const g=GLOSS[n.dataset.t]; if(!g) return; n.innerHTML='<b></b>'; n.firstChild.textContent=g[0]; n.append(g[1]); });
+const noteGroups=new Map();
+$$('.mn').forEach(n=>{ let a=n.previousElementSibling; while(a&&a.classList.contains('mn')) a=a.previousElementSibling; if(!a) return; if(!noteGroups.has(a)) noteGroups.set(a,[]); noteGroups.get(a).push(n); });
+const placeNotes=()=>noteGroups.forEach((ns,a)=>{ if(WIDE.matches) a.before(...ns); else a.after(...ns); });
+placeNotes(); WIDE.addEventListener('change',placeNotes);
+
+/* popovers for terms inside figures and folded notes */
+const pop=$('#pop'); let popFor=null;
+function openPop(b){
+  const g=GLOSS[b.dataset.t]; if(!g) return;
+  pop.querySelector('.pop-t').textContent=g[0]; pop.querySelector('.pop-d').textContent=g[1];
+  pop.hidden=false;
+  const r=b.getBoundingClientRect(), pw=Math.min(320,innerWidth-32);
+  pop.style.width=pw+'px';
+  let left=r.left+scrollX+r.width/2-pw/2;
+  left=Math.max(scrollX+16,Math.min(left,scrollX+innerWidth-16-pw));
+  pop.style.left=left+'px';
+  const ph=pop.offsetHeight;
+  let top=r.bottom+scrollY+8;
+  if(r.bottom+8+ph>innerHeight-8 && r.top-8-ph>60) top=r.top+scrollY-8-ph;
+  pop.style.top=top+'px';
+  b.setAttribute('aria-expanded','true'); popFor=b;
+}
+function closePop(){ if(popFor) popFor.setAttribute('aria-expanded','false'); pop.hidden=true; popFor=null; }
+function wireTerms(root){ $$('.term',root).forEach(b=>{ b.setAttribute('aria-expanded','false'); b.setAttribute('aria-controls','pop'); }); }
+wireTerms(document);
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.term');
+  if(b){ e.preventDefault(); const same=popFor===b; closePop(); if(!same) openPop(b); return; }
+  if(!e.target.closest('#pop')) closePop();
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&popFor){ const b=popFor; closePop(); b.focus(); }});
+addEventListener('resize',closePop);
+const gl=$('#glossList');
+Object.values(GLOSS).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([t,d])=>{ const w=document.createElement('div'); w.innerHTML='<dt></dt><dd></dd>'; w.firstChild.textContent=t; w.lastChild.textContent=d; gl.appendChild(w); });
+
+/* ---------- folded notes ---------- */
+const mores=$$('.more');
+function setMore(m,open){ m.classList.toggle('open',open); m.querySelector('.more-btn').setAttribute('aria-expanded',String(open)); m.querySelector('.more-body').inert=!open; }
+mores.forEach((m,i)=>{ const b=m.querySelector('.more-btn'), body=m.querySelector('.more-body'); body.id='note-'+i; b.setAttribute('aria-controls',body.id); setMore(m,false); b.addEventListener('click',()=>setMore(m,!m.classList.contains('open'))); });
+const allBtn=$('#allNotes');
+allBtn.addEventListener('click',()=>{ const on=allBtn.getAttribute('aria-pressed')!=='true'; allBtn.setAttribute('aria-pressed',String(on)); allBtn.textContent=on?'Close all notes':'Open all notes'; mores.forEach(m=>setMore(m,on)); });
+
+/* ---------- section label in header ---------- */
+const where=$('#where');
+const secs=$$('section[data-label]'); let whereRaf=0;
+const updWhere=()=>{ whereRaf=0; const y=innerHeight*.35; const s=secs.find(x=>{ const r=x.getBoundingClientRect(); return r.top<=y&&r.bottom>y; }); if(s) where.textContent=s.dataset.label; };
+addEventListener('scroll',()=>{ if(!whereRaf) whereRaf=requestAnimationFrame(updWhere); },{passive:true}); updWhere();
+
+/* ---------- hero locus ---------- */
+const HERO={
+  un:{occ:'0.105',fuz:'23.55',color:'--c-un',cap:'Here\'s a growth gene in an uninjured adult corticospinal neuron. Nucleosomes sit on top of its enhancer, so transcription factors have very little room to bind.'},
+  inj:{occ:'0.100',fuz:'22.81',color:'--c-inj',cap:'A week after a spinal cord injury, things look almost the same. The neuron doesn\'t clear these enhancers by itself.'},
+  patz:{occ:'0.013',fuz:'17.63',color:'--c-patz',cap:'Add PATZ1 and the nucleosomes on the enhancer go away. The ones that stay put sit in tighter positions, and the region picks up H3K27ac, a mark of active enhancers.'}
+};
+let heroState='un', heroLayout=null, trackY=null, trackAnim=0;
+function heroGeom(){
+  const narrow=$('#locus').clientWidth<560;
+  const W=narrow?500:960, n=narrow?6:11, step=(W-120)/(n-1);
+  const enh=narrow?[1,2,3]:[2,3,4], tssAfter=narrow?4:6;
+  const xs=Array.from({length:n},(_,i)=>60+i*step);
+  return {narrow,W,H:narrow?300:280,n,step,xs,enh,tss:xs[tssAfter]+step/2,fs:narrow?20:13,
+    flank:[enh[0]-1,enh[enh.length-1]+1],low:[tssAfter,tssAfter+1],
+    enhX:[xs[enh[0]]-step/2+4,xs[enh[enh.length-1]]+step/2-4],dnaY:130,base:narrow?284:262,tH:narrow?66:58};
+}
+function buildHero(){
+  const g=heroGeom(); heroLayout=g;
+  const s=$('#locus'); s.setAttribute('viewBox',`0 0 ${g.W} ${g.H}`);
+  const ec=(g.enhX[0]+g.enhX[1])/2;
+  let h='';
+  h+=`<rect class="enh-band" x="${g.enhX[0]}" y="${g.dnaY-40}" width="${g.enhX[1]-g.enhX[0]}" height="80" rx="10" style="fill:var(--c-k27);opacity:.06"/>`;
+  h+=`<path d="M${g.enhX[0]} 76 V68 H${g.enhX[1]} V76" fill="none" style="stroke:var(--ink-3)" stroke-width="1.2"/>`;
+  h+=`<text x="${ec}" y="58" text-anchor="middle" font-size="${g.fs}" class="lbl-strong">Enhancer</text>`;
+  h+=`<rect x="${g.tss}" y="${g.dnaY-3}" width="${g.W-20-g.tss}" height="6" rx="3" style="fill:var(--ink-3);opacity:.35"/>`;
+  h+=`<path d="M${g.tss} ${g.dnaY-6} V78 H${g.tss+34}" fill="none" style="stroke:var(--ink)" stroke-width="1.8"/>`;
+  h+=`<path d="M${g.tss+34} 72 L${g.tss+44} 78 L${g.tss+34} 84 Z" style="fill:var(--ink)"/>`;
+  h+=g.narrow?`<text x="${g.tss+44}" y="56" text-anchor="end" font-size="${g.fs}" class="lbl-strong">Growth gene</text>`:`<text x="${g.tss-8}" y="70" text-anchor="end" font-size="${g.fs}" class="lbl-strong">Growth gene</text>`;
+  h+=`<line x1="20" y1="${g.dnaY}" x2="${g.W-20}" y2="${g.dnaY}" style="stroke:var(--ink-2)" stroke-width="2"/>`;
+  g.xs.forEach((x,i)=>{
+    h+=`<g transform="translate(${x} ${g.dnaY})"><g class="nuc-in" data-i="${i}">`+
+       `<ellipse class="halo" cx="0" cy="0" rx="${g.step*0.52}" ry="30" style="fill:var(--bead);opacity:.14"/>`+
+       `<circle cx="0" cy="0" r="25" style="fill:var(--bead)"/>`+
+       `<path d="M-21 -9 Q0 -3 21 -9 M-21 9 Q0 3 21 9" fill="none" style="stroke:var(--paper);opacity:.35" stroke-width="2"/>`+
+       `</g></g>`;
+  });
+  g.flank.forEach(i=>{ const x=g.xs[i], r=g.narrow?13:10; h+=`<g class="ac"><circle cx="${x+16}" cy="${g.dnaY-30}" r="${r}" style="fill:var(--c-k27)"/><text x="${x+16}" y="${g.dnaY-30+(g.narrow?5:4)}" text-anchor="middle" font-size="${g.narrow?14:10}" font-weight="500" style="fill:var(--paper)">ac</text></g>`; });
+  h+=`<g transform="translate(${ec} ${g.dnaY})"><g class="patz-g"><rect x="${g.narrow?-50:-38}" y="${g.narrow?-19:-17}" width="${g.narrow?100:76}" height="${g.narrow?38:34}" rx="19" style="fill:var(--c-patz)"/><text x="0" y="${g.narrow?7:5}" text-anchor="middle" font-size="${g.narrow?19:13}" font-weight="500" style="fill:var(--paper)">PATZ1</text></g></g>`;
+  h+=`<text x="20" y="${g.base-g.tH-10}" font-size="${g.fs*0.85}">ATAC signal (accessibility)</text>`;
+  h+=`<path id="trk" d=""/>`;
+  h+=`<line x1="20" y1="${g.base}" x2="${g.W-20}" y2="${g.base}" style="stroke:var(--rule)" stroke-width="1"/>`;
+  s.innerHTML=h;
+  trackY=null; applyHero(heroState,true);
+}
+function trackTarget(state){
+  const g=heroLayout, N=140, out=[], ec=(g.enhX[0]+g.enhX[1])/2;
+  const P={un:{tss:.34,enh:.06,link:.07},inj:{tss:.31,enh:.06,link:.07},patz:{tss:.55,enh:.95,link:.05}}[state];
+  for(let k=0;k<=N;k++){
+    const x=20+(g.W-40)*k/N; let v=0;
+    v+=P.tss*Math.exp(-((x-g.tss)**2)/(2*(g.step*.35)**2));
+    v+=P.enh*Math.exp(-((x-ec)**2)/(2*(g.step*.85)**2));
+    for(let i=0;i<g.n-1;i++){ const lx=g.xs[i]+g.step/2; v+=P.link*Math.exp(-((x-lx)**2)/(2*(g.step*.12)**2)); }
+    out.push(Math.min(v,1));
+  }
+  return out;
+}
+function drawTrack(ys,color){
+  const g=heroLayout, N=ys.length-1;
+  let d=`M20 ${g.base}`;
+  ys.forEach((v,k)=>{ d+=` L${(20+(g.W-40)*k/N).toFixed(1)} ${(g.base-v*g.tH).toFixed(1)}`; });
+  d+=` L${g.W-20} ${g.base} Z`;
+  const p=$('#trk'); p.setAttribute('d',d); p.style.fill=`color-mix(in srgb, var(${color}) 30%, transparent)`; p.style.stroke=`var(${color})`; p.style.strokeWidth='1.5';
+}
+function applyHero(state,instant){
+  heroState=state; const g=heroLayout, H=HERO[state], isP=state==='patz';
+  $$('#heroSeg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.s===state)));
+  $$('#locus .nuc-in').forEach(el=>{
+    const i=+el.dataset.i, ev=isP&&g.enh.includes(i);
+    const delay=instant?0:(ev?260+g.enh.indexOf(i)*110:120);
+    el.style.transitionDelay=delay+'ms';
+    el.style.transform=ev?`translate(${(i-g.enh[1])*14}px,-70px) scale(.7)`:'none';
+    el.style.opacity=ev?0:(isP&&g.low.includes(i)?.45:(state==='inj'?.88:.92));
+    const halo=el.querySelector('.halo'), s=isP?.6:(state==='inj'?.97:1);
+    halo.style.transitionDelay=delay+'ms';
+    halo.style.transform=`scale(${s},${0.9+0.1*s})`;
+  });
+  $$('#locus .ac').forEach(el=>{ el.style.transitionDelay=(instant?0:700)+'ms'; el.style.opacity=isP?1:0; el.style.transform=isP?'none':'scale(.4)'; });
+  const pg=$('#locus .patz-g'); pg.style.opacity=isP?1:0; pg.style.transform=isP?'none':'translate(0px,-80px)';
+  $('#locus .enh-band').style.opacity=isP?.16:.06;
+  $('#heroCap').textContent=H.cap;
+  $('#hOcc').textContent=H.occ; $('#hFuz').textContent=H.fuz;
+  $('#hOcc').style.color=$('#hFuz').style.color=`var(${H.color})`;
+  const target=trackTarget(state);
+  cancelAnimationFrame(trackAnim);
+  if(!trackY||instant||RM.matches){ trackY=target; drawTrack(trackY,H.color); return; }
+  const from=trackY.slice(), t0=performance.now(), dur=900;
+  const step=t=>{ let p=Math.min(1,(t-t0)/dur); p=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2; trackY=from.map((v,k)=>v+(target[k]-v)*p); drawTrack(trackY,H.color); if(p<1) trackAnim=requestAnimationFrame(step); };
+  trackAnim=requestAnimationFrame(step);
+}
+$('#heroSeg').addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) applyHero(b.dataset.s); });
+buildHero();
+let lastNarrow=heroLayout.narrow;
+new ResizeObserver(()=>{ const n=$('#locus').clientWidth<560; if(n!==lastNarrow){ lastNarrow=n; buildHero(); } }).observe($('#locus'));
+$('#replay').addEventListener('click',()=>{ applyHero('un',true); $('#heroFig').scrollIntoView({behavior:RM.matches?'auto':'smooth',block:'center'}); setTimeout(()=>applyHero('patz'),RM.matches?0:900); });
+
+/* ---------- primer simulation ---------- */
+const ROWS=48, WIN=400;
+let seed=7, U=[], Z=[];
+function rng(){ seed|=0; seed=seed+0x6D2B79F5|0; let t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }
+function resample(){ U=[];Z=[]; for(let i=0;i<ROWS;i++){ U.push(rng()); const u1=rng()||1e-9,u2=rng(); Z.push(Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2)); } }
+resample();
+const cv=$('#cells'), occR=$('#occR'), fuzR=$('#fuzR');
+function drawCells(){
+  const occ=+occR.value, fuz=+fuzR.value;
+  $('#occO').textContent=occ.toFixed(occ<0.1&&occ>0?3:2);
+  $('#fuzO').textContent=(fuz%1?fuz.toFixed(2).replace(/0$/,''):fuz)+' bp';
+  const w=Math.max(240,cv.clientWidth), rowH=w<420?6:7, topH=ROWS*rowH+8, aggH=110, axisH=34, h=topH+aggH+axisH;
+  const dpr=devicePixelRatio||1; cv.width=w*dpr; cv.height=h*dpr; cv.style.height=h+'px';
+  const c=cv.getContext('2d'); c.setTransform(dpr,0,0,dpr,0,0); c.clearRect(0,0,w,h);
+  const X=bp=>(bp+WIN)/(2*WIN)*w, pxbp=w/(2*WIN);
+  const cRule=tok('--rule'), cBead=tok('--bead'), cInk2=tok('--ink-2'), cInk3=tok('--ink-3'), cAcc=tok('--c-patz');
+  c.strokeStyle=cInk3; c.setLineDash([3,4]); c.lineWidth=1; c.beginPath(); c.moveTo(X(0)+.5,0); c.lineTo(X(0)+.5,topH+aggH); c.stroke(); c.setLineDash([]);
+  const dy=[]; let count=0;
+  for(let i=0;i<ROWS;i++){
+    const y=4+i*rowH+rowH/2;
+    c.strokeStyle=cRule; c.lineWidth=1; c.beginPath(); c.moveTo(0,y+.5); c.lineTo(w,y+.5); c.stroke();
+    if(U[i]<occ){ const pos=Z[i]*fuz; dy.push(pos); count++;
+      const x0=X(pos-73.5), bw=147*pxbp; c.fillStyle=cBead; c.globalAlpha=.85;
+      c.beginPath(); if(c.roundRect) c.roundRect(x0,y-2.5,bw,5,2.5); else c.rect(x0,y-2.5,bw,5); c.fill(); c.globalAlpha=1; }
+  }
+  const bin=10, nb=2*WIN/bin, hist=new Array(nb).fill(0);
+  dy.forEach(p=>{ const k=Math.floor((p+WIN)/bin); if(k>=0&&k<nb) hist[k]++; });
+  const sd=Math.max(fuz,1.5), pdf=x=>Math.exp(-x*x/(2*sd*sd))/(sd*Math.sqrt(2*Math.PI));
+  const ymax=Math.max(4,Math.max(...hist),occ*ROWS*bin*pdf(0))*1.1;
+  const yb=topH+aggH, Y=v=>yb-v/ymax*(aggH-14);
+  c.fillStyle=cBead; c.globalAlpha=.22;
+  hist.forEach((v,k)=>{ if(v){ const x=X(-WIN+k*bin); c.fillRect(x+.5,Y(v),bin*pxbp-1,yb-Y(v)); } });
+  c.globalAlpha=1;
+  c.strokeStyle=cAcc; c.lineWidth=2; c.beginPath();
+  for(let px=0;px<=w;px+=2){ const v=occ*ROWS*bin*pdf(px/w*2*WIN-WIN); px?c.lineTo(px,Y(v)):c.moveTo(px,Y(v)); }
+  c.stroke();
+  c.strokeStyle=cRule; c.lineWidth=1; c.beginPath(); c.moveTo(0,yb+.5); c.lineTo(w,yb+.5); c.stroke();
+  c.fillStyle=cInk2; c.font='11px "IBM Plex Mono", ui-monospace, monospace'; c.textBaseline='top';
+  const tks=w<360?[-300,0,300]:[-300,-150,0,150,300];
+  tks.forEach(t=>{ const x=X(t); c.textAlign='center'; c.fillText((t>0?'+':'')+t,x,yb+6); c.fillRect(x,yb,1,4); });
+  c.textAlign='left'; c.fillText('bp from the reference spot',0,yb+20);
+  c.textAlign='right'; c.fillStyle=cInk3; c.textBaseline='alphabetic'; c.fillText('expected signal',w-2,topH+14);
+  const spread=fuz<1?'it sits in almost exactly the same spot':`it moves around by about ±${Math.round(fuz)} bp`;
+  $('#primerRead').innerHTML=`<b>${count} of ${ROWS}</b> cells have a nucleosome here (you'd expect ${(occ*ROWS).toFixed(occ*ROWS<10?1:0)}). In the cells that do, ${spread}.`;
+}
+occR.addEventListener('input',drawCells); fuzR.addEventListener('input',drawCells);
+$$('.preset').forEach(b=>b.addEventListener('click',()=>{ if(b.id==='resample') resample(); else { occR.value=b.dataset.o; fuzR.value=b.dataset.f; } drawCells(); }));
+new ResizeObserver(()=>drawCells()).observe(cv);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawCells);
+new MutationObserver(drawCells).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+/* ---------- experiment steps ---------- */
+const STEPS=[
+  {k:'Day 0',t:'Deliver',b:'We injected <button type="button" class="term" data-t="aav">AAV9</button> into the motor cortex, at four spots on each side (1 μl per spot). Every mouse got AAV9-GFP, which makes infected neurons glow green. The PATZ1 group also got AAV9-PATZ1, mixed 1:3 with the GFP virus.'},
+  {k:'Day 7',t:'Injure',b:'A week later, mice in the two injured groups had their thoracic spinal cord crushed at T10 to T12 (calibrated forceps, 10 s). Hindlimb paralysis right after surgery confirmed the injury. The crush cuts corticospinal axons far away from their cell bodies, which stay up in the cortex. Uninjured mice had no surgery.'},
+  {k:'Day 14',t:'Collect',b:'Seven days after injury (7 <button type="button" class="term" data-t="dpi">dpi</button>), we dissected out the motor cortex, isolated nuclei, and kept the GFP-positive ones using <button type="button" class="term" data-t="fans">FANS</button>. That gave us about 5,000 nuclei per sample.'},
+  {k:'Bench',t:'Sequence',b:'<button type="button" class="term" data-t="snatac">Single-nucleus ATAC-seq</button> (10x Chromium, about 300 million read pairs per sample) told us which DNA was open in each nucleus. We focused on <button type="button" class="term" data-t="l5et">L5 ET</button> neurons, the group that contains corticospinal neurons. Separately, we used CUT&amp;RUN to map histone H3, H3K27ac and PATZ1 itself.'},
+  {k:'Compute',t:'Infer',b:'<button type="button" class="term" data-t="nucleoatac">NucleoATAC</button> then worked out where the nucleosomes were from the ATAC-seq fragment sizes, and gave each one an occupancy and a fuzziness score. Every group went through the same pipelines with the same settings.'}
+];
+const stepsEl=$('#steps'), panel=$('#stepPanel');
+STEPS.forEach((s,i)=>{ const li=document.createElement('li'); li.innerHTML=`<button type="button" role="tab" id="stab-${i}" aria-controls="stepPanel" aria-selected="${i===0}" tabindex="${i===0?0:-1}"><span class="dot">${i+1}</span><span class="lbls"><span class="st">${s.t}</span><span class="sd">${s.k}</span></span></button>`; stepsEl.appendChild(li); });
+function showStep(i,focus){ $$('button',stepsEl).forEach((b,j)=>{ b.setAttribute('aria-selected',String(i===j)); b.tabIndex=i===j?0:-1; }); panel.setAttribute('aria-labelledby','stab-'+i); panel.innerHTML=`<p><b>${STEPS[i].t}.</b> ${STEPS[i].b}</p>`; wireTerms(panel); if(focus) $('#stab-'+i).focus(); }
+stepsEl.addEventListener('click',e=>{ const b=e.target.closest('button[role=tab]'); if(b) showStep(+b.id.split('-')[1]); });
+stepsEl.addEventListener('keydown',e=>{ const b=e.target.closest('button[role=tab]'); if(!b) return; const i=+b.id.split('-')[1]; if(['ArrowRight','ArrowDown'].includes(e.key)){e.preventDefault();showStep((i+1)%STEPS.length,true);} if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();showStep((i+STEPS.length-1)%STEPS.length,true);} });
+showStep(0);
+
+/* V-plot explainer diagram */
+(function(){
+  const y=70, nx=[190,330,470]; let h='';
+  h+=`<line x1="20" y1="${y}" x2="620" y2="${y}" style="stroke:var(--ink-2)" stroke-width="2"/>`;
+  nx.forEach(x=>{ h+=`<circle cx="${x}" cy="${y}" r="34" style="fill:var(--bead);opacity:.9"/>`; });
+  h+=`<text x="80" y="${y-30}" text-anchor="middle" font-size="17">open DNA</text>`;
+  [48,112,260,400,540].forEach(x=>{ h+=`<path d="M${x-7} ${y-22} L${x+7} ${y-22} L${x} ${y-9} Z" style="fill:var(--c-patz)"/>`; });
+  h+=`<text x="620" y="${y-30}" text-anchor="end" font-size="17" style="fill:var(--c-patz)">Tn5 cuts</text>`;
+  const fr=(a,b,row,lab)=>{ const yy=130+row*40; h+=`<rect x="${a}" y="${yy}" width="${b-a}" height="10" rx="5" style="fill:var(--ink-3)"/><text x="${b+10}" y="${yy+11}" font-size="17">${lab}</text>`; };
+  fr(48,112,0,'short: open DNA');
+  fr(260,400,1,'150 to 250 bp, one nucleosome');
+  h+=`<line x1="48" y1="${y+10}" x2="48" y2="128" style="stroke:var(--rule)" stroke-dasharray="3 3"/><line x1="112" y1="${y+10}" x2="112" y2="128" style="stroke:var(--rule)" stroke-dasharray="3 3"/>`;
+  h+=`<line x1="260" y1="${y+10}" x2="260" y2="168" style="stroke:var(--rule)" stroke-dasharray="3 3"/><line x1="400" y1="${y+10}" x2="400" y2="168" style="stroke:var(--rule)" stroke-dasharray="3 3"/>`;
+  $('#vplotG').innerHTML=h;
+})();
+
+/* ---------- bar charts ---------- */
+/* value label sits after the bar end, or inside it when the bar is long */
+const val=(pct,text)=>`<span class="bval${pct>72?' in':''}" style="left:${pct}%">${text}</span>`;
+const COND={un:{n:'Uninjured',c:'un',occ:0.105,fuz:23.55},inj:{n:'Injured',c:'inj',occ:0.100,fuz:22.81},patz:{n:'Injured + PATZ1',c:'patz',occ:0.013,fuz:17.63}};
+function barPanel(title,key,max,ticks,dec,hi){
+  let rows='';
+  ['un','inj','patz'].forEach(k=>{ const d=COND[k], v=d[key], pct=v/max*100;
+    rows+=`<div class="brow${hi.includes(k)?'':' dim'}"><span class="blab">${d.n}</span><div class="track">${ticks.map(t=>`<i class="grid-l" style="left:${t/max*100}%"></i>`).join('')}<i class="bfill fill-${d.c}" style="width:${pct}%"></i>${val(pct,v.toFixed(dec))}</div></div>`; });
+  return `<div class="panel"><span class="panel-t">${title}</span>${rows}<div class="ticks">${ticks.map(t=>`<span style="left:${t/max*100}%">${t}</span>`).join('')}</div></div>`;
+}
+$$('.chart[data-cond]').forEach(el=>{
+  const hi=el.dataset.cond.split(',');
+  el.innerHTML=`<div class="panels">${barPanel('Median occupancy','occ',0.12,[0,0.04,0.08,0.12],3,hi)}${barPanel('Median fuzziness (bp)','fuz',25,[0,5,10,15,20,25],2,hi)}</div>`;
+});
+
+/* effect ruler */
+(function(){
+  const bands=[[0,'negligible','neg.'],[.147,'small','sm.'],[.33,'medium','med.'],[.474,'large','large']];
+  let h=`<div class="r-bands">${bands.map((b,i)=>`<div style="left:${b[0]*100}%;width:${((bands[i+1]?bands[i+1][0]:1)-b[0])*100}%"><span class="l">${b[1]}</span><span class="s">${b[2]}</span></div>`).join('')}</div>`;
+  const row=(lab,pts)=>`<div class="r-row"><span class="blab">${lab}</span><div class="r-track">${pts.map(p=>`<i class="r-dot fill-${p.c}" style="left:${p.v*100}%"></i><span class="r-lab${p.v>.5?' left':''}" style="left:${p.v*100}%">${p.t} ${p.v}</span>`).join('')}</div></div>`;
+  h+=row('Injury<br><span class="muted">occupancy</span>',[{v:0.046,c:'inj',t:'δ ='}]);
+  h+=row('Injury<br><span class="muted">fuzziness</span>',[{v:0.092,c:'inj',t:'δ ='}]);
+  h+=row('PATZ1<br><span class="muted">occupancy</span>',[{v:0.603,c:'patz',t:'δ ='}]);
+  h+=row('PATZ1<br><span class="muted">fuzziness</span>',[{v:0.57,c:'patz',t:'δ ='}]);
+  h+=`<div class="ticks">${[0,.25,.5,.75,1].map(t=>`<span style="left:${t*100}%">${t}</span>`).join('')}</div>`;
+  $('#ruler').innerHTML=h;
+})();
+
+/* ---------- nucleosome fate classes ---------- */
+const CLS={
+  peaks:{segs:[['evicted',11.1],['free',81.3],['retained',4.6],['gained',3.1]],foot:'In this set, 85% of regions lost nucleosome occupancy, 80% got sharper, and 75.8% lost at least one nucleosome.'},
+  genes:{segs:[['evicted',20.3],['free',4.0],['retained',73.9],['gained',1.8]],foot:'In this set, 92.9% of genes lost occupancy and 94.0% got sharper, including most of the ones that kept a nucleosome.'}
+};
+const CINFO={
+  evicted:['Evicted','A nucleosome that was there in injured neurons is gone once PATZ1 is added. This is the most direct evidence for active removal.',[1,0]],
+  free:['Open in both','No nucleosome was called here even in injured neurons. PATZ1 made this already open region more accessible.',[0,0]],
+  retained:['Retained','There\'s a nucleosome in both groups. Most of these still got sparser or sharper with PATZ1.',[1,1]],
+  gained:['Gained','A nucleosome shows up with PATZ1 where there wasn\'t one in injured neurons.',[0,1]]
+};
+let clsKey='peaks', clsSel='evicted';
+function fiberSVG(pair,cls){
+  const row=(y,lab,present,color,sharp)=>{
+    let s=`<text x="0" y="${y+5}" font-size="14">${lab}</text><line x1="100" y1="${y}" x2="330" y2="${y}" style="stroke:var(--ink-2)" stroke-width="2"/>`;
+    s+=present
+      ?`<ellipse cx="215" cy="${y}" rx="${sharp?30:42}" ry="22" style="fill:var(--bead);opacity:.13"/><circle cx="215" cy="${y}" r="17" style="fill:var(--bead);opacity:${sharp?.7:.92}"/>`
+      :`<circle cx="215" cy="${y}" r="17" fill="none" style="stroke:var(--ink-3)" stroke-dasharray="3 3"/>`;
+    return s+`<circle cx="108" cy="${y-16}" r="4" style="fill:var(--c-${color})"/>`;
+  };
+  return `<svg viewBox="0 0 340 110" role="img" aria-label="${CINFO[cls][0]}: injured versus PATZ1">${row(30,'Injured',pair[0],'inj',false)}${row(84,'+ PATZ1',pair[1],'patz',cls==='retained')}</svg>`;
+}
+function labelSegs(){
+  const bar=$('#cbar'), W=bar.clientWidth;
+  CLS[clsKey].segs.forEach(([k,v])=>{
+    const b=bar.querySelector(`[data-c="${k}"]`), px=W*v/100-14, full=`${CINFO[k][0]} ${v}%`, short=`${v}%`;
+    b.textContent=full.length*7.9<=px?full:(short.length*7.9<=px?short:'');
+  });
+}
+function renderCls(){
+  const d=CLS[clsKey], bar=$('#cbar');
+  $$('#classSeg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.k===clsKey)));
+  if(!bar.children.length) d.segs.forEach(([k])=>{ const b=document.createElement('button'); b.type='button'; b.className='cseg c-'+k; b.dataset.c=k; bar.appendChild(b); });
+  d.segs.forEach(([k,v])=>{ const b=bar.querySelector(`[data-c="${k}"]`); b.style.flex=`0 0 calc(${v}% - 2px)`; b.setAttribute('aria-label',`${CINFO[k][0]}, ${v}%`); b.setAttribute('aria-pressed',String(k===clsSel)); });
+  labelSegs();
+  $('#clegend').innerHTML=d.segs.map(([k,v])=>`<button type="button" data-c="${k}" aria-pressed="${k===clsSel}"><i class="c-${k}"></i>${CINFO[k][0]} · ${v}%</button>`).join('');
+  const v=d.segs.find(s=>s[0]===clsSel)[1], info=CINFO[clsSel];
+  $('#cdetail').innerHTML=`<div class="stack" style="gap:.35rem"><span class="eyebrow">${info[0]} · ${v}%</span><p class="small">${info[1]}</p></div>${fiberSVG(info[2],clsSel)}`;
+  $('#cfoot').textContent=d.foot;
+}
+$('#classSeg').addEventListener('click',e=>{ const b=e.target.closest('button'); if(b){ clsKey=b.dataset.k; renderCls(); } });
+$('#cbar').addEventListener('click',e=>{ const b=e.target.closest('.cseg'); if(b){ clsSel=b.dataset.c; renderCls(); } });
+$('#clegend').addEventListener('click',e=>{ const b=e.target.closest('button'); if(b){ clsSel=b.dataset.c; renderCls(); } });
+renderCls();
+new ResizeObserver(labelSegs).observe($('#cbar'));
+
+/* ---------- pathways ---------- */
+const PW=[
+  ['Signal transduction',224],
+  ['Nervous system development',223,['Wnt5b','Wnt5a','Sox2','Rarg','Rarb','Map2k1','Gas7','Fos','Dbx2'],'Neuron differentiation genes from Fig. 6h'],
+  ['Regulation of growth',176],
+  ['DNA damage and repair',135],
+  ['Chromatin remodelling',129,['Kmt5a','Kmt2d','Kdm6b','Kdm5d','Kdm4b','Hdac7','Hdac1','Dnmt3a','Dnmt1'],'Histone methyltransferases, demethylases and deacetylases, plus DNA methyltransferases'],
+  ['Synaptic signalling',89],
+  ['Axon guidance',74,['Vasp','Sema7a','Sema6c','Sema6b','Sema5b','Sema4d','Sema3f','Nr2f1','Notch3','L1cam','Kat2b','Cdh4'],'Axon guidance genes, including six semaphorins'],
+  ['Synaptic plasticity',43]
+];
+(function(){
+  const el=$('#pw'), max=224; let h='';
+  PW.forEach(([n,v,genes,note],i)=>{
+    const pct=v/max*100, bar=`<div class="track"><i class="bfill fill-patz" style="width:${pct}%"></i>${val(pct,v)}</div>`;
+    if(genes) h+=`<button type="button" class="pw-row" aria-expanded="false" aria-controls="pwg-${i}"><span class="pw-name">${n} <span class="plus">genes</span></span>${bar}</button><div class="pw-genes" id="pwg-${i}" inert><div><p class="small muted" style="padding:.3rem .4rem 0">${note}</p><div class="chips">${genes.map(g=>`<span class="chip">${g}</span>`).join('')}</div></div></div>`;
+    else h+=`<div class="pw-row"><span class="pw-name">${n}</span>${bar}</div>`;
+  });
+  el.innerHTML=h;
+  el.addEventListener('click',e=>{ const b=e.target.closest('button.pw-row'); if(!b) return; const open=b.getAttribute('aria-expanded')!=='true'; b.setAttribute('aria-expanded',String(open)); const g=$('#'+b.getAttribute('aria-controls')); g.classList.toggle('open',open); g.inert=!open; });
+})();
+
+/* ---------- enhancers ---------- */
+(function(){
+  const max=2842, cats=[['Injured-specific',1134,'inj'],['Shared',893,'k27'],['PATZ1-specific',2842,'patz']], ticks=[0,1000,2000];
+  $('#enhBars').innerHTML=`<div class="panel">${cats.map(([n,v,c])=>{ const pct=v/max*100; return `<div class="brow"><span class="blab">${n}</span><div class="track">${ticks.map(t=>`<i class="grid-l" style="left:${t/max*100}%"></i>`).join('')}<i class="bfill fill-${c}" style="width:${pct}%"></i>${val(pct,fmt(v))}</div></div>`; }).join('')}<div class="ticks">${ticks.map(t=>`<span style="left:${t/max*100}%">${fmt(t)}</span>`).join('')}</div></div>
+  <div class="legend"><span>PATZ1 group total: 893 shared + 2,842 PATZ1-specific = 3,735</span></div>`;
+  const max2=0.15, rows=[['Shared (n = 893)',0.12,0.04],['PATZ1-specific (n = 2,842)',0.13,0.04]];
+  $('#dumb').innerHTML=rows.map(([n,a,b])=>`<div class="db-row"><span class="blab">${n}</span><div class="db-track"><i class="db-line" style="left:${b/max2*100}%;width:${(a-b)/max2*100}%"></i><i class="db-dot fill-inj" style="left:${a/max2*100}%"></i><i class="db-dot fill-patz" style="left:${b/max2*100}%"></i><span class="db-val" style="left:${a/max2*100}%">${a.toFixed(2)}</span><span class="db-val" style="left:${b/max2*100}%">${b.toFixed(2)}</span></div></div>`).join('')+
+  `<div class="ticks dumb-ticks">${[0,0.05,0.1,0.15].map(t=>`<span style="left:${t/max2*100}%">${t.toFixed(2)}</span>`).join('')}</div>`;
+  $('#top20').innerHTML=['Vps45','Vav3','Usp6nl','Tulp4','Tspan9','Tbk1','Spata19','Snrpe','Slc2a9','Ryr3','Ptprt','Olfm3','Nbea','Mtnr1a','Gpr87','Dnajc19','Cldn34d','Cbln4','Bbx','Adamts15'].map(g=>`<span class="chip">${g}</span>`).join('');
+})();
+
+/* ---------- H3 peaks ---------- */
+(function(){
+  const a=4942,s=25,b=1664,t=a+s+b;
+  $('#h3bar').innerHTML=`<div class="stack" style="gap:.6rem">
+    <div class="cbar" style="height:2.4rem;cursor:default">
+      <div class="fill-inj" style="flex:0 0 ${a/t*100}%;display:flex;align-items:center;padding-left:.7rem;font:var(--s-xs) var(--f-mono);color:var(--paper)">${fmt(a)}</div>
+      <div style="flex:0 0 max(3px,${s/t*100}%);background:var(--ink)"></div>
+      <div class="fill-patz" style="flex:1;display:flex;align-items:center;padding-left:.7rem;font:var(--s-xs) var(--f-mono);color:var(--paper)">${fmt(b)}</div>
+    </div>
+    <div class="legend"><span><i class="sw inj"></i>${fmt(a)} only in injured neurons</span><span><i class="sw" style="background:var(--ink)"></i>${s} shared</span><span><i class="sw patz"></i>${fmt(b)} only with PATZ1</span></div></div>`;
+})();
+
+/* ---------- overlap ---------- */
+(function(){
+  const kOnly=2129, co=1579, pOnly=5764-co, T=kOnly+co+pOnly, L=v=>v/T*100;
+  $('#overlap').innerHTML=`<div class="ov">
+    <div class="ov-lab"><b>H3K27ac peaks</b> · 3,708</div>
+    <div class="ov-row"><div class="ov-bar" style="left:0;width:${L(kOnly+co)}%"><i class="fill-k27" style="flex:0 0 ${kOnly/(kOnly+co)*100}%;opacity:.55"></i><i style="flex:1;background:var(--ink)"></i></div></div>
+    <div class="ov-row"><div class="ov-bar" style="left:${L(kOnly)}%;width:${L(co+pOnly)}%"><i style="flex:0 0 ${co/(co+pOnly)*100}%;background:var(--ink)"></i><i class="fill-patz" style="flex:1;opacity:.6"></i></div></div>
+    <div class="ov-lab" style="text-align:right"><b>PATZ1 peaks</b> · 5,764</div>
+    <i class="ov-guide" style="left:${L(kOnly)}%"></i><i class="ov-guide" style="left:${L(kOnly+co)}%"></i>
+  </div>
+  <div class="legend" style="margin-top:.6rem"><span><i class="sw k27" style="opacity:.55"></i>H3K27ac only · 2,129</span><span><i class="sw" style="background:var(--ink)"></i>co-bound · 1,579</span><span><i class="sw patz" style="opacity:.6"></i>PATZ1 only · 4,185</span></div>`;
+  const max=3489;
+  $('#obsExp').innerHTML=`<div class="panel">
+    <div class="brow"><span class="blab">Observed</span><div class="track"><i class="bfill" style="width:100%;background:var(--ink)"></i>${val(100,'3,489 bins')}</div></div>
+    <div class="brow"><span class="blab">Expected by chance</span><div class="track"><i class="bfill" style="width:max(2px,${7/max*100}%);background:var(--ink-3)"></i>${val(7/max*100,'7 bins')}</div></div>
+  </div>`;
+})();
+
+/* ---------- HAT waffle ---------- */
+(function(){
+  const w=$('#waffle'); for(let i=0;i<100;i++){ const s=document.createElement('i'); s.style.transitionDelay=(i%10*18+Math.floor(i/10)*10)+'ms'; w.appendChild(s); }
+  const sq=[...w.children], btn=$('#hatBtn');
+  const set=on=>{
+    btn.setAttribute('aria-pressed',String(on)); btn.textContent=on?'Remove A-485':'Add A-485';
+    sq.forEach((s,i)=>{ s.classList.toggle('closed',on&&i>=54&&i<98); s.classList.toggle('gain',on&&i>=98); });
+    $$('#wl [data-w]').forEach(d=>d.classList.toggle('off',on?d.dataset.w==='open':d.dataset.w!=='open'));
+  };
+  btn.addEventListener('click',()=>set(btn.getAttribute('aria-pressed')!=='true'));
+  set(false);
+})();
+
+})();
+</script>
