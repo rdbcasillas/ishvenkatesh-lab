@@ -92,11 +92,11 @@
                   Your browser doesn't support embedded video.
                 </video>
                 <p class="summaryBlurb">{{ pub.SummaryBlurb }}</p>
-                <a
+                <router-link
+                  v-if="pub.Slug"
                   class="summaryLink"
-                  target="_blank"
-                  :href="pub.SummaryURL"
-                  >Read the full interactive summary &rarr;</a
+                  :to="`/explorables/${pub.Slug}`"
+                  >Read the full interactive summary &rarr;</router-link
                 >
               </div>
             </article>

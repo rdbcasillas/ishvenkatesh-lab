@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Publications from "../views/Publications.vue";
+import Explorables from "../views/Explorables.vue";
+import ExplorableViewer from "../views/ExplorableViewer.vue";
 import Funding from "../views/Funding.vue";
 import Awards from "../views/Awards.vue";
 import Team from "../views/Team.vue";
@@ -22,6 +24,16 @@ const routes = [
     path: "/publications",
     name: "Publications",
     component: Publications,
+  },
+  {
+    path: "/explorables",
+    name: "Explorables",
+    component: Explorables,
+  },
+  {
+    path: "/explorables/:slug",
+    name: "ExplorableViewer",
+    component: ExplorableViewer,
   },
   {
     path: "/funding",

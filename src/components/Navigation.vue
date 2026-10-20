@@ -24,6 +24,9 @@
           <b-nav-item to="/publications" exact-active-class="active"
             >Publications</b-nav-item
           >
+          <b-nav-item to="/explorables" exact-active-class="active"
+            >Explorables</b-nav-item
+          >
           <b-nav-item to="/funding" exact-active-class="active"
             >Funding</b-nav-item
           >
