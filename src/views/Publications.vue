@@ -34,13 +34,27 @@
         <p class="page-kicker">Research Output</p>
         <h1 class="page-title">Publications</h1>
       </div>
+      <div class="publication-tabs" role="tablist">
+        <button
+          v-for="section in publicationSections"
+          :key="section.title"
+          type="button"
+          role="tab"
+          class="tab-btn"
+          :aria-selected="activeTab === section.title ? 'true' : 'false'"
+          :class="{ active: activeTab === section.title }"
+          @click="activeTab = section.title"
+        >
+          {{ section.title }} <span class="tab-count">{{ section.count }}</span>
+        </button>
+      </div>
       <div class="publication-columns">
         <section
           v-for="section in publicationSections"
+          v-show="activeTab === section.title"
           :key="section.title"
           class="publication-section"
         >
-        <h2>{{ section.title }}</h2>
         <div class="year-block" v-for="year in section.data.keys()" :key="year">
           <div class="year-label-col">
             <p class="yearStyle">{{ year }}</p>
@@ -118,6 +132,7 @@ export default {
       publications: [],
       publicationSections: [],
       expandedSummaries: {},
+      activeTab: "Published",
     };
   },
   methods: {
@@ -129,20 +144,18 @@ export default {
     },
     getData() {
       this.publications = this.publicationData;
+      const published = this.publications.filter((pub) => !this.isPreprint(pub));
+      const preprints = this.publications.filter((pub) => this.isPreprint(pub));
       this.publicationSections = [
         {
-          title: "Publications",
-          data: group(
-            this.publications.filter((pub) => !this.isPreprint(pub)),
-            (d) => d.Year
-          ),
+          title: "Published",
+          count: published.length,
+          data: group(published, (d) => d.Year),
         },
         {
           title: "Preprints",
-          data: group(
-            this.publications.filter((pub) => this.isPreprint(pub)),
-            (d) => d.Year
-          ),
+          count: preprints.length,
+          data: group(preprints, (d) => d.Year),
         },
       ];
     },
@@ -160,24 +173,57 @@ export default {
 </script>
 
 <style scoped>
+.publication-tabs {
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.tab-btn {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 8px 4px 14px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: var(--color-ink);
+}
+
+.tab-count {
+  background: var(--color-accent-light);
+  border-radius: 999px;
+  color: var(--color-accent-dark);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 9px;
+}
+
+.tab-btn.active .tab-count {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.tab-btn.active {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
 .publication-columns {
-  align-items: start;
-  display: grid;
-  gap: 48px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: block;
 }
 
 .publication-section {
-  margin: 0 0 48px;
+  margin: 0;
   min-width: 0;
-}
-
-.publication-section h2 {
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-ink);
-  font-size: 1.6rem;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
 }
 
 .year-block {
@@ -187,17 +233,17 @@ export default {
   margin-bottom: 8px;
 }
 
+.year-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
 .yearStyle {
   color: var(--color-accent);
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 600;
-}
-
-.year-entries {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
 }
 
 .pub-entry {
@@ -316,13 +362,6 @@ export default {
 .summaryLink:hover {
   color: var(--color-accent);
   text-decoration: underline;
-}
-
-@media (max-width: 900px) {
-  .publication-columns {
-    gap: 0;
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 600px) {

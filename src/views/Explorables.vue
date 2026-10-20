@@ -18,7 +18,10 @@
         <video
           class="explorable-video"
           controls
-          preload="metadata"
+          autoplay
+          muted
+          loop
+          preload="auto"
           playsinline
           :src="item.SummaryVideo"
         >
