@@ -3,14 +3,6 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="An explorable guide to Krishna, Menon et al. (2026), PATZ1 remodels the nucleosome landscape to promote chromatin accessibility in injured neurons. Communications Biology.">
-<script>
-(function(){
-  try{
-    var saved=localStorage.getItem('theme');
-    if(saved==='dark'||saved==='light'){ document.documentElement.setAttribute('data-theme', saved); }
-  }catch(e){ /* localStorage unavailable */ }
-})();
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
@@ -66,18 +58,10 @@ i.g{font-style:italic}
 
 /* header */
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
-.bar-in{max-width:var(--wide);margin-inline:auto;display:flex;align-items:center;gap:.9rem;min-height:3.25rem}
-.brand{font-family:var(--f-display);font-weight:600;text-decoration:none;font-size:1rem;white-space:nowrap}
-.brand span{color:var(--ink-2);font-weight:450}
-.where{flex:1;min-width:0;font-family:var(--f-mono);font-size:var(--s-xs);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.04em}
+.bar-in{max-width:var(--wide);margin-inline:auto;display:flex;align-items:center;justify-content:flex-end;gap:.9rem;min-height:3.25rem}
 .btn{font:500 var(--s-xs)/1 var(--f-mono);letter-spacing:.03em;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:.6rem .85rem;min-height:2.25rem;cursor:pointer;transition:border-color .2s,background .2s;white-space:nowrap}
 .btn:hover{border-color:var(--ink-3)}
 .btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-@media (max-width:620px){.brand span{display:none}}
-.theme-toggle{display:inline-flex;align-items:center;justify-content:center;padding:.6rem;width:2.25rem;flex:none}
-.theme-toggle .icon-sun{display:none}
-:root[data-theme="dark"] .theme-toggle .icon-moon{display:none}
-:root[data-theme="dark"] .theme-toggle .icon-sun{display:inline}
 
 /* sections */
 section{padding-block:clamp(3rem,8vw,5.5rem);border-top:1px solid var(--rule)}
@@ -329,19 +313,7 @@ footer{padding-block:2.5rem 3.5rem;border-top:1px solid var(--rule);font-size:va
 
 <header class="bar">
   <div class="bar-in gutter">
-    <a class="brand" href="#top">PATZ1 <span>· nucleosome by nucleosome</span></a>
-    <span class="where" id="where"></span>
     <button class="btn" id="allNotes" type="button" aria-pressed="false">Open all notes</button>
-    <button
-      type="button"
-      class="btn theme-toggle"
-      id="themeToggle"
-      aria-label="Switch to dark mode"
-      title="Switch to dark mode"
-    >
-      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
-      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
-    </button>
   </div>
 </header>
 
@@ -802,35 +774,6 @@ footer{padding-block:2.5rem 3.5rem;border-top:1px solid var(--rule);font-size:va
 (function(){
 "use strict";
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-
-/* ---------- theme toggle (shared "theme" localStorage key with the main site) ---------- */
-(function initTheme(){
-  const THEME_KEY='theme';
-  const root=document.documentElement;
-  const toggle=$('#themeToggle');
-  const apply=(theme)=>{
-    root.setAttribute('data-theme', theme);
-    if(toggle){
-      const toDark = theme!=='dark';
-      toggle.setAttribute('aria-label', toDark?'Switch to dark mode':'Switch to light mode');
-      toggle.setAttribute('title', toDark?'Switch to dark mode':'Switch to light mode');
-    }
-  };
-  let saved=null;
-  try{ saved=localStorage.getItem(THEME_KEY); }catch(e){ saved=null; }
-  if(saved==='dark'||saved==='light'){ apply(saved); }
-  else{
-    const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
-    apply(prefersDark?'dark':'light');
-  }
-  if(toggle){
-    toggle.addEventListener('click', ()=>{
-      const next = root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
-      apply(next);
-      try{ localStorage.setItem(THEME_KEY, next); }catch(e){ /* unavailable */ }
-    });
-  }
-})();
 
 const RM=matchMedia('(prefers-reduced-motion: reduce)');
 const WIDE=matchMedia('(min-width:1080px)');

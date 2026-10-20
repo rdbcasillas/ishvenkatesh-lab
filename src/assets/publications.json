@@ -58,8 +58,9 @@
     ],
     "Journal": "Communications Biology",
     "URL": "https://www.nature.com/articles/s42003-026-11196-7",
-    "SummaryURL": "research/patz1-explainer.html",
-    "SummaryVideo": "research/patz1-summary.mp4",
+    "Slug": "patz1",
+    "SummaryURL": "/research/patz1-explainer.html",
+    "SummaryVideo": "/research/patz1-summary.mp4",
     "SummaryBlurb": "A short video walkthrough of how PATZ1 clears nucleosomes off growth-gene enhancers in injured corticospinal neurons, making room for the regeneration program to switch back on."
   },
   {
