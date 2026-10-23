@@ -413,7 +413,7 @@ export default {
           image: "krishna-aditi",
           imageExtension: "jpg",
           desc: "Krishna joined the lab in October 2026 as the Project Assistant after recently graduating with a Bachelor's in Life Sciences from Maitreyi College, University of Delhi, South Campus. She is very proactive by nature, which contributes a special role to the lab. Her fields of interest lie in Cognitive Neuroscience and Biochemistry.<br><br>She really likes hanging around people but also thrives in solitude. She's very fond of writing and publishes articles on Substack regularly. She's also trained in Kathak, Classical music, Painting, and Tennis.",
-          email: "",
+          email: "krishnaaditi647@gmail.com",
         },
         {
           name: "Athul Narayan PS",
