@@ -400,7 +400,7 @@ export default {
           email: "dhruvakesireddy@gmail.com",
         },
         {
-          name: "Aparna",
+          name: "Aparna Upadrastha",
           position: "Project Associate",
           image: "aparana",
           imageExtension: "jpg",
@@ -445,10 +445,10 @@ export default {
         },
         {
           name: "Ankita Dwivedi",
-          position: "MP Young Scientist Fellowship, Short Term Trainee",
+          position: "Project Associate",
           image: "anikita",
           desc: "Ankita Dwivedi joined the lab in April 2026 as an MP Young Scientist Fellow through a fellowship for the training of young scientists. She completed her PhD in Neuroscience from Dr. Harisingh Gour University, Sagar, Madhya Pradesh, and brings a strong research background in neurodegeneration and cognitive dysfunction.<br><br>Her current work focuses on the metabolic control of axonal regeneration, exploring diverse metabolic pathways and their roles in regulating axonal growth and neuronal repair. By integrating metabolic profiling with advanced molecular approaches, she aims to uncover the key metabolic mechanisms driving axonal regeneration.<br><br>Outside the lab, Ankita enjoys exploring new places, playing basketball, and listening to music, which keep her inspired and energized.",
-          email: "",
+          email: "ankitadwivedi7997@gmail.com",
         },
         {
           name: "Sourav Das",
@@ -486,10 +486,11 @@ export default {
           title: "Project Associates",
           names: [
             "Dhruva Kesireddy",
-            "Aparna",
+            "Aparna Upadrastha",
             "Susmita Das",
             "Krishna Aditi",
             "Athul Narayan PS",
+            "Ankita Dwivedi",
           ],
         },
         {
@@ -497,7 +498,6 @@ export default {
           names: [
             "Achuth",
             "Meera",
-            "Ankita Dwivedi",
             "Sourav Das",
           ],
         },
