@@ -275,6 +275,12 @@ export default {
           position: "PhD Student",
           image: "meghana.jpg",
         },
+        {
+          name: "Dhanuush Balakannan",
+          institution: "Max Planck Institute for Psychiatry, Germany",
+          position: "PhD Student",
+          image: "dhanuush.jpg",
+        },
       ],
       summerTrainees: [
         {
@@ -402,11 +408,12 @@ export default {
           email: "aparnau986@gmail.com",
         },
         {
-          name: "Dhanuush Balakannan",
-          position: "Project Associate",
-          image: "dhanuush",
-          desc: "Dhanuush joined the lab as a Project Trainee in July 2025, following his graduation from IISER Mohali. With a long-standing interest in regeneration, he sees this opportunity as a stepping stone toward pursuing a PhD, while expanding his skillset and research experience. In the lab, he is working closely on the stem cell project in spinal cord injury (SCI) models, focusing on motor and sensory behaviour and the mechanisms of recovery after stem cell transplantation. As a science enthusiast, he also contributes to preLights (The Company of Biologists), where he writes about recent preprints in biology. Beyond the lab, he enjoys trekking and watching supernatural and horror films.",
-          email: "dhanuush19@gmail.com",
+          name: "Krishna Aditi",
+          position: "Project Assistant",
+          image: "krishna-aditi",
+          imageExtension: "jpg",
+          desc: "Krishna joined the lab in October 2026 as the Project Assistant after recently graduating with a Bachelor's in Life Sciences from Maitreyi College, University of Delhi, South Campus. She is very proactive by nature, which contributes a special role to the lab. Her fields of interest lie in Cognitive Neuroscience and Biochemistry.<br><br>She really likes hanging around people but also thrives in solitude. She's very fond of writing and publishes articles on Substack regularly. She's also trained in Kathak, Classical music, Painting, and Tennis.",
+          email: "",
         },
         {
           name: "Athul Narayan PS",
@@ -481,7 +488,7 @@ export default {
             "Dhruva Kesireddy",
             "Aparna",
             "Susmita Das",
-            "Dhanuush Balakannan",
+            "Krishna Aditi",
             "Athul Narayan PS",
           ],
         },

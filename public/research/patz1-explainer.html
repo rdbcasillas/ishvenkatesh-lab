@@ -856,12 +856,6 @@ mores.forEach((m,i)=>{ const b=m.querySelector('.more-btn'), body=m.querySelecto
 const allBtn=$('#allNotes');
 allBtn.addEventListener('click',()=>{ const on=allBtn.getAttribute('aria-pressed')!=='true'; allBtn.setAttribute('aria-pressed',String(on)); allBtn.textContent=on?'Close all notes':'Open all notes'; mores.forEach(m=>setMore(m,on)); });
 
-/* ---------- section label in header ---------- */
-const where=$('#where');
-const secs=$$('section[data-label]'); let whereRaf=0;
-const updWhere=()=>{ whereRaf=0; const y=innerHeight*.35; const s=secs.find(x=>{ const r=x.getBoundingClientRect(); return r.top<=y&&r.bottom>y; }); if(s) where.textContent=s.dataset.label; };
-addEventListener('scroll',()=>{ if(!whereRaf) whereRaf=requestAnimationFrame(updWhere); },{passive:true}); updWhere();
-
 /* ---------- hero locus ---------- */
 const HERO={
   un:{occ:'0.105',fuz:'23.55',color:'--c-un',cap:'Here\'s a growth gene in an uninjured adult corticospinal neuron. Nucleosomes sit on top of its enhancer, so transcription factors have very little room to bind.'},
