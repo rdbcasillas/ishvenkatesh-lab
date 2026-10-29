@@ -77,6 +77,22 @@ export default {
     return {
       awards: [
         {
+          name: "IAN Best Poster Award",
+          event: "Indian Academy of Neuroscience (IAN), 2026",
+          year: "2026",
+          recipients: "Dhanuush Balakannan",
+          description: "This win marks the lab’s fifth consecutive IAN Best Poster Award, continuing an unbroken streak from 2022 to 2026.",
+          image: "Dhanuush_poster_award.jpeg",
+        },
+        {
+          name: "ISDN 2027 Travel Award",
+          event: "International Society for Developmental Neuroscience (ISDN 2027)",
+          year: "2026",
+          recipients: "Anisha S Menon",
+          description: "Awarded US$400 in travel support to attend ISDN 2027, held from 1–5 February 2027 at JNCASR, Bengaluru.",
+          image: "Anisha_Travel.png",
+        },
+        {
           name: "ISDN 2027 Travel Award",
           event: "International Society for Developmental Neuroscience (ISDN 2027)",
           year: "2026",
