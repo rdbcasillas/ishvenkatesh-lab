@@ -15,7 +15,13 @@
         </span>
       </b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" aria-label="Open navigation menu">
+        <span class="mobile-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
@@ -319,6 +325,38 @@ a.nav-link.active::after {
 }
 
 @media (max-width: 991px) {
+  .navbar-toggler {
+    align-items: center;
+    background: rgba(198, 40, 40, 0.1);
+    border: 2px solid #c62828;
+    border-radius: 6px;
+    display: flex;
+    height: 42px;
+    justify-content: center;
+    padding: 8px;
+    width: 46px;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.25);
+    outline: none;
+  }
+
+  .mobile-menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 24px;
+  }
+
+  .mobile-menu-icon span {
+    background: #c62828;
+    border-radius: 2px;
+    display: block;
+    height: 3px;
+    width: 100%;
+  }
+
   .nav-item {
     margin: 2px 0 !important;
   }
