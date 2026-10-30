@@ -133,11 +133,11 @@ export default {
           image: "Dhruva_Travel_award.jpeg",
         },
         {
-          name: "CCMB Open Day Best Booth Award",
+          name: "CCMB Open Day Best Exhibit Award",
           event: "CCMB Open Day 2026",
           year: "2026",
           recipients: "Venkatesh Lab",
-          description: "The lab was recognized for creating an engaging and memorable public-science exhibit at CCMB Open Day.",
+          description: "The lab won first prize for creating an engaging and memorable public-science exhibit at CCMB Open Day 2026.",
           image: "Open_Day_2026.jpeg",
         },
         {

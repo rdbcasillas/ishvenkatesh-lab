@@ -344,7 +344,7 @@ export default {
           email: "ishwariya.ccmb@csir.res.in",
         },
         {
-          name: "Dr. Prakash",
+          name: "Dr. Prakash Chermakani",
           position: "CSIR - Research Associate",
           image: "prakash",
           desc: "Prakash joined the lab as a Senior Project Associate in September 2024. He completed his master degree in Genetic Engineering at Bharathiar University, Coimbatore, subsequently specialized in Plant Genetic Engineering through a DBT-funded program at Madurai Kamaraj University. Following this, he acquired seven years of valuable experience as a Research Associate at Rasi Seeds R&D Biotech Pvt. Ltd., Salem. He later completed his doctoral program in Molecular Biology at Aravind Medical Research Foundation, Madurai. His Ph.D. research focused on investigating the crosstalk between nuclear and mitochondrial genomes in patients with Leber’s Hereditary Optic Neuropathy (LHON). By utilizing advanced techniques like next-generation sequencing (NGS) and CRISPR-Cas9-mediated genetic knockout models, he uncovered key molecular mechanisms underlying LHON pathogenesis. During his Ph.D. tenure, he was awarded the prestigious ICMR Senior Research Fellowship. In September 2024, Prakash began his journey at the Venkatesh Lab, where he focuses primary mouse neuron culture and the differentiation of induced pluripotent stem cells (iPSCs) into neural progenitor cells for stem cell therapy in a spinal cord injury (SCI) animal model. His research aims to address the challenges posed by the hostile injury environment, with the goal of promoting tissue regeneration and behavioral recovery. Outside of his professional commitments, Prakash enjoys cooking and cherishes quality time with his son and family.",
@@ -423,15 +423,15 @@ export default {
           email: "athulskumar2003@gmail.com",
         },
         {
-          name: "Achuth",
-          position: "PBST, Short Term Trainee",
+          name: "Achuth Kartha",
+          position: "Project Based Short Term Trainee",
           image: "achuth",
-          desc: "Achuth joined the lab in July 2026 as a Project-Based Student Trainee after completing his Bachelor's degree in Biotechnology from NIT Warangal, where he also spent his final year as an exchange student at IIT Hyderabad developing machine learning models for computational histopathology. Prior to this, he worked with Dr. Linheng Li at the Stowers Institute for Medical Research through the Stowers Summer Scholars and Khorana Scholars (DBT-IUSSTF) programs.<br><br>His research focuses on understanding the epigenetic regulation of axon regeneration after spinal cord injury by integrating bulk and single-nucleus ATAC-seq analyses to uncover transcription factor networks that drive neuronal regeneration. He is fascinated by the potential of interdisciplinary science and believes that integrating computational and experimental approaches will be key to developing the next generation of combinatorial therapies for neurological disorders.",
+          desc: "Achuth joined the lab in July 2026 as a Project Based Short Term Trainee after completing his Bachelor's degree in Biotechnology from NIT Warangal, where he also spent his final year as an exchange student at IIT Hyderabad developing machine learning models for computational histopathology. Prior to this, he worked with Dr. Linheng Li at the Stowers Institute for Medical Research through the Stowers Summer Scholars and Khorana Scholars (DBT-IUSSTF) programs.<br><br>His research focuses on understanding the epigenetic regulation of axon regeneration after spinal cord injury by integrating bulk and single-nucleus ATAC-seq analyses to uncover transcription factor networks that drive neuronal regeneration. He is fascinated by the potential of interdisciplinary science and believes that integrating computational and experimental approaches will be key to developing the next generation of combinatorial therapies for neurological disorders.",
           email: "",
         },
         {
-          name: "Meera",
-          position: "Dissertee, Short Term Trainee",
+          name: "Meera Manoj",
+          position: "Dissertation Trainee",
           image: "meera",
           desc: "Meera Manoj joined the lab in June 2026 as a dissertation student from VIT, Vellore, where she is pursuing an Integrated Master's degree in Biotechnology. Her research focuses on understanding how transcription factors regulate neuronal regeneration following spinal cord injury (SCI). Using CRISPR-mediated gene knockdown approaches, she investigates the molecular mechanisms underlying neural repair.<br><br>Outside the lab, she is a passionate dancer and an avid traveller who enjoys discovering new places. She also loves music, films, and web series, and values spending quality time with her loved ones.",
           email: "",
@@ -471,7 +471,7 @@ export default {
         },
         {
           title: "Postdoctoral Fellows",
-          names: ["Dr. Prakash", "Dr. Shringika Soni", "ManojKumar K"],
+          names: ["Dr. Prakash Chermakani", "Dr. Shringika Soni", "ManojKumar K"],
         },
         {
           title: "PhD Students",
@@ -496,8 +496,8 @@ export default {
         {
           title: "Short Term Trainees",
           names: [
-            "Achuth",
-            "Meera",
+            "Achuth Kartha",
+            "Meera Manoj",
             "Sourav Das",
           ],
         },
