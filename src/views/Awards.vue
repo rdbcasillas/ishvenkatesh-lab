@@ -142,8 +142,10 @@ export default {
         },
         {
           name: "IBRO/SfN Travel Grant",
+          event: "International Brain Research Organization / Society for Neuroscience, 2026",
           year: "2026",
           recipients: "Anisha S Menon",
+          description: "Awarded US$2,500 in travel support to attend and present her research at the Society for Neuroscience meeting in Washington, DC, USA, in November 2026.",
           image: "Anisha_2026_award.jpeg",
         },
         {
