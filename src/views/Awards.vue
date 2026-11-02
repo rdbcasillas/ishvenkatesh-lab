@@ -121,7 +121,7 @@ export default {
           event: "Society for Neuroscience, Neuroscience 2026",
           year: "2026",
           recipients: "Yogesh Sahu",
-          description: "Recognized by SfN for his scientific promise and selected for professional-development support at Neuroscience 2026.",
+          description: "Recognised by SfN for his scientific promise and selected to receive professional development support at Neuroscience 2026.",
           image: "Yogesh_Travel.jpeg",
         },
         {
@@ -129,7 +129,7 @@ export default {
           event: "Indian Academy of Neuroscience (IAN), 2026",
           year: "2026",
           recipients: "Dhruva Kesireddy",
-          description: "Recognized with the John Miller Travel Award in support of his conference participation and research presentation.",
+          description: "Received the John Miller Travel Award in support of his conference participation and research presentation.",
           image: "Dhruva_Travel_award.jpeg",
         },
         {

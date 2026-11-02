@@ -93,7 +93,7 @@
         <h3 class="alumni-title">From Venkatesh Lab to PhD Journeys Globally</h3>
         <div class="alumni-statement">
           <p>
-            Many of our one-year trainees join us with a clear goal: to build the research foundation, mentorship network, and application support needed to pursue PhD training in India or abroad. Our commitment to their training does not depend on whether they continue with us or move on to another lab. We guide them in choosing programs and mentors, preparing for interviews, strengthening applications, and provide recommendation letters across multiple application cycles, even after their formal lab tenure has ended.
+            Many of our one-year trainees join us with a clear goal: to build the research foundation, mentorship network, and application support needed to pursue PhD training in India or abroad. Our commitment to their training does not depend on whether they continue with us or move on to another lab. We guide them in choosing programmes and mentors, preparing for interviews, strengthening applications, and providing recommendation letters across multiple application cycles, even after their formal lab tenure has ended.
           </p>
         </div>
         <div class="alumni-dashboard-cta">
@@ -319,7 +319,7 @@ export default {
       otherAlumni: [
         {
           name: "Deepta Beji",
-          current: "Masters in International Medicine, EU",
+          current: "Master’s in International Medicine, EU",
         },
         {
           name: "Sneha Manjunath",
@@ -340,14 +340,14 @@ export default {
           position: "Senior Scientist",
           image: "ish",
           cv: process.env.BASE_URL + "cv/Ish_CV.pdf",
-          desc: "Ishwariya (prefers to go by Ish) was smitten with Science in high school,  when she spent a summer traveling to different research labs in South India as part of an internship at the MS Swaminathan Research Foundation. She received her Bachelor’s degree in Biotechnology from BIT, Sathy (affiliated to Anna University) and doctoral degree in Molecular Neuroscience from The University of Wisconsin - Milwaukee. She underwent post-doctoral training in the lab of Dr.Murray Blackmore at Marquette University, focusing on transcriptional and epigenetic regulation of axon regeneration in the mammalian nervous system. As a Research Asst Professor at Marquette, she continued that line of work, developing Bioinformatic workflows to identify co-operative Transcription Factors that regulate regenerative capacity in the injured spinal cord. At CCMB, she is continuing to probe and identify molecular pathways that regulate regenerative capacity in the injured mammalian nervous system. Outside of the lab, Ish loves to read, cook, explore different forms of art (currently obsessed with Madhubani art) and tend to her home garden.",
+          desc: "Ishwariya (who prefers to go by Ish) became fascinated with science in high school, when she spent a summer visiting research labs across South India as part of an internship at the M. S. Swaminathan Research Foundation. She received her bachelor’s degree in Biotechnology from BIT, Sathy (affiliated with Anna University), and her doctoral degree in Molecular Neuroscience from the University of Wisconsin–Milwaukee. She completed her postdoctoral training in Dr. Murray Blackmore’s lab at Marquette University, focusing on the transcriptional and epigenetic regulation of axon regeneration in the mammalian nervous system. As a Research Assistant Professor at Marquette, she continued this work, developing bioinformatics workflows to identify cooperative transcription factors that regulate regenerative capacity in the injured spinal cord. At CCMB, she continues to investigate molecular pathways that regulate regenerative capacity in the injured mammalian nervous system. Outside the lab, Ish loves to read, cook, explore different forms of art (she is currently obsessed with Madhubani art), and tend to her home garden.",
           email: "ishwariya.ccmb@csir.res.in",
         },
         {
           name: "Dr. Prakash Chermakani",
-          position: "CSIR - Research Associate",
+          position: "CSIR Research Associate",
           image: "prakash",
-          desc: "Prakash joined the lab as a Senior Project Associate in September 2024. He completed his master degree in Genetic Engineering at Bharathiar University, Coimbatore, subsequently specialized in Plant Genetic Engineering through a DBT-funded program at Madurai Kamaraj University. Following this, he acquired seven years of valuable experience as a Research Associate at Rasi Seeds R&D Biotech Pvt. Ltd., Salem. He later completed his doctoral program in Molecular Biology at Aravind Medical Research Foundation, Madurai. His Ph.D. research focused on investigating the crosstalk between nuclear and mitochondrial genomes in patients with Leber’s Hereditary Optic Neuropathy (LHON). By utilizing advanced techniques like next-generation sequencing (NGS) and CRISPR-Cas9-mediated genetic knockout models, he uncovered key molecular mechanisms underlying LHON pathogenesis. During his Ph.D. tenure, he was awarded the prestigious ICMR Senior Research Fellowship. In September 2024, Prakash began his journey at the Venkatesh Lab, where he focuses primary mouse neuron culture and the differentiation of induced pluripotent stem cells (iPSCs) into neural progenitor cells for stem cell therapy in a spinal cord injury (SCI) animal model. His research aims to address the challenges posed by the hostile injury environment, with the goal of promoting tissue regeneration and behavioral recovery. Outside of his professional commitments, Prakash enjoys cooking and cherishes quality time with his son and family.",
+          desc: "Prakash joined the lab as a Senior Project Associate in September 2024. He completed his master’s degree in Genetic Engineering at Bharathiar University, Coimbatore, and subsequently specialised in Plant Genetic Engineering through a DBT-funded programme at Madurai Kamaraj University. He then gained seven years of valuable experience as a Research Associate at Rasi Seeds R&D Biotech Pvt. Ltd., Salem. He later completed his doctoral programme in Molecular Biology at Aravind Medical Research Foundation, Madurai. His PhD research investigated the crosstalk between nuclear and mitochondrial genomes in patients with Leber’s Hereditary Optic Neuropathy (LHON). Using advanced techniques such as next-generation sequencing (NGS) and CRISPR-Cas9-mediated genetic knockout models, he uncovered key molecular mechanisms underlying LHON pathogenesis. During his PhD, he was awarded the prestigious ICMR Senior Research Fellowship. At the Venkatesh Lab, Prakash focuses on primary mouse neuron culture and the differentiation of induced pluripotent stem cells (iPSCs) into neural progenitor cells for stem-cell therapy in a spinal cord injury (SCI) animal model. His research aims to address the challenges posed by the hostile injury environment and promote tissue regeneration and behavioural recovery. Outside his professional commitments, Prakash enjoys cooking and cherishes quality time with his son and family.",
           email: "cpge1988@gmail.com",
         },
         {
@@ -361,33 +361,33 @@ export default {
           name: "ManojKumar K",
           position: "Research Associate",
           image: "manoj",
-          desc: `Manojkumar joined the lab as a Senior Project Associate in October 2022. He has an integrated M.Tech degree in Bioinformatics from the Bharathidhasan University, Trichy. Following that, he completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation (Under SASTRA Univeristy), Madurai. During his Ph.D, he has developed a tool that filters and prioritizes pathogenic variants specific to eye disease. He is the go-to person for all flavors of Bioinformatics analyses in the lab from NGS to single-cell genomics and everything in between. In the lab, Manoj is also the one Ish goes to first with most of her (only sometimes crazy 😜) ideas - from rigging treadmills for mice from scratch to wanting to try out new algorithms the same day it's published,  to saving Ish with computer hiccups the day of her talks, he handles it all with a smile and gets it done! Outside of the lab his hobbies include Photography 📸, Wildlife conservation 🐾, Travelling 🧳, and Gaming 🕹️ but importantly cooking 🧑🏽‍🍳, and he shares the output of his cooking experiments generously with the lab members! <a href="https://mano2991.netlify.app/" target="_blank" rel="noopener noreferrer">Visit his personal webpage</a>`,
+          desc: `Manojkumar joined the lab as a Senior Project Associate in October 2022. He holds an integrated M.Tech. degree in Bioinformatics from Bharathidasan University, Trichy. He then completed his doctoral training under the guidance of Dr. Bharanidharan at Aravind Medical Research Foundation, under SASTRA University, Madurai. During his PhD, he developed a tool that filters and prioritises pathogenic variants specific to eye disease. He is the lab’s go-to person for all flavours of bioinformatics analysis, from NGS to single-cell genomics and everything in between. Manoj is also the first person Ish approaches with most of her (only sometimes crazy 😜) ideas—from building treadmills for mice from scratch and trying new algorithms the day they are published to rescuing Ish from computer hiccups on the day of her talks. He handles it all with a smile and gets it done! Outside the lab, his hobbies include photography 📸, wildlife conservation 🐾, travelling 🧳, gaming 🕹️, and, most importantly, cooking 🧑🏽‍🍳. He generously shares the results of his cooking experiments with the lab! <a href="https://mano2991.netlify.app/" target="_blank" rel="noopener noreferrer">Visit his personal webpage</a>`,
           email: "manojkumarbioinfo@gmail.com",
         },
         {
           name: "Yogesh Sahu",
-          position: "PhD student",
+          position: "PhD Student",
           image: "yogesh",
-          desc: "Yogesh Sahu joined the lab in September of 2022 as a PhD student. He graduated with a Bachelors degree in Zoology from Guru Ghasidas University Bilaspur in 2019. Following this, he received his Masters in Neurobiology from Guru Ghasidas University Bilaspur in 2021. His Phd project in the lab is focused on the molecular regulation of Axon Regeneration by Nuclear receptor family of transcription factors. He is a night owl who enjoys living in the lab (or scope room) and breathing science at all hours (by his own will!) He is a talented multimedia whiz, who whips out funny research memes on instagram by the dozen when not working on science!",
+          desc: "Yogesh Sahu joined the lab as a PhD student in September 2022. He earned his bachelor’s degree in Zoology from Guru Ghasidas University, Bilaspur, in 2019, followed by a master’s degree in Neurobiology from the same university in 2021. His PhD project focuses on the molecular regulation of axon regeneration by the nuclear receptor family of transcription factors. He is a night owl who enjoys living in the lab (or scope room) and breathing science at all hours—entirely by his own choice! He is also a talented multimedia whiz who creates funny research memes for Instagram by the dozen when he is not working on science.",
           email: "yogesh@ccmb.res.in",
         },
         {
           name: "Anisha S. Menon",
-          position: "PhD student",
+          position: "PhD Student",
           image: "anisha",
-          desc: `Anisha S. Menon is a PhD student who joined the lab in March 2023. She completed her Bachelor's in Zoology at Vimala College, Kerala, followed by  Master's in Zoology from St. Joseph's College, Kerala. Her research is mainly to uncover the epigenetic roadblocks that limit CNS regenerative potential. Anisha delves deeply into the world of chromatin remodelers, examining everything from chromatin accessibility and histone modifications to 3D genome architecture—essentially, leaving no epigenetic stone unturned. Beyond the lab bench, her love for reading and writing fuels her interest in science communication, letting her translate complex neuroscience into stories anyone can enjoy (whenever she gets a little downtime 😇 ). <a href="https://anisha8597.github.io/anisha/" target="_blank" rel="noopener noreferrer">Check out her work and musings on her</a> `,
+          desc: `Anisha S. Menon is a PhD student who joined the lab in March 2023. She completed her bachelor’s degree in Zoology at Vimala College, Kerala, followed by a master’s degree in Zoology from St. Joseph’s College, Kerala. Her research aims to uncover the epigenetic roadblocks that limit CNS regenerative potential. Anisha delves deeply into the world of chromatin remodelers, examining everything from chromatin accessibility and histone modifications to 3D genome architecture—essentially leaving no epigenetic stone unturned. Beyond the lab bench, her love of reading and writing fuels her interest in science communication, allowing her to translate complex neuroscience into stories anyone can enjoy whenever she gets a little downtime 😇. <a href="https://anisha8597.github.io/anisha/" target="_blank" rel="noopener noreferrer">Check out her work and musings on her personal website</a>.`,
           email: "anisha.ccmb@csir.res.in",
         },
         {
            name: "Rutuja Pendharkar",
-           position: "PhD student",
+           position: "PhD Student",
            image: "rutuja",
-           desc: "Rutuja, with a rich academic background in Biotechnology from Pune University, is at the forefront of pioneering research in stem cell therapy for spinal injuries. Holding both Bachelor's and Master's degrees, she has dedicated her career to exploring the synergistic potential of stem cell implantation at sites of spinal damage. As she embarks on this groundbreaking project, the expectations are high, and there's a palpable sense of anticipation for the remarkable outcomes we believe she will achieve. Outside the lab, Rutuja finds solace and creativity in Mandela art, a passion that complements her scientific pursuits. Her journey is just beginning, and we eagerly look forward to the innovative solutions she is bound to uncover for spinal injury treatment.",
+           desc: "Rutuja has a strong academic background in Biotechnology from Pune University, where she earned both her bachelor’s and master’s degrees. Her research explores the potential of stem-cell implantation at sites of spinal cord injury to improve repair and functional recovery. Outside the lab, Rutuja finds solace and creativity in mandala art, a passion that complements her scientific pursuits. We look forward to the innovative solutions her work may uncover for spinal cord injury treatment.",
            email: "rutuja.arun@ccmb.res.in",
          },
          {
            name: "Aarthi Sukumar",
-           position: "PhD student",
+           position: "PhD Student",
            image: "aarthi",
            desc: "Aarthi joined the lab as a PhD student in October 2025, bringing with her strong technical skills and an Integrated Master’s degree in Biotechnology from VIT University. Her research involves understanding how metabolism fuels axon growth and regeneration, exploring how neurons use their metabolic machinery to overcome the challenges of injury and repair. She is on a mission to bring proteomics and metabolomics together in the lab, connecting the dots between proteins and metabolic pathways to understand what makes neurons grow, adapt, and regenerate. Through this dual-omics approach, she hopes to uncover the molecular story behind axon regeneration. With a growing knack for proteomics, she is also becoming the lab’s go-to person for all things protein-related!<br><br>Outside the lab, you’ll probably find her exploring new places 🛵, catching the latest movie at a theatre 🎬, hunting for good food 😋, shopping (when the stars and fellowship sanctions align) 🛍️, café hopping in search of her next caffeine fix ☕, or enjoying some good music 🎶.",
            email: "aarthis@csirccmb.org",
@@ -412,7 +412,7 @@ export default {
           position: "Project Assistant",
           image: "krishna-aditi",
           imageExtension: "jpg",
-          desc: "Krishna joined the lab in October 2026 as the Project Assistant after recently graduating with a Bachelor's in Life Sciences from Maitreyi College, University of Delhi, South Campus. She is very proactive by nature, which contributes a special role to the lab. Her fields of interest lie in Cognitive Neuroscience and Biochemistry.<br><br>She really likes hanging around people but also thrives in solitude. She's very fond of writing and publishes articles on Substack regularly. She's also trained in Kathak, Classical music, Painting, and Tennis.",
+          desc: "Krishna joined the lab in October 2026 as a Project Assistant after earning her bachelor’s degree in Life Sciences from Maitreyi College, University of Delhi. Her proactive nature makes her a valuable contributor to the lab, and her interests lie in cognitive neuroscience and biochemistry.<br><br>She enjoys spending time with people but also thrives in solitude. She is fond of writing and regularly publishes articles on Substack. She is also trained in Kathak, classical music, painting, and tennis.",
           email: "krishnaaditi647@gmail.com",
         },
         {
@@ -424,9 +424,9 @@ export default {
         },
         {
           name: "Achuth Kartha",
-          position: "Project Based Short Term Trainee",
+          position: "Project-Based Short-Term Trainee",
           image: "achuth",
-          desc: "Achuth joined the lab in July 2026 as a Project Based Short Term Trainee after completing his Bachelor's degree in Biotechnology from NIT Warangal, where he also spent his final year as an exchange student at IIT Hyderabad developing machine learning models for computational histopathology. Prior to this, he worked with Dr. Linheng Li at the Stowers Institute for Medical Research through the Stowers Summer Scholars and Khorana Scholars (DBT-IUSSTF) programs.<br><br>His research focuses on understanding the epigenetic regulation of axon regeneration after spinal cord injury by integrating bulk and single-nucleus ATAC-seq analyses to uncover transcription factor networks that drive neuronal regeneration. He is fascinated by the potential of interdisciplinary science and believes that integrating computational and experimental approaches will be key to developing the next generation of combinatorial therapies for neurological disorders.",
+          desc: "Achuth joined the lab in July 2026 as a Project-Based Short-Term Trainee after completing his bachelor’s degree in Biotechnology from NIT Warangal. He spent his final year as an exchange student at IIT Hyderabad, developing machine-learning models for computational histopathology. Before joining the lab, he worked with Dr. Linheng Li at the Stowers Institute for Medical Research through the Stowers Summer Scholars and Khorana Scholars (DBT-IUSSTF) programmes.<br><br>His research focuses on the epigenetic regulation of axon regeneration after spinal cord injury. He integrates bulk and single-nucleus ATAC-seq analyses to uncover transcription factor networks that drive neuronal regeneration. He is fascinated by the potential of interdisciplinary science and believes that integrating computational and experimental approaches will be key to developing the next generation of combinatorial therapies for neurological disorders.",
           email: "",
         },
         {

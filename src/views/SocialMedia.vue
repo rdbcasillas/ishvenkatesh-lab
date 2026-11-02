@@ -78,25 +78,34 @@ export default {
   },
   methods: {
     loadInstagramEmbed() {
-      if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
+      const existingScript = document.querySelector(
+        'script[src*="instagram.com/embed.js"]'
+      );
+
+      if (!existingScript) {
         const script = document.createElement("script");
         script.src = "https://www.instagram.com/embed.js";
         script.async = true;
+        script.onload = () => {
+          if (window.instgrm) {
+            window.instgrm.Embeds.process();
+          }
+        };
         document.body.appendChild(script);
         return;
       }
 
-      if (window.instgrm) {
-        window.instgrm.Embeds.process();
-      }
+      this.$nextTick(() => {
+        if (window.instgrm) window.instgrm.Embeds.process();
+      });
     },
     loadElfsightScript() {
-      document
-        .querySelectorAll('script[src*="elfsightcdn.com/platform.js"]')
-        .forEach((script) => script.remove());
+      if (document.querySelector('script[src*="elfsightcdn.com/platform.js"]')) {
+        return;
+      }
 
       const script = document.createElement("script");
-      script.src = `https://elfsightcdn.com/platform.js?reload=${Date.now()}`;
+      script.src = "https://elfsightcdn.com/platform.js";
       script.async = true;
       document.head.appendChild(script);
     },
@@ -147,7 +156,9 @@ h3 {
   display: flex;
   flex: 1;
   justify-content: center;
-  overflow: auto;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .twitter-embed,

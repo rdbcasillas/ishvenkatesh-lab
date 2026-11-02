@@ -1,5 +1,15 @@
 module.exports = {
   transpileDependencies: ["vuetify"],
+  devServer: {
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+        runtimeErrors: (error) =>
+          !error.message.includes("ResizeObserver loop"),
+      },
+    },
+  },
   chainWebpack: (config) => {
     config.module
       .rule("raw")

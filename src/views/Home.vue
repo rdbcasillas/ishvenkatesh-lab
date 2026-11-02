@@ -11,7 +11,10 @@
               How is axon growth regulated during development and regeneration in mammals?
             </p>
             <p class="hero-body">
-              Communication in the nervous system is achieved via long cables called axons which connect neurons in the brain with the rest of the body. Intact axons are critical for proper nervous system function. When injured, young neurons are remarkably good at regeneration and repair. In contrast, adult neurons fail to regenerate resulting in permanent irreversible nervous system damage. What molecular pathways drive the observed loss of regenerative capacity across development? What regulatory mechanisms modulate developmental axon growth? Does successful CNS regeneration in adult neurons require a faithful recapitulation of developmental mechanisms? Are there development independent pathways that co-ordinate repair? These are some of the questions we are currently tackling. To get at these questions, we use a combinatorial approach which includes Bioinformatics, Functional Genomics (Single-cell RNA-Seq, ATAC-Seq, Hi-C, ChIP-Seq), in vitro assays of growth, in vivo mouse models of injury and behavioral assessments.
+              Communication in the nervous system is achieved through long cables called axons, which connect neurons in the brain with the rest of the body. Intact axons are critical for proper nervous system function. When injured, young neurons are remarkably capable of regeneration and repair. In contrast, adult neurons generally fail to regenerate, resulting in permanent nervous system damage.
+            </p>
+            <p class="hero-body">
+              What molecular pathways drive the loss of regenerative capacity across development? What regulatory mechanisms modulate developmental axon growth? Does successful CNS regeneration in adult neurons require a faithful recapitulation of developmental mechanisms? Are there development-independent pathways that coordinate repair? These are some of the questions we are currently tackling. To investigate them, we use a combinatorial approach that includes bioinformatics, functional genomics (single-cell RNA-seq, ATAC-seq, Hi-C, and ChIP-seq), in vitro growth assays, in vivo mouse models of injury, and behavioural assessments.
             </p>
           </div>
           <div class="hero-media">
@@ -244,7 +247,7 @@ export default {
           text: "CUT&RUN Chromatin Profiling",
           image: "cut_and_run.png",
           description:
-            "Cleavage Under Targets and Release Using Nuclease (CUT&RUN) profiling of transcription factor binding (e.g. NR2F1 and NR2F6 motifs) showing Fraction of Reads in Peaks (FRiP) and transcriptional start site (TSS) enrichment heatmaps under injured and perturbed states to identify key chromatin regulatory hubs in axon growth.",
+            "Cleavage Under Targets and Release Using Nuclease (CUT&RUN) profiling of transcription factor binding (e.g., NR2F1 and NR2F6 motifs), showing Fraction of Reads in Peaks (FRiP) and transcription start site (TSS) enrichment heatmaps under injured and perturbed states to identify key chromatin regulatory hubs in axon growth.",
         },
         {
           text: "Ribo-Seq Translational Profiling",
@@ -256,7 +259,7 @@ export default {
           text: "AAV Production",
           image: "AAV_production.png",
           description:
-            "In-house production, packaging, and quality control of high-titer recombinant adeno-associated viruses (rAAVs) for targeted neuronal gene delivery and cell-type specific expression.",
+            "In-house production, packaging, and quality control of high-titre recombinant adeno-associated viruses (rAAVs) for targeted neuronal gene delivery and cell-type-specific expression.",
         },
       ],
       recentNews: [],

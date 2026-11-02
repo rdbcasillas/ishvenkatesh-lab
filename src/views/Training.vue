@@ -27,7 +27,7 @@
           <p>It is simple. Everyone in the lab is held to the same standard, and I adapt my mentoring style to each candidate&rsquo;s training level and eventual goals. I will not shame anyone for their choices. Stay on here to continue, fly away for a PhD in India or abroad, or explore roles outside academia &mdash; all of these are supported equally, and I give training to the best of my abilities.</p>
         </div>
 
-        <p class="lead-in">The data below comes from former trainees who filled in a Google form and consented to their responses being used publicly. It is split into four interactive modules below. Click any module card to explore:</p>
+        <p class="lead-in">The data below come from former trainees who completed a Google Form and consented to their responses being used publicly. The information is divided into four interactive modules. Click any module card to explore:</p>
       </div>
 
       <!-- Clean Actionable Module Cards (No Inner Buttons, Centered Text, Underline on Selected Module) -->
@@ -393,7 +393,7 @@
             <div class="sec-num">03</div>
             <div>
               <h2>Career guidance</h2>
-              <p class="sec-note">What an application to a PhD or Master&rsquo;s programme comes with in the Venkatesh Lab.</p>
+              <p class="sec-note">The support provided for PhD and Master&rsquo;s applications in the Venkatesh Lab.</p>
             </div>
           </div>
 

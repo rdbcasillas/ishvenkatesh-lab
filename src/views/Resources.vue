@@ -28,18 +28,18 @@ export default {
     return {
       resources: [
         {
-          name: "Data Visualization",
-          desc: "Tools for designing logos, making figures, visualizing genomics and creating interactive plots.",
+          name: "Data Visualisation",
+          desc: "Tools for designing logos, making figures, visualising genomics, and creating interactive plots.",
           image: "dataviz.jpg",
         },
         {
-          name: "Digital Notetaking",
-          desc: "Build a 'Second Brain' by better organisation of your thoughts & research notes.",
+          name: "Digital Note-Taking",
+          desc: "Build a 'second brain' through better organisation of your thoughts and research notes.",
           image: "dignotes.png",
         },
         {
           name: "Productivity",
-          desc: "Tools for helping you better manage your tasks, your time and your chaotic life.",
+          desc: "Tools to help you better manage your tasks, time, and wonderfully chaotic life.",
           image: "productivity.jpg",
         },
       ],

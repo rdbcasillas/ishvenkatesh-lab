@@ -69,13 +69,13 @@ export default {
         {
           funder: "DBT (PI)",
           title:
-            "Stem Cell based Approach to Improve Functional Outcomes after Spinal Injuries",
+            "Stem Cell-Based Approach to Improve Functional Outcomes after Spinal Injuries",
           years: "2026-2029",
         },
         {
           funder: "DBT (PI)",
           title:
-            "Nuclear Receptors mediated Molecular Regulation of Nervous system Development and Disease",
+            "Nuclear Receptor-Mediated Molecular Regulation of Nervous System Development and Disease",
           years: "2024-2027",
         },
         {
