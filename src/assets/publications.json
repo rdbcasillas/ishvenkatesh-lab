@@ -1,5 +1,30 @@
 [
   {
+    "Title": "Nuclear receptor transcription factors promote axon regeneration in the adult corticospinal tract",
+    "Year": "2026",
+    "AuthorType": "Corresponding author",
+    "Authors": [
+      "Yogesh Sahu",
+      "Manojkumar Kumaran",
+      "Soupayan Banerjee",
+      "Athul Narayan PS",
+      "Katha Sanyal",
+      "Meghana Konda",
+      "Shringika Soni",
+      "Dhruva Kumar Kesireddy",
+      "Anisha S Menon",
+      "Prakash Chermakani",
+      "Aarthi Sukumar",
+      "Faheem Farooq",
+      "Sneha Manjunath",
+      "Deepta Susan Beji",
+      "Arupam Biswas",
+      "Ishwariya Venkatesh"
+    ],
+    "Journal": "The EMBO Journal",
+    "URL": "https://link.springer.com/article/10.1038/s44318-026-00957-z"
+  },
+  {
     "Title": "KiMA: Kinematic Motion Analysis for Spinal Cord Injury Research",
     "Year": "2026",
     "AuthorType": "Corresponding author",
@@ -78,31 +103,6 @@
     ],
     "Journal": "BMC Bioinformatics",
     "URL": "https://link.springer.com/article/10.1186/s12859-026-06661-3"
-  },
-  {
-    "Title": "Nuclear receptor transcription factors promote axon regeneration in the adult corticospinal tract.",
-    "Year": "2026",
-    "AuthorType": "Corresponding author",
-    "Authors": [
-      "Yogesh Sahu",
-      "Manojkumar Kumaran",
-      "Soupayan Banerjee",
-      "PS Athul Narayan",
-      "Katha Sanyal",
-      "Meghana Konda",
-      "Shringika Soni",
-      "Dhruva Kumar",
-      "Anisha S Menon",
-      "Prakash Chermakani",
-      "Aarthi Sukumar",
-      "Faheem Farooq",
-      "Sneha Manjunath",
-      "Deepta Susan Beji",
-      "Arupam Biswas",
-      "Ishwariya Venkatesh"
-    ],
-    "Journal": "The EMBO Journal (in press)",
-    "URL": "https://www.biorxiv.org/content/10.1101/2025.06.19.660319v2"
   },
   {
     "Title": "A Chemically Stable Retinoic Acid Mimic Drives Regeneration and Behavioral Recovery after Spinal Cord Injury",
