@@ -4,8 +4,28 @@
       <p class="page-kicker">Recognition</p>
       <h1 class="page-title">Awards</h1>
     </div>
+    <div class="year-tabs" role="tablist" aria-label="Choose a year">
+      <button
+        v-for="year in years"
+        :key="year"
+        type="button"
+        role="tab"
+        class="year-tab"
+        :class="{ active: year === selectedYear }"
+        :aria-selected="year === selectedYear ? 'true' : 'false'"
+        @click="selectedYear = year"
+      >{{ year }}</button>
+      <button
+        type="button"
+        role="tab"
+        class="year-tab"
+        :class="{ active: selectedYear === 'all' }"
+        :aria-selected="selectedYear === 'all' ? 'true' : 'false'"
+        @click="selectedYear = 'all'"
+      >All years</button>
+    </div>
     <b-row
-      v-for="year in groupedAwards.keys()"
+      v-for="year in visibleYears"
       :key="year"
       class="award-year"
     >
@@ -290,6 +310,7 @@ export default {
           image: "IAN_2022_Yogesh.jpeg",
         },
       ],
+      selectedYear: null,
       selectedAward: null,
       showModal: false,
     };
@@ -298,6 +319,15 @@ export default {
     groupedAwards() {
       return group(this.awards, (award) => award.year);
     },
+    years() {
+      return Array.from(this.groupedAwards.keys()).sort((a, b) => Number(b) - Number(a));
+    },
+    visibleYears() {
+      return this.selectedYear === "all" ? this.years : [this.selectedYear];
+    },
+  },
+  created() {
+    this.selectedYear = this.years[0] || "all";
   },
   methods: {
     showAwardImage(award) {
@@ -316,6 +346,42 @@ export default {
 .awards-page {
   padding-bottom: 56px;
   padding-top: 56px;
+}
+
+.year-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 36px;
+}
+
+.year-tab {
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  padding: 7px 18px;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.year-tab:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.year-tab.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.year-tab:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .award-year {

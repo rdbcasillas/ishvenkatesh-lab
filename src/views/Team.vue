@@ -1,7 +1,7 @@
 <template>
   <b-container class="team-page">
     <b-row>
-      <b-col><h2 class="text-center">Team</h2></b-col>
+      <b-col><h1 class="team-title">Team</h1></b-col>
     </b-row>
 
     <section
@@ -532,6 +532,7 @@ export default {
 </script>
 
 <style scoped>
+.team-title { font-size: clamp(2rem, 3.6vw, 2.8rem); margin: 24px 0 8px; }
 .team-page {
   padding-bottom: 56px;
   padding-top: 24px;
@@ -749,7 +750,7 @@ h4 {
 .alumni-statement {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-accent);
+  border-left: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   color: var(--color-ink-soft);

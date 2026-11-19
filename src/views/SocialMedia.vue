@@ -1,8 +1,8 @@
 <template>
   <b-container class="social-page">
     <div class="page-header">
-      <p class="page-kicker">Follow Along</p>
-      <h1 class="page-title">Social Media</h1>
+      <h1 class="page-title">Life in the lab</h1>
+      <p class="page-lede">Experiments, awards, farewells, lab outings and the occasional celebration. Follow along to see what the Venkatesh Lab is up to day to day.</p>
     </div>
     <b-row class="justify-content-center">
       <b-col cols="12" md="6" lg="4" class="mb-4">
@@ -164,6 +164,14 @@ h3 {
 .twitter-embed,
 .linkedin-embed {
   align-items: stretch;
+}
+
+.page-lede {
+  color: var(--color-ink-soft);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 8px 0 0;
+  max-width: 60ch;
 }
 
 .panel-header a:hover {

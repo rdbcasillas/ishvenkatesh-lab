@@ -729,27 +729,19 @@ export default {
    Every rule is scoped under .ivl-training so nothing here can affect,
    or be affected by, the rest of the site stylesheet. */
 
-.ivl-training{--paper:#fbfaf7;
-    --surface:#ffffff;
-    --surface-alt:#f4f2ec;
-    --ink:#1f2a1c;
-    --soft:#4b5647;
-    --faint:#6a7565;
-    --rule:#e2dfd5;
-    --rule-strong:#c9c6b8;
-    --accent:#2f5233;
-    --accent-deep:#223d26;
-    --hl:#eaeee6;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
-    --sans:Inter,-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ivl-training{--paper:#131711; --surface:#1a1f17; --surface-alt:#1a1f17;
-      --ink:#e8e9e0; --soft:#b0b8a8; --faint:#8a9382;
-      --rule:#2b3126; --rule-strong:#3d4438;
-      --accent:#8fb894; --accent-deep:#a8c9ac; --hl:#1e241b;}
-}:root[data-theme="dark"] .ivl-training{--paper:#131711; --surface:#1a1f17; --surface-alt:#1a1f17;
-    --ink:#e8e9e0; --soft:#b0b8a8; --faint:#8a9382;
-    --rule:#2b3126; --rule-strong:#3d4438;
-    --accent:#8fb894; --accent-deep:#a8c9ac; --hl:#1e241b;}
+.ivl-training{--paper:var(--color-bg);
+    --surface:var(--color-surface);
+    --surface-alt:var(--color-surface-muted);
+    --ink:var(--color-ink);
+    --soft:var(--color-ink-soft);
+    --faint:var(--color-muted);
+    --rule:var(--color-border);
+    --rule-strong:var(--color-border-strong);
+    --accent:var(--color-accent);
+    --accent-deep:var(--color-accent-dark);
+    --hl:var(--color-accent-light);
+    --serif:var(--font-heading);
+    --sans:var(--font-body);}
 /* --- scoped reset -------------------------------------------------------
    Neutralises host-site rules that target bare elements (section, ul, img,
    table, *) before our own rules apply. Everything below this block is more
@@ -794,21 +786,21 @@ export default {
 
 .ivl-training{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 .ivl-training{margin:0;background:var(--paper);color:var(--ink);
-    font-family:var(--serif);font-size:21px;line-height:1.65;
+    font-family:var(--serif);font-size:19px;line-height:1.65;
     -webkit-font-smoothing:antialiased;}
 .ivl-training .page{max-width:var(--container-max, 1160px);margin:0 auto;padding:3rem 1.5rem 6rem;}
 .ivl-training /* masthead */
-  .eyebrow{font-family:var(--sans);font-size:.78rem;font-weight:500;
+  .eyebrow{display:none;font-family:var(--sans);font-size:.78rem;font-weight:500;
     letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
     margin:0 0 1.5rem;}
-.ivl-training h1{font-weight:400;font-size:3.25rem;line-height:1.12;letter-spacing:-.02em;margin:0 0 1.5rem;color:var(--accent)}
+.ivl-training h1{font-weight:500;font-size:clamp(2.2rem,4vw,3.1rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 1.5rem;color:var(--ink)}
 .ivl-training .lede{color:var(--soft);font-size:1.24rem;line-height:1.6;max-width:33em;margin:0}
 .ivl-training /* intro */
   .intro{margin-top:2rem;max-width:36em}
 .ivl-training .intro p{font-size:1.1rem;line-height:1.72;color:var(--soft);margin:0 0 1.2rem}
 .ivl-training .intro p.opening{font-size:1.24rem;line-height:1.65;color:var(--ink);margin-bottom:1.5rem}
 .ivl-training .asks{margin:0 0 1.2rem;padding:1.3rem 1.5rem;list-style:none;
-    background:var(--surface-alt);border-left:3px solid var(--accent);border-radius:0 3px 3px 0;}
+    background:var(--surface-alt);border-left:1px solid var(--rule-strong);border-radius:0 3px 3px 0;}
 .ivl-training .asks li{font-size:1.06rem;line-height:1.5;color:var(--ink);
     padding:.3rem 0;}
 .ivl-training .fees{font-size:.98rem;color:var(--faint);margin:0 0 1.5rem}
@@ -1017,7 +1009,7 @@ export default {
 .ivl-training .philosophy {
   background: var(--color-surface, #ffffff);
   border: 1px solid var(--color-border, #e2e0d6);
-  border-left: 5px solid var(--color-accent, #2f5233);
+  border-left: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md, 8px);
   box-shadow: var(--shadow-sm);
   padding: 32px 38px !important;
@@ -1196,7 +1188,7 @@ export default {
   background: var(--color-surface-muted, #f4f2ec);
   border: 1px solid var(--color-border, #e2e0d6);
   border-radius: var(--radius-sm, 4px);
-  border-left: 4px solid var(--color-accent, #2f5233);
+  border-left: 1px solid var(--color-border-strong);
 }
 
 .pres-card h3 {

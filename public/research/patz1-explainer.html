@@ -5,16 +5,16 @@
 <meta name="description" content="An explorable guide to Krishna, Menon et al. (2026), PATZ1 remodels the nucleosome landscape to promote chromatin accessibility in injured neurons. Communications Biology.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&display=swap">
 <style>
 /* Layout: a 60rem page. Text runs in the left 39rem with definitions in the right margin (Tufte style); figures span the full width. Below 1080px the margin notes drop in under their paragraph. */
-/* Palette remapped to match the main ishvenkatesh-lab site theme (forest green on warm cream). */
+/* Palette matches the main Venkatesh Lab site theme (clean academic: white, ink, teal). */
 :root{
-  --paper:#FBFAF7; --surface:#FFFFFF; --wash:#EEF2EA; --rule:#E2E0D6;
-  --ink:#1F2A1C; --ink-2:#4B5647; --ink-3:#6F7A6A;
-  --c-un:#8A949B; --c-inj:#C0544A; --c-patz:#2F5233; --c-k27:#7B5CA8; --c-hat:#3A6DB3; --bead:#223D26;
-  --f-display:"Source Serif 4",Georgia,serif;
-  --f-body:"Source Serif 4","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --paper:#FFFFFF; --surface:#FFFFFF; --wash:#F4F6F7; --rule:#E3E7EA;
+  --ink:#0F1720; --ink-2:#3D4852; --ink-3:#5C6873;
+  --c-un:#8A949B; --c-inj:#C0544A; --c-patz:#0B6B73; --c-k27:#7B5CA8; --c-hat:#B7791F; --bead:#084F55;
+  --f-display:"Newsreader",Georgia,serif;
+  --f-body:"Newsreader","Iowan Old Style",Georgia,"Times New Roman",serif;
   --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.125rem; --s-lg:1.375rem; --s-xl:2rem; --s-2xl:clamp(2.1rem,5.2vw,3.4rem);
   --wide:60rem; --margin:21rem; --ease:cubic-bezier(.4,0,.2,1);
@@ -22,16 +22,16 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --paper:#14170F; --surface:#1B1F16; --wash:#21261A; --rule:#333A29;
-    --ink:#EEF1E8; --ink-2:#C4CABB; --ink-3:#93998A;
-    --c-un:#9AA4AB; --c-inj:#E57D70; --c-patz:#6BA578; --c-k27:#AA8DD8; --c-hat:#719EE5; --bead:#8FC19A;
+    --paper:#0D1317; --surface:#131B21; --wash:#172128; --rule:#243038;
+    --ink:#EEF3F5; --ink-2:#C3CED5; --ink-3:#8D9BA5;
+    --c-un:#9AA4AB; --c-inj:#E57D70; --c-patz:#5BC0C8; --c-k27:#AA8DD8; --c-hat:#E0A84A; --bead:#8AD6DC;
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --paper:#14170F; --surface:#1B1F16; --wash:#21261A; --rule:#333A29;
-  --ink:#EEF1E8; --ink-2:#C4CABB; --ink-3:#93998A;
-  --c-un:#9AA4AB; --c-inj:#E57D70; --c-patz:#6BA578; --c-k27:#AA8DD8; --c-hat:#719EE5; --bead:#8FC19A;
+  --paper:#0D1317; --surface:#131B21; --wash:#172128; --rule:#243038;
+  --ink:#EEF3F5; --ink-2:#C3CED5; --ink-3:#8D9BA5;
+  --c-un:#9AA4AB; --c-inj:#E57D70; --c-patz:#5BC0C8; --c-k27:#AA8DD8; --c-hat:#E0A84A; --bead:#8AD6DC;
 }
 
 *{box-sizing:border-box}

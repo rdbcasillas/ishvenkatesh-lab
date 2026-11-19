@@ -4,17 +4,20 @@
     <v-main class="app-main">
       <router-view></router-view>
     </v-main>
+    <SiteFooter />
   </v-app>
 </template>
 
 <script>
 import Navigation from "./components/Navigation.vue";
+import SiteFooter from "./components/SiteFooter.vue";
 
 export default {
   name: "App",
 
   components: {
     Navigation,
+    SiteFooter,
   },
 
   data: () => ({
@@ -24,16 +27,13 @@ export default {
 </script>
 
 <style>
-.v-main.app-main,
-.v-main.app-main > .v-main__wrap {
+.v-main.app-main {
   background-color: var(--color-bg) !important;
-  padding-top: 64px !important;
+  padding-top: var(--nav-h) !important;
 }
 
-@media (max-width: 991px) {
-  .v-main.app-main,
-  .v-main.app-main > .v-main__wrap {
-    padding-top: 62px !important;
-  }
+.v-main.app-main > .v-main__wrap {
+  background-color: var(--color-bg) !important;
+  padding-top: 0 !important;
 }
 </style>

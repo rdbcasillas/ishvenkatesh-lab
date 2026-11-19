@@ -11,6 +11,8 @@
       class="viewer-frame"
       :src="explorable.SummaryURL"
       :title="explorable.Title"
+      ref="frame"
+      @load="syncTheme"
     ></iframe>
     <div v-else class="viewer-missing">
       <p>We couldn't find that explorable.</p>
@@ -22,6 +24,30 @@
 <script>
 import publicationData from "@/assets/publications.json";
 export default {
+  mounted() {
+    this.observer = new MutationObserver(this.syncTheme);
+    this.observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  },
+  beforeDestroy() {
+    if (this.observer) this.observer.disconnect();
+  },
+  methods: {
+    // The explorable is a separate document, so pass it the site's light/dark choice.
+    syncTheme() {
+      const frame = this.$refs.frame;
+      const theme = document.documentElement.getAttribute("data-theme");
+      try {
+        if (frame && frame.contentDocument && theme) {
+          frame.contentDocument.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (e) {
+        /* cross-origin frame: leave it on its own theme */
+      }
+    },
+  },
   computed: {
     explorable() {
       return publicationData.find((pub) => pub.Slug === this.$route.params.slug);
@@ -34,12 +60,12 @@ export default {
 .viewer-page {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 64px);
+  height: calc(100vh - var(--nav-h));
 }
 
 @media (max-width: 991px) {
   .viewer-page {
-    height: calc(100vh - 62px);
+    height: calc(100vh - var(--nav-h));
   }
 }
 

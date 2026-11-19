@@ -1,141 +1,142 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap");
 
 :root {
-  /* Core palette: deep forest green accent on a warm, light academic background */
-  --color-bg: #fbfaf7;
+  /* Clean academic: white page, ink text, a single teal accent */
+  --color-bg: #ffffff;
   --color-surface: #ffffff;
-  --color-surface-muted: #f4f2ec;
-  --color-border: #e2e0d6;
-  --color-border-strong: #c9c6b8;
+  --color-surface-muted: #f4f6f7;
+  --color-border: #e3e7ea;
+  --color-border-strong: #cdd4d9;
 
-  --color-ink: #1f2a1c;
-  --color-ink-soft: #4b5647;
-  --color-muted: #6f7a6a;
+  --color-ink: #0f1720;
+  --color-ink-soft: #3d4852;
+  --color-muted: #5c6873;
 
-  --color-accent: #2f5233;
-  --color-accent-dark: #223d26;
-  --color-accent-light: #eef2ea;
+  --color-accent: #0b6b73;
+  --color-accent-dark: #084f55;
+  --color-accent-light: #e4f1f2;
   --color-accent-contrast: #ffffff;
 
-  --font-heading: "Source Serif 4", Georgia, serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
 
-  --shadow-sm: 0 1px 2px rgba(31, 42, 28, 0.06), 0 1px 1px rgba(31, 42, 28, 0.04);
-  --shadow-md: 0 4px 16px rgba(31, 42, 28, 0.08);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 32, 0.06), 0 1px 1px rgba(15, 23, 32, 0.04);
+  --shadow-md: 0 8px 28px rgba(15, 23, 32, 0.10), 0 2px 6px rgba(15, 23, 32, 0.05);
 
-  --container-max: 1160px;
+  --container-max: 1180px;
+  --nav-h: 68px;
 
   color-scheme: light;
 }
 
-/* Dark palette applies when explicitly selected or automatically when visitor's OS is set to dark mode */
 :root[data-theme="dark"] {
-  --color-bg: #14170f;
-  --color-surface: #1b1f16;
-  --color-surface-muted: #21261a;
-  --color-border: #333a29;
-  --color-border-strong: #454e37;
+  --color-bg: #0d1317;
+  --color-surface: #131b21;
+  --color-surface-muted: #172128;
+  --color-border: #243038;
+  --color-border-strong: #33424c;
 
-  --color-ink: #eef1e8;
-  --color-ink-soft: #c4cabb;
-  --color-muted: #93998a;
+  --color-ink: #eef3f5;
+  --color-ink-soft: #c3ced5;
+  --color-muted: #8d9ba5;
 
-  --color-accent: #6ba578;
-  --color-accent-dark: #8fc19a;
-  --color-accent-light: #23301f;
-  --color-accent-contrast: #0f130b;
+  --color-accent: #5bc0c8;
+  --color-accent-dark: #8ad6dc;
+  --color-accent-light: #14292d;
+  --color-accent-contrast: #06181b;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
 
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #14170f;
-    --color-surface: #1b1f16;
-    --color-surface-muted: #21261a;
-    --color-border: #333a29;
-    --color-border-strong: #454e37;
+    --color-bg: #0d1317;
+    --color-surface: #131b21;
+    --color-surface-muted: #172128;
+    --color-border: #243038;
+    --color-border-strong: #33424c;
 
-    --color-ink: #eef1e8;
-    --color-ink-soft: #c4cabb;
-    --color-muted: #93998a;
+    --color-ink: #eef3f5;
+    --color-ink-soft: #c3ced5;
+    --color-muted: #8d9ba5;
 
-    --color-accent: #6ba578;
-    --color-accent-dark: #8fc19a;
-    --color-accent-light: #23301f;
-    --color-accent-contrast: #0f130b;
+    --color-accent: #5bc0c8;
+    --color-accent-dark: #8ad6dc;
+    --color-accent-light: #14292d;
+    --color-accent-contrast: #06181b;
 
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.25);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45);
+    --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
 
     color-scheme: dark;
   }
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.v-application {
-  background: var(--color-bg) !important;
-}
+.v-application { background: var(--color-bg) !important; font-family: var(--font-body) !important; }
+.v-application .v-btn, .v-application .v-card, .v-application .v-chip { font-family: var(--font-body) !important; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
   color: var(--color-ink);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
-a {
-  color: var(--color-accent);
-}
+p { text-wrap: pretty; }
 
-::selection {
-  background: var(--color-accent-light);
-  color: var(--color-accent-dark);
-}
+body a { color: var(--color-accent); text-underline-offset: 3px; }
+body a:hover { color: var(--color-accent-dark); }
+
+.v-application .labnews a, .v-application a.news-link, .v-application a.text-link { color: var(--color-accent); font-weight: 600; text-decoration: none; }
+.v-application .labnews a:hover, .v-application a.news-link:hover, .v-application a.text-link:hover { color: var(--color-accent-dark); text-decoration: underline; }
+
+::selection { background: var(--color-accent); color: var(--color-accent-contrast); }
+
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+/* Themed scrollbars */
+* { scrollbar-color: var(--color-border-strong) transparent; scrollbar-width: thin; }
+::-webkit-scrollbar { height: 10px; width: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
 
 /* Shared page container rhythm used across route views */
 .page-container {
   margin: 0 auto;
   max-width: var(--container-max);
-  padding: 24px 24px 60px;
+  padding: 48px 28px 80px;
 }
 
 .page-title {
   color: var(--color-ink);
   font-family: var(--font-heading);
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  font-weight: 500;
   margin-bottom: 8px;
 }
 
-.page-kicker {
-  color: var(--color-accent);
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
+/* Kickers are no longer used as a pattern; keep hidden if a view still renders one */
+.page-kicker { display: none; }
 
 .page-header {
   border-bottom: 1px solid var(--color-border);
@@ -144,36 +145,22 @@ a {
 }
 
 @media (max-width: 600px) {
-  .page-container {
-    padding: 16px 18px 48px;
-  }
-
-  .page-title {
-    font-size: 1.9rem;
-  }
+  .page-container { padding: 32px 18px 56px; }
 }
 
 /* Bootstrap-vue modals are teleported outside scoped components, so themed globally */
 .modal-content {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   color: var(--color-ink);
 }
+.modal-header { border-bottom-color: var(--color-border); }
+.modal-header .modal-title { color: var(--color-ink); font-family: var(--font-heading); }
+.modal-header .close { color: var(--color-ink); text-shadow: none; }
+.modal-backdrop { background-color: rgba(8, 14, 18, 0.7); }
 
-.modal-header {
-  border-bottom-color: var(--color-border);
-}
-
-.modal-header .modal-title {
-  color: var(--color-ink);
-  font-family: var(--font-heading);
-}
-
-.modal-header .close {
-  color: var(--color-ink);
-  text-shadow: none;
-}
-
-.modal-backdrop {
-  background-color: rgba(15, 19, 11, 0.6);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
