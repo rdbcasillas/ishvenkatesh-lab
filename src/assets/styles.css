@@ -148,16 +148,30 @@ body a:hover { color: var(--color-accent-dark); }
   .page-container { padding: 32px 18px 56px; }
 }
 
-/* Bootstrap-vue modals are teleported outside scoped components, so themed globally */
-.modal-content {
-  background: var(--color-surface);
+/* Bootstrap-vue modals are teleported outside scoped components. They always render as a white
+   card with dark text, so the light palette is re-declared locally for everything inside them. */
+.modal .modal-content {
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f6f7;
+  --color-border: #e3e7ea;
+  --color-border-strong: #cdd4d9;
+  --color-ink: #0f1720;
+  --color-ink-soft: #1f2933;
+  --color-muted: #3d4852;
+  --color-accent: #0b6b73;
+  --color-accent-dark: #084f55;
+  --color-accent-light: #e4f1f2;
+  --color-accent-contrast: #ffffff;
+  background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  color: var(--color-ink);
+  color: #0f1720;
 }
-.modal-header { border-bottom-color: var(--color-border); }
-.modal-header .modal-title { color: var(--color-ink); font-family: var(--font-heading); }
-.modal-header .close { color: var(--color-ink); text-shadow: none; }
+.modal .modal-body { color: #0f1720; }
+.modal .modal-header { border-bottom-color: #e3e7ea; }
+.modal .modal-header .modal-title { color: #0f1720; font-family: var(--font-heading); }
+.modal .modal-header .close { color: #0f1720; opacity: 0.7; text-shadow: none; }
 .modal-backdrop { background-color: rgba(8, 14, 18, 0.7); }
 
 @media (prefers-reduced-motion: reduce) {

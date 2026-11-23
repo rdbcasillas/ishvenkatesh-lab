@@ -458,6 +458,13 @@ export default {
           desc: "Sourav Das joined the lab in September 2026 as a one-year dissertation trainee. He is currently pursuing an M.Tech. in Biotechnology and Biochemical Engineering at NIT Agartala. He completed his M.Sc. in Biotechnology at South Asian University, New Delhi, where he gained research experience in protein science.<br><br>His current research focuses on stem cell-mediated therapy for spinal cord injury. He is particularly interested in stem cell-based therapies, gene editing, and emerging biotechnologies.<br><br>Outside the lab, Sourav enjoys reading, travelling to new places, and exploring different environments and cultures.",
           email: "",
         },
+        {
+          name: "Bhagyashree",
+          position: "Short-Term Trainee",
+          image: "bhagya-shree",
+          desc: "Bhagyashree is a final-year Biotechnology undergraduate at Sri Venkateswara College of Engineering, Chennai. She is interested in understanding the brain, particularly the causes and mechanisms of neurological disorders such as epilepsy. Her curiosity extends to how the nervous system responds to injury, how neurons grow and regenerate, and the possibilities of improving neurological health through research. She enjoys exploring the connection between biology and human health.<br><br>Apart from the academics, she is an avid language enthusiast and is a polyglot, with interests in Korean, Japanese and several Indian languages. She is also an 18 year trained classical dancer and carnatic singer, driving on her passion in Indian Culture and Heritage. A full time STEM and an Art student, she lives by finding happiness in the most smallest moments possible!",
+          email: "",
+        },
       ]
     };
   },
@@ -499,6 +506,7 @@ export default {
             "Achuth Kartha",
             "Meera Manoj",
             "Sourav Das",
+            "Bhagyashree",
           ],
         },
       ].map((section) => ({
@@ -983,7 +991,7 @@ h4 {
 }
 
 .bio-modal {
-  color: var(--color-ink-soft);
+  color: #0f1720;
   display: grid;
   gap: 22px;
   grid-template-columns: 220px 1fr;
@@ -1002,6 +1010,10 @@ h4 {
   min-height: 260px;
 }
 
+.bio-modal h4 {
+  color: #0f1720;
+}
+
 .bio-modal a,
 .bio-desc >>> a {
   color: var(--color-accent);
@@ -1009,7 +1021,7 @@ h4 {
 }
 
 .bio-desc {
-  color: var(--color-ink-soft) !important;
+  color: #0f1720 !important;
   font-family: var(--font-body);
   font-size: 1.02rem;
   line-height: 1.65;
