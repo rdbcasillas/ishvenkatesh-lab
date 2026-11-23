@@ -1,0 +1,68 @@
+{
+  "stories": [
+    {
+      "slug": "embo-2026",
+      "date": "2026-11",
+      "title": "Nuclear receptor transcription factors promote axon regeneration in the adult corticospinal tract",
+      "journal": "The EMBO Journal",
+      "year": "2026",
+      "image": "News-cropped.png",
+      "coverage": [
+        {
+          "date": "2026-11",
+          "outlet": "The Hindu",
+          "headline": "CCMB team identifies genes that spur nerve repair",
+          "url": "https://www.thehindu.com/news/cities/Hyderabad/ccmb-team-identifies-genes-that-spur-nerve-repair/article71724538.ece/amp/"
+        },
+        {
+          "date": "2026-11-21",
+          "outlet": "The New Indian Express",
+          "headline": "Genes that help damaged spinal nerves regenerate found, say scientists at CSIR-CCMB in Hyderabad",
+          "url": "https://www.newindianexpress.com/amp/story/states/telangana/2026/Nov/21/genes-that-help-damaged-spinal-nerves-regenerate-found-says-scientists-at-csir-ccmb-in-hyderabad"
+        },
+        {
+          "date": "2026-11-20",
+          "outlet": "ANI",
+          "headline": "CCMB scientists identify two genes that restore nerve regeneration after spinal cord injury in mice",
+          "url": "https://www.aninews.in/news/national/general-news/ccmb-scientists-identify-two-genes-that-restore-nerve-regeneration-after-spinal-cord-injury-in-mice20261120212511/"
+        },
+        {
+          "date": "2026-11",
+          "outlet": "Telangana Today",
+          "headline": "Hyderabad-based CCMB identifies two genes that help nerves regrow after spinal injury",
+          "url": "https://telanganatoday.com/hyderabad-based-ccmb-identifies-two-genes-that-help-nerves-regrow-after-spinal-injury"
+        },
+        {
+          "date": "2026-11",
+          "outlet": "The South First",
+          "headline": "Can damaged spinal cord nerves grow back? Hyderabad's CCMB scientists find two genes restoring movement",
+          "url": "https://thesouthfirst.com/health/can-damaged-spinal-cord-nerves-grow-back-hyderabads-ccmb-scientists-find-two-genes-restoring-movement/"
+        },
+        {
+          "date": "2026-11",
+          "outlet": "Asianet Newsable",
+          "headline": "CCMB scientists identify genes for spinal cord injury regeneration",
+          "url": "https://newsable.asianetnews.com/amp/india/ccmb-scientists-identify-genes-for-spinal-cord-injury-regeneration-articleshow-8gs9eck"
+        },
+        {
+          "date": "2026-11",
+          "outlet": "Orange News",
+          "headline": "CCMB breakthrough reawakens nerve repair genes after spinal cord injury",
+          "url": "https://orangenews9.com/ccmb-breakthrough-reawakens-nerve-repair-genes-after-spinal-cord-injury/"
+        },
+        {
+          "date": "2026-11",
+          "outlet": "Hyderabad Mail",
+          "headline": "CCMB scientists identify genes for spinal cord nerve regeneration",
+          "url": "https://hyderabadmail.com/ccmb-scientists-identify-genes-spinal-cord-nerve-regeneration/"
+        },
+        {
+          "date": "2026-11",
+          "outlet": "Inshorts",
+          "headline": "CCMB identifies 2 genes that restore nerve growth after spinal injury",
+          "url": "https://inshorts.com/en/amp_news/ccmb-identifies-2-genes-that-restore-nerve-growth-after-spinal-injury-1795238063929"
+        }
+      ]
+    }
+  ]
+}

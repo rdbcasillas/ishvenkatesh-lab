@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-alt" id="lab-news">
       <div class="wrap news" ref="newsSection">
         <div class="news-head">
           <h2>Lab news</h2>

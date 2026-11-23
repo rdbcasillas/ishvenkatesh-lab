@@ -9,6 +9,8 @@ import Awards from "../views/Awards.vue";
 import Team from "../views/Team.vue";
 import Contact from "../views/Contact.vue";
 import SocialMedia from "../views/SocialMedia.vue";
+import News from "../views/News.vue";
+import NewsStory from "../views/NewsStory.vue";
 import LabRetreat from "../views/LabRetreat.vue";
 import Resources from "../views/Resources.vue";
 
@@ -24,6 +26,16 @@ const routes = [
     path: "/publications",
     name: "Publications",
     component: Publications,
+  },
+  {
+    path: "/news",
+    name: "News",
+    component: News,
+  },
+  {
+    path: "/news/:slug",
+    name: "NewsStory",
+    component: NewsStory,
   },
   {
     path: "/explorables",
@@ -85,7 +97,10 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { selector: to.hash, offset: { x: 0, y: 72 }, behavior: "smooth" };
+    }
     return { x: 0, y: 0 };
   },
 });

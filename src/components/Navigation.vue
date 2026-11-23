@@ -27,6 +27,7 @@
         <b-navbar-nav class="ml-auto nav-links">
           <b-nav-item to="/team" exact-active-class="active">Team</b-nav-item>
           <b-nav-item to="/publications" exact-active-class="active">Publications</b-nav-item>
+          <b-nav-item to="/news" active-class="active">News</b-nav-item>
           <b-nav-item to="/explorables" active-class="active">Explorables</b-nav-item>
           <b-nav-item to="/training" exact-active-class="active">Training</b-nav-item>
           <b-nav-item to="/social-media" exact-active-class="active">Social</b-nav-item>
