@@ -1,6 +1,6 @@
 <template>
   <div class="page-container" v-if="story">
-    <router-link class="back-link" to="/news">&larr; Back to News</router-link>
+    <router-link class="back-link" to="/press">&larr; Back to Press</router-link>
 
     <div class="page-header story-header">
       <p class="story-journal">{{ story.journal }}, {{ story.year }}</p>
@@ -41,12 +41,12 @@
   </div>
   <div v-else class="page-container missing">
     <p>We couldn't find that story.</p>
-    <router-link to="/news">Back to News</router-link>
+    <router-link to="/press">Back to Press</router-link>
   </div>
 </template>
 
 <script>
-import data from "@/assets/news-coverage.json";
+import data from "@/assets/press-coverage.json";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -54,7 +54,7 @@ const MONTHS = [
 ];
 
 export default {
-  name: "NewsStory",
+  name: "PressStory",
   computed: {
     story() {
       return data.stories.find((s) => s.slug === this.$route.params.slug);

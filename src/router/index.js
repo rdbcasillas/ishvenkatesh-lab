@@ -9,8 +9,8 @@ import Awards from "../views/Awards.vue";
 import Team from "../views/Team.vue";
 import Contact from "../views/Contact.vue";
 import SocialMedia from "../views/SocialMedia.vue";
-import News from "../views/News.vue";
-import NewsStory from "../views/NewsStory.vue";
+import Press from "../views/Press.vue";
+import PressStory from "../views/PressStory.vue";
 import LabRetreat from "../views/LabRetreat.vue";
 import Resources from "../views/Resources.vue";
 
@@ -28,14 +28,18 @@ const routes = [
     component: Publications,
   },
   {
-    path: "/news",
-    name: "News",
-    component: News,
+    path: "/press",
+    name: "Press",
+    component: Press,
   },
   {
-    path: "/news/:slug",
-    name: "NewsStory",
-    component: NewsStory,
+    path: "/press/:slug",
+    name: "PressStory",
+    component: PressStory,
+  },
+  {
+    path: "/news",
+    redirect: "/press",
   },
   {
     path: "/explorables",

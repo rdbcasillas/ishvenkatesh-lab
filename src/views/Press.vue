@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
     <div class="page-header">
-      <h1 class="page-title">News</h1>
+      <h1 class="page-title">Press</h1>
       <p class="page-lede">Our research in the press.</p>
     </div>
 
@@ -30,7 +30,7 @@
       <h2 class="month-title">{{ group.month }} <span class="month-year">{{ group.year }}</span></h2>
       <div class="story-grid">
         <article v-for="story in group.items" :key="story.slug" class="story-card">
-          <router-link class="story-link" :to="`/news/${story.slug}`">
+          <router-link class="story-link" :to="`/press/${story.slug}`">
             <img
               class="story-image"
               :src="require(`../assets/images/News/${story.image}`)"
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import data from "@/assets/news-coverage.json";
+import data from "@/assets/press-coverage.json";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -58,7 +58,7 @@ const MONTHS = [
 ];
 
 export default {
-  name: "News",
+  name: "Press",
   data() {
     return { selectedYear: null };
   },
